@@ -44,7 +44,7 @@ le_version_name_10_0: 10.0 # 10.0 RC1
 kernel_version_le_10_0: 5.10.x
 
 # LE9.2
-release_date_le_9_2: 2020.11.02
+release_date_le_9_2: 2020.11
 kodi_version_le_9_2: 18.9
 le_version_download_9_2: 9.2.6
 le_version_name_9_2: 9.2
