@@ -15,6 +15,9 @@ linkedin_username:
 # Add your google-analytics ID here to activate google analytics
 google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
 
+# LE
+post_limit: 4 # number of posts shown
+
 # Build settings
 markdown:           kramdown
 paginate:           4
