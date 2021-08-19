@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+<!-- Page Header -->
+{% if page.background %}
+<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+  {% else %}
+  <header class="masthead" style="background-image: url('{{ post.url | prepend: site.baseurl }}/{{ site.default_header_logo }}')">
+    {% endif %}
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>{{ page.title }}</h1>
+            {% if page.description %}
+            <span class="subheading">{{ page.description }}</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <style type="text/css">
+      a[href*="releases.libreelec.tv/"] {
+      background: url(https://forum.libreelec.tv/favicon.ico) no-repeat left center;
+      padding-left: 22px;
+      background-size: 20px;
+      }
+      p {
+        margin: 5px;
+        text-indent: 2ch;
+      }
+      #markdown-toc li {
+        list-style: none;
+        display: inline;
+      }
+      #markdown-toc li::before {
+          content: "#";
+      }
+      header.major {
+        margin: 0 0 1rem 0;
+      }
+      hr {
+        margin: 2em 0;
+      }
+      </style>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        {{ content }}
+
+      </div>
+    </div>
+  </div>
