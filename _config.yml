@@ -15,7 +15,7 @@ reddit_url: https://www.reddit.com/r/LibreELEC
 youtube_url: https://www.youtube.com/channel/UC7FSO0rXOtO6w_poBLvvjDw
 
 # Add your google-analytics ID here to activate google analytics
-google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+google_analytics:  # out your google-analytics code
 
 # LE
 post_limit: 4 # number of posts shown
