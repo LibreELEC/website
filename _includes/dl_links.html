@@ -1,0 +1,2 @@
+<!-- Download Links -->
+{% if include.device_name != nil %}<b>{{include.device_name}}</b> {% endif %}<a href="{{site.le_download_url }}/LibreELEC-{{ include.project }}.{{ include.arch }}-{{ include.version }}{% if include.device != nil %}-{{include.device}}{% endif %}{% if include.device_name == "Virtual Machines" %}.ova{% else %}.img.gz{% endif %}">LibreELEC-{{ include.project }}.{{ include.arch }}-{{ include.version }}{% if include.device != nil %}-{{include.device}}{% endif %}{% if include.device_name == "Virtual Machines" %}.ova{% else %}.img.gz{% endif %}</a><br>

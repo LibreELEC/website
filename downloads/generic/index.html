@@ -1,0 +1,57 @@
+---
+layout: download
+title: LibreELEC Generic
+description: PC, Intel NUC, Nettops, Virtual Machines and Laptops with x86 Hardware (64Bit)
+---
+<!-- project arch -->
+{% assign arch = "x86_64" %}
+
+<div class="card mb-2">
+  <h5 class="card-header text-white bg-success">Latest Stable Version ({{ site.release_date_le_10_0 }})</h5>
+  <div class="card-body pt-2 pb-2">
+    <h5 class="card-title">LibreELEC {{ site.le_version_name_10_0 }}</h5>
+    <ul class="mb-0">
+      <li>Kodi {{ site.kodi_version_le_10_0 }}</li>
+      <li>Linux Kernel {{ site.kernel_version_le_10_0 }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Generic PC</h5>
+  <div class="card-body">
+    {% include dl_links.html project="Generic" arch=arch version=site.le_version_download_10_0 device_name="Generic" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Virtual Machines</h5>
+  <div class="card-body">
+    {% include dl_links.html project="Generic" arch=arch version=site.le_version_download_10_0 device_name="Virtual Machines" %}
+  </div>
+</div>
+
+<div class="card mb-2 mt-5">
+  <h5 class="card-header text-white bg-warning">Old Version ({{ site.release_date_le_9_2 }})</h5>
+  <div class="card-body pt-2 pb-2">
+    <h5 class="card-title">LibreELEC {{ site.le_version_name_9_2 }}</h5>
+    <ul class="mb-0">
+      <li>Kodi {{ site.kodi_version_le_9_2 }}</li>
+      <li>Linux Kernel {{ site.kernel_version_le_9_2}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Generic PC</h5>
+  <div class="card-body">
+    {% include dl_links.html project="Generic" arch=arch version=site.le_version_download_9_2 device_name="Generic" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Virtual Machines</h5>
+  <div class="card-body">
+    {% include dl_links.html project="Generic" arch=arch version=site.le_version_download_9_2 device_name="Virtual Machines" %}
+  </div>
+</div>

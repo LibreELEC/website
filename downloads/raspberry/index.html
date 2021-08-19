@@ -1,0 +1,92 @@
+---
+layout: download
+title: LibreELEC Raspberry
+description: Raspberry Pi boards and devices
+---
+<!-- project arch -->
+{% assign arch = "arm" %}
+
+<div class="card mb-2">
+  <h5 class="card-header text-white bg-success">Latest Stable Version ({{ site.release_date_le_10_0 }})</h5>
+  <div class="card-body pt-2 pb-2">
+    <h5 class="card-title">LibreELEC {{ site.le_version_name_10_0 }}</h5>
+    <ul class="mb-0">
+      <li>Kodi {{ site.kodi_version_le_10_0 }}</li>
+      <li>Linux Kernel {{ site.kernel_version_le_10_0 }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Raspberry Pi4</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi4" arch=arch version=site.le_version_download_10_0 device_name="RPi 4" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Raspberry Pi400</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi4" arch=arch version=site.le_version_download_10_0 device_name="RPi 4" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Raspberry CM4</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi4" arch=arch version=site.le_version_download_10_0 device_name="RPi 4" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">RPi Zero, RPi 1, RPi 2, RPi 3</h5>
+  <div class="card-body">
+    There are no LE 10.0 versions for RPi 0-3 yet. Support for this devices is still too experimental.
+  </div>
+</div>
+
+<div class="card mb-2 mt-5">
+  <h5 class="card-header text-white bg-warning">Old Version ({{ site.release_date_le_9_2 }})</h5>
+  <div class="card-body pt-2 pb-2">
+    <h5 class="card-title">LibreELEC {{ site.le_version_name_9_2 }}</h5>
+    <ul class="mb-0">
+      <li>Kodi {{ site.kodi_version_le_9_2 }}</li>
+      <li>Linux Kernel {{ site.kernel_version_le_rpi_9_2}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Raspberry Pi4</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi4" arch=arch version=site.le_version_download_9_2 device_name="RPi 4" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Raspberry Pi3</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi2" arch=arch version=site.le_version_download_9_2 device_name="RPi 3" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Raspberry Pi2</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi2" arch=arch version=site.le_version_download_9_2 device_name="RPi 2" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Raspberry Pi1</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi" arch=arch version=site.le_version_download_9_2 device_name="RPi 1" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Raspberry Zero</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi" arch=arch version=site.le_version_download_9_2 device_name="RPi Zero" %}
+  </div>
+</div>
