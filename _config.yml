@@ -4,6 +4,7 @@ description:        Just enough OS for KODI
 author:             Start Bootstrap
 baseurl:            "/startbootstrap-clean-blog-jekyll"
 url:                "https://cvh.github.io"
+default_header_logo: "img/bg-index.jpg" # relative path to default header logo
 
 # Social Profiles
 twitter_username:   LibreELEC
