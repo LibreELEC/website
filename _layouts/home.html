@@ -4,7 +4,8 @@ layout: default
 
 <!-- Page Header -->
 {% if page.background %}
-<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+<header class="masthead"
+  style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
   {% else %}
   <header class="masthead">
     {% endif %}
@@ -30,12 +31,12 @@ layout: default
         {{ content }}
 
         <!-- Home Post List -->
-        {% for post in site.posts limit : 5 %}
+        {% for post in site.posts limit : site.post_limit %}
 
         <article class="post-preview">
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
             <h2 class="post-title">{{ post.title }}</h2>
-            <img src="{{ post.image }}" alt="" class="post-image"/>
+            <img src="{{ post.image }}" alt="" class="post-image" />
             {% if post.subtitle %}
             <h3 class="post-subtitle">{{ post.subtitle }}</h3>
             {% else %}
@@ -43,17 +44,15 @@ layout: default
             {% endif %}
           </a>
           <p class="post-meta">Posted on
-            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}            
+            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
           </p>
         </article>
-
-        <hr>
 
         {% endfor %}
 
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="{{" /posts" | relative_url }}">View All Posts &rarr;</a>
         </div>
 
       </div>
