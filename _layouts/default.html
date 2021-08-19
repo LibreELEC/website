@@ -14,7 +14,9 @@
 
   {% include scripts.html %}
 
-  {% include google-analytics.html %}
+  {% if site.google_analytics %}
+    {% include google-analytics.html %}
+  {% endif %}
 
 </body>
 
