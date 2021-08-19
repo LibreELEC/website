@@ -30,3 +30,24 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+
+# LE downloads
+
+# download url
+le_download_url: https://releases.libreelec.tv
+
+# LE10.0
+release_date_le_10_0: 2021.08
+kodi_version_le_10_0: 19.1
+le_version_download_10_0: 10.0.0
+le_version_name_10_0: 10.0 # 10.0 RC1
+kernel_version_le_10_0: 5.10.x
+
+# LE9.2
+release_date_le_9_2: 2020.11.02
+kodi_version_le_9_2: 18.9
+le_version_download_9_2: 9.2.6
+le_version_name_9_2: 9.2
+kernel_version_le_9_2: 5.1.x
+kernel_version_le_rpi_9_2: 4.19.x
+kernel_version_le_rk_9_2: 4.4.x
