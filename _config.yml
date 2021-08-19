@@ -17,6 +17,7 @@ google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
 
 # LE
 post_limit: 4 # number of posts shown
+post_subtitle_limit: 40 # number of words included at post preview
 
 # Build settings
 markdown:           kramdown
