@@ -7,10 +7,12 @@ url:                "https://cvh.github.io"
 
 # Social Profiles
 twitter_username:   LibreELEC
-github_username:    LibreELEC
+github_username:    LibreELEC/LibreELEC.tv
 facebook_username:
 instagram_username:  
 linkedin_username:
+reddit_url: https://www.reddit.com/r/LibreELEC
+youtube_url: https://www.youtube.com/channel/UC7FSO0rXOtO6w_poBLvvjDw
 
 # Add your google-analytics ID here to activate google analytics
 google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code

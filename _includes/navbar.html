@@ -40,6 +40,24 @@
           </a>
         </li>
         {% endif %}
+        {% if site.youtube_url %}
+        <li class="nav-item">
+          <a href="{{ site.youtube_url }}">
+            <span class="fa-lg">
+              <i class="fab fa-youtube"></i>
+            </span>
+          </a>
+        </li>
+        {% endif %}
+        {% if site.reddit_url %}
+        <li class="nav-item">
+          <a href="{{ site.reddit_url }}">
+            <span class="fa-lg">
+              <i class="fab fa-reddit"></i>
+            </span>
+          </a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>
