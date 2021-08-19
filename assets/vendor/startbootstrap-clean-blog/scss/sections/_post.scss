@@ -1,5 +1,6 @@
 // Styling for the post page
 .post-preview {
+    min-height: 180px;
     >a {
         color: $gray-900;
 
@@ -17,12 +18,18 @@
 
         >.post-subtitle {
             font-weight: 300;
+            font-size: 1.2rem;
             margin: 0 0 10px;
+        }
+        >.post-image {
+            height: 100px;
+            float: left;
+            margin: 0 20px 5px 0px;
         }
     }
 
     >.post-meta {
-        font-size: 18px;
+        font-size: 16px;
         font-style: italic;
         margin-top: 0;
         color: $gray-600;
