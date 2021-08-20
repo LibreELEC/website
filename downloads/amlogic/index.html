@@ -1,6 +1,47 @@
 ---
 layout: download
-title: Amlogic
+title: LibreELEC Amlogic
+description: Amlogic based devices
 ---
 
-<h1>Amlogic Downloads</h1>
+<!-- project arch -->
+{% assign arch = "arm" %}
+
+<div class="card mb-4">
+    <h5 class="card-header text-white bg-success">Latest Stable Version Not Available</h5>
+    <div class="card-body">
+        <h5>Currently there are no official releases available for Kodi 19 (Matrix).</h5>
+        If you are interested in the current development progress check at our <a href="https://test.libreelec.tv/">nightly builds</a>.
+        </ul>
+    </div>
+</div>
+
+<div class="card mb-2">
+    <h5 class="card-header text-white bg-warning">Latest Stable Version ({{ site.release_date_le_9_0 }})</h5>
+    <div class="card-body pt-2 pb-2">
+        <h5 class="card-title">LibreELEC {{ site.le_version_name_9_0 }}</h5>
+        <ul class="mb-0">
+            <li>Kodi {{ site.kodi_version_le_9_0 }}</li>
+            <li>Linux Kernel {{ site.kernel_version_le_9_0 }}</li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <h5 class="card-header toc">Wetek</h5>
+    <div class="card-body">
+        {% include dl_links.html project="WeTek_Core" arch=arch version=site.le_version_download_9_0 device_name="WeTek Core" %}
+        {% include dl_links.html project="WeTek_Hub" arch=arch version=site.le_version_download_9_0 device_name="WeTek Hub" %}
+        {% include dl_links.html project="WeTek_Play" arch=arch version=site.le_version_download_9_0 device_name="WeTek Play" %}
+        {% include dl_links.html project="WeTek_Play_2" arch=arch version=site.le_version_download_9_0 device_name="WeTek Play2" %}
+    </div>
+</div>
+
+<div class="card mb-4">
+    <h5 class="card-header toc">Amlogic S905</h5>
+    <div class="card-body">
+        {% include dl_links.html project="KVIM" arch=arch version=site.le_version_download_9_0 device_name="Khadas VIM" %}
+        {% include dl_links.html project="LePotato" arch=arch version=site.le_version_download_9_0 device_name="Le Potato" %}
+        {% include dl_links.html project="Odroid C2" arch=arch version=site.le_version_download_9_0 device_name="Odroid_C2" %}
+    </div>
+</div>
