@@ -51,3 +51,11 @@ le_version_name_9_2: 9.2
 kernel_version_le_9_2: 5.1.x
 kernel_version_le_rpi_9_2: 4.19.x
 kernel_version_le_rk_9_2: 4.4.x
+
+# LE9.0 Amlogic
+release_date_le_9_0: 2020.05
+kodi_version_le_9_0: 18.2
+le_version_download_9_0: 9.0.2
+le_version_name_9_0: 9.0
+kernel_version_le_9_0: 4.19.x
+kernel_version_le_aml_9_0: 3.14.x
