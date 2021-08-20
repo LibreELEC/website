@@ -4,11 +4,9 @@ layout: default
 
 <!-- Page Header -->
 {% if page.background %}
-<header class="masthead"
-  style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
   {% else %}
-  <header class="masthead"
-    style="background-image: url('{{ post.url | prepend: site.baseurl }}/{{ site.default_header_logo }}')">
+  <header class="masthead" style="background-image: url('{{ post.url | prepend: site.baseurl }}/{{ site.default_header_logo }}')">
     {% endif %}
     <div class="overlay"></div>
     <div class="container">
@@ -32,28 +30,28 @@ layout: default
         {{ content }}
 
         <!-- Home Post List -->
-        {% for post in site.posts limit : site.post_limit %}
+        <div class="container mx-auto mt-4">
+          <div class="row">
+            {% for post in site.posts limit : site.post_limit %}
 
-        <article class="post-preview">
-          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            <h2 class="post-title">{{ post.title }}</h2>
-            <img src="{{ post.image }}" alt="" class="post-image" />
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-            {% else %}
-            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: site.post_subtitle_limit }}</h3>
-            {% endif %}
-          </a>
-          <p class="post-meta">Posted on
-            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
-          </p>
-        </article>
+            <div class="col-md-6 mb-4">
+              <div class="card">
+                <img src="{{ post.image }}" class="card-img-top" alt="">
+                <div class="card-body" style="min-height: 320px;">
+                  <h3 class="card-title">{{ post.title }}</h3>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: '%B %d, %Y' }}</h6>
+                  <p class="card-text">{{ post.excerpt | strip_html | truncatewords: site.post_subtitle_limit }}</p>
+                  <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="btn float-right p-1"><i class="fas fa-link"></i> read more</a>
+                </div>
+              </div>
+            </div>
 
-        {% endfor %}
-
+            {% endfor %}
+          </div>
+        </div>
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{" /posts" | relative_url }}">View All Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="{{ "/posts" | relative_url }}">View All Posts &rarr;</a>
         </div>
 
       </div>
