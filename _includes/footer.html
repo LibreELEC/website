@@ -1,7 +1,5 @@
 <!-- Footer -->
-
 <hr>
-
 <footer>
   <div class="container">
     <div class="row">
@@ -87,6 +85,14 @@
             </a>
           </li>
           {% endif %}
+          <li class="list-inline-item">
+            <a href="{{ "/privacy-policy" | relative_url }}">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-user-secret fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
         </ul>
         <p class="copyright text-muted">Copyright &copy; {{ site.author }} {{ 'now' | date: "%Y" }}</p>
       </div>
