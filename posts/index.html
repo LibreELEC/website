@@ -1,33 +1,25 @@
 ---
 layout: page
 title: Posts
-background: '/img/bg-post.jpg'
 ---
 
-{% for post in paginator.posts %}
-
-<article class="post-preview">
-  <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-    <h2 class="post-title">{{ post.title }}</h2>
-    {% if post.subtitle %}
-    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-    {% else %}
-    <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-    {% endif %}
-  </a>
-  <p class="post-meta">Posted by
-    {% if post.author %}
-    {{ post.author }}
-    {% else %}
-    {{ site.author }}
-    {% endif %}
-    on {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
-  </p>
-</article>
-
-<hr>
-
-{% endfor %}
+<div class="container mx-auto mt-4">
+  <div class="row">
+    {% for post in paginator.posts %}
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <img src="{{ post.image | relative_url }}" class="card-img-top" alt="">
+        <div class="card-body" style="min-height: 320px;">
+          <h3 class="card-title">{{ post.title }}</h3>
+          <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: '%B %d, %Y' }}</h6>
+          <p class="card-text">{{ post.excerpt | strip_html | truncatewords: site.post_subtitle_limit }}</p>
+          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="btn float-right p-1"><i class="fas fa-link"></i> read more</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
@@ -35,8 +27,7 @@ background: '/img/bg-post.jpg'
 <div class="clearfix">
 
   {% if paginator.previous_page %}
-  <a class="btn btn-primary float-left" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr;
-    Newer<span class="d-none d-md-inline"> Posts</span></a>
+  <a class="btn btn-primary float-left" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer<span class="d-none d-md-inline"> Posts</span></a>
   {% endif %}
 
   {% if paginator.next_page %}
