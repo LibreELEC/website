@@ -1,7 +1,7 @@
 title:              LibreELEC
 email:
 description:        Just enough OS for KODI
-author:             Start Bootstrap
+author:             LibreELEC
 baseurl:            "/startbootstrap-clean-blog-jekyll"
 url:                "https://cvh.github.io"
 default_header_logo: "img/bg-index.jpg" # relative path to default header logo
