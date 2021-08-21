@@ -20,13 +20,13 @@ wiki_url: https://libreelec.wiki
 google_analytics:  # out your google-analytics code
 
 # LE
-post_limit: 4 # number of posts shown
+post_limit: 5 # number of posts shown
 post_subtitle_limit: 40 # number of words included at post preview
 
 # Build settings
 markdown:           kramdown
-paginate:           4
-paginate_path:      "/posts/page:num/"
+paginate:           6
+paginate_path:      "/posts/page/:num/"
 plugins:
   - jekyll-feed
   - jekyll-paginate
