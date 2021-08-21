@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <!-- Page Header -->
 {% if page.background %}
 <header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
@@ -33,11 +32,18 @@ layout: default
         <div class="container mx-auto mt-4">
           <div class="row">
             {% for post in site.posts limit : site.post_limit %}
-            <div class="col-md-6 mb-4">
+              {% if forloop.first %}
+                {% assign col_size = "12" %}
+                {% assign post_height = "150px" %}
+              {% else %}
+                {% assign col_size = "6" %}
+                {% assign post_height = "350px" %}
+              {% endif %}
+            <div class="col-md-{{ col_size }} mb-4">
               <div class="card">
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="text-decoration-none">
                   <img src="{{ post.image }}" class="card-img-top" alt="">
-                  <div class="card-body" style="min-height: 340px;">
+                  <div class="card-body" style="min-height: {{ post_height }};">
                     <h3 class="card-title">{{ post.title }}</h3>
                     <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: '%B %d, %Y' }}</h6>
                     <p class="card-text">{{ post.excerpt | strip_html | truncatewords: site.post_subtitle_limit }}</p>
