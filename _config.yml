@@ -48,6 +48,7 @@ kernel_version_le_10_0: 5.10.x
 release_date_le_9_2: 2020.11
 kodi_version_le_9_2: 18.9
 le_version_download_9_2: 9.2.6
+le_version_download_rpi_9_2: 9.2.8
 le_version_name_9_2: 9.2
 kernel_version_le_9_2: 5.1.x
 kernel_version_le_rpi_9_2: 4.19.x
