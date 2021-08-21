@@ -8,13 +8,15 @@ title: Posts
     {% for post in paginator.posts %}
     <div class="col-md-6 mb-4">
       <div class="card">
-        <img src="{{ post.image | relative_url }}" class="card-img-top" alt="">
-        <div class="card-body" style="min-height: 340px;">
-          <h3 class="card-title">{{ post.title }}</h3>
-          <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: '%B %d, %Y' }}</h6>
-          <p class="card-text">{{ post.excerpt | strip_html | truncatewords: site.post_subtitle_limit }}</p>
-          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="btn float-right" style="position:absolute;bottom:0px;right:0px;"><i class="fas fa-link"></i> read more</a>
-        </div>
+        <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="text-decoration-none">
+          <img src="{{ post.image | relative_url }}" class="card-img-top" alt="">
+          <div class="card-body" style="min-height: 340px;">
+            <h3 class="card-title">{{ post.title }}</h3>
+            <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: '%B %d, %Y' }}</h6>
+            <p class="card-text">{{ post.excerpt | strip_html | truncatewords: site.post_subtitle_limit }}</p>
+            <i class="btn float-right" style="position:absolute;bottom:0px;right:0px;"><i class="fas fa-link"></i> read more</i>
+          </div>
+        </a>
       </div>
     </div>
     {% endfor %}
