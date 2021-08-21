@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Upcoming Changes"
-image: img/posts/icon-info-le.jpg
+image: img/posts/icon-hardware-le.jpg
 ---
 
 Kodi 19 (Matrix) will release soon with big changes that affect the majority of LibreELEC users. One of the most visible changes is the switch to Python3 (code used by Kodi add-ons). 
