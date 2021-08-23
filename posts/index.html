@@ -9,8 +9,8 @@ title: Posts
     <div class="col-md-6 mb-4">
       <div class="card">
         <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="text-decoration-none">
-          <img src="{{ post.image | relative_url }}" class="card-img-top" alt="">
-          <div class="card-body" style="min-height: 340px;">
+          <img src="{{ post.image | relative_url }}" class="card-img-top" height="133px" alt="">
+          <div class="card-body" style="min-height: 350px;">
             <h3 class="card-title">{{ post.title }}</h3>
             <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: '%B %d, %Y' }}</h6>
             <p class="card-text">{{ post.excerpt | strip_html | truncatewords: site.post_subtitle_limit }}</p>
