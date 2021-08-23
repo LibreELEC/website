@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LibreELEC (Leia) 9.2.0"
-image: img/posts/icon-release-k18.jpg
+image: "img/posts/icon-release-k18.jpg"
 ---
 
 **LibreELEC 9.2.0 (Leia)** the final version has arrived based upon Kodi v18.5, the 9.2 release contains many changes and refinements to user experience and a complete overhaul of the underlying OS core to improve stability and extend hardware support compared to the LE 9.0 release.
