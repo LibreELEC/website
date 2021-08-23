@@ -1,15 +1,15 @@
 ---
 layout: post
 title: "LibreELEC (Leia) 9.2.4"
-image: img/posts/icon-release-k18.jpg
+image: "img/posts/2020/9.2.4.jpg"
 ---
 
-**LibreELEC 9.2.4 (Leia)** has arrived based upon Kodi v18.8.
+**LibreELEC 9.2.4 (Leia)** has arrived based upon Kodi v18.8. 
 
 **Changes since 9.2.3:**
 
-* firmware fixes for RPi (fixes booting issues)
-* Kodi 18.8
+- firmware fixes for RPi (fixes booting issues)
+- Kodi 18.8
 
 **Kodi 19 Matrix:**
 
@@ -17,9 +17,9 @@ We have currently no plans yet to create an official Alpha release of LE10 with 
 
 **Change for Raspberry 4:**
 
-With LE 9.2 and later you need to add “hdmi_enable_4kp60=1“ to your config.txt if you want to use 4k output at the RPi4. Before you needed “hdmi_enable_4k=1“ that is now deprecated.
+With LE 9.2 and later you need to add _"**hdmi\_enable\_4kp60=1**"_ to your config.txt if you want to use 4k output at the RPi4. Before you needed _"**hdmi\_enable\_4k=1**"_ that is now deprecated.
 
-If you experience problems, please open an thread at our [forum](https://forum.libreelec.tv/). You can also open an ticket at our [Github issue tracker](https://github.com/LibreELEC/LibreELEC.tv/issues).
+If you experience problems, please open an thread at our [forum](https://forum.libreelec.tv). You can also open an ticket at our [Github issue tracker](https://github.com/LibreELEC/LibreELEC.tv/issues).
 
 **Upgrading**
 
@@ -27,4 +27,4 @@ On first boot the Kodi media database will be upgraded. Depending on your hardwa
 
 **Downloads**
 
-[Click here to go to the download page](https://libreelec.tv/downloads/)
+[**Click here to go to the download page.**](https://libreelec.tv/downloads_new/)

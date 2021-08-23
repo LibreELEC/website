@@ -10,7 +10,7 @@ It's our 1st Birthday, and instead of telling you how much fun it's been to crea
 
 Today we are launching [the official LibreELEC apparel store](https://teespring.com/stores/libreelec). Purchasing a [LibreELEC tee-shirt](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=373&cid=100035&sid=front) or [hoodie](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=377&cid=100063&sid=front) allows you to support us (all profits go to the project) and look great at the same time. Whether you need to [stand out in a crowd](https://kodi.tv/kodi-devcon-2016-live-blog/) or impress small children, the LibreELEC apparel store has you covered!
 
-[![](images/tshirt-logo-black-336x400.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=373&cid=100035&sid=front)[![](images/hoodie-logo-grey-367x400.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=377&cid=100063&sid=front)
+[![]({{site.baseurl}}/img/posts/2017/tshirt-logo-black-336x400.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=373&cid=100035&sid=front)[![]({{site.baseurl}}/img/posts/2017/hoodie-logo-grey-367x400.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=377&cid=100063&sid=front)
 
 _"any colour you like, as long as it's black!" - Henry Ford_
 
@@ -20,7 +20,7 @@ We are using teespring.com to handle money and logistics. This is the same compa
 
 Small children pointed out that a) [Smarties are available in the same colours](https://s-media-cache-ak0.pinimg.com/736x/c5/cc/a1/c5cca124c313e3c68e6d02d62b4b5cc3.jpg) as our logo, and b) Cupcakes with Smarties are tasty! ..which led to some after-school fun and rigorous testing of a LibreELEC cupcake recipe. LibreELEC cupcakes are perfect for celebrating our 1st birthday!
 
-![](images/le-cupcakes-800x610.jpg)
+![]({{site.baseurl}}/img/posts/2017/le-cupcakes-800x610.jpg)
 
 _"little ones don't count!"_
 

@@ -16,4 +16,4 @@ Enjoy! :)
 
 or purchase a tee-shirt!
 
-[![](images/tshirt-logo-black.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=373&cid=100035&sid=front)[![](images/hoodie-logo-grey.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=377&cid=100063&sid=front)
+[![]({{site.baseurl}}/img/posts/2017/tshirt-logo-black.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=373&cid=100035&sid=front)[![]({{site.baseurl}}/img/posts/2017/hoodie-logo-grey.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=377&cid=100063&sid=front)

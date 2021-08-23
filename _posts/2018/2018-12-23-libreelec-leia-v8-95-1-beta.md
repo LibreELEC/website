@@ -21,19 +21,19 @@ More people are using VPN services for privacy without realising this exposes SS
 
 As the Kodi piracy scene continues to decline we have seen an increase in users with outdated add-ons that cause problems during upgrades so "Safe Mode" counts Kodi startup crashes. After five startup failures it intervenes with a default (clean) configuration and prominent warning so users know there is a problem - but still have a working GUI to troubleshoot from.
 
-![](images/about-400x300.jpg) ![](images/safemode-400x300.jpg)
+![]({{site.baseurl}}/img/posts/2018/about-400x300.jpg) ![]({{site.baseurl}}/img/posts/2018/safemode-400x300.jpg)
 
 **Retroplayer:**
 
 Kodi v18 brings initial support for retro gaming and the ability to play hundreds of retro games directly from within Kodi. We provide a large number of emulator cores from our add-on repo, but no games (bring your own) although there are a couple of open source test game add-ons (2048 etc.) in our repo. In this first iteration of Kodi retro gaming support the user interface can be a little confusing and we still need to write-up some HOWTO guides for the wiki. Kodi developers are working on a game database (for Kodi v19) which will make the process of managing and using game ROMs easier in the future.
 
-![](images/game-400x300.png)
+![]({{site.baseurl}}/img/posts/2018/game-400x300.png)
 
 **DVB Drivers:**
 
 We now offer a larger range of DVB drivers (depending on your platform) to choose from. The "DVB drivers from the latest kernel" option also includes the majority of Hauppage drivers which have been recently upstreamed into the kernel, which is great to see!
 
-![](images/driverselect-400x282.jpg) ![](images/driverselect-400x248.png)
+![]({{site.baseurl}}/img/posts/2018/driverselect-400x282.jpg) ![]({{site.baseurl}}/img/posts/2018/driverselect-400x248.png)
 
 **Rockchip:**
 

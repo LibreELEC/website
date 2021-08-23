@@ -10,7 +10,7 @@ In the last week we processed the list of donations received since March and tag
 
 The list also reveals the top 10 most generous countries (in descending order):
 
-![donations201606](images/donations201606.png)
+![donations201606]({{site.baseurl}}/img/posts/2016/donations201606.png)
 
 The largest individual donation was $100 and the smallest was $0.01, but it all counts. If you would like to defend national honour by improving your country's ranking (or have it join the list) our donation button is conveniently located below ;)
 
