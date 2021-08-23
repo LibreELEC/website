@@ -35,14 +35,16 @@ layout: default
               {% if forloop.first %}
                 {% assign col_size = "12" %}
                 {% assign post_height = "150px" %}
+                {% assign header_height = "275px" %}
               {% else %}
                 {% assign col_size = "6" %}
                 {% assign post_height = "350px" %}
+                {% assign header_height = "133px" %}
               {% endif %}
             <div class="col-md-{{ col_size }} mb-4">
               <div class="card">
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="text-decoration-none">
-                  <img src="{{ post.image }}" class="card-img-top" alt="">
+                  <img src="{{ post.image }}" class="card-img-top" height="{{ header_height }}" alt="">
                   <div class="card-body" style="min-height: {{ post_height }};">
                     <h3 class="card-title">{{ post.title }}</h3>
                     <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: '%B %d, %Y' }}</h6>
