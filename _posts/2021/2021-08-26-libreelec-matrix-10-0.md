@@ -11,10 +11,10 @@ Users of LibreELEC 10 Beta or RC1 get an automatic update to the final version. 
 
 We can offer stable and good working versions for Allwinner, Generic and Rockchip devices. The RPi4 is also in good shape but the codebase is rather new, so it is not polished yet (keep reading for details).
 
-## REMANING BUGS
+## REMAINING BUGS
 
 Despite a long development period, there is still a major bug remaining. When you use profiles, LibreELEC's Settings Add-on can crash while switching to another profile.
-The [issue is know](https://github.com/LibreELEC/LibreELEC.tv/issues/5303),but we have currently no fix for it. So if you depend on profiles, you cannot properly use LibreELEC 10.
+The [issue is known](https://github.com/LibreELEC/LibreELEC.tv/issues/5303),but we have currently no fix for it. So if you depend on profiles, you cannot properly use LibreELEC 10.
 
 ## RASPBERRY PI 0-3
 
