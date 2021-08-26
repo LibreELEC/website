@@ -13,14 +13,14 @@ We can offer stable and good working versions for Allwinner, Generic and Rockchi
 
 ## REMAINING BUGS
 
-Despite a long development period, there is still a major bug remaining. When you use profiles, LibreELEC's Settings Add-on can crash while switching to another profile.
-The [issue is known](https://github.com/LibreELEC/LibreELEC.tv/issues/5303),but we have currently no fix for it. So if you depend on profiles, you cannot properly use LibreELEC 10.
+Despite a long development period, there is still a major bug remaining. When you use **profiles**, LibreELEC's Settings Add-on can crash while switching to another profile.
+The [issue is known](https://github.com/LibreELEC/LibreELEC.tv/issues/5303), but we have currently no fix for it. So if you depend on profiles, you cannot properly use LibreELEC 10.
 
 ## RASPBERRY PI 0-3
 
 There are no Raspberry Pi 0-3 releases for LE10.0. The RPi graphic drivers are still in progress of a complete rewrite, additionally the current developement is focused on RPi 4.
 - Support for RPi0-1 is dropped, its unlikely to return (lacking horsepower for the new graphic stack)
-- Drivers for RPi2 and 3 are currently unfinished and isn’t properly useable at this time
+- Drivers for RPi2 and 3 are currently not yet feature complete and stable
 
 ## RASPBERRY PI 4
 
