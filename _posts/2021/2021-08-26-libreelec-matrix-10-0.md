@@ -61,7 +61,7 @@ So unless you are already running an image with Kodi 19 inside, a clean install 
 
 ## CHANGES
 
-You can read the official Team Kodi release announcement for Matrix/v19.0 [here](https://kodi.tv/article/kodi-190-matrix-release), and (again) the recent [Upcoming Changes](https://libreelec.tv/2021/02/upcoming-changes/) blog post for more info on Kodi changes and the transition to GBM/V4L2. You probably (and hopefully) won’t notice it, but every package that goes into the LibreELEC OS has been updated to its latest or recent release. It’s been two years since Kodi 18 was released, so the change set is too large to list. [GitHub](https://github.com/LibreELEC/LibreELEC.tv/compare/libreelec-9.2...libreelec-10.0) has the full history for those interested.
+You can read the official Team Kodi release announcement for Matrix/v19.0 [here](https://kodi.tv/article/kodi-190-matrix-release), and (again) the recent [Upcoming Changes](https://libreelec.tv/2021/02/14/upcoming-changes/) blog post for more info on Kodi changes and the transition to GBM/V4L2. You probably (and hopefully) won’t notice it, but every package that goes into the LibreELEC OS has been updated to its latest or recent release. It’s been two years since Kodi 18 was released, so the change set is too large to list. [GitHub](https://github.com/LibreELEC/LibreELEC.tv/compare/libreelec-9.2...libreelec-10.0) has the full history for those interested.
 
 ## SUPPORT
 

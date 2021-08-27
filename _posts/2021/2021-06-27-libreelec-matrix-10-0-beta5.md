@@ -6,7 +6,7 @@ image: img/posts/icon-release-k19.jpg
 
 LibreELEC 10.0 BETA 5 is released bringing Kodi (Matrix) v19.1 (+ additional fixes) to LibreELEC users.  
 
-Changes from LibreELEC 10.0 BETA 4 [are listed here.](https://github.com/LibreELEC/LibreELEC.tv/compare/9.95.4...9.95.5) As discussed in the recent [Upcoming Changes](https://libreelec.tv/2021/02/upcoming-changes/) blog post it, the 10.0 release is a disruptive and limited hardware release. If you have not read the blog post - please do - because we are not releasing images for all hardware. In summary: this is a stable release for Generic (x86\_64 PCs). Stable-Beta for Allwinner and Rockchip. Stable “Alpha” for Raspberry Pi 4 as the code is still very new. RPi 2/3 are still in development targeting an LE10.2 release. RPi 0/1 are discontinued. All others hardware is still in development and not in a state for formal releases.
+Changes from LibreELEC 10.0 BETA 4 [are listed here.](https://github.com/LibreELEC/LibreELEC.tv/compare/9.95.4...9.95.5) As discussed in the recent [Upcoming Changes](https://libreelec.tv/2021/02/14/upcoming-changes/) blog post it, the 10.0 release is a disruptive and limited hardware release. If you have not read the blog post - please do - because we are not releasing images for all hardware. In summary: this is a stable release for Generic (x86\_64 PCs). Stable-Beta for Allwinner and Rockchip. Stable “Alpha” for Raspberry Pi 4 as the code is still very new. RPi 2/3 are still in development targeting an LE10.2 release. RPi 0/1 are discontinued. All others hardware is still in development and not in a state for formal releases.
 
 **WIDEVINE**
 
@@ -30,7 +30,7 @@ So unless you are already running an image with Kodi 19 inside, a clean install 
 
 **CHANGES**
 
-You can read the official Team Kodi release announcement for Matrix/v19.0 [here](https://kodi.tv/article/kodi-190-matrix-release) and (again) the recent [Upcoming Changes](https://libreelec.tv/2021/02/upcoming-changes/) blog post for more info on Kodi changes and the transition to GBM/V4L2. You probably (and hopefully) won't notice, but every package that goes into the LibreELEC OS has been updated to a latest or recent release. It's been two years since Kodi 18 was released so the changeset is too large to list. [GitHub](https://github.com/LibreELEC/LibreELEC.tv/compare/libreelec-9.2...master) has the full history.
+You can read the official Team Kodi release announcement for Matrix/v19.0 [here](https://kodi.tv/article/kodi-190-matrix-release) and (again) the recent [Upcoming Changes](https://libreelec.tv/2021/02/14/upcoming-changes/) blog post for more info on Kodi changes and the transition to GBM/V4L2. You probably (and hopefully) won't notice, but every package that goes into the LibreELEC OS has been updated to a latest or recent release. It's been two years since Kodi 18 was released so the changeset is too large to list. [GitHub](https://github.com/LibreELEC/LibreELEC.tv/compare/libreelec-9.2...master) has the full history.
 
 **SUPPORT**
 
