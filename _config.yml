@@ -27,6 +27,7 @@ post_subtitle_limit: 40 # number of words included at post preview
 markdown:           kramdown
 paginate:           6
 paginate_path:      "/posts/page/:num/"
+permalink:          /:year/:month/:day/:title/
 plugins:
   - jekyll-feed
   - jekyll-paginate
