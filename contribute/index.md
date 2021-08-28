@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CONTRIBUTE
+title: Contribute
 ---
 
 The heart of an Open Source Software project are the contributors who dedicate time, love and attention to its cause. LibreELEC is structured with a project board to guide executive decisions and manage finances, and a number of long-term team members who keep project infrastructure running and manage our community of developers and users. Our team also contains many individual and community contributors who don't declare a direct affiliation to the project, but actively collaborate, support, and work with us on specific activities.
