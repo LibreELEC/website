@@ -43,9 +43,10 @@ Overall, the current version is properly useable.
   Solution: Change resolution in system settings (1920x1080 50 or 60Hz plus setting up whitelist and enabling "Adjust display refresh rate" in player settings is recommended)
 - Hyperion Add-on no longer works  
   No solution for now, Hyperion doesn’t support the new graphics driver stack yet
+- The additional DVB drivers are not present.
 
 #### Important changes since LE9.2:
-- `hdmi_mode`, `hdmi_group`, `hdmi_edid_file` etc settings in config.txt can longer be used to work around display issues.  
+- `hdmi_mode`, `hdmi_group`, `hdmi_edid_file` etc settings in config.txt can no longer be used to work around display issues.  
   Alternatives:
   - Run `getedid create` to install permanent EDID file (same as on Generic)
   - Use `video=...` kernel command line option to force a video mode
