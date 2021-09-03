@@ -61,4 +61,4 @@ kodi_version_le_9_0: 18.2
 le_version_download_9_0: 9.0.2
 le_version_name_9_0: 9.0
 kernel_version_le_9_0: 4.19.x
-kernel_version_le_aml_9_0: 3.14.x
+kernel_version_le_aml_9_0: "3.14/3.10"
