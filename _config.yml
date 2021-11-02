@@ -39,9 +39,9 @@ plugins:
 le_download_url: https://releases.libreelec.tv
 
 # LE10.0
-release_date_le_10_0: 2021.08
-kodi_version_le_10_0: 19.1
-le_version_download_10_0: 10.0.0
+release_date_le_10_0: 2021.11
+kodi_version_le_10_0: 19.3
+le_version_download_10_0: 10.0.1
 le_version_name_10_0: 10.0 # 10.0 RC1
 kernel_version_le_10_0: 5.10.x
 
