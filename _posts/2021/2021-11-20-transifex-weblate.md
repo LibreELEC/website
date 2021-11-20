@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bye Tranifex, Hello Weblate!"
+title: "Bye Transifex, Hello Weblate!"
 image: "img/posts/2016/flags.png"
 ---
 
