@@ -29,7 +29,8 @@
         "bootstrap": "4.6.0",
         "font-awesome": "4.7.0",
         "jquery": "3.6.0",
-        "startbootstrap-clean-blog": "5.1.0"
+        "startbootstrap-clean-blog": "5.1.0",
+        "url-parse": "^1.5.3"
     },
     "devDependencies": {
         "browser-sync": "2.26.14"
