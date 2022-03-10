@@ -34,10 +34,12 @@ There are no Raspberry Pi 0-1 releases for LE10.0. The RPi graphic drivers are s
 
 ## RASPBERRY PI 2-3
 
-As new addition we support RPi2 and RPi3 at LE10. Pleas keep in mind this is still brand new and not widley tested. Unlikely bugs are still possible. Overall, the current version is properly useable.
+As new addition we support RPi2 and RPi3 at LE10. Please keep in mind this is still brand new and not widely tested. Likely bugs are still possible. Overall, the current version is properly useable.
+
+Note that GPU accelerated H265 decoding is no longer available in LE 10 and future versions. If this is important to you stay at LE 9.2.
 
 #### Working (RPi4)
-- HDMI output up to 4kp30
+- HDMI output up to 4kp60
 - H264 and H265 HW decoding
 - NEW: HDR output (HDR10 and HLG)
 - NEW: HD audio passthrough (Dolby TrueHD, DTS HD)
@@ -45,7 +47,6 @@ As new addition we support RPi2 and RPi3 at LE10. Pleas keep in mind this is sti
 - NEW: 10/12bit video output
 
 #### Known Issues:
-- 4K50/60 output is supported by the driver, but has some known issues (eg "no signal" when TV is put into standby and back on)
 - 50/60fps H264 HW decoding may need `force_turbo=1` or `core_freq_min=500` in config.txt to avoid AV-sync-issues/skipping
 - Kodi runs in 4096x2160 instead of 3840x2160 on 4k TVs after fresh installation  
   Solution: Change resolution in system settings (1920x1080 50 or 60Hz plus setting up whitelist and enabling "Adjust display refresh rate" in player settings is recommended)
