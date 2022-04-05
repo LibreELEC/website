@@ -7,7 +7,7 @@ image: img/posts/icon-usb-sd-creator.jpg
 
 A new version of the LibreELEC USB-SD Creator is available at the download section. Currently, we can just offer a Windows version. The download works again and finally all images and devices are fully supported.
 
-## Why did it broke ?
+## Why did it break?
 
 Some of you already recognized that the LibreELEC USB-SD Creator wasn’t working since we updated our download server and mirroring system. We switched completely to https and replaced our mirroring system. So far, everything worked like a charm, besides the LibreELEC USB-SD Creator. The former used libraries (QT 5.6.1) are now nearly 6 years old and completely outdated. That lead to several problems at newer OS updates, and it doesn’t understand recent security standards.
 
