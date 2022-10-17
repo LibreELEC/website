@@ -3,22 +3,18 @@ layout: page
 title: Sponsor
 ---
 
-## FUNDING
+LibreELEC software is free but running the project is not, so we raise funds via public donations and sales of project logo themed merchandise.
 
-Our software is free but running the project is not, so we raise funds via public and corporate donations and a small number of other initiatives.
+## EXPENSES
 
-## PERSONAL DONATIONS
+Our recurring expenses are hosting for downloads and build servers, and annual domain fees. We also encourage project staff and some regular contributors to expense test hardware when we can't source it for free. We also extend this support to contributors of several downstream and related projects in our ecosystem who collaborate with us, as their testing and efforts often improve things we depend upon.
 
-LibreELEC accepts personal donations via PayPal as it allows us to track payment activity with email notifications seen by multiple people to ensure basic oversight and accountability on funds. It doesn’t matter how much you donate, it all helps, and we promise 100% of the funds received go towards our funding goals. If you include a LibreELEC forum username or email address in donation comments we will tag your forum account as a project donor.
+## DONATIONS
 
-{% include paypal.html %}
+We accept donations through OpenCollective which helps us to manage funds transparently and provide visible recognition to our personal and corporate supporters. Personal donors can request a tag for their forum account by sending an email to our contact@domain address with the details. If you have a repeating donation to our legacy PayPal account we would love you to switch over to OpenCollective.
 
-## CORPORATE DONATIONS
+{% include opencollective.html %}
 
-The project has no commercial sponsors and does not enter into formal financial partnerships. This ensures we remain neutral and can work with everyone in the ecosystem around us on equal terms.
+## MERCHANDISE
 
-The project encourages the companies who use our free software in their products or services to contribute back to the project. We have non-profit ideals and prefer human and code contributions over financial donations. We will accept samples of hardware to help with testing, but prefer when manufacturers task their staff to get involved and work alongside us to ensure their products are well supported. We accept financial donations, but prefer to receive a small percentage of sales each month or quarter instead of lump-sum payments. Regular donations help our (and your) cash-flow, and we share in the success of your business.
-
-_Please note:_ If you donate the project has no obligation to promote or recommend your product or service. If you donate you may advertise that you donate and may detail how you donate. You may not refer to yourself  as a sponsor or any form of donation as sponsorship of the project.
-
-If you would like to provide corporate support to the project or make a corporate financial donation please contact us on [donations@libreelec.tv](mailto:donations@libreelec.tv) first.
+The project sells project logo themed t-shirts, hoodies, mugs, stickers, etc. from our [TeeSpring Merch](https://libreelec.shop) store with profits contributing to the project.
