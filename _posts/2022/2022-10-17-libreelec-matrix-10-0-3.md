@@ -5,11 +5,11 @@ description: "LE 10.0 ... the beta continues"
 image: img/posts/icon-release-k19.jpg
 ---
 
-# AMD users pls do not update
+# AMD users do not update !
 
-There is a Linux kernel bug that crashes Kodi at start. This is hopefully fixed soon. Pls do not update your AMD system yet. LE10.0.4 will fix this.
+There is a Linux kernel bug that crashes Kodi at start. This is hopefully fixed soon. Pls do not update your AMD system yet. **LE10.0.4 will fix this.**
 You can still downgrade from a "broken" 10.0.3 to 10.0.2 if needed.
-Link to the old version https://releases.libreelec.tv/LibreELEC-Generic.x86_64-10.0.2.img.gz
+Link to the old version [LibreELEC-Generic.x86_64-10.0.2.img.gz](https://releases.libreelec.tv/LibreELEC-Generic.x86_64-10.0.2.img.gz)
 
 ## News
 
