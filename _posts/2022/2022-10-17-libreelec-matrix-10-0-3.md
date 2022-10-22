@@ -5,6 +5,14 @@ description: "LE 10.0 ... the beta continues"
 image: img/posts/icon-release-k19.jpg
 ---
 
+# AMD users pls do not update
+
+There is a Linux kernel bug that crashes Kodi at start. This is hopefully fixed soon. Pls do not update your AMD system yet. LE10.0.4 will fix this.
+You can still downgrade from a "broken" 10.0.3 to 10.0.2 if needed.
+Link to the old version https://releases.libreelec.tv/LibreELEC-Generic.x86_64-10.0.2.img.gz
+
+## News
+
 LibreELEC 10.0.3 has been released, bringing Kodi (Matrix) v19.4 with additional fixes from the Kodi Matrix branch (till Oct 2, 2022).
   
 Users of LibreELEC 10 Beta or RC1 get an automatic update to the final version. LibreELEC 9.2 setups will not be automatically updated, you will need to [manually update](https://wiki.libreelec.tv/support/update).
