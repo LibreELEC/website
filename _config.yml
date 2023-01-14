@@ -1,33 +1,33 @@
-title:              LibreELEC
+title: LibreELEC
 email:
-description:        Just enough OS for KODI
-author:             LibreELEC
-baseurl:            ""
-url:                "https://libreelec.tv"
+description: Just enough OS for KODI
+author: LibreELEC
+baseurl: ""
+url: "https://libreelec.tv"
 default_header_logo: "img/bg-index.jpg" # relative path to default header logo
 
 # Social Profiles
-twitter_username:   LibreELEC
-github_username:    LibreELEC/LibreELEC.tv
+twitter_username: LibreELEC
+github_username: LibreELEC/LibreELEC.tv
 facebook_username:
-instagram_username:  
+instagram_username:
 linkedin_username:
 reddit_url: https://www.reddit.com/r/LibreELEC
 youtube_url: https://www.youtube.com/channel/UC7FSO0rXOtO6w_poBLvvjDw
 wiki_url: https://libreelec.wiki
 
 # Add your google-analytics ID here to activate google analytics
-google_analytics:  # out your google-analytics code
+google_analytics: # out your google-analytics code
 
 # LE
 post_limit: 5 # number of posts shown
 post_subtitle_limit: 40 # number of words included at post preview
 
 # Build settings
-markdown:           kramdown
-paginate:           6
-paginate_path:      "/posts/page/:num/"
-permalink:          /:year/:month/:day/:title/
+markdown: kramdown
+paginate: 6
+paginate_path: "/posts/page/:num/"
+permalink: /:year/:month/:day/:title/
 plugins:
   - jekyll-feed
   - jekyll-paginate
@@ -39,10 +39,10 @@ plugins:
 le_download_url: https://releases.libreelec.tv
 
 # LE10.0
-release_date_le_10_0: 2022.10
-kodi_version_le_10_0: 19.4
-le_version_download_10_0: 10.0.3
-le_version_name_10_0: 10.0 # 10.0 RC1
+release_date_le_10_0: 2023.01
+kodi_version_le_10_0: 19.5
+le_version_download_10_0: 10.0.4
+le_version_name_10_0: 10.0
 kernel_version_le_10_0: 5.10.x
 
 # LE9.2
