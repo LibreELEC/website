@@ -11,7 +11,7 @@ LibreELEC 10.0.4 has been released, bringing Kodi (Matrix) v19.5.
   
 Users of LibreELEC 10 get an automatic updates. LibreELEC 9.2 setups will not be automatically updated, you will need to [manually update](https://wiki.libreelec.tv/support/update).
 
-## CHANGES SINCE 10.0.2
+## CHANGES SINCE 10.0.3
 
 updates:
 
