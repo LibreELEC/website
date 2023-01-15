@@ -1,73 +1,62 @@
 ---
 layout: post
 title: "LibreELEC (Matrix) 10.0.4"
-description: "LE 10.0 ... the beta continues"
+description: "LibreELEC 10.0 ... Kodi Matrix Continues"
 image: img/posts/icon-release-k19.jpg
 ---
 
-## News
+## NEWS
 
-LibreELEC 10.0.4 has been released, bringing Kodi (Matrix) v19.5.
-  
-Users of LibreELEC 10 get an automatic updates. LibreELEC 9.2 setups will not be automatically updated, you will need to [manually update](https://wiki.libreelec.tv/support/update).
+LibreELEC 10.0.4 has been released, bringing Kodi (Matrix) v19.5. Users of LibreELEC 10.x will receive an automatic update (if enabled). LibreELEC 9.2 installs are not automatically updated, and users will need to [manually update](https://wiki.libreelec.tv/support/update).
 
 ## CHANGES SINCE 10.0.3
 
-updates:
-
-- update Kodi to 19.5
-
-fixes:
-
+- Update Kodi to 19.5
+- Updated RPi firmware
 - AMD GPU fixes
 
-## RASPBERRY PI 0-1
+## RASPBERRY Pi 0-1
 
-There are no Raspberry Pi 0-1 releases for LE10.0. The RPi graphic drivers are still in progress of a complete rewrite, additionally the current development is focused on RPi 4.
+There are no official LibreELEC 10.x releases for Raspberry Pi 0-1 as support has been discontinued. Older Pi devices lack the CPU/RAM resources needed for a good Kodi experience with the new video pipeline used in Kodi v19 releases.
 
-- Support for RPi0-1 is dropped, its unlikely to return (lacking horsepower for the new graphic stack)
+## RASPBERRY Pi 2-3
 
-## RASPBERRY PI 2-3
+The new video pipeline used in LibreELEC 10.x does not support enhanced HEVC software decoding. If HEVC media playback is important to you please remain on LibreELEC 9.2 releases or consider a Raspberry Pi 4 upgrade (RPi4 has native HEVC hardware decoding).
 
-Note that GPU accelerated H265 decoding is no longer available in LE 10 and future versions. If this is important to you stay at LE 9.2.
+## RASPBERRY Pi 4
 
-#### Working (RPi4)
+Raspberry Pi 4 and Raspberry Pi 400 hardware supports:
 
 - HDMI output up to 4kp60
 - H264 and H265 HW decoding
-- NEW: HDR output (HDR10 and HLG)
-- NEW: HD audio passthrough (Dolby TrueHD, DTS HD)
-- NEW: deinterlacing support (PVR/DVD)
-- NEW: 10/12bit video output
+- HDR output (HDR10 and HLG)
+- HD audio passthrough (Dolby TrueHD, DTS HD)
+- Hardware deinterlacing support (PVR/DVD)
+- 10/12bit video output
 
 #### Known Issues
 
 - 50/60fps H264 HW decoding may need `force_turbo=1` or `core_freq_min=500` in config.txt to avoid AV-sync-issues/skipping
-- Kodi runs in 4096x2160 instead of 3840x2160 on 4k TVs after fresh installation  
-  Solution: Change resolution in system settings (1920x1080 50 or 60Hz plus setting up whitelist and enabling "Adjust display refresh rate" in player settings is recommended)
-- Hyperion Add-on no longer works  
-  No solution for now, Hyperion doesn’t support the new graphics driver stack yet
-- The additional DVB drivers are not present.
+- Kodi runs in 4096x2160 instead of 3840x2160 on 4k TVs after fresh installation (Change to 1080p@60 is recommended)
+- Run Kodi GUI at 1920x1080/60 and use the whitelist + "Adjust display refresh rate" to use 4K during playback
+- Hyperion no longer works due to changes in the video pipeline. Consider hardare/external grabbers.
+- Additional DVB drivers are not present
 
-#### Important changes since LE9.2
+#### Important Changes
 
-- `hdmi_mode`, `hdmi_group`, `hdmi_edid_file` etc settings in config.txt can no longer be used to work around display issues.  
-  Alternatives:
+- Raspberry Pi `hdmi_mode`, `hdmi_group`, `hdmi_edid_file` config.txt settings are no longer used.
+- Alternatives:
   - Run `getedid create` to install permanent EDID file (same as on Generic)
-  - Use `video=...` kernel command line option to force a video mode
-    Eg: add `video=HDMI-A-1:1280x720M@60D` to cmdline.txt
-- Analog audio output is not enabled by default  
-  Solution: add `dtparam=audio=on` and `audio_pwm_mode=1` to config.txt to enable it
+  - Use `video=...` kernel boot params in cmdline.txt to force a video mode, e.g. `video=HDMI-A-1:1280x720M@60D`
+  - Analog audio output is not enabled by default. Add `dtparam=audio=on` and `audio_pwm_mode=1` to config.txt to enable it
 
-## MAKE BACKUPS
+## BACKUPS
 
-Due the many breaking changes at Kodi and LibreELEC, it is strongly recommended to create a backup BEFORE you upgrade. Otherwise, rolling back is basically impossible. Kodi does not support in-place downgrades, and if it ever worked for you in the past it was simple luck, not design. Python3 guarantees problems this time.
-
-So unless you are already running an image with Kodi 19 inside, a clean install is preferred. We apologize for the inconvenience, but we expect a much higher than normal support effort with in-place upgrades so it’s sensible advice.
+The team does not support direct update from LibreELEC 9.2 to LibreELEC 10.0 due to breaking Python changes with Kodi add-ons. We strongly recommend users create a backup BEFORE creating a clean LibreELEC 10.x installation as downgrade (which Kodi has never supported) is basically impossible. Users with an existing LibreELEC 10.x installation can update as normal.
 
 ## CHANGES
 
-You can read the official Team Kodi release announcement for Matrix/v19.5 [here](https://kodi.tv/article/kodi-matrix-19-5-release/), and (again) the recent [Upcoming Changes](https://libreelec.tv/2021/02/14/upcoming-changes/) blog post for more info on Kodi changes and the transition to GBM/V4L2. You probably (and hopefully) won’t notice it, but every package that goes into the LibreELEC OS has been updated to its latest or recent release. It’s been two years since Kodi 18 was released, so the change set is too large to list. [GitHub](https://github.com/LibreELEC/LibreELEC.tv/releases/tag/10.0.4) has the full history for those interested.
+The official Team Kodi release announcement for Matrix/v19.5 is [here](https://kodi.tv/article/kodi-matrix-19-5-release/) and LibreELEC blog posts on video pipeline changes (GBM/V4L2) are [here](https://libreelec.tv/2021/02/14/upcoming-changes/). See [GitHub](https://github.com/LibreELEC/LibreELEC.tv/releases/tag/10.0.4) for the full changelog.
 
 ## SUPPORT
 
@@ -75,13 +64,12 @@ Project staff are available in the [forum](https://forum.libreelec.tv) to answer
 
 Enjoy! :)
 
-## Donating
+## DONATING
 
 {% include opencollective.html %}
 
 [**Click here to go to the download page.**](https://libreelec.tv/downloads/)
 
-## SHA256 Hashes
+## HASHES
 
-Just add `?mirrorlist` after the link to show the SHA256 hash, for example `https://releases.libreelec.tv/LibreELEC-RPi4.arm-10.0.4.img.gz?mirrorlist` .  
-We are working at a proper integration into the website.
+Append `?mirrorlist` to download URLs to view the SHA256 hash. For example `https://releases.libreelec.tv/LibreELEC-RPi4.arm-10.0.4.img.gz?mirrorlist`
