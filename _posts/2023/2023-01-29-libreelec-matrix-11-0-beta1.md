@@ -5,9 +5,10 @@ description: "LE 11.0 ... let the beta begin"
 image: img/posts/icon-release-k20.jpg
 ---
 
+The first Beta of LibreELEC 11 has been released, bringing Kodi (Nexus) v20.0.
+
 ## News
 
-The first Beta of LibreELEC 11 has been released, bringing Kodi (Nexus) v20.0.
 With the new release cycle we add a Generic-legacy (Nvidia, Chrome, older hardware) image and reintroduce support for Amlogic (S905, S912). If you use them make sure to read the paragraph about them.
   
 LibreELEC 10.0 setups will not be automatically updated, you will need to [manually update](https://wiki.libreelec.tv/support/update).
