@@ -6,6 +6,72 @@ description: Allwinner based devices
 <!-- project arch -->
 {% assign arch = "arm" %}
 
+<!-- LE 11.0 -->
+<div class="card mb-2">
+  <h5 class="card-header text-white bg-warning">Latest Beta Version ({{ site.release_date_le_11_0 }})</h5>
+  <div class="card-body pt-2 pb-2">
+    <h5 class="card-title">LibreELEC {{ site.le_version_name_11_0 }}</h5>
+    <ul class="mb-0">
+      <li>Kodi {{ site.kodi_version_le_11_0 }}</li>
+      <li>Linux Kernel {{ site.kernel_version_le_11_0 }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Allwinner A64</h5>
+  <div class="card-body">
+    {% include dl_links.html project="A64" arch=arch version=site.le_version_download_11_0 device="orangepi-win" device_name="Orange Pi Win" %}
+    {% include dl_links.html project="A64" arch=arch version=site.le_version_download_11_0 device="pine64" device_name="Pine64" %}
+    {% include dl_links.html project="A64" arch=arch version=site.le_version_download_11_0 device="pine64-lts" device_name="Pine64 LTS" %}
+    {% include dl_links.html project="A64" arch=arch version=site.le_version_download_11_0 device="pine64-plus" device_name="Pine64 Plus" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header">Allwinner H3</h5>
+  <div class="card-body">
+    {% include dl_links.html project="H3" arch=arch version=site.le_version_download_11_0 device="bananapi-m2p" device_name="Banana Pi M2 Plus" %}
+    {% include dl_links.html project="H3" arch=arch version=site.le_version_download_11_0 device="beelink-x2" device_name="Beelink X2" %}
+    {% include dl_links.html project="H3" arch=arch version=site.le_version_download_11_0 device="libretech-h3" device_name="Libretech H3" %}
+    {% include dl_links.html project="H3" arch=arch version=site.le_version_download_11_0 device="nanopi-m1" device_name="NanoPi M1" %}
+    {% include dl_links.html project="H3" arch=arch version=site.le_version_download_11_0 device="orangepi-2" device_name="Orange Pi 2" %}
+    {% include dl_links.html project="H3" arch=arch version=site.le_version_download_11_0 device="orangepi-pc" device_name="Orange Pi PC" %}
+    {% include dl_links.html project="H3" arch=arch version=site.le_version_download_11_0 device="orangepi-pc-plus" device_name="Orange Pi PC Plus" %}
+    {% include dl_links.html project="H3" arch=arch version=site.le_version_download_11_0 device="orangepi-plus" device_name="Orange Pi Plus" %}
+    {% include dl_links.html project="H3" arch=arch version=site.le_version_download_11_0 device="orangepi-plus2e" device_name="Orange Pi Plus 2E" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header">Allwinner H5</h5>
+  <div class="card-body">
+    {% include dl_links.html project="H5" arch=arch version=site.le_version_download_11_0 device="orangepi-pc2" device_name="Orange Pi PC2" %}
+    {% include dl_links.html project="H5" arch=arch version=site.le_version_download_11_0 device="tritium-h5" device_name="Tritium H5" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header">Allwinner H6</h5>
+  <div class="card-body">
+    {% include dl_links.html project="H6" arch=arch version=site.le_version_download_11_0 device="beelink-gs1" device_name="Beelink GS1" %}
+    {% include dl_links.html project="H6" arch=arch version=site.le_version_download_11_0 device="orangepi-3" device_name="Orange Pi 3" %}
+    {% include dl_links.html project="H6" arch=arch version=site.le_version_download_11_0 device="orangepi-lite2" device_name="Orange Pi Lite 2" %}
+    {% include dl_links.html project="H6" arch=arch version=site.le_version_download_11_0 device="orangepi-one-plus" device_name="Orange Pi One Plus" %}
+    {% include dl_links.html project="H6" arch=arch version=site.le_version_download_11_0 device="pine-h64" device_name="Pine H64 Model A" %}
+    {% include dl_links.html project="H6" arch=arch version=site.le_version_download_11_0 device="pine-h64-model-b" device_name="Pine H64 Model B" %}
+    {% include dl_links.html project="H6" arch=arch version=site.le_version_download_11_0 device="tanix-tx6" device_name="Tanix TX6" %}
+  </div>
+</div>
+
+<div class="card mb-3">
+  <h5 class="card-header">Allwinner R40</h5>
+  <div class="card-body">
+    {% include dl_links.html project="R40" arch=arch version=site.le_version_download_11_0 device="bananapi-m2u" device_name="Banana Pi M2 Ultra" %}
+  </div>
+</div>
+
+<!-- LE 10.0 -->
 <div class="card mb-2">
   <h5 class="card-header text-white bg-success">Latest Stable Version ({{ site.release_date_le_10_0 }})</h5>
   <div class="card-body pt-2 pb-2">
