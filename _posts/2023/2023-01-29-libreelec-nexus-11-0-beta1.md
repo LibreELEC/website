@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "LibreELEC (Matrix) 11 Beta1"
+title: "LibreELEC (Nexus) 11 Beta1"
 description: "LE 11.0 ... let the beta begin"
 image: img/posts/icon-release-k20.jpg
 ---
