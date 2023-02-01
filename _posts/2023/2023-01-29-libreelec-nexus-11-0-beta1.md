@@ -50,6 +50,8 @@ To set expectations, here's the 'No' list:
 
 The reason for not formally supporting newer hardware generations is all about hardware decode drivers and user expectations. Amlogic hardware video decoding requires the "VDEC" driver for older GXBB/GXL/GXM hardware and "HEVC" driver (driver, not codec) for newer G12A/G12B/SM1 hardware, and both generations prefer a later iteration of "multi" decoder firmware. The current upstream driver code attempts to mix both drivers in a common codebase with partial success and does not support multi firmware blobs. As a result, the current drivers work well on older hardware, but bugs prevent 10-bit and 4K output on newer hardware, and users with newer and (on paper) more capable hardware generally have higher expectations and more demanding media. To avoid negative feedback and user frustration; if you have newer Amlogic hardware our recommendation is to run Kodi on the Android install that shipped with the box. If you choose to run AMLGX images on newer hardware; expect 1080p maximum output, and minimum interest from developers if you post known issues in the forums.
 
+AMLGX has a different boot and SD card preparation process, i.e. no renaming of device-tree files, so [PLEASE READ THIS WIKI ARTICLE](https://wiki.libreelec.tv/hardware/amlogic) for more info on differences between AMLGX and legacy images.
+
 ## DVB ADD-ONS
 
 DVB Add-Ons are currently deactivated. Digital Devices and TBS have currently no support for recent kernels so we are out of options. If you require support for those devices please stay at LE10.
