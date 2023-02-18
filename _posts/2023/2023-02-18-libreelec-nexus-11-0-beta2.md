@@ -18,7 +18,7 @@ LibreELEC 10.0 installs will not automatically update, but you can [manually upd
 updates:
 - several minor package updates
 - added Radxa ROCK Pi 4A Plus, 4B Plus (not 4C Plus) and Radxa ROCK Pi N10
-- [complete list of fixes](https://github.com/LibreELEC/LibreELEC.tv/compare/10.95.0...10.95.1)
+- a complete [list of fixes](https://github.com/LibreELEC/LibreELEC.tv/compare/10.95.0...10.95.1)
 
 fixes:
 - WLAN reconnection and roaming fixes
@@ -40,7 +40,7 @@ Use the Generic-Legacy image if:
 
 - You need support for nVidia GPUs
 - You need support for the Chrome Browser add-on
-- You see graphical glitches on older hardware, e.g. NUC 6th Gen
+- You see graphical glitches on older hardware, e.g. NUC 6th Gen, AMD GPUs
 
 NB: In the last year nVidia has made progress in their support for modern graphics standards. Drivers are now mesa/GBM compatible but still have dependencies on Wayland which we do not use, and Kodi has no plan to support proprietary NVDEC decoding (but VDPAU remains). We still recommend users avoid investing in nVidia GPUs.
 
