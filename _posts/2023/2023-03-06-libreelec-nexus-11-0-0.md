@@ -74,5 +74,5 @@ Enjoy! :)
 
 ## SHA256 Hashes
 
-Just add `?mirrorlist` after the link to show the SHA256 hash, for example `https://releases.libreelec.tv/LibreELEC-RPi4.arm-10.95.0.img.gz?mirrorlist` .  
+Just add `?mirrorlist` after the link to show the SHA256 hash, for example `https://releases.libreelec.tv/LibreELEC-RPi4.arm-11.0.0.img.gz?mirrorlist` .  
 We are working at a proper integration into the website.
