@@ -1,31 +1,17 @@
 ---
 layout: post
-title: "LibreELEC (Nexus) 11 Beta2"
-description: "LE 11.0 ... keep on beta"
+title: "LibreELEC (Nexus) 11.0"
+description: "LE 11.0 ... finally final"
 image: img/posts/icon-release-k20.jpg
 ---
 
-The second Beta of LibreELEC 11 has been released, bringing Kodi (Nexus) v20.0.
+The final stable version of LibreELEC 11 has been released, bringing Kodi (Nexus) v20.0.
 
 ## NEWS
 
 With the new release cycle we add a Generic-Legacy image supporting nVidia cards, Chrome Browser add-on, and older hardware. We also reintroduce support for older Amlogic devices (S905, S905X/D, S912). If you use them make sure to read the paragraphs below.
   
 LibreELEC 10.0 installs will not automatically update, but you can [manually update](https://wiki.libreelec.tv/support/update). Older LibreELEC installs must make a clean install due to the Python 3 changes since Kodi v19.
-
-## CHANGES SINCE 11 Beta 1
-
-updates:
-- several minor package updates
-- added Radxa ROCK Pi 4A Plus, 4B Plus (not 4C Plus) and Radxa ROCK Pi N10
-- a complete [list of fixes](https://github.com/LibreELEC/LibreELEC.tv/compare/10.95.0...10.95.1)
-
-fixes:
-- WLAN reconnection and roaming fixes
-- WLAN crash fixes
-- RPi multiple decoder and playback fixes
-- Generic-legacy Add-On fixes
-- OrangePi 3 LTS fixes
 
 ## RASPBERRY PI
 
