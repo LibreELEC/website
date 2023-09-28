@@ -2,7 +2,7 @@
 layout: post
 title: "LibreELEC support for Raspberry Pi 5"
 description: "LE RPi5"
-image: "https://libreelec.tv/img/posts/2023/rpi5-featured-image.png"
+image: "https://libreelec.tv/img/posts/2023/pi5-featured-image.png"
 ---
 
 Raspberry Pi 5 has been announced, with a solid 250% performance increase and many smaller but nice improvements for LibreELEC users. We have been supporting the Raspberry Pi Alpha test team with feedback for a while, and development images are ready. Raspberry Pi 5 has been a super-simple board to add support for: under 60 minutes from samples arriving to a usable image, and super-stable to use (even with Kodi 21 Alpha code). We are confident this will be a super-popular board for Kodi use.
