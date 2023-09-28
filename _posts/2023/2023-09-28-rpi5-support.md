@@ -54,7 +54,7 @@ The rear of the board hosts the SD card slot (same as previous generations):
 
 **Cases and Cooling**
 
-Bare-board temperatures with typical LibreELEC use are in the 45-75ºC range. This is well within the normal operating range of the BCM2712 chip and in testing we have not noticed thermal throttling, but most users prefer to run boards inside a case that provides some cooling. An official heatsink + fan kit compatible with the official case is available: the case lid is allows air to be drawn inside and the new PWM fan header allows fan speed to step up/down with temperature. For users who are not fans of fans (and fan noise) the popular Kodi flirc case has been revised and offers a passive cooling option. The Kodi flirc cases look great, lowers temperatures, and Team Kodi receives a royalty on every case which helps keep Kodi funded.
+Bare-board temperatures with typical LibreELEC use are in the 45-75ºC range. This is well within the normal operating range of the BCM2712 chip and in testing we have not noticed thermal throttling, but most users prefer to run boards inside a case that provides some cooling. An official heatsink + fan kit compatible with the official case is available: the case lid is allows air to be drawn inside and the new PWM fan header allows fan speed to step up/down with temperature. For users who are not fans of fans (and fan noise) the popular Kodi flirc case is being revised for RPi5 and offers a passive cooling option. The Kodi flirc cases look great, lower board temperatures, and Team Kodi receives a royalty on every case which helps keep Kodi funded.
 
 **Power Supplies**
 
@@ -62,15 +62,15 @@ Documentation states a USB-C 5V/5A (25W) PSU is required. In our testing the off
 
 **Booting**
 
-Boot has minor changes from RPi4. There is supprot for SD card SDR104 modes so users with newer cards should see a bump in I/O performance. USB boot also benefits from redesiged USB3 with 5Gbps speeds. USB boot must be enabled in the boot EEPROM first and forces use of a 5V/5A PSU to avoid power "brown out" issues: power requirements increase with the USB hardware changes. RPi5 also has a PCIe connector and we look forward to seeing new HAT designs appearing that allow booting from flash storage devices.
+Boot has minor changes from RPi4. There is support for SD card SDR104 modes so users with newer cards should see a bump in I/O performance. USB boot also benefits from redesiged USB3 with 5Gbps speeds. USB boot must be enabled in the boot EEPROM first and forces use of a 5V/5A PSU to avoid power "brown out" issues: power requirements increase with the USB hardware changes. RPi5 also has a PCIe connector and we look forward to seeing new HAT designs appearing that allow booting from flash storage devices.
 
 **Media Decoding**
 
-BCM2712 supports HEVC 4K60 hardware decoding. It no longer supports H264 in hardware as the performance bump from the Quad-Core A76 means it can software decode a broad range of media (AV1, H264, VC1, VP9) at 1080p with ease. In our testing a surprising amount of streaming optimised (lower refresh-rate and bitrate) 4K media also plays.
+BCM2712 supports HEVC 4K60 hardware decoding. It no longer supports H264 in hardware. This might sound odd but it removes the RPi4's 1080p restriction on H264 decoding and the 4K H264 test media we have has played. The big increase in performance from the Quad-Core A76 chip means RPi5 can software decode AV1, H264, VC1, VP9, and more at 1080p with ease. In our testing with YouTube and inputstream.adaptive a surprising amount of 4K media also plays. Optimised (lower refresh-rate and bitrate) 4K30 VP9 is generally fine while more demanding 4K60 VP9 content is not possible; it will play but frames are being dropped.
 
 **Performance**
 
-The Quad-Core A76 main CPU supporting crypto extensions, LPDDR4 RAM, SDR104 modes, and the VideoCore VII GPU result in noticeably improved Kodi GUI navigation. [Lots of scientific testing with numbers will be released](https://www.phoronix.com/review/raspberry-pi-5-benchmarks/6) and debated, but our subjective opinion is that an RPi5 with the default Estuary skin is now on-par with current entry-level and older mid-range Intel CPU hardware. Once PCIe flash storage HATs are available to further boost IO performance RPi5 will be level with current mid-range and older high-end Intel hardware. Scrolling in large media libraries and DVB schedules (views that tax the CPU and GPU) are visibly smoother than an RPi4 board, and the ability to software-decode all 1080p streaming media improves the "it just works" usability of services like Amazon, Disney+, Netflix and YouTube.
+Quad-Core A76 CPU supporting crypto extensions, LPDDR4 RAM, SDR104 modes, and the VideoCore VII GPU result in noticeably improved Kodi GUI navigation. [Lots of scientific testing with numbers will be released](https://www.phoronix.com/review/raspberry-pi-5-benchmarks/6) and debated, but our subjective opinion is that an RPi5 with the default Estuary skin is now on-par with current entry-level and older mid-range Intel CPU hardware. Once PCIe flash storage HATs are available to further boost IO performance RPi5 will be level with current mid-range and older high-end Intel hardware. Scrolling in large media libraries and DVB schedules (views that tax the CPU and GPU) are visibly smoother than an RPi4 board, and the ability to software-decode all 1080p streaming media improves the "it just works" usability of services like Amazon, Disney+, Netflix and YouTube.
 
 **Images and Releases**
 
