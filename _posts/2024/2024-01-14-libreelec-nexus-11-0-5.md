@@ -12,12 +12,12 @@ The really final stable version of LibreELEC 11.0.5 has been released, bringing 
 With the final release of LibreELEC 11 we are adding experimental RPi5 support. The focus of RPi5 development is on Kodi 21, which will be released in early 2024. 
 The only known issue so far is that updating the EEPROM is not yet supported in the LE setting (run `rpi-eeprom-update -a` from the shell).
 
-## CHANGES SINCE 11.0.5
+## CHANGES SINCE 11.0.4
 
 updates:
 - kodi: update to 20.3
 - linux: update to 6.1.71
-- a complete [list of fixes](https://github.com/LibreELEC/LibreELEC.tv/compare/11.0.5...11.0.5)
+- a complete [list of fixes](https://github.com/LibreELEC/LibreELEC.tv/compare/11.0.4...11.0.5)
 
 
 ## RASPBERRY PI
