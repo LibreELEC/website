@@ -41,7 +41,7 @@ le_download_url: https://releases.libreelec.tv
 # LE11.0
 release_date_le_11_0: 2024.01
 kodi_version_le_11_0: 20.3
-le_version_download_11_0: 11.0.5
+le_version_download_11_0: 11.0.6
 le_version_name_11_0: 11.0
 kernel_version_le_11_0: 6.1.x
 
