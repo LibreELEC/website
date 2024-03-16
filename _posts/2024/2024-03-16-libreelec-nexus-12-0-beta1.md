@@ -23,7 +23,6 @@ LibreELEC 11.0 installs will not automatically update, but you can [manually upd
 ## RASPBERRY PI
 
 - 50/60fps H264 HW decoding may need `force_turbo=1` or `core_freq_min=500` in config.txt to avoid AV-sync-issues/skipping
-- Kodi at RPi4 runs in 4096x2160 instead of 3840x2160 on 4k TVs after fresh installation. Configure Kodi as [described at the wiki](https://wiki.libreelec.tv/configuration/4k-hdr) and optionally add hdmi_enable_4kp60=1 to config.txt and enable HDMI UltraHD Deep Color in your TV's HDMI port configuration to get 4kp60 modes
 
 ## GENERIC (x86_64)
 
