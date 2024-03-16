@@ -6,6 +6,39 @@ description: PC, Intel NUC, Nettops, Virtual Machines and Laptops with x86 Hardw
 <!-- project arch -->
 {% assign arch = "x86_64" %}
 
+<!-- LE 12.0 -->
+<div class="card mb-2">
+  <h5 class="card-header text-white bg-danger">Latest Beta Version ({{ site.release_date_le_12_0 }})</h5>
+  <div class="card-body pt-2 pb-2">
+    <h5 class="card-title">LibreELEC {{ site.le_version_name_12_0 }}</h5>
+    <ul class="mb-0">
+      <li>Kodi {{ site.kodi_version_le_12_0 }}</li>
+      <li>Linux Kernel {{ site.kernel_version_le_12_0 }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Generic PC (no NVIDIA support)</h5>
+  <div class="card-body">
+    {% include dl_links.html project="Generic" arch=arch version=site.le_version_download_12_0 device_name="Generic" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Legacy Generic PC (for older PCs and NVIDIA GPUs)</h5>
+  <div class="card-body">
+    {% include dl_links.html project="Generic-legacy" arch=arch version=site.le_version_download_12_0 device_name="Generic-legacy" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Virtual Machines</h5>
+  <div class="card-body">
+    {% include dl_links.html project="Generic" arch=arch version=site.le_version_download_12_0 device_name="Virtual Machines" %}
+  </div>
+</div>
+
 <!-- LE 11.0 -->
 <div class="card mb-2">
   <h5 class="card-header text-white bg-success">Latest Stable Version ({{ site.release_date_le_11_0 }})</h5>
