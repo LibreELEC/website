@@ -5,20 +5,20 @@ description: "LE 12.0 b... b... b... beta"
 image: img/posts/icon-release-k21.jpg
 ---
 
-The first Beta of LibreELEC 12 has been released, bringing Kodi (Omega) v21.0.
+LibreELEC 12 Beta1 has released, bringing Kodi (Omega) v21.0.
 
 ## NEWS
 
-With the new release cycle we changed all possible devices to 64Bit including Rasberry Pi 4 and 5.
+With the new release cycle we changed many devices to 64-bit, including Rasberry Pi 4 and 5.
 
-If you are using widevine (requirement for various video add-ons like youtube, netflix etc. ) and updating from LE11 you need to reinstall widevine due the changed architecture.
-  
-LibreELEC 11.0 installs will not automatically update, but you can [manually update](https://wiki.libreelec.tv/support/update). Older LibreELEC installs must make a clean install due to the Python 3 changes since Kodi v19.
+If using Widevine DRM (required for various copyprotected video add-ons like Prime Video, Netflix, etc.) on one of these devices and updating from LibreELEC 11, Widevine DRM will need to be reinstalled on these devices due to the changed architecture.
 
-## KNOWS PROBLEMS
+LibreELEC 11.0 installs will not automatically update, but you can [manually update](https://wiki.libreelec.tv/support/update). LibreELEC installs from before LibreELEC 10.0 must make a clean install due to the Python 3 changes since Kodi v19.
 
-- Allwinner and Rockchip devices are not wildly tested, if there are problems please report them
-- NVIDA ION is currently broken, it is fixed at upcoming LE12 Beta2
+## KNOWN PROBLEMS
+
+- Allwinner and Rockchip devices are not widely tested. If there are problems please report them.
+- nVidia ION is broken in this beta. It is fixed in the upcoming Beta2.
 
 ## RASPBERRY PI
 
@@ -26,9 +26,9 @@ LibreELEC 11.0 installs will not automatically update, but you can [manually upd
 
 ## GENERIC (x86_64)
 
-The Generic image now runs the same GBM/V4L2 graphics stack we have long used with ARM platforms. It now supports HDR with recent AMD and Intel GPUs. We have added a Generic-Legacy image that runs the older X12 graphics stack used in LE v7-v10. You can update between the GBM and X12 images without issues.
+The Generic image runs the same GBM/V4L2 graphics stack we have long used with ARM devices. It supports HDR with recent AMD and Intel GPUs. We added a Generic-legacy image that runs the older X11 graphics stack used in LibreELEC 7.0-10.0. Devices may update between the GBM and X11 images without issues.
 
-Use the Generic-Legacy image if:
+Use the Generic-legacy image if:
 
 - You need support for nVidia GPUs
 - You need support for the Chrome Browser add-on
@@ -42,7 +42,7 @@ Support for Amlogic S905, S905X/D, and S912 devices resumes. H264 playback and s
 
 To set expectations, here's the 'No' list:
 
-- No support for updates from older LE releases (clean install is mandatory)
+- No support for updates from older LibreELEC releases (clean install is mandatory)
 - No support for internal eMMC install except WeTek Hub/Play2 and SBC boards
 - No support for SSV6501 and S908CS WiFi chips
 - No drivers for in-box DVB tuners
@@ -56,7 +56,7 @@ AMLGX has a different boot and SD card preparation process, i.e. no renaming of 
 
 ## MAKE BACKUPS
 
-We always recommend you to create a backup BEFORE you upgrade. Otherwise, rolling back is basically impossible. Kodi does not support downgrades; if it ever worked for you in the past it was luck, not design. The Python3 changes that took place between LE9.x and LE10.x guarantee in-situ upgrade challenges, so unless you are already running LE10 a clean install is mandatory.
+We always recommend creating a backup BEFORE upgrades. Otherwise, a quick roll back to the previous version is significantly more difficult. Kodi does not support downgrades; if it ever worked for you in the past it was luck, not design. The Python 3 changes that took place between LibreELEC 9 and LibreELEC 10 guarantee in-situ upgrade challenges, so unless you are already running LibreELEC 10 a clean install is mandatory.
 
 ## SUPPORT
 
@@ -72,5 +72,5 @@ Enjoy! :)
 
 ## SHA256 Hashes
 
-Just add `?mirrorlist` after the link to show the SHA256 hash, for example `https://releases.libreelec.tv/LibreELEC-RPi4.arm-11.95.1.img.gz?mirrorlist` .  
+Just add `?mirrorlist` after the link to show the SHA256 hash, for example `https://releases.libreelec.tv/LibreELEC-RPi4.arm-11.95.1.img.gz?mirrorlist`.
 We are working at a proper integration into the website.
