@@ -4,9 +4,6 @@ title: LibreELEC Amlogic
 description: Amlogic based devices
 ---
 
-<!-- project arch -->
-{% assign arch = "arm" %}
-
 <!-- LE 12.0 -->
 <div class="card mb-2">
   <h5 class="card-header text-white bg-danger">Latest Beta Version ({{ site.release_date_le_12_0 }})</h5>
@@ -24,29 +21,29 @@ description: Amlogic based devices
 <div class="card mb-4">
   <h5 class="card-header toc">Android Boxes (SD Card Boot)</h5>
   <div class="card-body">
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="box" device_name="Generic Box Image" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="box" device_name="Generic Box Image" %}
   </div>
 </div>
 
 <div class="card mb-4">
   <h5 class="card-header toc">SBC Boards (SD Card or eMMC Boot)</h5>
   <div class="card-body">
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="bananapi-m5" device_name="Banana Pi BPI-M5" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="nanopi-k2" device_name="NanoPi K2" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="khadas-vim" device_name="Khadas VIM" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="khadas-vim2" device_name="Khadas VIM2" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="khadas-vim3" device_name="Khadas VIM3" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="khadas-vim3l" device_name="Khadas VIM3L" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="lafrite" device_name="AML-S805X-AC (LaFrite)" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="lepotato" device_name="AML-S905X-CC (LePotato)" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="odroid-c2" device_name="ODROID C2" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="odroid-c4" device_name="ODROID C4" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="odroid-hc4" device_name="ODROID HC4" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="odroid-n2" device_name="ODROID N2/N2+" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="radxa-zero" device_name="Radxa Zero" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="radxa-zero2" device_name="Radxa Zero2" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="wetek-hub" device_name="WeTek Hub" %}
-    {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_12_0 device="wetek-play2" device_name="WeTek Play2" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="bananapi-m5" device_name="Banana Pi BPI-M5" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="nanopi-k2" device_name="NanoPi K2" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="khadas-vim" device_name="Khadas VIM" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="khadas-vim2" device_name="Khadas VIM2" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="khadas-vim3" device_name="Khadas VIM3" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="khadas-vim3l" device_name="Khadas VIM3L" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="lafrite" device_name="AML-S805X-AC (LaFrite)" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="lepotato" device_name="AML-S905X-CC (LePotato)" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="odroid-c2" device_name="ODROID C2" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="odroid-c4" device_name="ODROID C4" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="odroid-hc4" device_name="ODROID HC4" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="odroid-n2" device_name="ODROID N2/N2+" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="radxa-zero" device_name="Radxa Zero" %}
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="radxa-zero2" device_name="Radxa Zero2" %}
+    <!-- {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="wetek-hub" device_name="WeTek Hub" %} -->
+    {% include dl_links.html project="AMLGX" arch=aarch64 version=site.le_version_download_12_0 device="wetek-play2" device_name="WeTek Play2" %}
   </div>
 </div>
 
@@ -67,29 +64,29 @@ description: Amlogic based devices
   <div class="card mb-4">
     <h5 class="card-header toc">Android Boxes (SD Card Boot)</h5>
     <div class="card-body">
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="box" device_name="Generic Box Image" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="box" device_name="Generic Box Image" %}
     </div>
   </div>
 
   <div class="card mb-4">
     <h5 class="card-header toc">SBC Boards (SD Card or eMMC Boot)</h5>
     <div class="card-body">
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="bananapi-m5" device_name="Banana Pi BPI-M5" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="nanopi-k2" device_name="NanoPi K2" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="khadas-vim" device_name="Khadas VIM" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="khadas-vim2" device_name="Khadas VIM2" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="khadas-vim3" device_name="Khadas VIM3" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="khadas-vim3l" device_name="Khadas VIM3L" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="lafrite" device_name="AML-S805X-AC (LaFrite)" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="lepotato" device_name="AML-S905X-CC (LePotato)" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="odroid-c2" device_name="ODROID C2" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="odroid-c4" device_name="ODROID C4" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="odroid-hc4" device_name="ODROID HC4" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="odroid-n2" device_name="ODROID N2/N2+" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="radxa-zero" device_name="Radxa Zero" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="radxa-zero2" device_name="Radxa Zero2" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="wetek-hub" device_name="WeTek Hub" %}
-      {% include dl_links.html project="AMLGX" arch=arch version=site.le_version_download_11_0 device="wetek-play2" device_name="WeTek Play2" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="bananapi-m5" device_name="Banana Pi BPI-M5" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="nanopi-k2" device_name="NanoPi K2" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="khadas-vim" device_name="Khadas VIM" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="khadas-vim2" device_name="Khadas VIM2" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="khadas-vim3" device_name="Khadas VIM3" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="khadas-vim3l" device_name="Khadas VIM3L" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="lafrite" device_name="AML-S805X-AC (LaFrite)" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="lepotato" device_name="AML-S905X-CC (LePotato)" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="odroid-c2" device_name="ODROID C2" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="odroid-c4" device_name="ODROID C4" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="odroid-hc4" device_name="ODROID HC4" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="odroid-n2" device_name="ODROID N2/N2+" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="radxa-zero" device_name="Radxa Zero" %}
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="radxa-zero2" device_name="Radxa Zero2" %}
+      <!-- {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="wetek-hub" device_name="WeTek Hub" %} -->
+      {% include dl_links.html project="AMLGX" arch=arm version=site.le_version_download_11_0 device="wetek-play2" device_name="WeTek Play2" %}
     </div>
   </div>
 
@@ -108,18 +105,18 @@ description: Amlogic based devices
 <div class="card mb-4">
     <h5 class="card-header toc">Wetek</h5>
     <div class="card-body">
-        {% include dl_links.html project="WeTek_Core" arch=arch version=site.le_version_download_9_0 device_name="WeTek Core" %}
-        {% include dl_links.html project="WeTek_Hub" arch=arch version=site.le_version_download_9_0 device_name="WeTek Hub" %}
-        {% include dl_links.html project="WeTek_Play" arch=arch version=site.le_version_download_9_0 device_name="WeTek Play" %}
-        {% include dl_links.html project="WeTek_Play_2" arch=arch version=site.le_version_download_9_0 device_name="WeTek Play2" %}
+        {% include dl_links.html project="WeTek_Core" arch=arm version=site.le_version_download_9_0 device_name="WeTek Core" %}
+        {% include dl_links.html project="WeTek_Hub" arch=arm version=site.le_version_download_9_0 device_name="WeTek Hub" %}
+        {% include dl_links.html project="WeTek_Play" arch=arm version=site.le_version_download_9_0 device_name="WeTek Play" %}
+        {% include dl_links.html project="WeTek_Play_2" arch=arm version=site.le_version_download_9_0 device_name="WeTek Play2" %}
     </div>
 </div>
 
 <div class="card mb-4">
     <h5 class="card-header toc">Amlogic S905</h5>
     <div class="card-body">
-        {% include dl_links.html project="KVIM" arch=arch version=site.le_version_download_9_0 device_name="Khadas VIM" %}
-        {% include dl_links.html project="LePotato" arch=arch version=site.le_version_download_9_0 device_name="LePotato" %}
-        {% include dl_links.html project="Odroid_C2" arch=arch version=site.le_version_download_9_0 device_name="Odroid C2" %}
+        {% include dl_links.html project="KVIM" arch=arm version=site.le_version_download_9_0 device_name="Khadas VIM" %}
+        {% include dl_links.html project="LePotato" arch=arm version=site.le_version_download_9_0 device_name="LePotato" %}
+        {% include dl_links.html project="Odroid_C2" arch=arm version=site.le_version_download_9_0 device_name="Odroid C2" %}
     </div>
 </div>
