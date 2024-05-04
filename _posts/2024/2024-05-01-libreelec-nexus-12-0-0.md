@@ -5,17 +5,21 @@ description: "LE 12.0 finally"
 image: img/posts/icon-release-k21.jpg
 ---
 
-LibreELEC 12.0 has released as final release, bringing Kodi (Omega) v21.0.
-
 ## NEWS
 
-With the new release cycle we changed many devices to 64-bit, including Rasberry Pi 4 and 5.
+LibreELEC 12.0 with Kodi (Omega) v21.0 has been released!
 
-If using Widevine DRM (required for various copyprotected video add-ons like Prime Video, Netflix, etc.) on one of these devices and updating from LibreELEC 11, Widevine DRM will need to be reinstalled on these devices due to the changed architecture.
+## IMPORTANT
 
-LibreELEC 11.0 installs will not automatically update, but you can [manually update](https://wiki.libreelec.tv/support/update). LibreELEC installs from before LibreELEC 10.0 must make a clean install due to the Python 3 changes since Kodi v19.
+64-bit capable ARM SoC devices including Raspberry Pi 4/5 have switched from 'arm'to 'aarch64' userspace. Manual update in LibreELEC settings will not list LibreELEC 12.0 releases on switched devices as there are no matching arm images (only aarch64). You can [manually update](https://wiki.libreelec.tv/support/update) by placing a LibreELEC 12 release file (.tar|.img|.img.gz) in /storage/.update/ and rebooting.
 
-## CHANGES SINCE Beta 2
+If using Widevine to access DRM protected streaming services like Prime Video, Netflix, etc. the Widevine CDN folder in /storage/.kodi/cdm on switched devices must be deleted before first use as the existing arm libraries do not work on aarch64 systems. On first use after deletion aarch64 Widevine libraries will be downloaded and installed.
+
+If using Docker containers via LinuxServer.io add-ons the arch change should be handled automatically. If using containers installed from the console: arm containers must be removed before updating as they will not run on aarch64. After updating aarch64 (arm64) compatible versions of your containers can be (re)installed.
+
+Updating from LibreELEC 9.x and older requires a clean install due to the Python 3 changes introduced since LibreELEC 10.x (Kodi v19).
+
+## CHANGES SINCE 11.95.2
 
 - linux: update to 6.6.28
 - a complete [list of fixes](https://github.com/LibreELEC/LibreELEC.tv/compare/11.95.2...12.0.0)
@@ -32,37 +36,41 @@ LibreELEC 11.0 installs will not automatically update, but you can [manually upd
 
 ## GENERIC (x86_64)
 
-The Generic image runs the same GBM/V4L2 graphics stack we have long used with ARM devices. It supports HDR with recent AMD and Intel GPUs. We added a Generic-legacy image that runs the older X11 graphics stack used in LibreELEC 7.0-10.0. Devices may update between the GBM and X11 images without issues.
-
-Use the Generic-legacy image if:
+The Generic image uses GBM/V4L2 graphics stack and supports HDR/HDR10/HLG with recent AMD and Intel GPUs. The Generic-Legacy image runs X11 graphics stack and does not support HDR. Use Generic-Legacy if:
 
 - You need support for nVidia GPUs
 - You need support for the Chrome Browser add-on
 - You see graphical glitches on older hardware, e.g. NUC 6th Gen
 
-NB: In the last year nVidia has made progress in their support for modern graphics standards. Drivers are now mesa/GBM compatible but still have dependencies on Wayland which we do not use, and Kodi has no plan to support proprietary NVDEC decoding (but VDPAU remains). We still recommend users avoid investing in nVidia GPUs.
+Intel and AMD hardware can switch between Generic/Generic-Legacy versions. Note that Generic (GBM) uses OpenGLES while Generic-Legacy (X11) uses OpenGL so visualiser and screensaver add-ons need to be removed and reinstalled when switching. You also need to clear the package cache in /storage/.kodi/addons/packages else reinstalling reuses the (wrong) cached package instead of downloading from the LibreELEC repo.
+
+NB: nVidia made progress in support for modern graphics standards and recent cards (with recent drivers) can use mesa. However the mesa (GBM) drivers depend on Wayland which lacks automatic refresh-rate switching for a good Kodi experience and Kodi supports VDPAU not NVDEC. In short: there is still no clear technical path for modern nVidia cards to use the Generic (GBM) image, only Generic-Legacy (X11) and we continue to recommend users do not invest in nVidia GPUs.
 
 ## AMLOGIC
 
-Support for Amlogic S905, S905X/D, and S912 devices resumes. H264 playback and seeking is solid. HEVC playback is okay and seeking recently improved from 2/10 to maybe 7/10. HDR works with HEVC/VP9 media on S905X/D and S912 devices. Multi-Channel PCM and Pass-Through audio works on HDMI up to 7.1 channels. With typical 1080p oriented media collections the AMLGX image is quite usable and provides access to the latest Kodi release and compatible add-ons. To be crystal clear: the AMLGX image is not perfect, but cost-of-living is high and $0 updates to old hardware are more appealing to users than $150+ purchases of new hardware. If we resume support (with caveats) fewer old boxes end up in landfill. There's also an increased chance of people contributing improvements to smooth the rough edges that exist.
+The AMLGX image allows older Amlogic hardware to run the latest Kodi version and add-ons but it is not as feature-complete or stable as older vendor-kernel releases. It is not perfect but quite usable with typical 1080p-oriented media collections:
 
-To set expectations, here's the 'No' list:
+- Supports Amlogic S905, S905D/X, and S912 hardware
+- H264 1080p playback and seeking work well
+- HEVC and VP9 1080p/4K playback work well but seeking is 50/50
+- HDR works on S905X/D and S912 devices
+- Multi-Channel PCM and Pass-Through audio works on HDMI up to 7.1 channels
+- Software-only decoding on S905X2/D2/Y2, S905X3, S922X,and  A311D devices
 
-- No support for updates from older LibreELEC releases (clean install is mandatory)
-- No support for internal eMMC install except WeTek Hub/Play2 and SBC boards
+To set expectations the 'No' list includes:
+
+- No support for updates from older LibreELEC and CE releases (clean install is mandatory)
+- No support for internal eMMC install on box hardware except WeTek Hub/Play2
 - No support for SSV6501 and S908CS WiFi chips
 - No drivers for in-box DVB tuners
 - No hardware deinterlacing
 - No HDR to SDR tonemapping
-- No formal support for newer S905X2/D2/Y2, S905X3, S922X, A312D devices (read below)
 
-The reason for not formally supporting newer hardware generations is all about hardware decode drivers and user expectations. Amlogic hardware video decoding requires the "VDEC" driver for older GXBB/GXL/GXM hardware and "HEVC" driver (driver, not codec) for newer G12A/G12B/SM1 hardware, and both generations prefer a later iteration of "multi" decoder firmware. The current upstream driver code attempts to mix both drivers in a common codebase with partial success and does not support multi firmware blobs. As a result, the current drivers work well on older hardware, but bugs prevent 10-bit and 4K output on newer hardware, and users with newer and (on paper) more capable hardware generally have higher expectations and more demanding media. To avoid negative feedback and user frustration; if you have newer Amlogic hardware our recommendation is to run Kodi on the Android install that shipped with the box. If you choose to run AMLGX images on newer hardware; expect 1080p maximum output, and minimum interest from developers if you post known issues in the forums.
+The AMLGX image has a different boot and SD card preparation process so [PLEASE READ THIS WIKI ARTICLE](https://wiki.libreelec.tv/hardware/amlogic) for more info on differences between AMLGX and older LibreELEC (and CE) releases.
 
-AMLGX has a different boot and SD card preparation process, i.e. no renaming of device-tree files, so [PLEASE READ THIS WIKI ARTICLE](https://wiki.libreelec.tv/hardware/amlogic) for more info on differences between AMLGX and legacy images.
+## BACKUPS
 
-## MAKE BACKUPS
-
-We always recommend creating a backup BEFORE upgrades. Otherwise, a quick roll back to the previous version is significantly more difficult. Kodi does not support downgrades; if it ever worked for you in the past it was luck, not design. The Python 3 changes that took place between LibreELEC 9 and LibreELEC 10 guarantee in-situ upgrade challenges, so unless you are already running LibreELEC 10 a clean install is mandatory.
+Kodi supports upgrades not downgrades. We recommend creating a backup BEFORE upgrading else rolling back to the previous release can be complicated.
 
 ## SUPPORT
 
@@ -70,13 +78,10 @@ Project staff are available in the [forum](https://forum.libreelec.tv) to answer
 
 Enjoy! :)
 
-## Donating
+[** Click here to go to the download page **](https://libreelec.tv/downloads/)
 
 {% include opencollective.html %}
 
-[**Click here to go to the download page.**](https://libreelec.tv/downloads/)
+## SHA256
 
-## SHA256 Hashes
-
-Just add `?mirrorlist` after the link to show the SHA256 hash, for example `https://releases.libreelec.tv/LibreELEC-RPi4.arm-12.0.0.img.gz?mirrorlist`.
-We are working at a proper integration into the website.
+Append `?mirrorlist` to download links to see the file SHA256 hash, e.g. `https://releases.libreelec.tv/LibreELEC-RPi4.arm-12.0.0.img.gz?mirrorlist`.
