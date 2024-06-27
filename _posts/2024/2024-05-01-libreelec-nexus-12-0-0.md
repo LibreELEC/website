@@ -9,7 +9,7 @@ LibreELEC 12.0 with Kodi (Omega) v21.0 has been released!
 
 ## IMPORTANT
 
-64-bit capable ARM SoC devices including Raspberry Pi 4/5 have been switched from 'arm' to 'aarch64' userspace. Manual update in LibreELEC settings will not list LibreELEC 12.0 releases on switched devices as there are no matching arm images (only aarch64). You can [manually update](https://wiki.libreelec.tv/support/update) by placing a LibreELEC 12 release file (.img.gz extension) in /storage/.update and rebooting.
+64-bit capable ARM SoC devices including Raspberry Pi 4/5 have been switched from 'arm' to 'aarch64' userspace. Manual update in LibreELEC settings will not list LibreELEC 12.0 releases on switched devices as there are no matching arm images (only aarch64). You can [manually update](https://wiki.libreelec.tv/support/update) by placing a LibreELEC 12 release file (.tar or .img.gz) in /storage/.update and rebooting.
 
 If using Widevine to access DRM protected streaming services like Prime Video, Netflix, etc. the Widevine CDN folder in /storage/.kodi/cdm on switched devices must be deleted before first use as the existing arm libraries do not work on aarch64 systems. On first use after deletion aarch64 Widevine libraries will be downloaded and installed.
 
