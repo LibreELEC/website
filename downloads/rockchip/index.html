@@ -4,9 +4,59 @@ title: LibreELEC Rockchip
 description: Rockchip based devices
 ---
 
+<!-- LE 12.2 -->
+<div class="card mb-2">
+    <h5 class="card-header text-white bg-success">Latest Stable Version  ({{ site.release_date_le_12_2 }})</h5>
+    <div class="card-body pt-2 pb-2">
+        <h5 class="card-title">LibreELEC {{ site.le_version_name_12_2 }}</h5>
+        <ul class="mb-0">
+            <li>Kodi {{ site.kodi_version_le_12_2 }}</li>
+            <li>Linux Kernel {{ site.kernel_version_le_12_2 }}</li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <h5 class="card-header toc">Rockchip RK3288</h5>
+    <div class="card-body">
+        {% include dl_links.html project="RK3288" arch="arm" version=site.le_version_download_12_2 device="tinker" device_name="ASUS Tinker Board" %}
+        {% include dl_links.html project="RK3288" arch="arm" version=site.le_version_download_12_2 device="miqi" device_name="Mqmaker MiQi" %}
+    </div>
+</div>
+
+<div class="card mb-4">
+    <h5 class="card-header toc">Rockchip RK3328</h5>
+    <div class="card-body">
+        {% include dl_links.html project="RK3328" arch="aarch64" version=site.le_version_download_12_2 device="a1" device_name="Beelink A1 TV BOX" %}
+        {% include dl_links.html project="RK3328" arch="aarch64" version=site.le_version_download_12_2 device="roc-cc" device_name="Firefly ROC-RK3328-CC" %}
+        {% include dl_links.html project="RK3328" arch="aarch64" version=site.le_version_download_12_2 device="rock64" device_name="PINE64 ROCK64" %}
+        {% include dl_links.html project="RK3328" arch="aarch64" version=site.le_version_download_12_2 device="rock64" device_name="Popcorn Hour Transformer" %}
+    </div>
+</div>
+
+<div class="card mb-4">
+    <h5 class="card-header toc">Rockchip RK3399</h5>
+    <div class="card-body">
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="rock960" device_name="96rocks ROCK960" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="nanopc-t4" device_name="FriendlyARM NanoPC-T4" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="nanopi-m4" device_name="FriendlyARM NanoPi M4" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="hugsun-x99" device_name="Hugsun X99 TV BOX" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="khadas-edge" device_name="Khadas Edge" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="orangepi" device_name="Orange Pi RK3399" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="rockpro64" device_name="PINE64 RockPro64" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="roc-pc" device_name="ROC RK3399 PC" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="roc-pc-plus" device_name="ROC RK3399 PC Plus" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="rock-pi-4" device_name="Radxa ROCK Pi 4" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="rock-pi-4-plus" device_name="Radxa ROCK Pi 4A Plus" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="rock-pi-4-plus" device_name="Radxa ROCK Pi 4B Plus" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="rock-pi-n10" device_name="Radxa ROCK Pi N10" %}
+        {% include dl_links.html project="RK3399" arch="aarch64" version=site.le_version_download_12_2 device="sapphire" device_name="Rockchip Sapphire Board" %}
+    </div>
+</div>
+
 <!-- LE 12.0 -->
 <div class="card mb-2">
-    <h5 class="card-header text-white bg-success">Latest Stable Version  ({{ site.release_date_le_12_0 }})</h5>
+    <h5 class="card-header text-white bg-warning">Old Versionn  ({{ site.release_date_le_12_0 }})</h5>
     <div class="card-body pt-2 pb-2">
         <h5 class="card-title">LibreELEC {{ site.le_version_name_12_0 }}</h5>
         <ul class="mb-0">
@@ -56,7 +106,7 @@ description: Rockchip based devices
 
 <!-- LE 11.0 -->
 <div class="card mb-2">
-    <h5 class="card-header text-white bg-warning">Old Version ({{ site.release_date_le_11_0 }})</h5>
+    <h5 class="card-header text-white bg-secondary">Old Version ({{ site.release_date_le_11_0 }})</h5>
     <div class="card-body pt-2 pb-2">
         <h5 class="card-title">LibreELEC {{ site.le_version_name_11_0 }}</h5>
         <ul class="mb-0">
@@ -106,7 +156,7 @@ description: Rockchip based devices
 
 <!-- LE 10.0 -->
 <div class="card mb-2">
-    <h5 class="card-header text-white bg-warning">Old Version ({{ site.release_date_le_10_0 }})</h5>
+    <h5 class="card-header text-white bg-secondary">Old Version ({{ site.release_date_le_10_0 }})</h5>
     <div class="card-body pt-2 pb-2">
         <h5 class="card-title">LibreELEC {{ site.le_version_name_10_0 }}</h5>
         <ul class="mb-0">
