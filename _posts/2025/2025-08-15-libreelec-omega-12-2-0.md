@@ -7,11 +7,11 @@ image: img/posts/icon-release-k21.2.jpg
 
 LibreELEC 12.2 with Kodi (Omega) v21.2+ is released!
 
-The main purpose of the LibreELEC 12.2 release is hardware support: bumping kernels and display components to better handle current and recent Intel hardware and keeping Raspberry Pi boards aligned with RPiOS. The release contains Kodi Omega 21.2 with a small number of additional improvements that Kodi backported to Omega since the Kodi 21.2 release.
+The main purpose of the LibreELEC 12.2 release is hardware support: bumping kernels and display components to better handle current and recent Intel hardware and keeping Raspberry Pi boards aligned with RPiOS. The release contains Kodi Omega 21.2 with a small number of additional improvements that Kodi backported to Omega since the Kodi 21.2 release (no 21.3 release is planned).
 
 ## Generic-Legacy nVidia Changes
 
-The nVidia Legacy 340.xx driver remained usable for six years after nVidia discontinued support, but it no longer compiles with the latest Xorg release so has been dropped from the Generic-Legacy image for LibreELEC 12.2 and the future 13.0 release. This impacts older nVidia cards, which are unfortunately the majority of active nVidia installations. We have investigated 'Nouveau' driver and may add support to the main Generic image in the future to assist Lakka retrogaming, but it creates more problems than it solves for video playback and is not a solution for LibreELEC use. Future nVidia GPU support remains a grey area and we continue our long-running advice to avoid purchasing nVidia GPU cards for LibreELEC use.
+The nVidia Legacy 340.xx driver remained usable for six years after nVidia discontinued support, but it no longer compiles with the latest Xorg release so has been dropped from the Generic-Legacy image for LibreELEC 12.2 and the future 13.0 release. This impacts older nVidia cards, which are unfortunately the majority of active nVidia installations. We have investigated 'Nouveau' and may add support to the main Generic image in the future to assist Lakka retrogaming, but it creates more problems than it solves for video playback and is not a solution for LibreELEC use. Future nVidia GPU support remains a grey area and we continue our long-running advice to avoid purchasing nVidia GPU cards for LibreELEC use.
 
 ## Generic uses OpenGL
 
