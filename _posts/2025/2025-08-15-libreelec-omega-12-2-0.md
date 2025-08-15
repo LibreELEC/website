@@ -13,10 +13,6 @@ The main purpose of the LibreELEC 12.2 release is hardware support: bumping kern
 
 The nVidia Legacy 340.xx driver remained usable for six years after nVidia discontinued support, but it no longer compiles with the latest Xorg release so has been dropped from the Generic-Legacy image for LibreELEC 12.2 and the future 13.0 release. This impacts older nVidia cards, which are unfortunately the majority of active nVidia installations. We have investigated 'Nouveau' and may add support to the main Generic image in the future to assist Lakka retrogaming, but it creates more problems than it solves for video playback and is not a solution for LibreELEC use. Future nVidia GPU support remains a grey area and we continue our long-running advice to avoid purchasing nVidia GPU cards for LibreELEC use.
 
-## Generic uses OpenGL
-
-The Generic image has switched from OpenGLES to OpenGL to benefit retrogaming use within Kodi and improve deinterlacing options on some hardware. OpenGL images now support HDR (on hardware that supports HDR) and there should be no other functional changes.
-
 ## Tvheadend 4.3
 
 Tvheadend developers declared v4.3 to be a stable rolling release some time ago and v4.2 has not been maintained or supported since 2019 so v4.2 is not available from the LibreELEC 12.2 repo and users are advised to move to Tvheadend v4.3. There is no direct update path from v4.2 to v4.3 so users will need to install v4.3 and configure a new installation. Issues with v4.3 should ideally be reported to Tvheadend developers via their forum (with detailed logs and info) but if reported in our forum we will do our best to assist too.
