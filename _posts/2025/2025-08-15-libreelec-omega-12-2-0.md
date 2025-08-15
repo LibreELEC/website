@@ -21,9 +21,9 @@ The Generic image has switched from OpenGLES to OpenGL to benefit retrogaming us
 
 Tvheadend developers declared v4.3 to be a stable rolling release some time ago and v4.2 has not been maintained or supported since 2019 so v4.2 is not available from the LibreELEC 12.2 repo and users are advised to move to Tvheadend v4.3. There is no direct update path from v4.2 to v4.3 so users will need to install v4.3 and configure a new installation. Issues with v4.3 should ideally be reported to Tvheadend developers via their forum (with detailed logs and info) but if reported in our forum we will do our best to assist too.
 
-## iMX8 and Qualcomm
+## NXP (iMX6/iMX8) and Qualcomm
 
-Limited support for these was added to assist the early stages of Kodi GBM/V4L2 development. They are mostly used with industrial hardware and tablet devices and this relects in low or no active installs. They remain part of our codebase but we have stopped creating release images.
+Limited support for iMX8 and Qualcomm chips was added in 2018 to assist the early stages of Kodi GBM/V4L2 development. They are mostly used with industrial hardware designs and tablet devices and this relects in no active LibreELEC installs. iMX6 was used widely in the past, but there are now few active installs, and those are using self-built images. Support remains part of our codebase but we have stopped building and releasing official images.
 
 ## UPDATING
 
