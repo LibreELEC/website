@@ -4,9 +4,63 @@ title: LibreELEC Raspberry
 description: Raspberry Pi boards and devices
 ---
 
+<!-- LE 12.2 -->
+<div class="card mb-2">
+  <h5 class="card-header text-white bg-success">Latest Stable Version ({{ site.release_date_le_12_2 }})</h5>
+  <div class="card-body pt-2 pb-2">
+    <h5 class="card-title">LibreELEC {{ site.le_version_name_12_2 }}</h5>
+    <ul class="mb-0">
+      <li>Kodi {{ site.kodi_version_le_12_2 }}</li>
+      <li>Linux Kernel {{ site.kernel_version_rpi_le_12_2 }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <h5 class="card-header toc">Raspberry Pi 5</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi5" arch="aarch64" version=site.le_version_download_12_2 device_name="RPi 5" %}
+  </div>
+</div>
+
+<div class="card mb-3">
+  <h5 class="card-header toc">Raspberry Pi 4</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi4" arch="aarch64" version=site.le_version_download_12_2 device_name="RPi 4" %}
+  </div>
+</div>
+
+<div class="card mb-3">
+  <h5 class="card-header toc">Raspberry Pi 400</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi4" arch="aarch64" version=site.le_version_download_12_2 device_name="RPi 4" %}
+  </div>
+</div>
+
+<div class="card mb-3">
+  <h5 class="card-header toc">Raspberry CM4</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi4" arch="aarch64" version=site.le_version_download_12_2 device_name="RPi 4" %}
+  </div>
+</div>
+
+<div class="card mb-3">
+  <h5 class="card-header toc">Raspberry Pi 3</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi2" arch="arm" version=site.le_version_download_12_2 device_name="RPi 2" %}
+  </div>
+</div>
+
+<div class="card mb-3">
+  <h5 class="card-header toc">Raspberry Pi 2</h5>
+  <div class="card-body">
+    {% include dl_links.html project="RPi2" arch="arm" version=site.le_version_download_12_2 device_name="RPi 2" %}
+  </div>
+</div>
+
 <!-- LE 12.0 -->
 <div class="card mb-2">
-  <h5 class="card-header text-white bg-success">Latest Stable Version ({{ site.release_date_le_12_0 }})</h5>
+  <h5 class="card-header text-white bg-warning">Old Version ({{ site.release_date_le_12_0 }})</h5>
   <div class="card-body pt-2 pb-2">
     <h5 class="card-title">LibreELEC {{ site.le_version_name_12_0 }}</h5>
     <ul class="mb-0">
@@ -60,7 +114,7 @@ description: Raspberry Pi boards and devices
 
 <!-- LE 11.0 -->
 <div class="card mb-2">
-  <h5 class="card-header text-white bg-warning">Old Version  ({{ site.release_date_le_11_0 }})</h5>
+  <h5 class="card-header text-white bg-secondary">Old Version  ({{ site.release_date_le_11_0 }})</h5>
   <div class="card-body pt-2 pb-2">
     <h5 class="card-title">LibreELEC {{ site.le_version_name_11_0 }}</h5>
     <ul class="mb-0">
@@ -114,7 +168,7 @@ description: Raspberry Pi boards and devices
 
 <!-- LE 10.0 -->
 <div class="card mb-2">
-  <h5 class="card-header text-white bg-warning">Old Version ({{ site.release_date_le_10_0 }})</h5>
+  <h5 class="card-header text-white bg-secondary">Old Version ({{ site.release_date_le_10_0 }})</h5>
   <div class="card-body pt-2 pb-2">
     <h5 class="card-title">LibreELEC {{ site.le_version_name_10_0 }}</h5>
     <ul class="mb-0">

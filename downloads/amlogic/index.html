@@ -4,9 +4,52 @@ title: LibreELEC Amlogic
 description: Amlogic based devices
 ---
 
+<!-- LE 12.2 -->
+<div class="card mb-2">
+  <h5 class="card-header text-white bg-success">Latest Stable Version  ({{ site.release_date_le_12_2 }})</h5>
+  <div class="card-body pt-2 pb-2">
+    <h5 class="card-title">LibreELEC {{ site.le_version_name_12_2 }}</h5>
+    <ul class="mb-0">
+      <li>Kodi {{ site.kodi_version_le_12_2 }}</li>
+      <li>Linux Kernel {{ site.kernel_version_le_12_2 }}</li>
+      <li>Support for GXBB (S905), GXL (S905X/D), and GXM (S912) devices</li>
+      <li>Alpha support for G12A (S905X2/D2/Y2), G12B (S922X/A311D) and SM1 (S905X3/D3) devices</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">Android Boxes (SD Card Boot)</h5>
+  <div class="card-body">
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="box" device_name="Generic Box Image" %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <h5 class="card-header toc">SBC Boards (SD Card or eMMC Boot)</h5>
+  <div class="card-body">
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="bananapi-m5" device_name="Banana Pi BPI-M5" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="nanopi-k2" device_name="NanoPi K2" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="khadas-vim" device_name="Khadas VIM" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="khadas-vim2" device_name="Khadas VIM2" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="khadas-vim3" device_name="Khadas VIM3" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="khadas-vim3l" device_name="Khadas VIM3L" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="lafrite" device_name="AML-S805X-AC (LaFrite)" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="lepotato" device_name="AML-S905X-CC (LePotato)" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="odroid-c2" device_name="ODROID C2" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="odroid-c4" device_name="ODROID C4" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="odroid-hc4" device_name="ODROID HC4" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="odroid-n2" device_name="ODROID N2/N2+" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="radxa-zero" device_name="Radxa Zero" %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="radxa-zero2" device_name="Radxa Zero2" %}
+    {% comment %} {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="wetek-hub" device_name="WeTek Hub" %} {% endcomment %}
+    {% include dl_links.html project="AMLGX" arch="aarch64" version=site.le_version_download_12_2 device="wetek-play2" device_name="WeTek Play2" %}
+  </div>
+</div>
+
 <!-- LE 12.0 -->
 <div class="card mb-2">
-  <h5 class="card-header text-white bg-success">Latest Stable Version  ({{ site.release_date_le_12_0 }})</h5>
+  <h5 class="card-header text-white bg-warning">Old Version  ({{ site.release_date_le_12_0 }})</h5>
   <div class="card-body pt-2 pb-2">
     <h5 class="card-title">LibreELEC {{ site.le_version_name_12_0 }}</h5>
     <ul class="mb-0">
@@ -49,7 +92,7 @@ description: Amlogic based devices
 
 <!-- LE 11.0 -->
 <div class="card mb-2">
-    <h5 class="card-header text-white bg-warning">Old Version ({{ site.release_date_le_11_0 }})</h5>
+    <h5 class="card-header text-white bg-secondary">Old Version ({{ site.release_date_le_11_0 }})</h5>
     <div class="card-body pt-2 pb-2">
       <h5 class="card-title">LibreELEC {{ site.le_version_name_11_0 }}</h5>
       <ul class="mb-0">
