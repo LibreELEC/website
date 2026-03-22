@@ -7,13 +7,8 @@ url: "https://libreelec.tv"
 default_header_logo: "img/bg-index.jpg" # relative path to default header logo
 
 # Social Profiles
-twitter_username: LibreELEC
 github_username: LibreELEC/LibreELEC.tv
-facebook_username:
-instagram_username:
-linkedin_username:
 reddit_url: https://www.reddit.com/r/LibreELEC
-youtube_url: https://www.youtube.com/channel/UC7FSO0rXOtO6w_poBLvvjDw
 wiki_url: https://libreelec.wiki
 
 # Add your google-analytics ID here to activate google analytics
