@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <g transform="translate(512, 512) rotate(-45)">
+    <!-- Green (top-left) -->
+    <rect x="-227" y="-454" width="454" height="227" rx="38" fill="#4CAD50" />
+    <!-- Orange (top-right) -->
+    <rect x="227" y="-227" width="227" height="454" rx="38" fill="#FFA526" />
+    <!-- Pink (bottom-right) -->
+    <rect x="-227" y="227" width="454" height="227" rx="38" fill="#EB407A" />
+    <!-- Blue (bottom-left) -->
+    <rect x="-454" y="-227" width="227" height="454" rx="38" fill="#02A7F3" />
+    <!-- Center (grey diamond) -->
+    <rect x="-170" y="-170" width="340" height="340" rx="26" fill="#F0F0F0" />
+  </g>
+</svg>
