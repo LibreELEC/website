@@ -67,10 +67,6 @@ Following a number of significant security issues we need to ensure more users r
 
  
 
-
-<SupportBlock />
-
-
 [or donate by purchasing a LibreELEC teeshirt or hoodie](https://libreelec.tv/shop/)
 
  

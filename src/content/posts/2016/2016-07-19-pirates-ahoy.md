@@ -13,7 +13,3 @@ Kodi maintains [a list of known piracy add-ons](http://kodi.wiki/view/Official:F
 If you choose to pirate we will not judge, but please keep your choice private in online forums and social media. You are free to use our distro as you like within the laws that apply to you. We are free to refuse support to users of pirate add-ons. We will continue to defend our name and block those who promote them.
 
 Thanks for your support.
-
-
-<SupportBlock />
-

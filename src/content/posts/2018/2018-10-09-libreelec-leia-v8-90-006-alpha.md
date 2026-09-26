@@ -79,7 +79,3 @@ To update an existing installation from within the Kodi GUI select manual update
 **ASUS Tinker Board** [LibreELEC-TinkerBoard.arm-8.90.006-rk3288.img.gz](http://releases.libreelec.tv/LibreELEC-TinkerBoard.arm-8.90.006-rk3288.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-TinkerBoard.arm-8.90.006-rk3288.img.gz?mirrorlist))
 
 **mqmaker MiQi** [LibreELEC-MiQi.arm-8.90.006-rk3288.img.gz](http://releases.libreelec.tv/LibreELEC-MiQi.arm-8.90.006-rk3288.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-MiQi.arm-8.90.006-rk3288.img.gz?mirrorlist))
-
-
-<SupportBlock />
-

@@ -11,7 +11,3 @@ Over the next year having servers in many different places became complicated to
 That 12-month period has now expired, and from tonight we are responsible for hosting fees again. Spending $0.00 over the last year has enabled us to experiment with hosting configurations as we migrated a number of servers and services back into a common platform and learned what we need to secure, manage and run the infrastructure of the project. It also created financial breathing-space; allowing us to start on some other project objectives earlier, and our funding horizon extended from a few months to something more distant.
 
 For this valued contribution to our project. [Digital Ocean](https://m.do.co/c/ab0cac9f21a2), we thank you!
-
-
-<SupportBlock />
-

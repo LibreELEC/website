@@ -97,10 +97,6 @@ Initial patches to resolve the lack of pass-through HBR audio on NUC devices and
 
 Following a number of significant security issues we need to ensure more users run the latest release to benefit from security bug fixes. LibreELEC 8.2.0 changes the default OS update option from manual to auto-update to ensure maintenance updates, e.g. 8.2.0 to 8.2.1 roll-out faster. Major version updates will remain user-initiated and there are no changes to the 24-hour canary period between a release and update files being distributed via auto-update.
 
-
-<SupportBlock />
-
-
 [or donate by purchasing a LibreELEC teeshirt or hoodie](https://libreelec.tv/shop/)
 
  

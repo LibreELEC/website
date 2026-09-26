@@ -54,7 +54,3 @@ Please note the last two lines in the list above. The LibreELEC settings add-on 
 **SUPPORT ASSISTANCE AND BUG REPORTS**
 
 If you spot issues, please flag them via a [bug report in the forums](http://forum.libreelec.tv/forum-35.html). You are also very welcome and encouraged to get involved and [submit fixes via GitHub!](https://github.com/LibreELEC/LibreELEC.tv)
-
-
-<SupportBlock />
-

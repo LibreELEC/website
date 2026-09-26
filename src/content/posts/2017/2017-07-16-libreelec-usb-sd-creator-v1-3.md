@@ -12,10 +12,6 @@ NB: Transifex currently shows missing and incomplete translations for Arabic and
 
 Enjoy! :)
 
-
-<SupportBlock />
-
-
 or purchase a tee-shirt!
 
 [![](/img/posts/2017/tshirt-logo-black.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=373&cid=100035&sid=front)[![](/img/posts/2017/hoodie-logo-grey.jpg)](https://teespring.com/en-GB/libreelec?tsmac=store&tsmic=libreelec#pid=377&cid=100063&sid=front)

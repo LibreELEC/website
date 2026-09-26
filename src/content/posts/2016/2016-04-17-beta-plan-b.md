@@ -11,7 +11,3 @@ Having weighed up the desire to hold our promise to you of releasing 7.0.0 after
 So that's the plan. Until the next plan. Apologies for the confusion.
 
 LibreELEC team :)
-
-
-<SupportBlock />
-

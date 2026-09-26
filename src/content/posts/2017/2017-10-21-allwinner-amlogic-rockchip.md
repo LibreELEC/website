@@ -17,7 +17,3 @@ LibreELEC developers have been experimenting with Atomic DRM/KMS support in Kodi
 The Allwinner, Amlogic and Rockchip branches have been added to improve visibility of our efforts and drive wider collaboration. Our long-term aim is generic support for new SoC families with a common codebase and the LibreELEC buildsystem supporting easier addition of new devices. It is important to state clearly that the team have made no decisions or commitments on SoC families and devices that can be (or will be) long-term supported and public testing is still a long way off, so please be patient.
 
 Thanks for reading :)
-
-
-<SupportBlock />
-

@@ -33,7 +33,3 @@ LibreELEC operates a 24-hour ‘canary’ period between maintenance release fil
 Recent add-on changes include: Adding 'unclutter' support to Chromium to allow optional hiding of the mouse cursor (useful in Kiosk set-ups). Syncthing now supports user-updating of the Syncthing binary within the addon. Hyperion has been updated and now ships with an improved default config file. Docker has been updated and now supports status pop-up notifications in the Kodi GUI. Oscam has been updated. The mpg123 and squeezlite binaries have been added to our multimedia-tools bundle, and both Music Player Daemon (MPD) and Moonlight have been added to the repo.
 
 Enjoy :)
-
-
-<SupportBlock />
-

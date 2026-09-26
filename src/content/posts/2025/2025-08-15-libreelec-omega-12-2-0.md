@@ -47,10 +47,6 @@ Enjoy! :)
 
 [** Click here to go to the download page **](https://libreelec.tv/downloads/)
 
-
-<SupportBlock />
-
-
 ## SHA256
 
 Append `?mirrorlist` to download links to see the file SHA256 hash, e.g. `https://releases.libreelec.tv/LibreELEC-RPi5.arm-12.2.0.img.gz?mirrorlist`.

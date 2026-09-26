@@ -13,7 +13,3 @@ The LibreELEC team (about 25 people and growing) are now heads-down on completin
 Our activities can be (mostly) followed by looking at commits to our [GitHub](https://github.com/LibreELEC/LibreELEC.tv) repo and reading further news posts as they appear on this website.
 
 Thanks for your support! :)
-
-
-<SupportBlock />
-

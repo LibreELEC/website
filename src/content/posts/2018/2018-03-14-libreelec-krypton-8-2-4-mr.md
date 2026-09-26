@@ -28,7 +28,3 @@ Our [Shop page](https://libreelec.tv/shop/) has been updated with links to [Kodi
 The 8.2.4 release is 95% about supporting the new Raspberry Pi 3B+ but Pi firmware updates benefit all Pi users and a fix in the LibreELEC settings add-on solves a size calculation issue when creating backups on external storage. We also bump Samba to solve [another major bug-scare](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1057) although it is unlikely LibreELEC users are running a problem configuration. As with other recent updates; changes are limited to keep the focus on LibreELEC 9.0 and to avoid breaking things. [Full details of the changes](http://github.com/LibreELEC/LibreELEC.tv/compare/8.2.3...8.2.4) are on GitHub.
 
 Happy Birth/Pi-Day!  :)
-
-
-<SupportBlock />
-

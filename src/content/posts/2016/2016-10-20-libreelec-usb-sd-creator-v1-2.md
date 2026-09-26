@@ -13,7 +13,3 @@ The project team are really happy with the positive reviews the USB-SD Creator 
 If you would like to see a language added in a future release please visit [the LibreELEC team page on Transifex](https://www.transifex.com/libreelec/) to request it and (the important bit) contribute translated text strings. Requesting a language does not automatically translate it so if you missed that step please go back to add them.
 
 Enjoy! :)
-
-
-<SupportBlock />
-

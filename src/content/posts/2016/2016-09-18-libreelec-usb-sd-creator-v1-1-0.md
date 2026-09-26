@@ -35,7 +35,3 @@ If your language is not listed above and you would like to see it added in a fut
 Creator now runs on macOS sierra but Gatekeeper must be disabled first. This can be done by running the command "sudo spctl --master-disable" using Terminal.app. This is not a positive experience so we are looking into becoming a known Apple developer to avoid this step.
 
 Enjoy :)
-
-
-<SupportBlock />
-

@@ -14,8 +14,4 @@ Auto-update will be postponed until December 27 or 28 to ensure project staff fo
 
 Happy Holidays!
 
-
-<SupportBlock />
-
-
 [or donate by purchasing a LibreELEC teeshirt or hoodie](https://libreelec.tv/shop/)

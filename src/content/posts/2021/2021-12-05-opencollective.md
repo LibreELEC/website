@@ -11,6 +11,3 @@ To improve things for the teaam we have moved fundraising to [OpenCollective](ht
 To improve things for users we can now accept a wider range of donation methods in addition to paypal (behind the scenes the funds now route to OpenCollective not our own account). The online nature of OpenCollective also ensures everyone making a one-time or recurring donation to the project can be listed as a backer (if they choose to be). In recent years the number of recurring donations has increased and we want those users to have public thanks and recognition. We also receive occasional donations from companies, and while we avoid the obligations of commercial sponsorship, we would like companies who back Open Source projects to stand out from the crowd.
 
 OpenCollective is now live: [https://opencollective.com/libreelec/donate](https://opencollective.com/libreelec/donate) :)
-
-
-<SupportBlock />

@@ -8,8 +8,4 @@ LibreELEC settings add-on translations have moved from Transifex to the Team Kod
 
 [https://translate.libreelec.tv/](https://translate.libreelec.tv/)
 
-NB: If you would like to see the LibreELEC settings add-on translated to your language, it doesn't happen by magic! - Please sign up with Kodi Weblate and contribute the changes. 
-
-
-<SupportBlock />
-
+NB: If you would like to see the LibreELEC settings add-on translated to your language, it doesn't happen by magic! - Please sign up with Kodi Weblate and contribute the changes.

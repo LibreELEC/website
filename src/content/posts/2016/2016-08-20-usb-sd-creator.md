@@ -27,7 +27,3 @@ Please use the links below to download and test the app!
 LibreELEC would like to credit our neighbours and distro collaborators at [RasPlex](http://www.rasplex.com) as the original source of the app's code, and our own @vpeter for his efforts evolving it into the work of art that you can download from today.
 
 Enjoy! :)
-
-
-<SupportBlock />
-

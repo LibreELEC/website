@@ -10,8 +10,4 @@ LibreELEC (Krypton) 8.2.5 is now available with updates to Raspberry Pi firmware
 
 Enjoy :)
 
-
-<SupportBlock />
-
-
 [have you visited the LibreELEC shop?](https://libreelec.tv/shop/)

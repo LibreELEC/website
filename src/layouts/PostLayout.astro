@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import SupportBlock from '../components/SupportBlock.astro';
 import type { EnrichedPost } from '../utils/posts';
 
 interface Props {
@@ -70,6 +71,8 @@ const newsUrl = `${base}/news/`;
                 <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed">
                     <slot />
                 </div>
+
+                {post.data.support !== false && <SupportBlock />}
 
                 <!-- Post Footer Actions -->
                 <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">

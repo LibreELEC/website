@@ -75,10 +75,6 @@ Enjoy! :)
 
 ## Donating
 
-
-<SupportBlock />
-
-
 [**Click here to go to the download page.**](https://libreelec.tv/downloads/)
 
 ## SHA256 Hashes

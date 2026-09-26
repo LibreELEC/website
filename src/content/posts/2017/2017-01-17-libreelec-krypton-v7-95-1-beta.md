@@ -59,7 +59,3 @@ LibreELEC operates a 24-hour ‘canary’ period between release files being pos
 **SUPPORT ASSISTANCE AND BUG REPORTS**
 
 If you spot issues, please flag them via a [bug report in the forums](http://forum.libreelec.tv/forum-35.html). You are also encouraged to participate in LibreELEC development and [submit fixes via GitHub!](https://github.com/LibreELEC/LibreELEC.tv)
-
-
-<SupportBlock />
-

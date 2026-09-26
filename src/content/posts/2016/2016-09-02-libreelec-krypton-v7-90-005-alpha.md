@@ -51,7 +51,3 @@ LibreELEC operates a 24-hour ‘canary’ period between release files being pos
 Enjoy 🙂
 
 [LibreELEC PREVIEW BUILDS](https://libreelec.tv/downloads/preview/)
-
-
-<SupportBlock />
-

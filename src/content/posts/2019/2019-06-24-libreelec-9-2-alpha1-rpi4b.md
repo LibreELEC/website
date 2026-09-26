@@ -59,7 +59,3 @@ So instead of releasing LibreELEC 9.2 alpha images we are announcing the start o
 LibreELEC 9.2 for Generic x86/64 and Raspberry Pi 0/1/2/3 devices is a solid beta quality release. Raspberry Pi 4B images are more “late stage Alpha” and are not feature complete or perfect. Normal LibreELEC testing rules apply; if you do not want to experiment on your family’s primary entertainment system – please stick with your current version and wait for the final/stable release. If you do want to experiment – please be prepared to submit log files and work with developers to hunt down problems and test solutions.
 
 Enjoy :)
-
-
-<SupportBlock />
-

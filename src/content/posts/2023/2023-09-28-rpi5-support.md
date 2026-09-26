@@ -81,7 +81,3 @@ Board bring-up has been done with our master (LibreELEC 12) development branch a
 Users typically focus on hardware specification when choosing their next device but the secret to Raspberry Pi popularity is software support. In short: an average spec board with great software trumps a great spec board with average software. Raspberry Pi is no longer average hardware: RPi5 narrows the specification and performance gap against other on-paper better boards, and its software support is already excellent. For example: the all-new Videocore VII GPU already has fully conformant OpenGLES drivers ready to submit upstream. The kernel changes are ready to submit upstream. Kodi requires zero changes. In fact: adding RPi5 support to LibreELEC has almost been boring due to the exceptionally low level of development effort required. RPi5 is an all-round strong improvement on the RPi4 and will quickly become the #1 board to run LibreELEC on.
 
 The only bad thing is.. You'll need to wait a month until the boards start shipping!
-
-
-<SupportBlock />
-

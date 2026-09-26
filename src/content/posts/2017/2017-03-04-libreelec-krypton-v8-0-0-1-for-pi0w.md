@@ -15,7 +15,3 @@ To install LibreELEC on a new Pi Zero W download the .img.gz file linked above a
 If you experience an issue with LibreELEC on Pi Zero W hardware please [report the problem via the forums](http://forum.libreelec.tv/forum-35.html).
 
 Enjoy!
-
-
-<SupportBlock />
-

@@ -66,10 +66,6 @@ Enjoy! :)
 
 ## DONATING
 
-
-<SupportBlock />
-
-
 [**Click here to go to the download page.**](https://libreelec.tv/downloads/)
 
 ## HASHES

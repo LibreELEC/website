@@ -18,8 +18,4 @@ Having previously claimed 8.2.1 then 8.2.2 would be the final 8.2 release we'll 
 
 Enjoy :)
 
-
-<SupportBlock />
-
-
 [or donate by purchasing a LibreELEC teeshirt or hoodie](https://libreelec.tv/shop/)

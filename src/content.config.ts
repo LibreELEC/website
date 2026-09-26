@@ -9,7 +9,8 @@ const posts = defineCollection({
     image: z.string().optional(),
     layout: z.string().optional(),
     author: z.string().optional().default('LibreELEC Team'),
-    date: z.coerce.date().optional()
+    date: z.coerce.date().optional(),
+    support: z.boolean().optional().default(true)
   })
 });
 

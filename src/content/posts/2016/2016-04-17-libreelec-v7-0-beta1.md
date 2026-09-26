@@ -35,7 +35,3 @@ The download page also includes an iMX6 build based on a Linux 4.4 kernel and th
 **DOWNLOADS**
 
 [CLICK HERE FOR DOWNLOADS](https://libreelec.tv/downloads/)
-
-
-<SupportBlock />
-

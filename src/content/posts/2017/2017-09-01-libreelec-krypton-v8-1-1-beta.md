@@ -50,10 +50,6 @@ After recent security issues with Kodi and Samba we need to ensure more users ar
 
  
 
-
-<SupportBlock />
-
-
 [or donate by purchasing a LibreELEC teeshirt or hoodie](https://libreelec.tv/shop/)
 
  

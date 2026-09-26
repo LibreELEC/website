@@ -51,7 +51,3 @@ To update an existing installation from within the Kodi GUI select manual update
 **Rockchip**
 
 due a major bug no release for 008
-
-
-<SupportBlock />
-

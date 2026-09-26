@@ -21,7 +21,3 @@ That's all for now. Enjoy!
 LibreELEC team :)
 
 [DOWNLOADS](https://libreelec.tv/download/)
-
-
-<SupportBlock />
-

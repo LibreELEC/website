@@ -37,7 +37,3 @@ In both cases the project will be happy to publicly credit and acknowledge the b
 contact@ our domain.
 
 Thanks! :)
-
-
-<SupportBlock />
-

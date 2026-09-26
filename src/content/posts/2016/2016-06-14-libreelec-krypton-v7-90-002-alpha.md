@@ -36,7 +36,3 @@ If you want to run Alpha builds _please_ make a backup and store it somewhere 
 Enjoy :)
 
 [LibreELEC PREVIEW BUILDS](https://libreelec.tv/downloads/preview/)
-
-
-<SupportBlock />
-

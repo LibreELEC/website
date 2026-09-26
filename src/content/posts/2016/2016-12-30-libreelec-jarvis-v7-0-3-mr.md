@@ -27,7 +27,3 @@ The LibreELEC 7.0.3 image for Generic x86\_64 hardware is 215MB. This means it w
 LibreELEC operates a 24-hour ‘canary’ period between maintenance release files being posted to the download page and the release being available via auto-update and the noobs lite installer.
 
 That's all. Enjoy :)
-
-
-<SupportBlock />
-

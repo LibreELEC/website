@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import alpinejs from '@astrojs/alpinejs';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import remarkJekyllCompat from './src/plugins/remark-jekyll-compat.mjs';
 
 const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
 const ghRepository = process.env.GITHUB_REPOSITORY;
@@ -19,9 +18,6 @@ const base = process.env.BASE_PATH ?? (isGitHubActions && ghRepoName ? defaultGh
 export default defineConfig({
   site,
   base,
-  markdown: {
-    remarkPlugins: [remarkJekyllCompat]
-  },
   integrations: [
     alpinejs({
       entrypoint: '/src/alpine.ts'

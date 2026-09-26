@@ -49,10 +49,6 @@ Samba announced [CVE-2017-7494](https://www.samba.org/samba/security/CVE-2017-74
 
 The team have plans to create a mid-year LibreELEC 8.2 release to bridge the long time gap between 8.0.2 and 9.0 which (along with Kodi v18) is expected around year-end. The main items in the release will be improved support for newer Intel GPU hardware, a bump to Samba 4.6 to bring support for SMB2/SMB3 in our Samba server and Kodi client connections (and resolve security issues) and a switch to OpenSSL to resolve issues seen with LibreSSL and certificates expiring after 2038. Timeline is 8-10 weeks away ~ some time after Linux 4.12 ships.
 
-
-<SupportBlock />
-
-
 [or donate by purchasing a LibreELEC teeshirt or hoodie](https://libreelec.tv/shop/)
 
 **\*\* CANARY PERIOD \*\***

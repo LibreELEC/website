@@ -19,7 +19,3 @@ Download Links:
 - [LibreELEC USB-SD Creator (Windows x64)](https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.x64.exe) - [mirrors/sha256](https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.x64.exe?mirrorlist)
 
 Enjoy! :)
-
-
-<SupportBlock />
-

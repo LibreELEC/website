@@ -64,7 +64,3 @@ This recipe makes 12x normal adult-size cupcakes or 24x mini child-size cupcakes
 4. Beat until smooth and creamy.
 5. Spread icing onto the top of the cakes using the back of a Spoon or Spatula.
 6. Place pink, blue, green and orange Smarties on top to make the LibreELEC logo.
-
-
-<SupportBlock />
-

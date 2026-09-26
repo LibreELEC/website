@@ -56,10 +56,6 @@ NB: Existing Tvheadend 4.2 add-on users will see "fail to start" messages after 
 
  
 
-
-<SupportBlock />
-
-
 [or donate by purchasing a LibreELEC teeshirt or hoodie](https://libreelec.tv/shop/)
 
  

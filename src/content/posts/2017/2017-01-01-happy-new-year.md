@@ -41,7 +41,3 @@ Krypton beta (LibreELEC 8.0 preview) releases continued for longer than we expec
 **THANKS**
 
 LibreELEC wishes a Happy New Year to all of our contributors, collaborators, donors, users and absent friends; even drummers :)
-
-
-<SupportBlock />
-

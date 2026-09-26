@@ -27,7 +27,3 @@ To update an existing installation from within the Kodi GUI select manual update
 **RPi 0/1** [LibreELEC-RPi.arm-8.90.003.img.gz](http://releases.libreelec.tv/LibreELEC-RPi.arm-8.90.003.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-RPi.arm-8.90.003.img.gz?mirrorlist))
 
 **Generic** [LibreELEC-Generic.x86\_64-8.90.003.img.gz](http://releases.libreelec.tv/LibreELEC-Generic.x86_64-8.90.003.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-Generic.x86_64-8.90.003.img.gz?mirrorlist))
-
-
-<SupportBlock />
-

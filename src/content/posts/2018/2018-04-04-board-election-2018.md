@@ -11,7 +11,3 @@ Over time our developer/helper imbalance has contributed to the project dependin
 Recent Slack debate concluded that we aren't being true to our original vision for governance so things must change. To drive shared responsibility and checks/balances our first action is to finally form an elected board. For the next week the current ~95 people in our Slack team are invited to declare themselves as formal team members and propose nominations for an initial board to represent them and write initial bylaws. An impartial observer to the project is helping us to register members and then run a [Condorcet](https://civs.cs.cornell.edu/) vote on the list of accepted nominations.
 
 This is a long-overdue but exciting move. We will be publishing updates on the team-member and board nominations process as things unfold as it's important we keep you all informed.
-
-
-<SupportBlock />
-

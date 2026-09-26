@@ -126,7 +126,3 @@ If you experience problems, please open an thread at our [forum](https://forum.l
 **ASUS Tinker Board** [LibreELEC-TinkerBoard.arm-8.90.012-rk3288.img.gz](http://releases.libreelec.tv/LibreELEC-TinkerBoard.arm-8.90.012-rk3288.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-TinkerBoard.arm-8.90.012-rk3288.img.gz?mirrorlist))
 
 **mqmaker MiQi** [LibreELEC-MiQi.arm-8.90.012-rk3288.img.gz](http://releases.libreelec.tv/LibreELEC-MiQi.arm-8.90.012-rk3288.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-MiQi.arm-8.90.012-rk3288.img.gz?mirrorlist))
-
-
-<SupportBlock />
-

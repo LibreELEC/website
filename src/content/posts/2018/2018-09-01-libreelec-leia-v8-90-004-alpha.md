@@ -47,7 +47,3 @@ To update an existing installation from within the Kodi GUI select manual update
 **WeTek\_Play** [LibreELEC-WeTek\_Play.arm-8.90.004.img.gz](http://releases.libreelec.tv/LibreELEC-WeTek_Play.arm-8.90.004.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-WeTek_Play.arm-8.90.004.img.gz?mirrorlist))
 
 **WeTek\_Play\_2** [LibreELEC-WeTek\_Play\_2.arm-8.90.004.img.gz](http://releases.libreelec.tv/LibreELEC-WeTek_Play_2.arm-8.90.004.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-WeTek_Play_2.arm-8.90.004.img.gz?mirrorlist))
-
-
-<SupportBlock />
-

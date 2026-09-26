@@ -26,7 +26,3 @@ LibreELEC operates a 24-hour ‘canary’ period between maintenance release fi
 Tinc, Syncthing, Inadyn and Dispmanx (VNC for Raspberry Pi) have been added to the LibreELEC add-on repo courtesy of contributor Anton Voyl. LibreELEC team also added four bundle add-ons; System Tools, Multimedia Tools, DVB Tools, and Raspberry Pi Tools. These group commonly requested extra tools into four convenient packages making it easier for you to install, and easier for us to maintain.
 
 Enjoy :)
-
-
-<SupportBlock />
-
