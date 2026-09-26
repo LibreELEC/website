@@ -315,12 +315,10 @@ const clientDataJson = JSON.stringify(data);
                             </div>
 
                             <!-- Hardware Title & Chipset -->
-                            <h3 class="text-lg font-bold text-slate-900 mb-1" x-text="item.deviceName"></h3>
+                            <h3 class="text-lg font-bold text-slate-900" :class="item.chipset ? 'mb-1' : 'mb-4'" x-text="item.deviceName"></h3>
                             <template x-if="item.chipset">
-                                <p class="text-[11px] text-slate-500 font-mono mb-2" x-text="item.chipset"></p>
+                                <p class="text-[11px] text-slate-500 font-mono mb-4" x-text="item.chipset"></p>
                             </template>
-
-                            <p class="text-xs text-slate-600 mb-5 leading-relaxed" x-text="item.features || 'Standard LibreELEC image tailored for this hardware platform.'"></p>
                         </div>
 
                         <!-- Actions & Download Links -->
