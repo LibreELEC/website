@@ -5,6 +5,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeUrl = base ? `${base}/` : '/';
 const newsUrl = `${base}/news/`;
 const downloadsUrl = `${base}/downloads/`;
+const donateUrl = "https://opencollective.com/libreelec/donate";
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-200/80 transition-all duration-300" id="navbar" x-data="{ mobileOpen: false }">
@@ -24,7 +25,7 @@ const downloadsUrl = `${base}/downloads/`;
             </a>
 
             <!-- Desktop Nav Links -->
-            <div class="hidden md:flex items-center gap-8">
+            <div class="hidden lg:flex items-center gap-6 xl:gap-8">
                 <a href={`${homeUrl}#features`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Features</a>
                 <a href={downloadsUrl} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Downloads</a>
                 <a href={`${homeUrl}#news`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">News</a>
@@ -36,17 +37,25 @@ const downloadsUrl = `${base}/downloads/`;
             </div>
 
             <!-- CTA & Actions -->
-            <div class="hidden md:flex items-center gap-4">
-                <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-900 px-3 py-2 text-sm font-semibold transition-colors">
-                    <i class="fa-solid fa-comments mr-1.5 text-brand-600"></i> Forum
+            <div class="hidden lg:flex items-center gap-3">
+                <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-900 px-3 py-2 text-sm font-semibold transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-comments text-brand-600"></i> Forum
+                </a>
+                <a href={donateUrl} target="_blank" rel="noopener" class="px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100/90 text-rose-600 hover:text-rose-700 border border-rose-200/80 font-bold text-sm shadow-sm hover:shadow hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2 group">
+                    <i class="fa-solid fa-heart text-rose-500 group-hover:scale-110 transition-transform"></i>
+                    <span>Donate</span>
                 </a>
                 <a href={downloadsUrl} class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200">
                     Get LibreELEC
                 </a>
             </div>
 
-            <!-- Mobile menu button (Alpine.js) -->
-            <div class="md:hidden flex items-center">
+            <!-- Mobile menu button & quick actions -->
+            <div class="lg:hidden flex items-center gap-2">
+                <a href={donateUrl} target="_blank" rel="noopener" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-600 border border-rose-200/80 text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-heart text-rose-500"></i>
+                    <span>Donate</span>
+                </a>
                 <button @click="mobileOpen = !mobileOpen" type="button" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2 rounded-lg" aria-label="Toggle navigation">
                     <i class="fa-solid" :class="mobileOpen ? 'fa-xmark text-xl' : 'fa-bars text-xl'"></i>
                 </button>
@@ -55,13 +64,16 @@ const downloadsUrl = `${base}/downloads/`;
     </div>
 
     <!-- Mobile Nav Menu (Alpine.js) -->
-    <div x-show="mobileOpen" x-transition.opacity.duration.200ms class="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3" style="display: none;">
+    <div x-show="mobileOpen" x-transition.opacity.duration.200ms class="lg:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3" style="display: none;">
         <a @click="mobileOpen = false" href={`${homeUrl}#features`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Features</a>
         <a @click="mobileOpen = false" href={downloadsUrl} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Downloads</a>
         <a @click="mobileOpen = false" href={`${homeUrl}#news`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Latest News</a>
         <a @click="mobileOpen = false" href={newsUrl} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">All News Articles</a>
         <a @click="mobileOpen = false" href={`${homeUrl}#creator`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">USB Creator Tool</a>
         <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Community Forum</a>
+        <a href={donateUrl} target="_blank" rel="noopener" class="flex items-center gap-2 px-3 py-2 rounded-lg text-base font-medium text-rose-600 hover:bg-rose-50">
+            <i class="fa-solid fa-heart text-rose-500"></i> Donate on OpenCollective
+        </a>
         <div class="pt-2">
             <a @click="mobileOpen = false" href={downloadsUrl} class="block w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm shadow-md">
                 Get LibreELEC Now
