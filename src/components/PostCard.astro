@@ -3,46 +3,144 @@ import type { EnrichedPost } from '../utils/posts';
 
 interface Props {
   enrichedPost: EnrichedPost;
+  featured?: boolean;
 }
 
-const { enrichedPost } = Astro.props;
+const { enrichedPost, featured = false } = Astro.props;
 const { post, formattedDate, url, category, categoryLabel } = enrichedPost;
 const author = post.data.author || 'LibreELEC Team';
-const description = post.data.description || 'LibreELEC updates, improvements, and system release information.';
+
+// Compute excerpt: prefer rich excerpt from body if description is minimal
+let description = post.data.description || '';
+if (!description || description.length < 35) {
+  if (post.body) {
+    const cleaned = post.body
+      .replace(/^#+\s+.*$/gm, '')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/[*_`]/g, '')
+      .trim();
+    const firstPara = cleaned.split('\n\n').find((p) => p.trim().length > 15);
+    if (firstPara) {
+      description = firstPara.trim().replace(/\n/g, ' ');
+    }
+  }
+}
+if (!description) {
+  description = 'LibreELEC updates, improvements, and system release information.';
+}
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const downloadsUrl = `${base}/downloads/`;
 ---
 
-<article
-    class="news-card glass-card rounded-2xl overflow-hidden border border-slate-200 flex flex-col justify-between"
-    data-ncat={category}
-    x-show={`filter === 'all' || filter === '${category}'`}
-    x-transition
->
-    <div class="p-6">
-        <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
-            {category === 'release' ? (
-                <span class="px-2.5 py-1 rounded-md bg-brand-50 text-brand-700 font-bold border border-brand-200">
-                    {categoryLabel}
-                </span>
-            ) : (
-                <span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-700 font-bold border border-amber-200">
-                    {categoryLabel}
-                </span>
-            )}
-            <span class="font-medium font-mono text-[11px] text-slate-500">{formattedDate}</span>
+{featured ? (
+    <article
+        class="news-card glass-card rounded-3xl overflow-hidden border border-slate-200/90 hover:border-brand-400/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group md:col-span-2 lg:col-span-2 lg:row-span-3 bg-gradient-to-br from-white via-white to-brand-50/25 h-full"
+        data-ncat={category}
+        x-show={`filter === 'all' || filter === '${category}'`}
+        x-transition
+    >
+        <!-- Ambient corner highlight -->
+        <div class="absolute -right-12 -top-12 w-64 h-64 bg-brand-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-brand-500/10 transition-colors"></div>
+
+        <div class="p-6 sm:p-8 lg:p-10 relative z-10 flex flex-col justify-between h-full">
+            <div>
+                <!-- Top metadata & badges bar -->
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500 text-white font-extrabold text-[11px] uppercase tracking-wider shadow-sm">
+                            <i class="fa-solid fa-star text-[10px]"></i> Latest Update
+                        </span>
+                        {category === 'release' ? (
+                            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-bold text-xs border border-brand-200">
+                                {categoryLabel}
+                            </span>
+                        ) : (
+                            <span class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 font-bold text-xs border border-amber-200">
+                                {categoryLabel}
+                            </span>
+                        )}
+                    </div>
+                    <span class="font-mono text-xs text-slate-500 font-semibold bg-slate-100 px-2.5 py-1 rounded-md">
+                        <i class="fa-regular fa-calendar mr-1 text-slate-400"></i> {formattedDate}
+                    </span>
+                </div>
+
+                <!-- Featured Title -->
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-5 hover:text-brand-600 transition-colors tracking-tight leading-tight">
+                    <a href={url}>{post.data.title}</a>
+                </h3>
+
+                <!-- Featured Excerpt -->
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed line-clamp-5 lg:line-clamp-8 mb-8">
+                    {description}
+                </p>
+            </div>
+
+            <!-- Featured Highlights Ribbon / Actions -->
+            <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto">
+                <div class="flex items-center gap-2 text-xs text-slate-500">
+                    <span class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                    <div>
+                        <span class="text-slate-400 text-[10px] block">Published by</span>
+                        <span class="font-bold text-slate-800">{author}</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <a
+                        href={downloadsUrl}
+                        class="px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs border border-emerald-200 transition-all flex items-center gap-1.5 shadow-sm"
+                    >
+                        <i class="fa-solid fa-download"></i> Downloads
+                    </a>
+                    <a
+                        href={url}
+                        class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2"
+                    >
+                        Read Announcement <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-brand-600 transition-colors">
-            <a href={url}>{post.data.title}</a>
-        </h3>
-        <p class="text-slate-600 text-xs line-clamp-3 leading-relaxed mb-4">
-            {description}
-        </p>
-    </div>
-    <div class="px-6 py-4 border-t border-slate-100 bg-slate-50/60 flex items-center justify-between text-xs">
-        <span class="text-slate-600 font-medium">
-            <i class="fa-solid fa-user text-brand-600 mr-1"></i> {author}
-        </span>
-        <a href={url} class="text-brand-600 font-bold hover:underline flex items-center gap-1">
-            Read Post <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </a>
-    </div>
-</article>
+    </article>
+) : (
+    <article
+        class="news-card glass-card rounded-2xl overflow-hidden border border-slate-200 flex flex-col justify-between h-full hover:border-brand-400 transition-all duration-200"
+        data-ncat={category}
+        x-show={`filter === 'all' || filter === '${category}'`}
+        x-transition
+    >
+        <div class="p-5 sm:p-6">
+            <div class="flex items-center justify-between text-xs text-slate-500 mb-2.5">
+                {category === 'release' ? (
+                    <span class="px-2 py-0.5 rounded-md bg-brand-50 text-brand-700 font-bold text-[11px] border border-brand-200">
+                        {categoryLabel}
+                    </span>
+                ) : (
+                    <span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 font-bold text-[11px] border border-amber-200">
+                        {categoryLabel}
+                    </span>
+                )}
+                <span class="font-medium font-mono text-[11px] text-slate-500">{formattedDate}</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2 hover:text-brand-600 transition-colors line-clamp-2 leading-snug">
+                <a href={url}>{post.data.title}</a>
+            </h3>
+            <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed">
+                {description}
+            </p>
+        </div>
+        <div class="px-5 sm:px-6 py-3 border-t border-slate-100 bg-slate-50/60 flex items-center justify-between text-xs mt-auto">
+            <span class="text-slate-600 font-medium">
+                <i class="fa-solid fa-user text-brand-600 mr-1 text-[11px]"></i> {author}
+            </span>
+            <a href={url} class="text-brand-600 font-bold hover:underline flex items-center gap-1">
+                Read Post <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+        </div>
+    </article>
+)}
+
