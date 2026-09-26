@@ -50,20 +50,7 @@ Samba announced [CVE-2017-7494](https://www.samba.org/samba/security/CVE-2017-74
 The team have plans to create a mid-year LibreELEC 8.2 release to bridge the long time gap between 8.0.2 and 9.0 which (along with Kodi v18) is expected around year-end. The main items in the release will be improved support for newer Intel GPU hardware, a bump to Samba 4.6 to bring support for SMB2/SMB3 in our Samba server and Kodi client connections (and resolve security issues) and a switch to OpenSSL to resolve issues seen with LibreSSL and certificates expiring after 2038. Timeline is 8-10 weeks away ~ some time after Linux 4.12 ships.
 
 
-<div class="my-8 p-6 rounded-2xl glass-card border border-brand-200/80 bg-gradient-to-r from-brand-50/60 to-sky-50/40 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-5 not-prose">
-  <div class="flex items-center gap-4">
-    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-600 flex items-center justify-center text-xl shrink-0">
-      <i class="fa-solid fa-heart text-rose-500"></i>
-    </div>
-    <div>
-      <h4 class="font-bold text-slate-900 text-base m-0">Support LibreELEC Development</h4>
-      <p class="text-xs text-slate-600 mt-1 mb-0">We are 100% community supported. Your contribution helps fund build infrastructure and test devices.</p>
-    </div>
-  </div>
-  <a href="https://opencollective.com/libreelec/donate" target="_blank" rel="noopener" class="shrink-0 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2 no-underline">
-    <i class="fa-solid fa-gift"></i> Donate on OpenCollective
-  </a>
-</div>
+<SupportBlock />
 
 
 [or donate by purchasing a LibreELEC teeshirt or hoodie](https://libreelec.tv/shop/)

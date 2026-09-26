@@ -15,6 +15,23 @@ export default function remarkJekyllCompat() {
   </a>
 </div>`;
 
+  const isSupportTag = (str) => {
+    if (!str) return false;
+    const s = str.trim();
+    return (
+      s === '{% include paypal.html %}' ||
+      s === '{% include opencollective.html %}' ||
+      s === '{% include support.html %}' ||
+      s.includes('{% include paypal.html %}') ||
+      s.includes('{% include opencollective.html %}') ||
+      s.includes('{% include support.html %}') ||
+      /^<SupportBlock\s*\/>$/i.test(s) ||
+      /^<support-block\s*(\/>|><\/support-block>)$/i.test(s) ||
+      s.includes('<SupportBlock') ||
+      s.includes('<support-block')
+    );
+  };
+
   return (tree) => {
     function traverse(node) {
       if (!node) return;
@@ -28,20 +45,28 @@ export default function remarkJekyllCompat() {
       if (node.children && Array.isArray(node.children)) {
         for (let i = 0; i < node.children.length; i++) {
           const child = node.children[i];
-          if (child.type === 'paragraph' && child.children) {
-            const rawText = child.children.map(c => c.value || '').join('').trim();
-            if (
-              rawText === '{% include paypal.html %}' ||
-              rawText === '{% include opencollective.html %}' ||
-              rawText.includes('{% include paypal.html %}') ||
-              rawText.includes('{% include opencollective.html %}')
-            ) {
+
+          if (child.type === 'html' || child.type === 'raw') {
+            if (isSupportTag(child.value)) {
               node.children[i] = {
                 type: 'html',
                 value: donationBox
               };
+              continue;
             }
           }
+
+          if (child.type === 'paragraph' && child.children) {
+            const rawText = child.children.map((c) => c.value || '').join('').trim();
+            if (isSupportTag(rawText)) {
+              node.children[i] = {
+                type: 'html',
+                value: donationBox
+              };
+              continue;
+            }
+          }
+
           traverse(child);
         }
       }
