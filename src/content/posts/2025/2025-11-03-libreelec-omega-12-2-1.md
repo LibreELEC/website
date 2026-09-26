@@ -1,0 +1,75 @@
+---
+layout: post
+title: "LibreELEC (Omega) 12.2.1"
+description: "LE 12.2.1 are we there yet"
+image: img/posts/icon-release-k21.2.jpg
+---
+
+LibreELEC 12.2.1 with Kodi (Omega) v21.3 is released!
+
+The release contains an update to Kodi Omega 21.3.
+
+## CHANGES SINCE 12.2.0
+
+- Kodi: updated to 21.3
+- linux: update to 6.16.12 (RPi2-5 6.12.56)
+- [several small updates and fixes](https://github.com/LibreELEC/LibreELEC.tv/compare/12.2.0...12.2.1)
+
+## Generic-Legacy nVidia Changes
+
+The nVidia Legacy 340.xx driver remained usable for six years after nVidia discontinued support, but it no longer compiles with the latest Xorg release so has been dropped from the Generic-Legacy image for LibreELEC 12.2 and the future 13.0 release. This impacts older nVidia cards, which are unfortunately the majority of active nVidia installations. We have investigated 'Nouveau' and may add support to the main Generic image in the future to assist Lakka retrogaming, but it creates more problems than it solves for video playback and is not a solution for LibreELEC use. Future nVidia GPU support remains a grey area and we continue our long-running advice to avoid purchasing nVidia GPU cards for LibreELEC use.
+
+## Tvheadend 4.3
+
+Tvheadend developers declared v4.3 to be a stable rolling release some time ago and v4.2 has not been maintained or supported since 2019 so v4.2 is not available from the LibreELEC 12.2 repo and users are advised to move to Tvheadend v4.3. There is no direct update path from v4.2 to v4.3 so users will need to install v4.3 and configure a new installation. Issues with v4.3 should ideally be reported to Tvheadend developers via their forum (with detailed logs and info) but if reported in our forum we will do our best to assist too.
+
+## NXP (iMX6/iMX8) and Qualcomm
+
+Limited support for iMX8 and Qualcomm chips was added in 2018 to assist the early stages of Kodi GBM/V4L2 development. They are mostly used with industrial hardware designs and tablet devices and this relects in no active LibreELEC installs. iMX6 was used widely in the past, but there are now few active installs, and those are using self-built images. Support remains part of our codebase but we have stopped building and releasing official images.
+
+## UPDATING
+
+Users with 12.0 installs, or 11.0 installs on x86_64 hardware, can manually update as normal using the LibreELEC settings add-on or by placing an update file in the /storage/.update folder. 
+
+Users with 11.x or 10.x installs on ARM hardware need to read below:
+
+* 64-bit capable ARM SoC devices including Raspberry Pi 4/5 have switched from 'arm' to 'aarch64' userspace. Manual update in LibreELEC settings will not list LibreELEC 12.2 releases as there are no arm images (only aarch64). You can [manually update](https://wiki.libreelec.tv/support/update) by placing a LibreELEC 12 release file (.tar or .img.gz) in /storage/.update and rebooting.
+
+* If using Widevine to access DRM protected streaming services (Prime, Netflix, etc.) the Widevine CDN folder in /storage/.kodi/cdm must be deleted first as the existing arm libraries do not work on aarch64 systems. On first use after deletion new aarch64 Widevine libraries will be downloaded and installed.
+
+* If using Docker containers via LinuxServer.io add-ons the arch change should be handled automatically. If using containers installed directly from the console: arm containers must be removed before updating as they will not run on aarch64. After updating you can (re)install aarch64 (arm64) compatible versions of your containers.
+
+Users with 9.0 or older installs must perform a clean install due to the Python 3 changes introduced since LibreELEC 10.x (Kodi v19).
+
+## BACKUPS
+
+Kodi supports upgrades not downgrades. Create a backup BEFORE upgrading else rolling back to the previous release can be complicated.
+
+## SUPPORT
+
+Project staff are available in the [forum](https://forum.libreelec.tv) to answer questions and provide advice. If you have a problem, technical issues are best accompanied by system and Kodi debug logs - help us to help you.
+
+Enjoy! :)
+
+[** Click here to go to the download page **](https://libreelec.tv/downloads/)
+
+
+<div class="my-8 p-6 rounded-2xl glass-card border border-brand-200/80 bg-gradient-to-r from-brand-50/60 to-sky-50/40 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-5 not-prose">
+  <div class="flex items-center gap-4">
+    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-600 flex items-center justify-center text-xl shrink-0">
+      <i class="fa-solid fa-heart text-rose-500"></i>
+    </div>
+    <div>
+      <h4 class="font-bold text-slate-900 text-base m-0">Support LibreELEC Development</h4>
+      <p class="text-xs text-slate-600 mt-1 mb-0">We are 100% community supported. Your contribution helps fund build infrastructure and test devices.</p>
+    </div>
+  </div>
+  <a href="https://opencollective.com/libreelec/donate" target="_blank" rel="noopener" class="shrink-0 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2 no-underline">
+    <i class="fa-solid fa-gift"></i> Donate on OpenCollective
+  </a>
+</div>
+
+
+## SHA256
+
+Append `?mirrorlist` to download links to see the file SHA256 hash, e.g. `https://releases.libreelec.tv/LibreELEC-RPi5.arm-12.2.1.img.gz?mirrorlist`.

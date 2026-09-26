@@ -1,0 +1,17 @@
+---
+---
+<div
+    x-show="$store.ui.toastOpen"
+    x-cloak
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="translate-y-20 opacity-0 scale-95"
+    x-transition:enter-end="translate-y-0 opacity-100 scale-100"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="translate-y-0 opacity-100 scale-100"
+    x-transition:leave-end="translate-y-20 opacity-0 scale-95"
+    class="fixed bottom-6 right-6 z-50 bg-slate-900 border border-slate-800 text-white px-5 py-3 rounded-xl text-xs font-semibold shadow-2xl flex items-center gap-3"
+    style="display: none;"
+>
+    <i class="fa-solid fa-circle-info text-brand-400 text-base"></i>
+    <span x-text="$store.ui.toastMessage"></span>
+</div>

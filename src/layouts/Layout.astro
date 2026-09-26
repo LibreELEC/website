@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import DownloadModal from '../components/DownloadModal.astro';
+import Toast from '../components/Toast.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'LibreELEC - Just Enough OS for Kodi',
+  description = 'Turn your Raspberry Pi, PC, or Android box into the ultimate high-performance home theater PC. Ultra-lightweight, fast boot, and zero bloatware.',
+  image
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <link rel="canonical" href={canonicalURL}>
+
+    <!-- OpenGraph / Social Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalURL}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    {image && <meta property="og:image" content={new URL(image, Astro.site)}>}
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+    <Navbar />
+    
+    <main>
+        <slot />
+    </main>
+
+    <Footer />
+    <DownloadModal />
+    <Toast />
+</body>
+</html>

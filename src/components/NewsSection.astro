@@ -1,0 +1,65 @@
+---
+import { getSortedPosts } from '../utils/posts';
+import PostCard from './PostCard.astro';
+
+const allPosts = await getSortedPosts();
+const latestPosts = allPosts.slice(0, 6);
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const archiveUrl = `${base}/news/`;
+---
+
+<section id="news" class="py-24 bg-slate-100/50 relative border-t border-slate-200" x-data="{ filter: 'all' }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-2 block">Latest Updates</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">News & Announcements</h2>
+            </div>
+            <div class="mt-4 md:mt-0 flex items-center gap-2">
+                <button
+                    type="button"
+                    @click="filter = 'all'"
+                    class="news-tab px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all"
+                    :class="filter === 'all' ? 'bg-brand-600 text-white' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'"
+                >
+                    All
+                </button>
+                <button
+                    type="button"
+                    @click="filter = 'release'"
+                    class="news-tab px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all"
+                    :class="filter === 'release' ? 'bg-brand-600 text-white' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'"
+                >
+                    Releases
+                </button>
+                <button
+                    type="button"
+                    @click="filter = 'dev'"
+                    class="news-tab px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all"
+                    :class="filter === 'dev' ? 'bg-brand-600 text-white' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'"
+                >
+                    Development
+                </button>
+            </div>
+        </div>
+
+        <!-- News Grid dynamically loaded from content collection -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-grid">
+            {latestPosts.map((post) => (
+                <PostCard enrichedPost={post} />
+            ))}
+        </div>
+
+        <!-- Archive link button -->
+        <div class="mt-14 text-center">
+            <a
+                href={archiveUrl}
+                class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm border border-slate-200 hover:border-brand-500 shadow-sm hover:shadow transition-all duration-200 group"
+            >
+                <span>Browse All {allPosts.length} Articles & Archive</span>
+                <i class="fa-solid fa-arrow-right text-brand-600 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+</section>

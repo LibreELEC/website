@@ -1,0 +1,72 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const homeUrl = base || '/';
+const newsUrl = `${base}/news/`;
+---
+
+<footer class="bg-slate-900 border-t border-slate-800 pt-16 pb-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <!-- Branding column -->
+            <div class="space-y-4 md:col-span-1">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <svg viewBox="0 0 1000 1000" class="w-8 h-8 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(500, 500) rotate(45)">
+                                <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#43A047" />
+                                <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#FF9800" transform="rotate(90)" />
+                                <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#E91E63" transform="rotate(180)" />
+                                <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#00A8E8" transform="rotate(270)" />
+                                <rect x="-120" y="-120" width="240" height="240" rx="45" fill="#EEF2F6" />
+                            </g>
+                        </svg>
+                    </div>
+                    <span class="text-lg font-extrabold text-white">Libre<span class="text-brand-400">ELEC</span></span>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    LibreELEC is a non-profit Open Source Linux distribution created to run Kodi Media Center natively on embedded hardware.
+                </p>
+            </div>
+
+            <!-- Column 1: Downloads -->
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Downloads</h4>
+                <ul class="space-y-2">
+                    <li><a href={`${homeUrl}#downloads`} class="hover:text-brand-400 transition-colors">Raspberry Pi Builds</a></li>
+                    <li><a href={`${homeUrl}#downloads`} class="hover:text-brand-400 transition-colors">Generic x86_64 PC</a></li>
+                    <li><a href={`${homeUrl}#downloads`} class="hover:text-brand-400 transition-colors">Rockchip Devices</a></li>
+                    <li><a href={`${homeUrl}#downloads`} class="hover:text-brand-400 transition-colors">Amlogic Chips</a></li>
+                    <li><a href={`${homeUrl}#creator`} class="hover:text-brand-400 transition-colors">USB-SD Creator Tool</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Resources -->
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Resources</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://wiki.libreelec.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Documentation Wiki</a></li>
+                    <li><a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Community Forum</a></li>
+                    <li><a href={newsUrl} class="hover:text-brand-400 transition-colors">Release Notes & News</a></li>
+                    <li><a href="https://github.com/LibreELEC/LibreELEC.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">GitHub Source Code</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Legal & Trademarks -->
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Legal Disclaimer</h4>
+                <p class="text-slate-400 text-[11px] leading-relaxed">
+                    Kodi® is a registered trademark of the XBMC Foundation. LibreELEC is not affiliated with nor endorsed by the XBMC Foundation or Kodi. All other trademarks belong to their respective owners.
+                </p>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px]">
+            <p>&copy; {new Date().getFullYear()} LibreELEC Team. Open Source Software published under GPL v2.</p>
+            <div class="flex items-center gap-4 mt-4 sm:mt-0">
+                <a href="https://opencollective.com/libreelec" target="_blank" rel="noopener" class="hover:text-brand-400 font-semibold"><i class="fa-solid fa-heart text-rose-500 mr-1"></i> Donate</a>
+                <a href="https://github.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,264 @@
+---
+---
+<section id="downloads" class="py-24 bg-slate-100/60 relative border-t border-slate-200" x-data="{ category: 'all' }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-2 block">Download Hub</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Select Your Target Device</h2>
+            <p class="mt-4 text-slate-600 text-base">
+                Choose your hardware platform below to download official disk images or update tarballs.
+            </p>
+        </div>
+
+        <!-- Platform Category Tabs (Alpine.js) -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+            <button
+                type="button"
+                @click="category = 'all'"
+                class="dl-tab px-5 py-2.5 rounded-xl font-semibold text-sm transition-all"
+                :class="category === 'all' ? 'bg-brand-600 text-white shadow-md shadow-brand-500/20' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300 shadow-sm'"
+            >
+                All Devices
+            </button>
+            <button
+                type="button"
+                @click="category = 'rpi'"
+                class="dl-tab px-5 py-2.5 rounded-xl font-semibold text-sm transition-all"
+                :class="category === 'rpi' ? 'bg-brand-600 text-white shadow-md shadow-brand-500/20' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300 shadow-sm'"
+            >
+                <i class="fa-brands fa-raspberry-pi mr-1.5 text-red-600"></i> Raspberry Pi
+            </button>
+            <button
+                type="button"
+                @click="category = 'x86'"
+                class="dl-tab px-5 py-2.5 rounded-xl font-semibold text-sm transition-all"
+                :class="category === 'x86' ? 'bg-brand-600 text-white shadow-md shadow-brand-500/20' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300 shadow-sm'"
+            >
+                <i class="fa-solid fa-desktop mr-1.5 text-blue-600"></i> Generic PC (x86_64)
+            </button>
+            <button
+                type="button"
+                @click="category = 'arm'"
+                class="dl-tab px-5 py-2.5 rounded-xl font-semibold text-sm transition-all"
+                :class="category === 'arm' ? 'bg-brand-600 text-white shadow-md shadow-brand-500/20' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300 shadow-sm'"
+            >
+                <i class="fa-solid fa-microchip mr-1.5 text-emerald-600"></i> Rockchip / Amlogic
+            </button>
+        </div>
+
+        <!-- Download Cards Grid (Alpine.js filtered) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- RPi 5 Download Card -->
+            <div x-show="category === 'all' || category === 'rpi'" x-transition class="dl-card glass-card rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-600 border border-red-200 flex items-center gap-1.5">
+                            <i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi
+                        </span>
+                        <span class="text-xs text-slate-500 font-mono font-semibold">v12.0.2 (Omega)</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Raspberry Pi 5</h3>
+                    <p class="text-slate-600 text-xs mb-4">
+                        Optimized 64-bit image specifically tailored for RPi 5. Supports 4K60 HDR, HEVC, and fast PCIe NVMe boot.
+                    </p>
+                </div>
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <button
+                        type="button"
+                        @click="$store.ui.openDownloadModal('Raspberry Pi 5', 'LibreELEC-RPi5.aarch64-12.0.2.img.gz')"
+                        class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm"
+                    >
+                        <i class="fa-solid fa-download"></i> Direct Image Download (.img.gz)
+                    </button>
+                    <div class="flex items-center justify-between text-[11px] font-mono text-slate-500">
+                        <span>SHA256 Hash</span>
+                        <button
+                            type="button"
+                            @click="$store.ui.copyHash('a94f1c83e29f3458c56e3001859ef03e839e0ab2a9c31494e82b79a1f28b4920')"
+                            class="hover:text-brand-600 font-semibold"
+                        >
+                            <i class="fa-regular fa-copy"></i> Copy Hash
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RPi 4 / 400 Download Card -->
+            <div x-show="category === 'all' || category === 'rpi'" x-transition class="dl-card glass-card rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-600 border border-red-200 flex items-center gap-1.5">
+                            <i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi
+                        </span>
+                        <span class="text-xs text-slate-500 font-mono font-semibold">v12.0.2 (Omega)</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Raspberry Pi 4 / 400</h3>
+                    <p class="text-slate-600 text-xs mb-4">
+                        Standard image for Raspberry Pi 4 Model B, 400, and Compute Module 4. H.265 hardware decoding enabled.
+                    </p>
+                </div>
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <button
+                        type="button"
+                        @click="$store.ui.openDownloadModal('Raspberry Pi 4', 'LibreELEC-RPi4.aarch64-12.0.2.img.gz')"
+                        class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm"
+                    >
+                        <i class="fa-solid fa-download"></i> Direct Image Download (.img.gz)
+                    </button>
+                    <div class="flex items-center justify-between text-[11px] font-mono text-slate-500">
+                        <span>SHA256 Hash</span>
+                        <button
+                            type="button"
+                            @click="$store.ui.copyHash('e7b89d14a5c689f012e847c92b8745a190f2b389e0ab2a9c31494e82b79a1f28')"
+                            class="hover:text-brand-600 font-semibold"
+                        >
+                            <i class="fa-regular fa-copy"></i> Copy Hash
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generic PC x86_64 Download Card -->
+            <div x-show="category === 'all' || category === 'x86'" x-transition class="dl-card glass-card rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-600 border border-blue-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-desktop"></i> x86_64
+                        </span>
+                        <span class="text-xs text-slate-500 font-mono font-semibold">v12.0.2 (Omega)</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Generic x86_64 PC</h3>
+                    <p class="text-slate-600 text-xs mb-4">
+                        For Intel NUC, AMD Mini PCs, and custom HTPCs with NVIDIA / AMD / Intel graphics hardware acceleration.
+                    </p>
+                </div>
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <button
+                        type="button"
+                        @click="$store.ui.openDownloadModal('Generic x86_64', 'LibreELEC-Generic.x86_64-12.0.2.img.gz')"
+                        class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm"
+                    >
+                        <i class="fa-solid fa-download"></i> Direct Image Download (.img.gz)
+                    </button>
+                    <div class="flex items-center justify-between text-[11px] font-mono text-slate-500">
+                        <span>SHA256 Hash</span>
+                        <button
+                            type="button"
+                            @click="$store.ui.copyHash('5f31a209b8c714d5e6a89c0234f5619e12ca0ab2a9c31494e82b79a1f28b4920')"
+                            class="hover:text-brand-600 font-semibold"
+                        >
+                            <i class="fa-regular fa-copy"></i> Copy Hash
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rockchip RK3399/RK3588 Download Card -->
+            <div x-show="category === 'all' || category === 'arm'" x-transition class="dl-card glass-card rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-microchip"></i> Rockchip
+                        </span>
+                        <span class="text-xs text-slate-500 font-mono font-semibold">v12.0.2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Rockchip RK3399 / RK3588</h3>
+                    <p class="text-slate-600 text-xs mb-4">
+                        Community images for Pine64 RockPro64, Radxa ROCK 4/5, and Firefly SBC boards.
+                    </p>
+                </div>
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <button
+                        type="button"
+                        @click="$store.ui.openDownloadModal('Rockchip Board', 'LibreELEC-RK3399.aarch64-12.0.2.img.gz')"
+                        class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm"
+                    >
+                        <i class="fa-solid fa-download"></i> Direct Image Download (.img.gz)
+                    </button>
+                    <div class="flex items-center justify-between text-[11px] font-mono text-slate-500">
+                        <span>SHA256 Hash</span>
+                        <button
+                            type="button"
+                            @click="$store.ui.copyHash('03b88a91c7849e0234a5d619e847c92b78110ab2a9c31494e82b79a1f28b4920')"
+                            class="hover:text-brand-600 font-semibold"
+                        >
+                            <i class="fa-regular fa-copy"></i> Copy Hash
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amlogic Devices Download Card -->
+            <div x-show="category === 'all' || category === 'arm'" x-transition class="dl-card glass-card rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-microchip"></i> Amlogic
+                        </span>
+                        <span class="text-xs text-slate-500 font-mono font-semibold">v12.0.2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Amlogic S905 / S912 / S922X</h3>
+                    <p class="text-slate-600 text-xs mb-4">
+                        For ODROID-C4, Khadas VIM3, and supported Amlogic TV box hardware setups.
+                    </p>
+                </div>
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <button
+                        type="button"
+                        @click="$store.ui.openDownloadModal('Amlogic Platform', 'LibreELEC-AMLGX.aarch64-12.0.2.img.gz')"
+                        class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm"
+                    >
+                        <i class="fa-solid fa-download"></i> Direct Image Download (.img.gz)
+                    </button>
+                    <div class="flex items-center justify-between text-[11px] font-mono text-slate-500">
+                        <span>SHA256 Hash</span>
+                        <button
+                            type="button"
+                            @click="$store.ui.copyHash('d1c23f859a4b87c012e847c92b8745a166210ab2a9c31494e82b79a1f28b4920')"
+                            class="hover:text-brand-600 font-semibold"
+                        >
+                            <i class="fa-regular fa-copy"></i> Copy Hash
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raspberry Pi 2 / 3 Download Card -->
+            <div x-show="category === 'all' || category === 'rpi'" x-transition class="dl-card glass-card rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-600 border border-red-200 flex items-center gap-1.5">
+                            <i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi
+                        </span>
+                        <span class="text-xs text-slate-500 font-mono font-semibold">v12.0.2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Raspberry Pi 2 / 3 / Zero 2 W</h3>
+                    <p class="text-slate-600 text-xs mb-4">
+                        Legacy 32-bit/64-bit builds for Raspberry Pi 2, 3 Model B/B+, and Zero 2 W.
+                    </p>
+                </div>
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <button
+                        type="button"
+                        @click="$store.ui.openDownloadModal('Raspberry Pi 2/3', 'LibreELEC-RPi2.arm-12.0.2.img.gz')"
+                        class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm"
+                    >
+                        <i class="fa-solid fa-download"></i> Direct Image Download (.img.gz)
+                    </button>
+                    <div class="flex items-center justify-between text-[11px] font-mono text-slate-500">
+                        <span>SHA256 Hash</span>
+                        <button
+                            type="button"
+                            @click="$store.ui.copyHash('89a71b294f5c689f012e847c92b8745a44100ab2a9c31494e82b79a1f28b4920')"
+                            class="hover:text-brand-600 font-semibold"
+                        >
+                            <i class="fa-regular fa-copy"></i> Copy Hash
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

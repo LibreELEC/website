@@ -1,0 +1,76 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const homeUrl = base || '/';
+const newsUrl = `${base}/news/`;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-200/80 transition-all duration-300" id="navbar" x-data="{ mobileOpen: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Logo -->
+            <a href={homeUrl} class="flex items-center gap-3 group">
+                <div class="w-10 h-10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <svg viewBox="0 0 1000 1000" class="w-10 h-10 drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(500, 500) rotate(45)">
+                            <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#43A047" />
+                            <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#FF9800" transform="rotate(90)" />
+                            <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#E91E63" transform="rotate(180)" />
+                            <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#00A8E8" transform="rotate(270)" />
+                            <rect x="-120" y="-120" width="240" height="240" rx="45" fill="#EEF2F6" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1.5">
+                        Libre<span class="text-brand-600">ELEC</span>
+                    </span>
+                    <span class="text-[10px] tracking-widest text-slate-500 uppercase font-semibold">Just Enough OS</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href={`${homeUrl}#features`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Features</a>
+                <a href={`${homeUrl}#downloads`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Downloads</a>
+                <a href={`${homeUrl}#news`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">News</a>
+                <a href={newsUrl} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Archive</a>
+                <a href={`${homeUrl}#creator`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">USB Tool</a>
+                <a href="https://wiki.libreelec.tv" target="_blank" rel="noopener" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors flex items-center gap-1">
+                    Docs <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                </a>
+            </div>
+
+            <!-- CTA & Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-900 px-3 py-2 text-sm font-semibold transition-colors">
+                    <i class="fa-solid fa-comments mr-1.5 text-brand-600"></i> Forum
+                </a>
+                <a href={`${homeUrl}#downloads`} class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200">
+                    Get LibreELEC
+                </a>
+            </div>
+
+            <!-- Mobile menu button (Alpine.js) -->
+            <div class="md:hidden flex items-center">
+                <button @click="mobileOpen = !mobileOpen" type="button" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2 rounded-lg" aria-label="Toggle navigation">
+                    <i class="fa-solid" :class="mobileOpen ? 'fa-xmark text-xl' : 'fa-bars text-xl'"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Nav Menu (Alpine.js) -->
+    <div x-show="mobileOpen" x-transition.opacity.duration.200ms class="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3" style="display: none;">
+        <a @click="mobileOpen = false" href={`${homeUrl}#features`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Features</a>
+        <a @click="mobileOpen = false" href={`${homeUrl}#downloads`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Downloads</a>
+        <a @click="mobileOpen = false" href={`${homeUrl}#news`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Latest News</a>
+        <a @click="mobileOpen = false" href={newsUrl} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">All News Articles</a>
+        <a @click="mobileOpen = false" href={`${homeUrl}#creator`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">USB Creator Tool</a>
+        <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Community Forum</a>
+        <div class="pt-2">
+            <a @click="mobileOpen = false" href={`${homeUrl}#downloads`} class="block w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm shadow-md">
+                Get LibreELEC Now
+            </a>
+        </div>
+    </div>
+</nav>
