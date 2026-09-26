@@ -1,4 +1,6 @@
 ---
+import LibreElecLogo from './LibreElecLogo.astro';
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeUrl = base ? `${base}/` : '/';
 const newsUrl = `${base}/news/`;
@@ -12,15 +14,7 @@ const downloadsUrl = `${base}/downloads/`;
             <div class="space-y-4 md:col-span-1">
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 flex items-center justify-center">
-                        <svg viewBox="0 0 1000 1000" class="w-8 h-8 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
-                            <g transform="translate(500, 500) rotate(45)">
-                                <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#43A047" />
-                                <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#FF9800" transform="rotate(90)" />
-                                <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#E91E63" transform="rotate(180)" />
-                                <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#00A8E8" transform="rotate(270)" />
-                                <rect x="-120" y="-120" width="240" height="240" rx="45" fill="#EEF2F6" />
-                            </g>
-                        </svg>
+                        <LibreElecLogo class="w-8 h-8" dropShadow={true} />
                     </div>
                     <span class="text-lg font-extrabold text-white">Libre<span class="text-brand-400">ELEC</span></span>
                 </div>

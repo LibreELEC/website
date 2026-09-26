@@ -1,6 +1,7 @@
 ---
 import { getSortedPosts } from '../utils/posts';
 import { getLatestVersion } from '../utils/downloads';
+import LibreElecLogo from './LibreElecLogo.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeUrl = base ? `${base}/` : '/';
@@ -24,15 +25,7 @@ const latestReleaseUrl = latestRelease?.url || `${homeUrl}#news`;
                 href={latestReleaseUrl}
                 class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 hover:bg-white border border-slate-200 hover:border-brand-400 text-slate-700 hover:text-brand-600 text-xs font-semibold tracking-wide mb-6 shadow-sm transition-all group"
             >
-                <svg viewBox="0 0 1000 1000" class="w-5 h-5 animate-spin-slow shrink-0" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="translate(500, 500) rotate(45)">
-                        <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#43A047" />
-                        <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#FF9800" transform="rotate(90)" />
-                        <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#E91E63" transform="rotate(180)" />
-                        <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#00A8E8" transform="rotate(270)" />
-                        <rect x="-120" y="-120" width="240" height="240" rx="45" fill="#EEF2F6" />
-                    </g>
-                </svg>
+                <LibreElecLogo class="w-5 h-5 animate-spin-slow shrink-0" />
                 <span>{latestHeadline}</span>
                 <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all"></i>
             </a>
@@ -70,15 +63,7 @@ const latestReleaseUrl = latestRelease?.url || `${homeUrl}#news`;
                         <div class="flex items-center justify-between z-10">
                             <div class="flex items-center gap-3">
                                 <div class="w-8 h-8 rounded-lg bg-slate-900/90 border border-slate-700/80 flex items-center justify-center p-1">
-                                    <svg viewBox="0 0 1000 1000" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                                        <g transform="translate(500, 500) rotate(45)">
-                                            <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#43A047" />
-                                            <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#FF9800" transform="rotate(90)" />
-                                            <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#E91E63" transform="rotate(180)" />
-                                            <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#00A8E8" transform="rotate(270)" />
-                                            <rect x="-120" y="-120" width="240" height="240" rx="45" fill="#EEF2F6" />
-                                        </g>
-                                    </svg>
+                                    <LibreElecLogo class="w-full h-full" />
                                 </div>
                                 <span class="text-white font-bold tracking-wider text-sm sm:text-base">KODI <span class="text-xs font-normal text-slate-400">v21.0 Omega (LibreELEC 12)</span></span>
                             </div>
