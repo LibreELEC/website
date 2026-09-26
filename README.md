@@ -37,7 +37,6 @@ website-new/
 │   │   ├── Footer.astro        # Footer with links & legal disclaimer
 │   │   ├── TvPreview.astro     # Interactive TV showcase powered by Alpine.js
 │   │   ├── Features.astro      # Core features grid
-│   │   ├── Downloads.astro     # Target device matrix with Alpine filtering & modal triggers
 │   │   ├── UsbCreator.astro    # USB-SD Creator showcase
 │   │   ├── NewsSection.astro   # Latest posts with Alpine category filters
 │   │   ├── PostCard.astro      # Reusable article card
@@ -50,12 +49,17 @@ website-new/
 │   │   └── PostLayout.astro    # Dedicated article reading layout
 │   ├── pages/
 │   │   ├── index.astro         # Landing page (converted design)
+│   │   ├── downloads/
+│   │   │   └── index.astro     # Interactive multi-version target device matrix
+│   │   ├── privacy-policy/
+│   │   │   └── index.astro     # GDPR privacy policy declaration
 │   │   ├── news/
 │   │   │   └── [...page].astro # Paginated news archive
 │   │   └── [year]/[month]/[day]/[...slug].astro  # Dynamic post routes
 │   ├── styles/
 │   │   └── global.css          # Tailwind directives, fonts, glassmorphism, prose styles
 │   ├── utils/
+│   │   ├── downloads.ts        # Download matrix computation & device data helpers
 │   │   └── posts.ts            # Post helpers, sorting, categories, and permalinks
 │   ├── alpine.ts               # Alpine.js entrypoint (UI store & TV carousel component)
 │   └── content.config.ts       # Astro Content Layer schema & glob loader

@@ -40,26 +40,6 @@ export default (Alpine: Alpine) => {
       this.toastTimeout = setTimeout(() => {
         this.toastOpen = false;
       }, 3500);
-    },
-
-    async copyHash(hash: string) {
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(hash);
-        } else {
-          const textArea = document.createElement('textarea');
-          textArea.value = hash;
-          textArea.style.position = 'fixed';
-          textArea.style.left = '-999999px';
-          document.body.appendChild(textArea);
-          textArea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textArea);
-        }
-        this.showToast(`SHA256 Hash (${hash.substring(0, 16)}...) copied to clipboard!`);
-      } catch (err) {
-        console.error('Failed to copy hash', err);
-      }
     }
   });
 

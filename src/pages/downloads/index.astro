@@ -1,8 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import UsbCreator from '../../components/UsbCreator.astro';
-import DownloadModal from '../../components/DownloadModal.astro';
-import Toast from '../../components/Toast.astro';
 import { getClientMatrixData, getLatestVersion } from '../../utils/downloads';
 
 const data = getClientMatrixData();
@@ -376,7 +374,4 @@ const clientDataJson = JSON.stringify(data);
     <!-- Official USB-SD Creator Tool Section -->
     <UsbCreator />
 
-    <!-- Download Modal & Toast Notification Components -->
-    <DownloadModal />
-    <Toast />
 </Layout>

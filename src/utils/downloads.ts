@@ -125,16 +125,6 @@ export function getLatestVersion(): VersionConfig {
   };
 }
 
-export function getVersionById(versionId?: string): VersionConfig {
-  const versions = getVersions();
-  if (!versionId) return getLatestVersion();
-  return versions.find((v) => v.id === versionId) || getLatestVersion();
-}
-
-export function getPlatforms(): PlatformConfig[] {
-  const config = getDownloadConfig();
-  return config.platforms || [];
-}
 
 export function getDeviceDownloadInfo(
   platform: PlatformConfig,
@@ -195,50 +185,6 @@ export function getDeviceDownloadInfo(
   };
 }
 
-export function getAllDownloadsForVersion(versionId?: string): {
-  version: VersionConfig;
-  platforms: Array<{
-    platform: PlatformConfig;
-    devices: DeviceDownloadInfo[];
-  }>;
-} {
-  const version = getVersionById(versionId);
-  const platforms = getPlatforms();
-
-  const result = platforms.map((platform) => {
-    const devices = platform.devices
-      .filter((device) => device.supportedVersions.includes(version.id))
-      .map((device) => getDeviceDownloadInfo(platform, device, version));
-
-    return {
-      platform,
-      devices
-    };
-  });
-
-  return {
-    version,
-    platforms: result
-  };
-}
-
-export function getFeaturedDownloads(): DeviceDownloadInfo[] {
-  const latestVersion = getLatestVersion();
-  const platforms = getPlatforms();
-  const featured: DeviceDownloadInfo[] = [];
-
-  for (const platform of platforms) {
-    const featuredIds = platform.featuredDeviceIds || [];
-    for (const devId of featuredIds) {
-      const dev = platform.devices.find((d) => d.id === devId);
-      if (dev && dev.supportedVersions.includes(latestVersion.id)) {
-        featured.push(getDeviceDownloadInfo(platform, dev, latestVersion));
-      }
-    }
-  }
-
-  return featured;
-}
 
 /**
  * Pre-computes all matrix combinations (all versions x all devices)
