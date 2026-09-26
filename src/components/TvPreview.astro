@@ -2,7 +2,7 @@
 import { getSortedPosts } from '../utils/posts';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const homeUrl = base || '/';
+const homeUrl = base ? `${base}/` : '/';
 
 const allPosts = await getSortedPosts();
 const latestRelease = allPosts.find((p) => p.category === 'release') || allPosts[0];

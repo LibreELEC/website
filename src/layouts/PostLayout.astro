@@ -13,7 +13,7 @@ const { post, formattedDate, category, categoryLabel } = enrichedPost;
 const author = post.data.author || 'LibreELEC Team';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const homeUrl = base || '/';
+const homeUrl = base ? `${base}/` : '/';
 const newsUrl = `${base}/news/`;
 ---
 
