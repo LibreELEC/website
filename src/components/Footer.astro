@@ -5,6 +5,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeUrl = base ? `${base}/` : '/';
 const newsUrl = `${base}/news/`;
 const downloadsUrl = `${base}/downloads/`;
+const privacyUrl = `${base}/privacy-policy/`;
 ---
 
 <footer class="bg-slate-900 border-t border-slate-800 pt-16 pb-12 text-slate-400 text-xs">
@@ -48,16 +49,23 @@ const downloadsUrl = `${base}/downloads/`;
 
             <!-- Column 3: Legal & Trademarks -->
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Legal Disclaimer</h4>
-                <p class="text-slate-400 text-[11px] leading-relaxed">
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Legal & Privacy</h4>
+                <p class="text-slate-400 text-[11px] leading-relaxed mb-3">
                     Kodi® is a registered trademark of the XBMC Foundation. LibreELEC is not affiliated with nor endorsed by the XBMC Foundation or Kodi. All other trademarks belong to their respective owners.
                 </p>
+                <a href={privacyUrl} class="hover:text-brand-400 transition-colors inline-flex items-center gap-1.5 text-[11px] text-slate-300">
+                    <i class="fa-solid fa-shield-halved text-brand-400 text-xs"></i> Privacy Policy
+                </a>
             </div>
         </div>
 
-        <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px]">
-            <p>&copy; {new Date().getFullYear()} LibreELEC Team. Open Source Software published under GPL v2.</p>
-            <div class="flex items-center gap-4 mt-4 sm:mt-0">
+        <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px] gap-4">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+                <p>&copy; {new Date().getFullYear()} LibreELEC Team. Open Source Software published under GPL v2.</p>
+                <span class="hidden sm:inline text-slate-700">•</span>
+                <a href={privacyUrl} class="hover:text-brand-400 transition-colors">Privacy Policy</a>
+            </div>
+            <div class="flex items-center gap-4">
                 <a href="https://opencollective.com/libreelec" target="_blank" rel="noopener" class="hover:text-brand-400 font-semibold"><i class="fa-solid fa-heart text-rose-500 mr-1"></i> Donate</a>
                 <a href="https://github.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                 <a href="https://x.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
