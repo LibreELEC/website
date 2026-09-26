@@ -10,24 +10,95 @@ const { enrichedPost, featured = false } = Astro.props;
 const { post, formattedDate, url, category, categoryLabel } = enrichedPost;
 const author = post.data.author || 'LibreELEC Team';
 
-// Compute excerpt: prefer rich excerpt from body if description is minimal
-let description = post.data.description || '';
-if (!description || description.length < 35) {
-  if (post.body) {
-    const cleaned = post.body
-      .replace(/^#+\s+.*$/gm, '')
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-      .replace(/[*_`]/g, '')
-      .trim();
-    const firstPara = cleaned.split('\n\n').find((p) => p.trim().length > 15);
-    if (firstPara) {
-      description = firstPara.trim().replace(/\n/g, ' ');
+// Extract first paragraph, first headline, and headline content from post body
+interface PostDetails {
+  firstParagraph: string;
+  firstHeadline: string;
+  headlineBullets: string[];
+  headlineParagraph: string;
+}
+
+function extractPostDetails(body?: string): PostDetails {
+  if (!body) {
+    return { firstParagraph: '', firstHeadline: '', headlineBullets: [], headlineParagraph: '' };
+  }
+
+  // Remove HTML comments and markdown images
+  const cleanBody = body
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/!\[.*?\]\(.*?\)/g, '')
+    .trim();
+
+  // Find the first markdown heading (e.g. ## Heading)
+  const headingMatch = cleanBody.match(/(?:^|\n)(#{1,6})\s+([^\n]+)/);
+
+  let introPart = '';
+  let headline = '';
+  let sectionContent = '';
+
+  if (headingMatch) {
+    const headingIndex = headingMatch.index! + (headingMatch[0].startsWith('\n') ? 1 : 0);
+    introPart = cleanBody.slice(0, headingIndex).trim();
+    headline = headingMatch[2].trim();
+
+    const afterHeading = cleanBody.slice(headingIndex + headingMatch[0].length).trim();
+    const nextHeadingMatch = afterHeading.match(/(?:^|\n)#{1,6}\s+[^\n]+/);
+    sectionContent = nextHeadingMatch
+      ? afterHeading.slice(0, nextHeadingMatch.index).trim()
+      : afterHeading;
+  } else {
+    introPart = cleanBody;
+  }
+
+  // Format intro: extract first paragraph or clean introductory paragraphs
+  const plainIntro = introPart
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_`]/g, '')
+    .trim();
+  const introParas = plainIntro.split(/\n\s*\n/).map((p) => p.trim().replace(/\n/g, ' ')).filter(Boolean);
+  let firstParagraph = '';
+  if (introParas.length > 0) {
+    if (introParas[0].length < 80 && introParas.length > 1) {
+      firstParagraph = `${introParas[0]} ${introParas[1]}`;
+    } else {
+      firstParagraph = introParas[0];
     }
   }
+
+  // Helper to format inline markdown links, bold, code
+  const formatInline = (text: string) =>
+    text
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+      .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono">$1</code>')
+      .replace(
+        /\[([^\]]+)\]\(([^)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 underline underline-offset-2 font-medium transition-colors">$1</a>'
+      );
+
+  // Check if sectionContent contains bullet list items
+  const lines = sectionContent.split('\n').map((l) => l.trim()).filter(Boolean);
+  const bulletLines = lines.filter((l) => /^[-*]\s+/.test(l));
+
+  let headlineBullets: string[] = [];
+  let headlineParagraph = '';
+
+  if (bulletLines.length > 0 && bulletLines.length >= lines.length / 2) {
+    headlineBullets = bulletLines.map((l) => formatInline(l.replace(/^[-*]\s+/, '').trim()));
+  } else if (sectionContent) {
+    const rawPara = sectionContent
+      .split(/\n\s*\n/)[0]
+      .replace(/\n/g, ' ')
+      .trim();
+    headlineParagraph = formatInline(rawPara);
+  }
+
+  return { firstParagraph, firstHeadline: headline, headlineBullets, headlineParagraph };
 }
-if (!description) {
-  description = 'LibreELEC updates, improvements, and system release information.';
-}
+
+const { firstParagraph, firstHeadline, headlineBullets, headlineParagraph } = extractPostDetails(post.body);
+const subtitle = post.data.description && post.data.description !== firstParagraph ? post.data.description : '';
+const displayText = firstParagraph || post.data.description || 'LibreELEC updates, improvements, and system release information.';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const downloadsUrl = `${base}/downloads/`;
@@ -67,14 +138,45 @@ const downloadsUrl = `${base}/downloads/`;
                 </div>
 
                 <!-- Featured Title -->
-                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-5 hover:text-brand-600 transition-colors tracking-tight leading-tight">
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-3 hover:text-brand-600 transition-colors tracking-tight leading-tight">
                     <a href={url}>{post.data.title}</a>
                 </h3>
 
-                <!-- Featured Excerpt -->
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed line-clamp-5 lg:line-clamp-8 mb-8">
-                    {description}
+                <!-- Subtitle / Tagline from post metadata if available -->
+                {subtitle && (
+                    <p class="text-xs font-bold text-brand-600 uppercase tracking-wider mb-3 font-mono">
+                        {subtitle}
+                    </p>
+                )}
+
+                <!-- First paragraph of full news text -->
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+                    {displayText}
                 </p>
+
+                <!-- First Headline and Details -->
+                {firstHeadline && (headlineBullets.length > 0 || headlineParagraph) && (
+                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/90 border border-slate-200/80 mb-6 shadow-sm">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+                            <h4 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800">
+                                {firstHeadline}
+                            </h4>
+                        </div>
+                        {headlineBullets.length > 0 ? (
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+                                {headlineBullets.map((bullet) => (
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-circle-check text-brand-500 text-[11px] mt-1 shrink-0"></i>
+                                        <span set:html={bullet} class="leading-relaxed" />
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : headlineParagraph ? (
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-4" set:html={headlineParagraph} />
+                        ) : null}
+                    </div>
+                )}
             </div>
 
             <!-- Featured Highlights Ribbon / Actions -->
@@ -130,7 +232,7 @@ const downloadsUrl = `${base}/downloads/`;
                 <a href={url}>{post.data.title}</a>
             </h3>
             <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed">
-                {description}
+                {displayText}
             </p>
         </div>
         <div class="px-5 sm:px-6 py-3 border-t border-slate-100 bg-slate-50/60 flex items-center justify-between text-xs mt-auto">
