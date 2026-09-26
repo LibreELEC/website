@@ -48,6 +48,66 @@ const clientDataJson = JSON.stringify(data);
             selectedVersion: '${latestVersion.id}',
             selectedPlatform: 'all',
             searchQuery: '',
+            showAllVersions: false,
+
+            getStatusType(ver) {
+                if (ver.status === 'latest') return 'latest';
+                if (ver.status === 'old' || ver.status === 'stable') return 'old';
+                return 'legacy';
+            },
+
+            getStatusLabel(ver) {
+                if (ver.status === 'latest') return 'Latest';
+                if (ver.status === 'old' || ver.status === 'stable') return 'Old Version';
+                if (ver.status === 'legacy') return 'Legacy';
+                return ver.status;
+            },
+
+            get displayedVersions() {
+                if (this.showAllVersions) {
+                    return this.data.versions;
+                }
+                return this.data.versions.filter(v => v.status === 'latest' || v.id === this.selectedVersion);
+            },
+
+            getButtonClasses(ver) {
+                const isSelected = this.selectedVersion === ver.id;
+                const type = this.getStatusType(ver);
+                if (isSelected) {
+                    if (type === 'latest') {
+                        return 'bg-emerald-600 text-white shadow-md shadow-emerald-600/25 ring-2 ring-emerald-500/40 border border-emerald-600';
+                    }
+                    if (type === 'old') {
+                        return 'bg-amber-500 text-white shadow-md shadow-amber-500/25 ring-2 ring-amber-400/40 border border-amber-500';
+                    }
+                    return 'bg-slate-700 text-white shadow-md shadow-slate-700/25 ring-2 ring-slate-500/40 border border-slate-700';
+                }
+                if (type === 'latest') {
+                    return 'bg-emerald-50/80 text-emerald-950 hover:bg-emerald-100/70 border border-emerald-300 hover:border-emerald-400';
+                }
+                if (type === 'old') {
+                    return 'bg-amber-50/80 text-amber-950 hover:bg-amber-100/70 border border-amber-300 hover:border-amber-400';
+                }
+                return 'bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-slate-400 hover:bg-slate-100';
+            },
+
+            getStaticBadgeClasses(ver) {
+                const type = this.getStatusType(ver);
+                if (type === 'latest') {
+                    return 'bg-emerald-100 text-emerald-800 border border-emerald-300/80';
+                }
+                if (type === 'old') {
+                    return 'bg-amber-100 text-amber-900 border border-amber-300/80';
+                }
+                return 'bg-slate-200 text-slate-700 border border-slate-300/80';
+            },
+
+            getBadgeClasses(ver) {
+                if (this.selectedVersion === ver.id) {
+                    return 'bg-white/20 text-white border border-white/20';
+                }
+                return this.getStaticBadgeClasses(ver);
+            },
 
             get activeVersionInfo() {
                 return this.data.versions.find(v => v.id === this.selectedVersion) || this.data.versions[0];
@@ -82,27 +142,43 @@ const clientDataJson = JSON.stringify(data);
                         <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">1. Select Release Version</span>
                         <!-- Version Pills -->
                         <div class="flex flex-wrap items-center gap-2">
-                            <template x-for="ver in data.versions" :key="ver.id">
+                            <template x-for="ver in displayedVersions" :key="ver.id">
                                 <button
                                     type="button"
                                     @click="selectedVersion = ver.id"
                                     class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shadow-sm"
-                                    :class="selectedVersion === ver.id
-                                        ? 'bg-brand-600 text-white shadow-brand-500/25 ring-2 ring-brand-500/30'
-                                        : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300 hover:bg-slate-50'"
+                                    :class="getButtonClasses(ver)"
                                 >
                                     <span x-text="'v' + ver.name"></span>
                                     <span
                                         class="px-2 py-0.5 rounded-full text-[10px] uppercase font-extrabold tracking-wide"
-                                        :class="ver.status === 'latest'
-                                            ? (selectedVersion === ver.id ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-800')
-                                            : (ver.status === 'stable'
-                                                ? (selectedVersion === ver.id ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800')
-                                                : (selectedVersion === ver.id ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'))"
-                                        x-text="ver.status"
+                                        :class="getBadgeClasses(ver)"
+                                        x-text="getStatusLabel(ver)"
                                     ></span>
                                 </button>
                             </template>
+
+                            <!-- Show All / Show Less Toggle Button -->
+                            <button
+                                type="button"
+                                x-show="data.versions.length > 1"
+                                @click="showAllVersions = !showAllVersions"
+                                class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 shadow-sm bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300"
+                                :aria-expanded="showAllVersions"
+                                aria-label="Toggle all release versions"
+                                id="toggle-all-versions-btn"
+                            >
+                                <span x-text="showAllVersions ? 'Show less' : 'Show all'"></span>
+                                <span
+                                    x-show="!showAllVersions"
+                                    class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200 font-mono"
+                                    x-text="'+' + (data.versions.length - displayedVersions.length)"
+                                ></span>
+                                <i
+                                    class="fa-solid text-[10px] text-slate-400 transition-transform duration-200"
+                                    :class="showAllVersions ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                ></i>
+                            </button>
                         </div>
                     </div>
 
@@ -133,6 +209,14 @@ const clientDataJson = JSON.stringify(data);
                 <!-- Active Version Specifications Ribbon -->
                 <div class="pt-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-700">
+                        <div class="flex items-center gap-2">
+                            <span class="text-slate-400 font-medium">Status:</span>
+                            <span
+                                class="px-2.5 py-0.5 rounded-full text-[10px] uppercase font-extrabold tracking-wide"
+                                :class="getStaticBadgeClasses(activeVersionInfo)"
+                                x-text="getStatusLabel(activeVersionInfo)"
+                            ></span>
+                        </div>
                         <div class="flex items-center gap-2">
                             <span class="text-slate-400 font-medium">Release Date:</span>
                             <span class="font-bold text-slate-900 font-mono" x-text="activeVersionInfo.releaseDate"></span>
@@ -193,9 +277,14 @@ const clientDataJson = JSON.stringify(data);
 
             <!-- Results Count Bar -->
             <div class="flex items-center justify-between mb-6 text-xs text-slate-500 px-1 font-medium">
-                <div>
-                    Showing <strong class="text-slate-900" x-text="filteredDevices.length"></strong> compatible devices for
-                    <strong class="text-brand-600 font-mono" x-text="'LibreELEC ' + activeVersionInfo.name"></strong>
+                <div class="flex items-center gap-2 flex-wrap">
+                    <span>Showing <strong class="text-slate-900" x-text="filteredDevices.length"></strong> compatible devices for</span>
+                    <strong class="font-mono text-slate-900 text-sm" x-text="'LibreELEC ' + activeVersionInfo.name"></strong>
+                    <span
+                        class="px-2 py-0.5 rounded-full text-[10px] uppercase font-extrabold tracking-wide"
+                        :class="getStaticBadgeClasses(activeVersionInfo)"
+                        x-text="getStatusLabel(activeVersionInfo)"
+                    ></span>
                 </div>
                 <template x-if="searchQuery">
                     <button @click="searchQuery = ''" type="button" class="text-brand-600 hover:underline">

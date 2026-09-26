@@ -11,7 +11,7 @@ export interface VersionConfig {
   kernelVersion: string;
   kernelOverrides?: Record<string, string>;
   downloadVersionOverrides?: Record<string, string>;
-  status: 'latest' | 'stable' | 'legacy' | 'prerelease';
+  status: 'latest' | 'stable' | 'old' | 'legacy' | 'prerelease';
   description?: string;
 }
 

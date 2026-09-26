@@ -42,8 +42,8 @@ versions:
     releaseDate: "2025.01"
     kodiVersion: "21.2 (Omega)"
     kernelVersion: "6.6.x"
-    status: "stable"
-    description: "Stable LibreELEC 12 series release with 64-bit aarch64 userspace for ARM SoCs."
+    status: "old"
+    description: "Previous LibreELEC 12 series release with 64-bit aarch64 userspace for ARM SoCs."
 
   - id: "11.0"
     name: "11.0"
