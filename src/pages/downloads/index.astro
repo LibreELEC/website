@@ -158,26 +158,21 @@ const clientDataJson = JSON.stringify(data);
                                 </button>
                             </template>
 
-                            <!-- Show All / Show Less Toggle Button -->
+                            <!-- Show All Button (hidden once all versions are shown) -->
                             <button
                                 type="button"
-                                x-show="data.versions.length > 1"
-                                @click="showAllVersions = !showAllVersions"
+                                x-show="!showAllVersions && data.versions.length > 1"
+                                @click="showAllVersions = true"
                                 class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 shadow-sm bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300"
-                                :aria-expanded="showAllVersions"
-                                aria-label="Toggle all release versions"
-                                id="toggle-all-versions-btn"
+                                aria-label="Show all release versions"
+                                id="show-all-versions-btn"
                             >
-                                <span x-text="showAllVersions ? 'Show less' : 'Show all'"></span>
+                                <span>Show all</span>
                                 <span
-                                    x-show="!showAllVersions"
-                                    class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200 font-mono"
+                                    class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200 font-mono"
                                     x-text="'+' + (data.versions.length - displayedVersions.length)"
                                 ></span>
-                                <i
-                                    class="fa-solid text-[10px] text-slate-400 transition-transform duration-200"
-                                    :class="showAllVersions ? 'fa-chevron-up' : 'fa-chevron-down'"
-                                ></i>
+                                <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
                             </button>
                         </div>
                     </div>
