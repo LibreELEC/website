@@ -3,7 +3,6 @@ import LibreElecLogo from './LibreElecLogo.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeUrl = base ? `${base}/` : '/';
-const newsUrl = `${base}/news/`;
 const downloadsUrl = `${base}/downloads/`;
 const donateUrl = "https://opencollective.com/libreelec/donate";
 ---
@@ -29,7 +28,6 @@ const donateUrl = "https://opencollective.com/libreelec/donate";
                 <a href={`${homeUrl}#features`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Features</a>
                 <a href={downloadsUrl} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Downloads</a>
                 <a href={`${homeUrl}#news`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">News</a>
-                <a href={newsUrl} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Archive</a>
                 <a href={`${homeUrl}#creator`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">USB Tool</a>
                 <a href="https://wiki.libreelec.tv" target="_blank" rel="noopener" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors flex items-center gap-1">
                     Docs <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
@@ -68,7 +66,6 @@ const donateUrl = "https://opencollective.com/libreelec/donate";
         <a @click="mobileOpen = false" href={`${homeUrl}#features`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Features</a>
         <a @click="mobileOpen = false" href={downloadsUrl} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Downloads</a>
         <a @click="mobileOpen = false" href={`${homeUrl}#news`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Latest News</a>
-        <a @click="mobileOpen = false" href={newsUrl} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">All News Articles</a>
         <a @click="mobileOpen = false" href={`${homeUrl}#creator`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">USB Creator Tool</a>
         <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Community Forum</a>
         <a href={donateUrl} target="_blank" rel="noopener" class="flex items-center gap-2 px-3 py-2 rounded-lg text-base font-medium text-rose-600 hover:bg-rose-50">
