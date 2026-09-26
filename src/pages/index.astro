@@ -2,13 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import TvPreview from '../components/TvPreview.astro';
 import Features from '../components/Features.astro';
-import Downloads from '../components/Downloads.astro';
 import UsbCreator from '../components/UsbCreator.astro';
 import NewsSection from '../components/NewsSection.astro';
 ---
 
 <Layout>
-    <!-- Hero & Interactive TV Showcase -->
+    <!-- Hero & Interactive TV Showcase (Links to /downloads/) -->
     <TvPreview />
 
     <!-- Latest News & Releases (Dynamic Content Collection) -->
@@ -16,9 +15,6 @@ import NewsSection from '../components/NewsSection.astro';
 
     <!-- Performance Stats & Feature Grid -->
     <Features />
-
-    <!-- Download Platforms Matrix (Alpine.js Filtering) -->
-    <Downloads />
 
     <!-- Official USB-SD Creator Tool -->
     <UsbCreator />

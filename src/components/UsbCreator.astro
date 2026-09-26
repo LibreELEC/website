@@ -1,4 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const downloadsUrl = `${base}/downloads/`;
 ---
 <section id="creator" class="py-20 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,6 +43,13 @@
                         </a>
                         <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Linux-64bit.AppImage" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
                             <i class="fa-brands fa-linux text-amber-400"></i> Linux (.AppImage)
+                        </a>
+                    </div>
+
+                    <!-- Link to Manual Download Site -->
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <a href={downloadsUrl} class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 hover:text-brand-700 hover:underline">
+                            Looking for manual disk images (.img.gz) or older releases? Visit our Download Hub &rarr;
                         </a>
                     </div>
                 </div>
