@@ -2,6 +2,7 @@
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeUrl = base ? `${base}/` : '/';
 const newsUrl = `${base}/news/`;
+const downloadsUrl = `${base}/downloads/`;
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-200/80 transition-all duration-300" id="navbar" x-data="{ mobileOpen: false }">
@@ -31,7 +32,7 @@ const newsUrl = `${base}/news/`;
             <!-- Desktop Nav Links -->
             <div class="hidden md:flex items-center gap-8">
                 <a href={`${homeUrl}#features`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Features</a>
-                <a href={`${homeUrl}#downloads`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Downloads</a>
+                <a href={downloadsUrl} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Downloads</a>
                 <a href={`${homeUrl}#news`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">News</a>
                 <a href={newsUrl} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Archive</a>
                 <a href={`${homeUrl}#creator`} class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">USB Tool</a>
@@ -45,7 +46,7 @@ const newsUrl = `${base}/news/`;
                 <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="text-slate-600 hover:text-slate-900 px-3 py-2 text-sm font-semibold transition-colors">
                     <i class="fa-solid fa-comments mr-1.5 text-brand-600"></i> Forum
                 </a>
-                <a href={`${homeUrl}#downloads`} class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200">
+                <a href={downloadsUrl} class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200">
                     Get LibreELEC
                 </a>
             </div>
@@ -62,13 +63,13 @@ const newsUrl = `${base}/news/`;
     <!-- Mobile Nav Menu (Alpine.js) -->
     <div x-show="mobileOpen" x-transition.opacity.duration.200ms class="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3" style="display: none;">
         <a @click="mobileOpen = false" href={`${homeUrl}#features`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Features</a>
-        <a @click="mobileOpen = false" href={`${homeUrl}#downloads`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Downloads</a>
+        <a @click="mobileOpen = false" href={downloadsUrl} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Downloads</a>
         <a @click="mobileOpen = false" href={`${homeUrl}#news`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Latest News</a>
         <a @click="mobileOpen = false" href={newsUrl} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">All News Articles</a>
         <a @click="mobileOpen = false" href={`${homeUrl}#creator`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">USB Creator Tool</a>
         <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">Community Forum</a>
         <div class="pt-2">
-            <a @click="mobileOpen = false" href={`${homeUrl}#downloads`} class="block w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm shadow-md">
+            <a @click="mobileOpen = false" href={downloadsUrl} class="block w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm shadow-md">
                 Get LibreELEC Now
             </a>
         </div>

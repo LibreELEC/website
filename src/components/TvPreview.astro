@@ -1,12 +1,15 @@
 ---
 import { getSortedPosts } from '../utils/posts';
+import { getLatestVersion } from '../utils/downloads';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeUrl = base ? `${base}/` : '/';
+const downloadsUrl = `${base}/downloads/`;
 
+const latestVersion = getLatestVersion();
 const allPosts = await getSortedPosts();
 const latestRelease = allPosts.find((p) => p.category === 'release') || allPosts[0];
-const latestHeadline = latestRelease?.post.data.title || 'LibreELEC';
+const latestHeadline = latestRelease?.post.data.title || `LibreELEC ${latestVersion.name}`;
 const latestReleaseUrl = latestRelease?.url || `${homeUrl}#news`;
 ---
 
@@ -43,8 +46,8 @@ const latestReleaseUrl = latestRelease?.url || `${homeUrl}#news`;
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href={`${homeUrl}#downloads`} class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-download"></i> Download LibreELEC 12.0
+                <a href={downloadsUrl} class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i> Download LibreELEC {latestVersion.name}
                 </a>
                 <a href={`${homeUrl}#creator`} class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-base border border-slate-200 hover:border-brand-400 shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
                     <i class="fa-solid fa-compact-disc text-brand-600"></i> Get USB Creator

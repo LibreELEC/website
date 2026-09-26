@@ -6,14 +6,27 @@ export default (Alpine: Alpine) => {
     modalOpen: false,
     modalDevice: '',
     modalFile: '',
+    modalUrl: '',
+    modalMirrorUrl: '',
     toastOpen: false,
     toastMessage: '',
     toastTimeout: null as any,
 
-    openDownloadModal(device: string, file: string) {
+    openDownloadModal(device: string, file: string, url: string = '', mirrorUrl: string = '') {
       this.modalDevice = device;
       this.modalFile = file;
+      this.modalUrl = url;
+      this.modalMirrorUrl = mirrorUrl;
       this.modalOpen = true;
+
+      if (url) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', file);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
     },
 
     closeDownloadModal() {

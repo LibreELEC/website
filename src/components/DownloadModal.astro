@@ -32,9 +32,29 @@
             </div>
             <h3 class="text-xl font-bold text-slate-900 mb-2">Downloading for <span x-text="$store.ui.modalDevice"></span></h3>
             <p class="text-slate-700 text-xs font-mono font-semibold mb-4" x-text="$store.ui.modalFile"></p>
-            <p class="text-slate-600 text-xs mb-6 leading-relaxed">
-                Your download will begin automatically. Make sure to flash this image using the <strong>LibreELEC USB-SD Creator</strong> or <strong>Raspberry Pi Imager</strong>.
+            <p class="text-slate-600 text-xs mb-5 leading-relaxed">
+                Your download should begin automatically. Make sure to flash this image using the <strong>LibreELEC USB-SD Creator</strong> or <strong>Raspberry Pi Imager</strong>.
             </p>
+
+            <template x-if="$store.ui.modalUrl">
+                <div class="mb-5 p-3 rounded-xl bg-slate-50 border border-slate-100 text-left space-y-2">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-slate-500 font-medium">Direct link:</span>
+                        <a :href="$store.ui.modalUrl" class="text-brand-600 hover:text-brand-700 font-semibold flex items-center gap-1">
+                            <i class="fa-solid fa-download text-[11px]"></i> Download file
+                        </a>
+                    </div>
+                    <template x-if="$store.ui.modalMirrorUrl">
+                        <div class="flex items-center justify-between text-xs pt-1 border-t border-slate-200/60">
+                            <span class="text-slate-500 font-medium">Checksum & Mirrors:</span>
+                            <a :href="$store.ui.modalMirrorUrl" target="_blank" rel="noopener" class="text-slate-700 hover:text-brand-600 font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-shield-halved text-[11px]"></i> View SHA256 <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+                            </a>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
             <div class="space-y-2">
                 <button @click="$store.ui.closeDownloadModal()" type="button" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md">
                     Done & Close

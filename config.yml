@@ -1,0 +1,474 @@
+# LibreELEC Downloads Configuration
+# To add a new version site-wide, simply add a new entry to the `versions` list below.
+# The site will automatically update the hero CTA, download page, version selectors, and URLs.
+
+baseUrl: "https://releases.libreelec.tv"
+
+# USB-SD Creator Tool Releases
+creator:
+  version: "1.0.0"
+  wikiUrl: "https://wiki.libreelec.tv/installation/create-media"
+  downloads:
+    windows:
+      name: "Windows x64 (.exe)"
+      icon: "fa-brands fa-windows"
+      url: "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Win32.exe"
+    macos:
+      name: "macOS (.dmg)"
+      icon: "fa-brands fa-apple"
+      url: "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.macOS.dmg"
+    linux:
+      name: "Linux (.AppImage)"
+      icon: "fa-brands fa-linux"
+      url: "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Linux-64bit.AppImage"
+
+# Supported LibreELEC Versions (Ordered from newest to oldest)
+# First version with status 'latest' or first in list is treated as the site-wide latest release
+versions:
+  - id: "12.2"
+    name: "12.2"
+    downloadVersion: "12.2.1"
+    releaseDate: "2025.11"
+    kodiVersion: "21.3 (Omega)"
+    kernelVersion: "6.16.x"
+    kernelOverrides:
+      raspberry: "6.12.x"
+    status: "latest" # 'latest' | 'stable' | 'legacy' | 'prerelease'
+    description: "Latest stable release featuring Kodi 21.3 Omega with wide hardware decoding support."
+
+  - id: "12.0"
+    name: "12.0"
+    downloadVersion: "12.0.2"
+    releaseDate: "2025.01"
+    kodiVersion: "21.2 (Omega)"
+    kernelVersion: "6.6.x"
+    status: "stable"
+    description: "Stable LibreELEC 12 series release with 64-bit aarch64 userspace for ARM SoCs."
+
+  - id: "11.0"
+    name: "11.0"
+    downloadVersion: "11.0.6"
+    releaseDate: "2024.01"
+    kodiVersion: "20.3 (Nexus)"
+    kernelVersion: "6.1.x"
+    status: "legacy"
+    description: "Legacy release powered by Kodi 20.3 Nexus."
+
+  - id: "10.0"
+    name: "10.0"
+    downloadVersion: "10.0.4"
+    releaseDate: "2023.01"
+    kodiVersion: "19.5 (Matrix)"
+    kernelVersion: "5.10.x"
+    status: "legacy"
+    description: "Legacy release featuring Kodi 19.5 Matrix."
+
+  - id: "9.2"
+    name: "9.2"
+    downloadVersion: "9.2.6"
+    downloadVersionOverrides:
+      RPi: "9.2.8"
+      RPi2: "9.2.8"
+      RPi4: "9.2.8"
+    releaseDate: "2020.11"
+    kodiVersion: "18.9 (Leia)"
+    kernelVersion: "5.1.x"
+    kernelOverrides:
+      raspberry: "4.19.x"
+      rockchip: "4.4.x"
+    status: "legacy"
+    description: "Python 2 based legacy release for vintage hardware."
+
+# Platforms and Supported Hardware Catalog
+platforms:
+  - id: "raspberry"
+    name: "Raspberry Pi"
+    icon: "fa-brands fa-raspberry-pi"
+    badgeColor: "red"
+    description: "Official LibreELEC images for Raspberry Pi single-board computers."
+    featuredDeviceIds: ["rpi5", "rpi4", "rpi3"]
+    devices:
+      - id: "rpi5"
+        name: "Raspberry Pi 5"
+        project: "RPi5"
+        arch: "aarch64"
+        supportedVersions: ["12.2", "12.0"]
+        chipset: "Broadcom BCM2712"
+        features: "4K60 HDR, HEVC decoding, PCIe NVMe SSD boot support"
+
+      - id: "rpi4"
+        name: "Raspberry Pi 4 / 400"
+        project: "RPi4"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+          "10.0": "arm"
+          "9.2": "arm"
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        chipset: "Broadcom BCM2711"
+        features: "Dual 4K micro-HDMI, H.265 hardware decoding, USB 3.0"
+
+      - id: "rpicm4"
+        name: "Raspberry Pi Compute Module 4 (CM4)"
+        project: "RPi4"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+          "10.0": "arm"
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        chipset: "Broadcom BCM2711"
+        features: "Industrial & embedded CM4 carrier board installations"
+
+      - id: "rpi3"
+        name: "Raspberry Pi 3 Model B / B+ / Zero 2 W"
+        project: "RPi2"
+        arch: "arm"
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        chipset: "Broadcom BCM2837"
+        features: "1080p full hardware playback, compact low-power HTPC"
+
+      - id: "rpi2"
+        name: "Raspberry Pi 2"
+        project: "RPi2"
+        arch: "arm"
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        chipset: "Broadcom BCM2836"
+        features: "Legacy ARMv7 32-bit hardware support"
+
+      - id: "rpi0"
+        name: "Raspberry Pi Zero / 1"
+        project: "RPi"
+        arch: "arm"
+        supportedVersions: ["9.2"]
+        chipset: "Broadcom BCM2835"
+        features: "Legacy ARMv6 single-core architecture (v9.2 only)"
+
+  - id: "generic"
+    name: "Generic PC (x86_64)"
+    icon: "fa-solid fa-desktop"
+    badgeColor: "blue"
+    description: "Standard 64-bit x86 hardware for Intel NUCs, AMD Mini PCs, and custom HTPCs."
+    featuredDeviceIds: ["generic-pc", "generic-legacy"]
+    devices:
+      - id: "generic-pc"
+        name: "Generic PC (Intel / AMD Graphics)"
+        project: "Generic"
+        arch: "x86_64"
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        chipset: "Intel / AMD / Modern GPUs"
+        features: "UEFI boot, VAAPI/VDPAU hardware acceleration, 4K HDR playback"
+
+      - id: "generic-legacy"
+        name: "Legacy Generic PC (NVIDIA / Older Hardware)"
+        project: "Generic-legacy"
+        arch: "x86_64"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Legacy NVIDIA & BIOS Systems"
+        features: "For older PCs requiring proprietary legacy NVIDIA drivers"
+
+      - id: "generic-vm"
+        name: "Virtual Machine (OVA / Disk Image)"
+        project: "Generic"
+        arch: "x86_64"
+        supportedVersions: ["12.2", "12.0"]
+        chipset: "Virtualization"
+        features: "VMware, Proxmox, VirtualBox test environments"
+
+  - id: "rockchip"
+    name: "Rockchip"
+    icon: "fa-solid fa-microchip"
+    badgeColor: "emerald"
+    description: "High-performance ARM SoCs commonly found in SBCs and TV boxes."
+    featuredDeviceIds: ["rockpro64", "rock-pi-4", "tinker"]
+    devices:
+      - id: "rockpro64"
+        name: "PINE64 RockPro64"
+        project: "RK3399"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "rockpro64"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3399"
+        features: "Dual-core Cortex-A72 + Quad-core A53, PCIe slot support"
+
+      - id: "rock-pi-4"
+        name: "Radxa ROCK Pi 4"
+        project: "RK3399"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "rock-pi-4"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3399"
+        features: "4K HDMI 2.0 output, Gigabit Ethernet, M.2 NVMe extension"
+
+      - id: "rock-pi-4-plus"
+        name: "Radxa ROCK Pi 4A/4B Plus"
+        project: "RK3399"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "rock-pi-4-plus"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3399"
+        features: "On-board high-speed eMMC storage support"
+
+      - id: "nanopc-t4"
+        name: "FriendlyARM NanoPC-T4"
+        project: "RK3399"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "nanopc-t4"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3399"
+        features: "Dual band Wi-Fi, PCIe M.2, USB 3.0"
+
+      - id: "nanopi-m4"
+        name: "FriendlyARM NanoPi M4"
+        project: "RK3399"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "nanopi-m4"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3399"
+        features: "Compact RPi-compatible form factor with RK3399"
+
+      - id: "khadas-edge"
+        name: "Khadas Edge"
+        project: "RK3399"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "khadas-edge"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3399"
+        features: "Ultra-slim board design with high-end audio DAC"
+
+      - id: "rock64"
+        name: "PINE64 ROCK64"
+        project: "RK3328"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "rock64"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3328"
+        features: "Affordable 4K60 HDR media SBC with USB 3.0"
+
+      - id: "beelink-a1"
+        name: "Beelink A1 TV Box"
+        project: "RK3328"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "a1"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3328"
+        features: "Set-top box SD card boot"
+
+      - id: "roc-cc"
+        name: "Firefly ROC-RK3328-CC"
+        project: "RK3328"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "roc-cc"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3328"
+        features: "Compact 4K media SBC"
+
+      - id: "tinker"
+        name: "ASUS Tinker Board"
+        project: "RK3288"
+        arch: "arm"
+        device: "tinker"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3288"
+        features: "Quad-core 1.8GHz ARM Cortex-A17 processor with 24-bit audio"
+
+      - id: "miqi"
+        name: "Mqmaker MiQi"
+        project: "RK3288"
+        arch: "arm"
+        device: "miqi"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3288"
+        features: "Compact aluminum case SBC"
+
+  - id: "amlogic"
+    name: "Amlogic"
+    icon: "fa-solid fa-microchip"
+    badgeColor: "purple"
+    description: "Optimized builds for Amlogic S905/S912/S922X/A311D boards and TV boxes."
+    featuredDeviceIds: ["odroid-c4", "odroid-n2", "amlgx-box"]
+    devices:
+      - id: "amlgx-box"
+        name: "Generic Android Box (SD Card Boot)"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "box"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905 / S905X / S912"
+        features: "Multi-device device-tree boot for hundreds of Android TV boxes"
+
+      - id: "odroid-c4"
+        name: "ODROID C4"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "odroid-c4"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905X3"
+        features: "Quad-core Cortex-A55 with 4GB DDR4 and passive cooling"
+
+      - id: "odroid-n2"
+        name: "ODROID N2 / N2+"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "odroid-n2"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S922X"
+        features: "Hexa-core powerhouse with high performance 4K HDR playback"
+
+      - id: "odroid-c2"
+        name: "ODROID C2"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "odroid-c2"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905"
+        features: "Pioneer 64-bit Amlogic board"
+
+      - id: "khadas-vim3"
+        name: "Khadas VIM3"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "khadas-vim3"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic A311D"
+        features: "High-end SBC with 5.0 TOPS NPU and USB-C power delivery"
+
+      - id: "khadas-vim3l"
+        name: "Khadas VIM3L"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "khadas-vim3l"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905D3"
+        features: "HTPC-tailored board with pre-tuned audio and thermal casing"
+
+      - id: "khadas-vim2"
+        name: "Khadas VIM2"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "khadas-vim2"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S912"
+        features: "Octa-core multimedia board"
+
+      - id: "khadas-vim"
+        name: "Khadas VIM"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "khadas-vim"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905X"
+        features: "Classic compact Khadas VIM v1"
+
+      - id: "radxa-zero"
+        name: "Radxa Zero"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "radxa-zero"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905Y2"
+        features: "Ultra-compact form factor with 4K HDMI and USB-C"
+
+      - id: "radxa-zero2"
+        name: "Radxa Zero 2"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "radxa-zero2"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic A311D"
+        features: "Pocket-sized hexacore powerhouse"
+
+      - id: "bananapi-m5"
+        name: "Banana Pi BPI-M5"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "bananapi-m5"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905X3"
+        features: "4GB RAM, Gigabit Ethernet, 4x USB 3.0"
+
+      - id: "lepotato"
+        name: "Libre Computer LePotato (AML-S905X-CC)"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "lepotato"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905X"
+        features: "Raspberry Pi form factor with Amlogic hardware decoding"
+
+      - id: "wetek-play2"
+        name: "WeTek Play 2"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "wetek-play2"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905"
+        features: "Hybrid TV box with DVB tuner support"
+
+  - id: "allwinner"
+    name: "Allwinner"
+    icon: "fa-solid fa-microchip"
+    badgeColor: "amber"
+    description: "Images for Allwinner A64, H3, H5, and H6 boards."
+    featuredDeviceIds: ["orangepi-3", "pine64-plus"]
+    devices:
+      - id: "orangepi-3"
+        name: "Orange Pi 3 / 3 LTS"
+        project: "H6"
+        arch: "aarch64"
+        device: "orangepi-3"
+        supportedVersions: ["12.2", "12.0"]
+        chipset: "Allwinner H6"
+        features: "High-speed 4K60 decoding with Gigabit LAN"
+
+      - id: "pine-h64"
+        name: "Pine H64 Model A"
+        project: "H6"
+        arch: "aarch64"
+        device: "pine-h64"
+        supportedVersions: ["12.2", "12.0"]
+        chipset: "Allwinner H6"
+        features: "PCIe slot and USB 3.0"
+
+      - id: "orangepi-pc"
+        name: "Orange Pi PC"
+        project: "H3"
+        arch: "arm"
+        device: "orangepi-pc"
+        supportedVersions: ["12.2", "12.0"]
+        chipset: "Allwinner H3"
+        features: "Cost-effective 1080p media player"
+
+      - id: "pine64-plus"
+        name: "Pine64 Plus"
+        project: "A64"
+        arch: "aarch64"
+        device: "pine64-plus"
+        supportedVersions: ["12.2", "12.0"]
+        chipset: "Allwinner A64"
+        features: "Open hardware 64-bit ARM single-board computer"
+
+  - id: "nxp"
+    name: "NXP"
+    icon: "fa-solid fa-microchip"
+    badgeColor: "cyan"
+    description: "NXP i.MX6 and i.MX8 platforms."
+    note: "Currently there are no official stable releases available. If you are interested in the current development progress, please check our nightly builds at https://test.libreelec.tv/."
+    devices: []
