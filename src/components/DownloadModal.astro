@@ -21,33 +21,33 @@
         x-transition:leave="transition ease-in duration-200"
         x-transition:leave-start="opacity-100 translate-y-0 scale-100"
         x-transition:leave-end="opacity-0 translate-y-4 scale-95"
-        class="bg-white p-6 sm:p-8 rounded-2xl max-w-md w-full border border-slate-200 relative shadow-2xl"
+        class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl max-w-md w-full border border-slate-200 dark:border-slate-800 relative shadow-2xl"
     >
-        <button @click="$store.ui.closeDownloadModal()" type="button" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-lg" aria-label="Close modal">
+        <button @click="$store.ui.closeDownloadModal()" type="button" class="absolute top-4 right-4 text-slate-400 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 text-lg" aria-label="Close modal">
             <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="text-center">
-            <div class="w-14 h-14 rounded-2xl bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center text-2xl mx-auto mb-4">
+            <div class="w-14 h-14 rounded-2xl bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl mx-auto mb-4">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Downloading for <span x-text="$store.ui.modalDevice"></span></h3>
-            <p class="text-slate-700 text-xs font-mono font-semibold mb-4" x-text="$store.ui.modalFile"></p>
-            <p class="text-slate-600 text-xs mb-5 leading-relaxed">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Downloading for <span x-text="$store.ui.modalDevice"></span></h3>
+            <p class="text-slate-700 dark:text-slate-300 text-xs font-mono font-semibold mb-4" x-text="$store.ui.modalFile"></p>
+            <p class="text-slate-600 dark:text-slate-300 text-xs mb-5 leading-relaxed">
                 Your download should begin automatically. Make sure to flash this image using the <strong>LibreELEC USB-SD Creator</strong> or <strong>Raspberry Pi Imager</strong>.
             </p>
 
             <template x-if="$store.ui.modalUrl">
-                <div class="mb-5 p-3 rounded-xl bg-slate-50 border border-slate-100 text-left space-y-2">
+                <div class="mb-5 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700 text-left space-y-2">
                     <div class="flex items-center justify-between text-xs">
-                        <span class="text-slate-500 font-medium">Direct link:</span>
-                        <a :href="$store.ui.modalUrl" class="text-brand-600 hover:text-brand-700 font-semibold flex items-center gap-1">
+                        <span class="text-slate-500 dark:text-slate-400 font-medium">Direct link:</span>
+                        <a :href="$store.ui.modalUrl" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 font-semibold flex items-center gap-1">
                             <i class="fa-solid fa-download text-[11px]"></i> Download file
                         </a>
                     </div>
                     <template x-if="$store.ui.modalMirrorUrl">
-                        <div class="flex items-center justify-between text-xs pt-1 border-t border-slate-200/60">
-                            <span class="text-slate-500 font-medium">Checksum & Mirrors:</span>
-                            <a :href="$store.ui.modalMirrorUrl" target="_blank" rel="noopener" class="text-slate-700 hover:text-brand-600 font-semibold flex items-center gap-1">
+                        <div class="flex items-center justify-between text-xs pt-1 border-t border-slate-200/60 dark:border-slate-700">
+                            <span class="text-slate-500 dark:text-slate-400 font-medium">Checksum & Mirrors:</span>
+                            <a :href="$store.ui.modalMirrorUrl" target="_blank" rel="noopener" class="text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-semibold flex items-center gap-1">
                                 <i class="fa-solid fa-shield-halved text-[11px]"></i> View SHA256 <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
                             </a>
                         </div>
@@ -59,7 +59,7 @@
                 <button @click="$store.ui.closeDownloadModal()" type="button" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md">
                     Done & Close
                 </button>
-                <a href="https://wiki.libreelec.tv/installation/create-media" target="_blank" rel="noopener" class="block text-brand-600 text-xs font-semibold hover:underline pt-1">
+                <a href="https://wiki.libreelec.tv/installation/create-media" target="_blank" rel="noopener" class="block text-brand-600 dark:text-brand-400 text-xs font-semibold hover:underline pt-1">
                     Need help flashing this file? View Wiki Guide
                 </a>
             </div>

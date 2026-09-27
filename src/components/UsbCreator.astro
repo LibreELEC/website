@@ -6,51 +6,51 @@ const downloadsUrl = `${base}/downloads/`;
 ---
 <section id="creator" class="py-20 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-slate-200 relative">
+        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-slate-200 dark:border-slate-800 relative">
             <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-2 block">Official Installation App</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 leading-tight">
+                    <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-widest mb-2 block">Official Installation App</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 leading-tight">
                         LibreELEC USB-SD Creator
                     </h2>
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
                         Don't want to manually extract `.img.gz` files? Download our cross-platform utility tool to select your target hardware, automatically fetch the latest release, and write it to your USB drive or SD card in 3 simple clicks.
                     </p>
 
                     <!-- Creator Steps -->
                     <div class="space-y-4 mb-8">
                         <div class="flex items-start gap-4">
-                            <div class="w-7 h-7 rounded-full bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
-                            <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900">Choose hardware:</strong> Pick your Raspberry Pi model or x86 system from the dropdown menu.</p>
+                            <div class="w-7 h-7 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Choose hardware:</strong> Pick your Raspberry Pi model or x86 system from the dropdown menu.</p>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-7 h-7 rounded-full bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
-                            <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900">Select destination:</strong> Plug in your USB flash stick or SD card reader.</p>
+                            <div class="w-7 h-7 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Select destination:</strong> Plug in your USB flash stick or SD card reader.</p>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-7 h-7 rounded-full bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
-                            <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900">Write & Boot:</strong> Hit "Write" and plug it directly into your HTPC!</p>
+                            <div class="w-7 h-7 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Write & Boot:</strong> Hit "Write" and plug it directly into your HTPC!</p>
                         </div>
                     </div>
 
                     <!-- Creator OS Buttons -->
                     <div class="flex flex-wrap items-center gap-3">
-                        <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Win32.exe" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
+                        <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Win32.exe" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
                             <i class="fa-brands fa-windows text-blue-400"></i> Windows (.exe)
                         </a>
-                        <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.macOS.dmg" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
+                        <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.macOS.dmg" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
                             <i class="fa-brands fa-apple text-slate-300"></i> macOS (.dmg)
                         </a>
-                        <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Linux-64bit.AppImage" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
+                        <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Linux-64bit.AppImage" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
                             <i class="fa-brands fa-linux text-amber-400"></i> Linux (.AppImage)
                         </a>
                     </div>
 
                     <!-- Link to Manual Download Site -->
-                    <div class="mt-6 pt-4 border-t border-slate-100">
-                        <a href={downloadsUrl} class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 hover:text-brand-700 hover:underline">
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <a href={downloadsUrl} class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 hover:underline">
                             Looking for manual disk images (.img.gz) or older releases? Visit our Download Hub &rarr;
                         </a>
                     </div>
@@ -58,8 +58,8 @@ const downloadsUrl = `${base}/downloads/`;
 
                 <!-- App UI Graphic Mockup -->
                 <div class="relative">
-                    <div class="p-6 rounded-2xl border border-slate-200 shadow-xl bg-white">
-                        <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+                    <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-900">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4">
                             <div class="flex items-center gap-2">
                                 <div class="w-5 h-5 flex items-center justify-center mr-1">
                                     <LibreElecLogo class="w-full h-full" />
@@ -68,32 +68,32 @@ const downloadsUrl = `${base}/downloads/`;
                                 <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
                                 <div class="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
                             </div>
-                            <span class="text-xs text-slate-500 font-mono font-semibold">LibreELEC USB-SD Creator v1.5</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-mono font-semibold">LibreELEC USB-SD Creator v1.5</span>
                         </div>
 
                         <div class="space-y-4">
                             <div>
-                                <label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">1. Select Version</label>
-                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs text-slate-800 font-semibold">
+                                <label class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block mb-1">1. Select Version</label>
+                                <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex justify-between items-center text-xs text-slate-800 dark:text-slate-200 font-semibold">
                                     <span>LibreELEC 12.0.2 (Raspberry Pi 5)</span>
                                     <i class="fa-solid fa-chevron-down text-slate-400"></i>
                                 </div>
                             </div>
 
                             <div>
-                                <label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">2. Target USB/SD Drive</label>
-                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs text-slate-800 font-semibold">
-                                    <span class="flex items-center gap-2"><i class="fa-solid fa-sd-card text-brand-600"></i> SanDisk Ultra 32GB (/dev/sdb)</span>
+                                <label class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block mb-1">2. Target USB/SD Drive</label>
+                                <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex justify-between items-center text-xs text-slate-800 dark:text-slate-200 font-semibold">
+                                    <span class="flex items-center gap-2"><i class="fa-solid fa-sd-card text-brand-600 dark:text-brand-400"></i> SanDisk Ultra 32GB (/dev/sdb)</span>
                                     <i class="fa-solid fa-chevron-down text-slate-400"></i>
                                 </div>
                             </div>
 
                             <div>
-                                <div class="flex justify-between text-xs text-slate-500 mb-1 font-mono">
+                                <div class="flex justify-between text-xs text-slate-500 dark:text-slate-400 mb-1 font-mono">
                                     <span>Status: Ready to write...</span>
-                                    <span class="font-bold text-emerald-600">100% Verified</span>
+                                    <span class="font-bold text-emerald-600 dark:text-emerald-400">100% Verified</span>
                                 </div>
-                                <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
+                                <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700">
                                     <div class="w-full h-full bg-gradient-to-r from-brand-500 to-emerald-500"></div>
                                 </div>
                             </div>
