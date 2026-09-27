@@ -80,7 +80,7 @@ export interface DeviceDownloadInfo {
 let cachedConfig: DownloadConfig | null = null;
 
 export function getDownloadConfig(): DownloadConfig {
-  if (cachedConfig) {
+  if (cachedConfig && !import.meta.env.DEV) {
     return cachedConfig;
   }
 
