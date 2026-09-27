@@ -14,7 +14,109 @@ interface UiStore {
   showToast(message: string): void;
 }
 
+interface ThemeStore {
+  current: 'light' | 'dark' | 'system';
+  effective: 'light' | 'dark';
+  init(): void;
+  updateEffective(): void;
+  applyTheme(): void;
+  setTheme(theme: 'light' | 'dark' | 'system'): void;
+  cycle(): void;
+  getTooltip(): string;
+}
+
 export default (Alpine: Alpine) => {
+  // Global Store for Theme (Light / Dark / System Auto)
+  const themeStore: ThemeStore = {
+    current: 'system',
+    effective: 'light',
+
+    init() {
+      if (typeof window !== 'undefined') {
+        try {
+          const stored = localStorage.getItem('theme');
+          if (stored === 'light' || stored === 'dark' || stored === 'system') {
+            this.current = stored;
+          }
+        } catch (_) {}
+
+        this.applyTheme();
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          if (this.current === 'system') {
+            this.applyTheme();
+          }
+        });
+      }
+    },
+
+    updateEffective() {
+      if (typeof window !== 'undefined') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        this.effective = this.current === 'system' ? (prefersDark ? 'dark' : 'light') : this.current;
+      }
+    },
+
+    applyTheme() {
+      this.updateEffective();
+      if (typeof document !== 'undefined') {
+        const root = document.documentElement;
+        if (this.effective === 'dark') {
+          root.classList.add('dark');
+          root.classList.remove('light');
+        } else {
+          root.classList.remove('dark');
+          root.classList.add('light');
+        }
+      }
+    },
+
+    setTheme(theme: 'light' | 'dark' | 'system') {
+      this.current = theme;
+      if (typeof localStorage !== 'undefined') {
+        try {
+          localStorage.setItem('theme', theme);
+        } catch (_) {}
+      }
+      this.applyTheme();
+    },
+
+    cycle() {
+      const prefersDark = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        if (this.current === 'system') {
+          this.setTheme('light');
+        } else if (this.current === 'light') {
+          this.setTheme('dark');
+        } else {
+          this.setTheme('system');
+        }
+      } else {
+        if (this.current === 'system') {
+          this.setTheme('dark');
+        } else if (this.current === 'dark') {
+          this.setTheme('light');
+        } else {
+          this.setTheme('system');
+        }
+      }
+    },
+
+    getTooltip() {
+      if (this.current === 'light') {
+        return 'Theme: Light (Click to switch to Dark)';
+      }
+      if (this.current === 'dark') {
+        return 'Theme: Dark (Click to switch to System Auto)';
+      }
+      const activeState = this.effective === 'dark' ? 'Dark' : 'Light';
+      const nextState = this.effective === 'dark' ? 'Light' : 'Dark';
+      return `Theme: System (${activeState}) (Click to switch to ${nextState})`;
+    }
+  };
+
+  Alpine.store('theme', themeStore);
+
   // Global Store for Modals and Toasts
   const uiStore: UiStore = {
     modalOpen: false,

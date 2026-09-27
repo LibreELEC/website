@@ -29,18 +29,18 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
         <div class="text-center max-w-3xl mx-auto mb-8 md:mb-10">
             <a
                 href={latestReleaseUrl}
-                class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 hover:bg-white border border-slate-200 hover:border-brand-400 text-slate-700 hover:text-brand-600 text-xs font-semibold tracking-wide mb-4 shadow-sm transition-all group"
+                class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 dark:bg-slate-800/90 hover:bg-white dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 hover:border-brand-400 dark:hover:border-brand-500 text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 text-xs font-semibold tracking-wide mb-4 shadow-sm transition-all group"
             >
                 <LibreElecLogo class="w-5 h-5 animate-spin-slow shrink-0" />
                 <span>{latestHeadline}</span>
-                <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all"></i>
+                <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 dark:text-slate-500 group-hover:text-brand-600 dark:group-hover:text-brand-400 group-hover:translate-x-0.5 transition-all"></i>
             </a>
             
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-4 leading-tight">
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 leading-tight">
                 Just enough OS for <span class="text-gradient">Kodi</span>
             </h1>
             
-            <p class="text-lg sm:text-xl text-slate-600 mb-6 leading-relaxed font-normal">
+            <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-normal">
                 Turn your Raspberry Pi, PC, or Android box into the ultimate high-performance home theater PC. Ultra-lightweight, fast boot, and zero bloatware.
             </p>
 
@@ -48,8 +48,8 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
                 <a href={downloadsUrl} class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                     <i class="fa-solid fa-download"></i> Download LibreELEC {latestVersion.name}
                 </a>
-                <a href={`${homeUrl}#creator`} class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-base border border-slate-200 hover:border-brand-400 shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-compact-disc text-brand-600"></i> Get USB Creator
+                <a href={`${homeUrl}#creator`} class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-100 font-semibold text-base border border-slate-200 dark:border-slate-700 hover:border-brand-400 dark:hover:border-brand-500 shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-compact-disc text-brand-600 dark:text-brand-400"></i> Get USB Creator
                 </a>
             </div>
         </div>

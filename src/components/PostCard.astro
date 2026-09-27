@@ -70,10 +70,10 @@ function extractPostDetails(body?: string): PostDetails {
     text
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-      .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono">$1</code>')
+      .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-mono">$1</code>')
       .replace(
         /\[([^\]]+)\]\(([^)]+)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:text-brand-700 underline underline-offset-2 font-medium transition-colors">$1</a>'
+        '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 underline underline-offset-2 font-medium transition-colors">$1</a>'
       );
 
   // Check if sectionContent contains bullet list items
@@ -106,13 +106,13 @@ const downloadsUrl = `${base}/downloads/`;
 
 {featured ? (
     <article
-        class="news-card glass-card rounded-3xl overflow-hidden border border-slate-200/90 hover:border-brand-400/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group md:col-span-2 lg:col-span-2 lg:row-span-3 bg-gradient-to-br from-white via-white to-brand-50/25 h-full"
+        class="news-card glass-card rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-800 hover:border-brand-400/80 dark:hover:border-brand-500/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group md:col-span-2 lg:col-span-2 lg:row-span-3 bg-gradient-to-br from-white via-white to-brand-50/25 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800/80 h-full"
         data-ncat={category}
         x-show={`filter === 'all' || filter === '${category}'`}
         x-transition
     >
         <!-- Ambient corner highlight -->
-        <div class="absolute -right-12 -top-12 w-64 h-64 bg-brand-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-brand-500/10 transition-colors"></div>
+        <div class="absolute -right-12 -top-12 w-64 h-64 bg-brand-500/5 dark:bg-brand-500/10 rounded-full blur-2xl pointer-events-none group-hover:bg-brand-500/10 dark:group-hover:bg-brand-500/20 transition-colors"></div>
 
         <div class="p-6 sm:p-8 lg:p-10 relative z-10 flex flex-col justify-between h-full">
             <div>
@@ -123,48 +123,48 @@ const downloadsUrl = `${base}/downloads/`;
                             <i class="fa-solid fa-star text-[10px]"></i> Latest Update
                         </span>
                         {category === 'release' ? (
-                            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-bold text-xs border border-brand-200">
+                            <span class="px-2.5 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 font-bold text-xs border border-brand-200 dark:border-brand-800">
                                 {categoryLabel}
                             </span>
                         ) : (
-                            <span class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 font-bold text-xs border border-amber-200">
+                            <span class="px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-bold text-xs border border-amber-200 dark:border-amber-800">
                                 {categoryLabel}
                             </span>
                         )}
                     </div>
-                    <span class="font-mono text-xs text-slate-500 font-semibold bg-slate-100 px-2.5 py-1 rounded-md">
-                        <i class="fa-regular fa-calendar mr-1 text-slate-400"></i> {formattedDate}
+                    <span class="font-mono text-xs text-slate-500 dark:text-slate-400 font-semibold bg-slate-100 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 px-2.5 py-1 rounded-md">
+                        <i class="fa-regular fa-calendar mr-1 text-slate-400 dark:text-slate-500"></i> {formattedDate}
                     </span>
                 </div>
 
                 <!-- Featured Title -->
-                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-3 hover:text-brand-600 transition-colors tracking-tight leading-tight">
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-3 hover:text-brand-600 dark:hover:text-brand-400 transition-colors tracking-tight leading-tight">
                     <a href={url}>{post.data.title}</a>
                 </h3>
 
                 <!-- Subtitle / Tagline from post metadata if available -->
                 {subtitle && (
-                    <p class="text-xs font-bold text-brand-600 uppercase tracking-wider mb-3 font-mono">
+                    <p class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider mb-3 font-mono">
                         {subtitle}
                     </p>
                 )}
 
                 <!-- First paragraph of full news text -->
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+                <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
                     {displayText}
                 </p>
 
                 <!-- First Headline and Details -->
                 {firstHeadline && (headlineBullets.length > 0 || headlineParagraph) && (
-                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/90 border border-slate-200/80 mb-6 shadow-sm">
+                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/90 dark:bg-slate-850/80 border border-slate-200/80 dark:border-slate-750 mb-6 shadow-sm">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="w-2 h-2 rounded-full bg-brand-500"></span>
-                            <h4 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800">
+                            <h4 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
                                 {firstHeadline}
                             </h4>
                         </div>
                         {headlineBullets.length > 0 ? (
-                            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
                                 {headlineBullets.map((bullet) => (
                                     <li class="flex items-start gap-2.5">
                                         <i class="fa-solid fa-circle-check text-brand-500 text-[11px] mt-1 shrink-0"></i>
@@ -173,28 +173,28 @@ const downloadsUrl = `${base}/downloads/`;
                                 ))}
                             </ul>
                         ) : headlineParagraph ? (
-                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-4" set:html={headlineParagraph} />
+                            <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-4" set:html={headlineParagraph} />
                         ) : null}
                     </div>
                 )}
             </div>
 
             <!-- Featured Highlights Ribbon / Actions -->
-            <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto">
-                <div class="flex items-center gap-2 text-xs text-slate-500">
-                    <span class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs">
+            <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto">
+                <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                    <span class="w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-950/80 text-brand-700 dark:text-brand-300 flex items-center justify-center font-bold text-xs">
                         <i class="fa-solid fa-user"></i>
                     </span>
                     <div>
-                        <span class="text-slate-400 text-[10px] block">Published by</span>
-                        <span class="font-bold text-slate-800">{author}</span>
+                        <span class="text-slate-400 dark:text-slate-500 text-[10px] block">Published by</span>
+                        <span class="font-bold text-slate-800 dark:text-slate-200">{author}</span>
                     </div>
                 </div>
 
                 <div class="flex items-center gap-3">
                     <a
                         href={downloadsUrl}
-                        class="px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs border border-emerald-200 transition-all flex items-center gap-1.5 shadow-sm"
+                        class="px-4 py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 font-bold text-xs border border-emerald-200 dark:border-emerald-800 transition-all flex items-center gap-1.5 shadow-sm"
                     >
                         <i class="fa-solid fa-download"></i> Downloads
                     </a>
@@ -210,36 +210,36 @@ const downloadsUrl = `${base}/downloads/`;
     </article>
 ) : (
     <article
-        class="news-card glass-card rounded-2xl overflow-hidden border border-slate-200 flex flex-col justify-between h-full hover:border-brand-400 transition-all duration-200"
+        class="news-card glass-card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 dark:bg-slate-900 flex flex-col justify-between h-full hover:border-brand-400 dark:hover:border-brand-500 transition-all duration-200"
         data-ncat={category}
         x-show={`filter === 'all' || filter === '${category}'`}
         x-transition
     >
         <div class="p-5 sm:p-6">
-            <div class="flex items-center justify-between text-xs text-slate-500 mb-2.5">
+            <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-2.5">
                 {category === 'release' ? (
-                    <span class="px-2 py-0.5 rounded-md bg-brand-50 text-brand-700 font-bold text-[11px] border border-brand-200">
+                    <span class="px-2 py-0.5 rounded-md bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 font-bold text-[11px] border border-brand-200 dark:border-brand-800">
                         {categoryLabel}
                     </span>
                 ) : (
-                    <span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 font-bold text-[11px] border border-amber-200">
+                    <span class="px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-bold text-[11px] border border-amber-200 dark:border-amber-800">
                         {categoryLabel}
                     </span>
                 )}
-                <span class="font-medium font-mono text-[11px] text-slate-500">{formattedDate}</span>
+                <span class="font-medium font-mono text-[11px] text-slate-500 dark:text-slate-400">{formattedDate}</span>
             </div>
-            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2 hover:text-brand-600 transition-colors line-clamp-2 leading-snug">
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 hover:text-brand-600 dark:hover:text-brand-400 transition-colors line-clamp-2 leading-snug">
                 <a href={url}>{post.data.title}</a>
             </h3>
-            <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed">
+            <p class="text-slate-600 dark:text-slate-300 text-xs line-clamp-2 leading-relaxed">
                 {displayText}
             </p>
         </div>
-        <div class="px-5 sm:px-6 py-3 border-t border-slate-100 bg-slate-50/60 flex items-center justify-between text-xs mt-auto">
-            <span class="text-slate-600 font-medium">
-                <i class="fa-solid fa-user text-brand-600 mr-1 text-[11px]"></i> {author}
+        <div class="px-5 sm:px-6 py-3 border-t border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 flex items-center justify-between text-xs mt-auto">
+            <span class="text-slate-600 dark:text-slate-300 font-medium">
+                <i class="fa-solid fa-user text-brand-600 dark:text-brand-400 mr-1 text-[11px]"></i> {author}
             </span>
-            <a href={url} class="text-brand-600 font-bold hover:underline flex items-center gap-1">
+            <a href={url} class="text-brand-600 dark:text-brand-400 font-bold hover:underline flex items-center gap-1">
                 Read Post <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </a>
         </div>

@@ -9,19 +9,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const archiveUrl = `${base}/news/`;
 ---
 
-<section id="news" class="py-24 bg-slate-100/50 relative border-t border-slate-200" x-data="{ filter: 'all' }">
+<section id="news" class="py-24 bg-slate-100/50 dark:bg-slate-900/30 relative border-t border-slate-200 dark:border-slate-800" x-data="{ filter: 'all' }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-2 block">Latest Updates</span>
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">News & Announcements</h2>
+                <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-widest mb-2 block">Latest Updates</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">News & Announcements</h2>
             </div>
             <div class="mt-4 md:mt-0 flex items-center gap-2">
                 <button
                     type="button"
                     @click="filter = 'all'"
                     class="news-tab px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all"
-                    :class="filter === 'all' ? 'bg-brand-600 text-white' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'"
+                    :class="filter === 'all' ? 'bg-brand-600 text-white' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700'"
                 >
                     All
                 </button>
@@ -29,7 +29,7 @@ const archiveUrl = `${base}/news/`;
                     type="button"
                     @click="filter = 'release'"
                     class="news-tab px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all"
-                    :class="filter === 'release' ? 'bg-brand-600 text-white' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'"
+                    :class="filter === 'release' ? 'bg-brand-600 text-white' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700'"
                 >
                     Releases
                 </button>
@@ -37,7 +37,7 @@ const archiveUrl = `${base}/news/`;
                     type="button"
                     @click="filter = 'dev'"
                     class="news-tab px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all"
-                    :class="filter === 'dev' ? 'bg-brand-600 text-white' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'"
+                    :class="filter === 'dev' ? 'bg-brand-600 text-white' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700'"
                 >
                     Development
                 </button>
@@ -55,10 +55,10 @@ const archiveUrl = `${base}/news/`;
         <div class="mt-14 text-center">
             <a
                 href={archiveUrl}
-                class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm border border-slate-200 hover:border-brand-500 shadow-sm hover:shadow transition-all duration-200 group"
+                class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-100 font-bold text-sm border border-slate-200 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-400 shadow-sm hover:shadow transition-all duration-200 group"
             >
                 <span>Browse All {allPosts.length} Articles & Archive</span>
-                <i class="fa-solid fa-arrow-right text-brand-600 group-hover:translate-x-1 transition-transform"></i>
+                <i class="fa-solid fa-arrow-right text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform"></i>
             </a>
         </div>
     </div>

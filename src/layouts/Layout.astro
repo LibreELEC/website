@@ -24,13 +24,30 @@ const faviconPngUrl = `${base}/icon.png`;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="light scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <meta name="description" content={description}>
     <link rel="canonical" href={canonicalURL}>
+
+    <!-- Early Theme Initialization to prevent FOUC -->
+    <script is:inline>
+      (function () {
+        try {
+          const stored = localStorage.getItem('theme') || 'system';
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (stored === 'system' && prefersDark)) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+          }
+        } catch (_) {}
+      })();
+    </script>
 
     <!-- Favicon & Touch Icon -->
     <link rel="icon" type="image/svg+xml" href={faviconSvgUrl}>
@@ -50,7 +67,7 @@ const faviconPngUrl = `${base}/icon.png`;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="antialiased selection:bg-brand-500 selection:text-white">
+<body class="antialiased selection:bg-brand-500 selection:text-white bg-slate-50 dark:bg-[#0b1329] text-slate-900 dark:text-slate-100 transition-colors duration-200">
     <Navbar />
     
     <main>
