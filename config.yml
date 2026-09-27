@@ -181,38 +181,36 @@ platforms:
     description: "High-performance ARM SoCs commonly found in SBCs and TV boxes."
     featuredDeviceIds: ["rockpro64", "rock-pi-4", "tinker"]
     devices:
-      - id: "rockpro64"
-        name: "PINE64 RockPro64"
-        project: "RK3399"
-        arch: "aarch64"
-        archOverrides:
-          "11.0": "arm"
-        device: "rockpro64"
+      - id: "tinker"
+        name: "ASUS Tinker Board"
+        project: "RK3288"
+        arch: "arm"
+        device: "tinker"
         supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Rockchip RK3399"
-        features: "Dual-core Cortex-A72 + Quad-core A53, PCIe slot support"
+        chipset: "Rockchip RK3288"
+        features: "Quad-core 1.8GHz ARM Cortex-A17 processor with 24-bit audio"
 
-      - id: "rock-pi-4"
-        name: "Radxa ROCK Pi 4"
-        project: "RK3399"
+      - id: "beelink-a1"
+        name: "Beelink A1 TV Box"
+        project: "RK3328"
         arch: "aarch64"
         archOverrides:
           "11.0": "arm"
-        device: "rock-pi-4"
+        device: "a1"
         supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Rockchip RK3399"
-        features: "4K HDMI 2.0 output, Gigabit Ethernet, M.2 NVMe extension"
+        chipset: "Rockchip RK3328"
+        features: "Set-top box SD card boot"
 
-      - id: "rock-pi-4-plus"
-        name: "Radxa ROCK Pi 4A/4B Plus"
-        project: "RK3399"
+      - id: "roc-cc"
+        name: "Firefly ROC-RK3328-CC"
+        project: "RK3328"
         arch: "aarch64"
         archOverrides:
           "11.0": "arm"
-        device: "rock-pi-4-plus"
+        device: "roc-cc"
         supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Rockchip RK3399"
-        features: "On-board high-speed eMMC storage support"
+        chipset: "Rockchip RK3328"
+        features: "Compact 4K media SBC"
 
       - id: "nanopc-t4"
         name: "FriendlyARM NanoPC-T4"
@@ -247,6 +245,15 @@ platforms:
         chipset: "Rockchip RK3399"
         features: "Ultra-slim board design with high-end audio DAC"
 
+      - id: "miqi"
+        name: "Mqmaker MiQi"
+        project: "RK3288"
+        arch: "arm"
+        device: "miqi"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Rockchip RK3288"
+        features: "Compact aluminum case SBC"
+
       - id: "rock64"
         name: "PINE64 ROCK64"
         project: "RK3328"
@@ -258,45 +265,38 @@ platforms:
         chipset: "Rockchip RK3328"
         features: "Affordable 4K60 HDR media SBC with USB 3.0"
 
-      - id: "beelink-a1"
-        name: "Beelink A1 TV Box"
-        project: "RK3328"
+      - id: "rockpro64"
+        name: "PINE64 RockPro64"
+        project: "RK3399"
         arch: "aarch64"
         archOverrides:
           "11.0": "arm"
-        device: "a1"
+        device: "rockpro64"
         supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Rockchip RK3328"
-        features: "Set-top box SD card boot"
+        chipset: "Rockchip RK3399"
+        features: "Dual-core Cortex-A72 + Quad-core A53, PCIe slot support"
 
-      - id: "roc-cc"
-        name: "Firefly ROC-RK3328-CC"
-        project: "RK3328"
+      - id: "rock-pi-4"
+        name: "Radxa ROCK Pi 4"
+        project: "RK3399"
         arch: "aarch64"
         archOverrides:
           "11.0": "arm"
-        device: "roc-cc"
+        device: "rock-pi-4"
         supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Rockchip RK3328"
-        features: "Compact 4K media SBC"
+        chipset: "Rockchip RK3399"
+        features: "4K HDMI 2.0 output, Gigabit Ethernet, M.2 NVMe extension"
 
-      - id: "tinker"
-        name: "ASUS Tinker Board"
-        project: "RK3288"
-        arch: "arm"
-        device: "tinker"
+      - id: "rock-pi-4-plus"
+        name: "Radxa ROCK Pi 4A/4B Plus"
+        project: "RK3399"
+        arch: "aarch64"
+        archOverrides:
+          "11.0": "arm"
+        device: "rock-pi-4-plus"
         supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Rockchip RK3288"
-        features: "Quad-core 1.8GHz ARM Cortex-A17 processor with 24-bit audio"
-
-      - id: "miqi"
-        name: "Mqmaker MiQi"
-        project: "RK3288"
-        arch: "arm"
-        device: "miqi"
-        supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Rockchip RK3288"
-        features: "Compact aluminum case SBC"
+        chipset: "Rockchip RK3399"
+        features: "On-board high-speed eMMC storage support"
 
   - id: "amlogic"
     name: "Amlogic"
@@ -305,6 +305,15 @@ platforms:
     description: "Optimized builds for Amlogic S905/S912/S922X/A311D boards and TV boxes."
     featuredDeviceIds: ["odroid-c4", "odroid-n2", "amlgx-box"]
     devices:
+      - id: "bananapi-m5"
+        name: "Banana Pi BPI-M5"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "bananapi-m5"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905X3"
+        features: "4GB RAM, Gigabit Ethernet, 4x USB 3.0"
+
       - id: "amlgx-box"
         name: "Generic Android Box (SD Card Boot)"
         project: "AMLGX"
@@ -314,32 +323,23 @@ platforms:
         chipset: "Amlogic S905 / S905X / S912"
         features: "Multi-device device-tree boot for hundreds of Android TV boxes"
 
-      - id: "odroid-c4"
-        name: "ODROID C4"
+      - id: "khadas-vim"
+        name: "Khadas VIM"
         project: "AMLGX"
         arch: "aarch64"
-        device: "odroid-c4"
+        device: "khadas-vim"
         supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Amlogic S905X3"
-        features: "Quad-core Cortex-A55 with 4GB DDR4 and passive cooling"
+        chipset: "Amlogic S905X"
+        features: "Classic compact Khadas VIM v1"
 
-      - id: "odroid-n2"
-        name: "ODROID N2 / N2+"
+      - id: "khadas-vim2"
+        name: "Khadas VIM2"
         project: "AMLGX"
         arch: "aarch64"
-        device: "odroid-n2"
+        device: "khadas-vim2"
         supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Amlogic S922X"
-        features: "Hexa-core powerhouse with high performance 4K HDR playback"
-
-      - id: "odroid-c2"
-        name: "ODROID C2"
-        project: "AMLGX"
-        arch: "aarch64"
-        device: "odroid-c2"
-        supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Amlogic S905"
-        features: "Pioneer 64-bit Amlogic board"
+        chipset: "Amlogic S912"
+        features: "Octa-core multimedia board"
 
       - id: "khadas-vim3"
         name: "Khadas VIM3"
@@ -359,23 +359,41 @@ platforms:
         chipset: "Amlogic S905D3"
         features: "HTPC-tailored board with pre-tuned audio and thermal casing"
 
-      - id: "khadas-vim2"
-        name: "Khadas VIM2"
+      - id: "lepotato"
+        name: "Libre Computer LePotato (AML-S905X-CC)"
         project: "AMLGX"
         arch: "aarch64"
-        device: "khadas-vim2"
-        supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Amlogic S912"
-        features: "Octa-core multimedia board"
-
-      - id: "khadas-vim"
-        name: "Khadas VIM"
-        project: "AMLGX"
-        arch: "aarch64"
-        device: "khadas-vim"
+        device: "lepotato"
         supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X"
-        features: "Classic compact Khadas VIM v1"
+        features: "Raspberry Pi form factor with Amlogic hardware decoding"
+
+      - id: "odroid-c2"
+        name: "ODROID C2"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "odroid-c2"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905"
+        features: "Pioneer 64-bit Amlogic board"
+
+      - id: "odroid-c4"
+        name: "ODROID C4"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "odroid-c4"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S905X3"
+        features: "Quad-core Cortex-A55 with 4GB DDR4 and passive cooling"
+
+      - id: "odroid-n2"
+        name: "ODROID N2 / N2+"
+        project: "AMLGX"
+        arch: "aarch64"
+        device: "odroid-n2"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Amlogic S922X"
+        features: "Hexa-core powerhouse with high performance 4K HDR playback"
 
       - id: "radxa-zero"
         name: "Radxa Zero"
@@ -394,24 +412,6 @@ platforms:
         supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
         features: "Pocket-sized hexacore powerhouse"
-
-      - id: "bananapi-m5"
-        name: "Banana Pi BPI-M5"
-        project: "AMLGX"
-        arch: "aarch64"
-        device: "bananapi-m5"
-        supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Amlogic S905X3"
-        features: "4GB RAM, Gigabit Ethernet, 4x USB 3.0"
-
-      - id: "lepotato"
-        name: "Libre Computer LePotato (AML-S905X-CC)"
-        project: "AMLGX"
-        arch: "aarch64"
-        device: "lepotato"
-        supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Amlogic S905X"
-        features: "Raspberry Pi form factor with Amlogic hardware decoding"
 
       - id: "wetek-play2"
         name: "WeTek Play 2"
@@ -438,15 +438,6 @@ platforms:
         chipset: "Allwinner H6"
         features: "High-speed 4K60 decoding with Gigabit LAN"
 
-      - id: "pine-h64"
-        name: "Pine H64 Model A"
-        project: "H6"
-        arch: "aarch64"
-        device: "pine-h64"
-        supportedVersions: ["12.2", "12.0"]
-        chipset: "Allwinner H6"
-        features: "PCIe slot and USB 3.0"
-
       - id: "orangepi-pc"
         name: "Orange Pi PC"
         project: "H3"
@@ -455,6 +446,15 @@ platforms:
         supportedVersions: ["12.2", "12.0"]
         chipset: "Allwinner H3"
         features: "Cost-effective 1080p media player"
+
+      - id: "pine-h64"
+        name: "Pine H64 Model A"
+        project: "H6"
+        arch: "aarch64"
+        device: "pine-h64"
+        supportedVersions: ["12.2", "12.0"]
+        chipset: "Allwinner H6"
+        features: "PCIe slot and USB 3.0"
 
       - id: "pine64-plus"
         name: "Pine64 Plus"

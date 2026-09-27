@@ -102,7 +102,19 @@ export function getDownloadConfig(): DownloadConfig {
     throw new Error('config.yml could not be found in project root or src/.');
   }
 
-  cachedConfig = load(rawYaml) as DownloadConfig;
+  const rawConfig = load(rawYaml) as DownloadConfig;
+  if (rawConfig && Array.isArray(rawConfig.platforms)) {
+    const platformsToSortByName = new Set(['allwinner', 'amlogic', 'rockchip']);
+    for (const platform of rawConfig.platforms) {
+      if (platformsToSortByName.has(platform.id) && Array.isArray(platform.devices)) {
+        platform.devices.sort((a, b) =>
+          a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' })
+        );
+      }
+    }
+  }
+
+  cachedConfig = rawConfig;
   return cachedConfig;
 }
 
