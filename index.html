@@ -99,6 +99,14 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #0284c7;
         }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-white">
@@ -219,7 +227,7 @@
                     <div class="relative rounded-xl overflow-hidden bg-slate-950 aspect-video group">
                         
                         <!-- Dynamic TV Display Screen Content -->
-                        <div id="tv-screen" class="relative w-full h-full bg-cover bg-center transition-all duration-500 flex flex-col justify-between p-4 sm:p-6 md:p-7" style="background-image: linear-gradient(to right, rgba(7, 10, 18, 0.82) 0%, rgba(7, 10, 18, 0.58) 45%, rgba(7, 10, 18, 0.15) 100%), url('img/preview/video-movie-detail.jpg');">
+                        <div id="tv-screen" class="relative w-full h-full bg-cover bg-center transition-all duration-500 flex flex-col justify-between p-4 sm:p-6 md:p-7" style="background-image: linear-gradient(to top, rgba(7, 10, 18, 0.92) 0%, rgba(7, 10, 18, 0.65) 40%, rgba(7, 10, 18, 0.12) 72%, rgba(7, 10, 18, 0.45) 100%), url('img/preview/video-movie-detail.jpg');">
                             
                             <!-- Kodi Header Overlay -->
                             <div class="flex items-center justify-between z-10 gap-2">
@@ -251,21 +259,21 @@
                                 </div>
                             </div>
 
-                            <!-- Kodi Main Menu Showcase -->
-                            <div class="my-auto z-10 max-w-lg">
-                                <div class="flex items-center gap-2 mb-1 sm:mb-1.5">
+                            <!-- Kodi Main Menu Showcase (Moved to bottom) -->
+                            <div class="mt-auto mb-2 sm:mb-2.5 z-10 w-full max-w-3xl">
+                                <div class="flex items-center gap-2 mb-1">
                                     <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
                                     <span class="text-brand-400 font-bold text-[10px] sm:text-xs uppercase tracking-widest drop-shadow" id="preview-category">Direct Hardware Playback</span>
                                 </div>
-                                <h3 class="text-lg sm:text-2xl md:text-3xl font-extrabold text-white mb-1.5 sm:mb-2 leading-tight tracking-tight drop-shadow-md" id="preview-title">4K HDR10+ & Dolby Vision</h3>
-                                <p class="text-slate-200 text-xs sm:text-sm line-clamp-2 sm:line-clamp-3 mb-2.5 sm:mb-3.5 leading-relaxed font-normal drop-shadow" id="preview-desc">
+                                <h3 class="text-lg sm:text-2xl font-extrabold text-white mb-1 leading-tight tracking-tight drop-shadow-md" id="preview-title">4K HDR10+ & Dolby Vision</h3>
+                                <p class="text-slate-200 text-xs sm:text-sm line-clamp-2 mb-2 leading-relaxed font-normal drop-shadow max-w-2xl" id="preview-desc">
                                     Direct hardware-accelerated video decoding via Linux DRM/GBM and V4L2 pipelines. Bit-accurate 24p/50p/60p frame rate switching, HDR10+, Dolby Vision, and AV1/HEVC support with zero desktop overhead.
                                 </p>
-                                <div class="flex flex-wrap items-center gap-1.5 sm:gap-2" id="preview-tags">
-                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>4K UHD @ 60Hz</span>
-                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>HDR10+ / Dolby Vision</span>
-                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>AV1 & HEVC Decoding</span>
-                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>24p Frame-Rate Sync</span>
+                                <div class="flex items-center gap-1.5 sm:gap-2 flex-nowrap overflow-x-auto no-scrollbar py-0.5" id="preview-tags">
+                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm whitespace-nowrap shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5 shrink-0"></span>4K UHD @ 60Hz</span>
+                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm whitespace-nowrap shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5 shrink-0"></span>HDR10+ / Dolby Vision</span>
+                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm whitespace-nowrap shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5 shrink-0"></span>AV1 & HEVC Decoding</span>
+                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm whitespace-nowrap shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5 shrink-0"></span>24p Frame-Rate Sync</span>
                                 </div>
                             </div>
 
@@ -949,11 +957,11 @@
                 
                 if (previewTags && data.tags) {
                     previewTags.innerHTML = data.tags.map(t => 
-                        `<span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>${t}</span>`
+                        `<span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm whitespace-nowrap shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5 shrink-0"></span>${t}</span>`
                     ).join('');
                 }
 
-                tvScreen.style.backgroundImage = `linear-gradient(to right, rgba(7, 10, 18, 0.82) 0%, rgba(7, 10, 18, 0.58) 45%, rgba(7, 10, 18, 0.15) 100%), url('${data.bg}')`;
+                tvScreen.style.backgroundImage = `linear-gradient(to top, rgba(7, 10, 18, 0.92) 0%, rgba(7, 10, 18, 0.65) 40%, rgba(7, 10, 18, 0.12) 72%, rgba(7, 10, 18, 0.45) 100%), url('${data.bg}')`;
                 tvScreen.style.opacity = '1';
             }, 150);
 

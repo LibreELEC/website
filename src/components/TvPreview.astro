@@ -63,7 +63,7 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
                     <div
                         id="tv-screen"
                         class="relative w-full h-full bg-cover bg-center flex flex-col justify-between p-4 sm:p-6 md:p-7 transition-all duration-300"
-                        :style="`background-image: linear-gradient(to right, rgba(7, 10, 18, 0.82) 0%, rgba(7, 10, 18, 0.58) 45%, rgba(7, 10, 18, 0.15) 100%), url('${activeItem.bg}'); opacity: ${fading ? 0.6 : 1};`"
+                        :style="`background-image: linear-gradient(to top, rgba(7, 10, 18, 0.92) 0%, rgba(7, 10, 18, 0.65) 40%, rgba(7, 10, 18, 0.12) 72%, rgba(7, 10, 18, 0.45) 100%), url('${activeItem.bg}'); opacity: ${fading ? 0.6 : 1};`"
                     >
                         <!-- Kodi Header Overlay -->
                         <div class="flex items-center justify-between z-10 gap-2">
@@ -90,26 +90,26 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
                             </div>
                         </div>
 
-                        <!-- Kodi Main Menu Showcase -->
-                        <div class="my-auto z-10 max-w-lg">
-                            <div class="flex items-center gap-2 mb-1 sm:mb-1.5">
+                        <!-- Kodi Main Menu Showcase (Moved to bottom) -->
+                        <div class="mt-auto mb-2 sm:mb-2.5 z-10 w-full max-w-3xl">
+                            <div class="flex items-center gap-2 mb-1">
                                 <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
                                 <span class="text-brand-400 font-bold text-[10px] sm:text-xs uppercase tracking-widest drop-shadow" x-text="activeItem.category">
                                     Direct Hardware Playback
                                 </span>
                             </div>
-                            <h3 class="text-lg sm:text-2xl md:text-3xl font-extrabold text-white mb-1.5 sm:mb-2 leading-tight tracking-tight drop-shadow-md" x-text="activeItem.title">
+                            <h3 class="text-lg sm:text-2xl font-extrabold text-white mb-1 leading-tight tracking-tight drop-shadow-md" x-text="activeItem.title">
                                 4K HDR10+ & Dolby Vision
                             </h3>
-                            <p class="text-slate-200 text-xs sm:text-sm line-clamp-2 sm:line-clamp-3 mb-2.5 sm:mb-3.5 leading-relaxed font-normal drop-shadow" x-text="activeItem.desc">
+                            <p class="text-slate-200 text-xs sm:text-sm line-clamp-2 mb-2 leading-relaxed font-normal drop-shadow max-w-2xl" x-text="activeItem.desc">
                                 Direct hardware-accelerated video decoding via Linux DRM/GBM and V4L2 pipelines. Bit-accurate 24p/50p/60p frame rate switching, HDR10+, Dolby Vision, and AV1/HEVC support with zero desktop overhead.
                             </p>
 
-                            <!-- Technical Feature Badges -->
-                            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                            <!-- Technical Feature Badges (Single Line) -->
+                            <div class="flex items-center gap-1.5 sm:gap-2 flex-nowrap overflow-x-auto no-scrollbar py-0.5">
                                 <template x-for="tag in activeItem.tags" :key="tag">
-                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>
+                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm whitespace-nowrap shrink-0">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5 shrink-0"></span>
                                         <span x-text="tag"></span>
                                     </span>
                                 </template>

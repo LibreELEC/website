@@ -62,6 +62,14 @@ body {
   background: #0284c7;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Prose Typography Styling for Markdown Articles */
 .prose {
   color: #334155;
