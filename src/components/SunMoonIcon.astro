@@ -1,0 +1,37 @@
+---
+interface Props {
+  class?: string;
+  size?: number | string;
+  monochrome?: boolean;
+}
+
+const { class: className = 'w-4 h-4', size = 20, monochrome = false } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 24 24"
+  width={size}
+  height={size}
+  class:list={['inline-block shrink-0', className]}
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <!-- Sun half (Left side: Sun disk + sun rays) -->
+  <g class={monochrome ? 'text-current' : 'text-amber-500'} fill="currentColor">
+    <!-- Sun rays -->
+    <path d="M12 2a1 1 0 0 0-1 1v1.5a1 1 0 0 0 2 0V3a1 1 0 0 0-1-1Z" />
+    <path d="M4.93 4.93a1 1 0 0 0 0 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41L6.34 4.93a1 1 0 0 0-1.41 0Z" />
+    <path d="M2 12a1 1 0 0 0 1 1h1.5a1 1 0 0 0 0-2H3a1 1 0 0 0-1 1Z" />
+    <path d="M4.93 19.07a1 1 0 0 0 1.41 0l1.06-1.06a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 0 1.41Z" />
+    <path d="M12 19.5a1 1 0 0 0-1 1V22a1 1 0 0 0 2 0v-1.5a1 1 0 0 0-1-1Z" />
+    <!-- Sun half disk (left semicircle) -->
+    <path d="M12 5.5 A6.5 6.5 0 0 0 12 18.5 Z" />
+  </g>
+
+  <!-- Moon half (Right side: Crescent moon) -->
+  <g class={monochrome ? 'text-current' : 'text-sky-600 dark:text-sky-400'} fill="currentColor">
+    <!-- Outer arc from (12, 5.5) to (12, 18.5) radius 6.5, inner cutout arc radius 8.5 -->
+    <path d="M12 5.5 A6.5 6.5 0 0 1 12 18.5 A8.5 8.5 0 0 0 12 5.5 Z" />
+  </g>
+</svg>

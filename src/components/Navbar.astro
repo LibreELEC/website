@@ -1,5 +1,6 @@
 ---
 import LibreElecLogo from './LibreElecLogo.astro';
+import SunMoonIcon from './SunMoonIcon.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeUrl = base ? `${base}/` : '/';
@@ -56,9 +57,8 @@ const donateUrl = "https://opencollective.com/libreelec/donate";
                 >
                     <i x-show="$store.theme.current === 'light'" class="fa-solid fa-sun text-amber-500 text-base group-hover:rotate-45 transition-transform" x-cloak></i>
                     <i x-show="$store.theme.current === 'dark'" class="fa-solid fa-moon text-sky-400 text-base group-hover:-rotate-12 transition-transform" x-cloak></i>
-                    <span x-show="$store.theme.current === 'system'" class="relative flex items-center justify-center" x-cloak>
-                        <i class="fa-solid fa-desktop text-slate-500 dark:text-slate-300 text-sm"></i>
-                        <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-brand-500 ring-2 ring-white dark:ring-slate-800"></span>
+                    <span x-show="$store.theme.current === 'system'" class="flex items-center justify-center group-hover:scale-110 transition-transform" x-cloak>
+                        <SunMoonIcon class="w-[18px] h-[18px]" size={18} />
                     </span>
                 </button>
             </div>
@@ -76,9 +76,8 @@ const donateUrl = "https://opencollective.com/libreelec/donate";
                 >
                     <i x-show="$store.theme.current === 'light'" class="fa-solid fa-sun text-amber-500 text-sm" x-cloak></i>
                     <i x-show="$store.theme.current === 'dark'" class="fa-solid fa-moon text-sky-400 text-sm" x-cloak></i>
-                    <span x-show="$store.theme.current === 'system'" class="relative flex items-center justify-center" x-cloak>
-                        <i class="fa-solid fa-desktop text-slate-500 dark:text-slate-300 text-xs"></i>
-                        <span class="absolute -top-1 -right-1 w-1.5 h-1.5 rounded-full bg-brand-500 ring-1 ring-white dark:ring-slate-800"></span>
+                    <span x-show="$store.theme.current === 'system'" class="flex items-center justify-center" x-cloak>
+                        <SunMoonIcon class="w-4 h-4" size={16} />
                     </span>
                 </button>
 
@@ -131,7 +130,7 @@ const donateUrl = "https://opencollective.com/libreelec/donate";
                     class="px-2.5 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all"
                     :class="$store.theme.current === 'system' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm font-bold' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
                 >
-                    <i class="fa-solid fa-desktop text-slate-500 dark:text-slate-400 text-xs"></i> Auto
+                    <SunMoonIcon class="w-3.5 h-3.5" size={14} /> Auto
                 </button>
             </div>
         </div>
