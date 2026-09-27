@@ -1,8 +1,22 @@
 import type { Alpine } from 'alpinejs';
 
+interface UiStore {
+  modalOpen: boolean;
+  modalDevice: string;
+  modalFile: string;
+  modalUrl: string;
+  modalMirrorUrl: string;
+  toastOpen: boolean;
+  toastMessage: string;
+  toastTimeout: ReturnType<typeof setTimeout> | null;
+  openDownloadModal(device: string, file: string, url?: string, mirrorUrl?: string): void;
+  closeDownloadModal(): void;
+  showToast(message: string): void;
+}
+
 export default (Alpine: Alpine) => {
   // Global Store for Modals and Toasts
-  Alpine.store('ui', {
+  const uiStore: UiStore = {
     modalOpen: false,
     modalDevice: '',
     modalFile: '',
@@ -10,7 +24,7 @@ export default (Alpine: Alpine) => {
     modalMirrorUrl: '',
     toastOpen: false,
     toastMessage: '',
-    toastTimeout: null as any,
+    toastTimeout: null,
 
     openDownloadModal(device: string, file: string, url: string = '', mirrorUrl: string = '') {
       this.modalDevice = device;
@@ -41,13 +55,16 @@ export default (Alpine: Alpine) => {
         this.toastOpen = false;
       }, 3500);
     }
-  });
+  };
+
+  Alpine.store('ui', uiStore);
 
   // TV Preview Component
   Alpine.data('tvPreview', () => {
     const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
     const downloadsUrl = `${base}/downloads/`;
     const homeUrl = base ? `${base}/` : '/';
+    const previewImg = (name: string) => base ? `${base}/img/preview/${name}` : `/img/preview/${name}`;
 
     return {
       activeKey: 'video',
@@ -59,7 +76,7 @@ export default (Alpine: Alpine) => {
           title: '4K HDR10+ & Dolby Vision',
           desc: 'Direct hardware-accelerated video decoding via Linux DRM/GBM and V4L2 pipelines. Bit-accurate 24p/50p/60p frame rate switching, HDR10+, Dolby Vision, and AV1/HEVC support with zero desktop overhead.',
           tags: ['4K UHD @ 60Hz', 'HDR10+ / Dolby Vision', 'AV1 & HEVC Decoding', '24p Frame-Rate Sync'],
-          bg: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200&auto=format&fit=crop',
+          bg: previewImg('video-movie-detail.jpg'),
           ctaText: 'Get LibreELEC',
           ctaUrl: downloadsUrl,
           secondaryText: 'Hardware Guide',
@@ -70,7 +87,7 @@ export default (Alpine: Alpine) => {
           title: 'Live TV & Tvheadend PVR',
           desc: 'Watch, pause, and record live broadcast television with native DVB-T/T2, DVB-C, DVB-S2, and IPTV tuner support. Features real-time Electronic Programme Guide (EPG) grids, continuous timeshifting, and multi-room network streaming.',
           tags: ['Tvheadend 4.3 Backend', 'DVB Tuner Support', 'EPG & Timeshifting', 'Series Recording'],
-          bg: 'https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=1200&auto=format&fit=crop',
+          bg: previewImg('pvr-epg-timeline.jpg'),
           ctaText: 'PVR Setup',
           ctaUrl: 'https://wiki.libreelec.tv/configuration/pvr',
           secondaryText: 'Tvheadend Docs',
@@ -81,7 +98,7 @@ export default (Alpine: Alpine) => {
           title: 'Bit-Perfect Lossless & HD Passthrough',
           desc: 'Bit-perfect digital audio passthrough directly to your AV receiver for Dolby Atmos, Dolby TrueHD, and DTS:X. Native playback for high-resolution FLAC, ALAC, and DSD up to 192kHz/24-bit over HDMI or dedicated USB DACs.',
           tags: ['Dolby Atmos & DTS:X', 'TrueHD Passthrough', '192kHz / 24-bit Hi-Res', 'USB DAC & HDMI'],
-          bg: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1200&auto=format&fit=crop',
+          bg: previewImg('audio-music-player.jpg'),
           ctaText: 'Audio Settings',
           ctaUrl: 'https://wiki.libreelec.tv/configuration/audio',
           secondaryText: 'Wiki Overview',
@@ -92,7 +109,7 @@ export default (Alpine: Alpine) => {
           title: 'Native LibreELEC Settings Add-on',
           desc: 'Dedicated 10-foot TV configuration suite. Manage Wi-Fi, Ethernet, and Bluetooth remotes, toggle SSH and Samba network shares, configure audio outputs, and perform automated one-click OTA system updates right from your sofa.',
           tags: ['One-Click OTA Updates', 'Wi-Fi & Bluetooth Remotes', 'SSH & Samba Shares', 'Read-Only SquashFS'],
-          bg: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
+          bg: previewImg('settings-libreelec-addon.png'),
           ctaText: 'Settings Guide',
           ctaUrl: 'https://wiki.libreelec.tv/configuration/libreelec-settings',
           secondaryText: 'USB Creator',
