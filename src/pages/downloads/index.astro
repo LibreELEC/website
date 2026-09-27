@@ -316,14 +316,15 @@ const clientDataJson = JSON.stringify(data);
 
                         <!-- Actions & Download Links -->
                         <div class="space-y-3 pt-4 border-t border-slate-100">
-                            <!-- Direct Image Download (Triggers modal with direct link fallback) -->
-                            <button
-                                type="button"
-                                @click="$store.ui.openDownloadModal(item.deviceName, item.imageFileName, item.imageUrl, item.mirrorListUrl)"
-                                class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md"
+                            <!-- Direct Image Download (Real link for right-click copy, triggers modal on click) -->
+                            <a
+                                :href="item.imageUrl"
+                                :download="item.imageFileName"
+                                @click.prevent="$store.ui.openDownloadModal(item.deviceName, item.imageFileName, item.imageUrl, item.mirrorListUrl)"
+                                class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md cursor-pointer"
                             >
                                 <i class="fa-solid fa-download"></i> Direct Image Download (.img.gz)
-                            </button>
+                            </a>
 
                             <!-- Secondary links: Tarball update & Mirrorlist / SHA256 -->
                             <div class="flex items-center justify-between text-[11px] font-mono pt-1 text-slate-500">
