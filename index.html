@@ -222,9 +222,9 @@
                         <div id="tv-screen" class="relative w-full h-full bg-cover bg-center transition-all duration-500 flex flex-col justify-between p-6 sm:p-10" style="background-image: linear-gradient(to right, rgba(7, 10, 18, 0.95) 30%, rgba(7, 10, 18, 0.4) 100%), url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200&auto=format&fit=crop');">
                             
                             <!-- Kodi Header Overlay -->
-                            <div class="flex items-center justify-between z-10">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-slate-900/90 border border-slate-700/80 flex items-center justify-center p-1">
+                            <div class="flex items-center justify-between z-10 gap-2">
+                                <div class="flex items-center gap-2.5 sm:gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-slate-900/90 border border-slate-700/80 flex items-center justify-center p-1 shadow-sm shrink-0">
                                         <svg viewBox="0 0 1000 1000" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                                             <g transform="translate(500, 500) rotate(45)">
                                                 <rect x="-380" y="-380" width="380" height="245" rx="70" fill="#43A047" />
@@ -235,49 +235,68 @@
                                             </g>
                                         </svg>
                                     </div>
-                                    <span class="text-white font-bold tracking-wider text-sm sm:text-base">KODI <span class="text-xs font-normal text-slate-400">v21.0 Omega (LibreELEC 12)</span></span>
+                                    <div class="flex flex-col">
+                                        <div class="flex items-center gap-1.5 leading-tight">
+                                            <span class="text-white font-bold tracking-wider text-xs sm:text-sm">KODI</span>
+                                            <span class="text-[11px] sm:text-xs font-semibold text-brand-400 font-mono">v21.3 Omega</span>
+                                        </div>
+                                        <span class="text-[10px] sm:text-[11px] text-slate-400 font-mono">LibreELEC 12.2.1</span>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-4 text-slate-300 text-xs sm:text-sm font-mono">
-                                    <span id="screen-clock"><i class="fa-regular fa-clock mr-1"></i> 20:45</span>
-                                    <span class="bg-brand-500/20 text-brand-300 border border-brand-500/40 px-2 py-0.5 rounded text-[11px]">HDR10+</span>
-                                    <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded text-[11px]">Passthrough Audio</span>
+                                <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-xs sm:text-sm font-mono shrink-0">
+                                    <span id="screen-clock" class="text-slate-300 font-medium"><i class="fa-regular fa-clock mr-1 text-slate-400"></i> 20:45</span>
+                                    <span class="bg-brand-500/20 text-brand-300 border border-brand-500/40 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold tracking-wide">4K HDR10+</span>
+                                    <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold tracking-wide hidden sm:inline-block">Dolby Atmos</span>
+                                    <span class="bg-purple-500/20 text-purple-300 border border-purple-500/40 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold tracking-wide hidden md:inline-block">HDMI-CEC</span>
                                 </div>
                             </div>
 
                             <!-- Kodi Main Menu Showcase -->
-                            <div class="my-auto z-10 max-w-md">
-                                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest mb-1 block" id="preview-category">Featured Media</span>
-                                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-2 leading-tight" id="preview-title">Cyber Horizon 2088</h3>
-                                <p class="text-slate-300 text-xs sm:text-sm line-clamp-2 mb-4" id="preview-desc">
-                                    Direct 4K HDR playback powered by Linux kernel media pipelines. Instant hardware acceleration without bloated desktop overhead.
+                            <div class="my-auto z-10 max-w-xl">
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                                    <span class="text-brand-400 font-bold text-[10px] sm:text-xs uppercase tracking-widest" id="preview-category">Direct Hardware Playback</span>
+                                </div>
+                                <h3 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mb-2 leading-tight tracking-tight drop-shadow-sm" id="preview-title">4K HDR10+ & Dolby Vision</h3>
+                                <p class="text-slate-300 text-xs sm:text-sm line-clamp-3 mb-3.5 leading-relaxed font-normal" id="preview-desc">
+                                    Direct hardware-accelerated video decoding via Linux DRM/GBM and V4L2 pipelines. Bit-accurate 24p/50p/60p frame rate switching, HDR10+, Dolby Vision, and AV1/HEVC support with zero desktop overhead.
                                 </p>
+                                <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-4 sm:mb-5" id="preview-tags">
+                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>4K UHD @ 60Hz</span>
+                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>HDR10+ / Dolby Vision</span>
+                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>AV1 & HEVC Decoding</span>
+                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>24p Frame-Rate Sync</span>
+                                </div>
                                 <div class="flex items-center gap-3">
-                                    <button class="px-4 py-2 rounded-lg bg-brand-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg">
-                                        <i class="fa-solid fa-play"></i> Watch Now
-                                    </button>
-                                    <button class="px-4 py-2 rounded-lg bg-slate-800/80 text-white font-medium text-xs border border-slate-700">
-                                        <i class="fa-solid fa-circle-info"></i> Information
-                                    </button>
+                                    <a id="preview-cta" href="#downloads" class="px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-brand-500/25 transition-all hover:scale-105">
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> <span id="preview-cta-text">Get LibreELEC</span>
+                                    </a>
+                                    <a id="preview-secondary" href="https://wiki.libreelec.tv" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg bg-slate-900/80 hover:bg-slate-800 text-white font-medium text-xs border border-slate-700/80 transition-all flex items-center gap-2 shadow-sm">
+                                        <i class="fa-solid fa-book-open text-[10px] text-slate-400"></i> <span id="preview-secondary-text">Documentation</span>
+                                    </a>
                                 </div>
                             </div>
 
                             <!-- Kodi Screen Navigation Carousel Buttons -->
-                            <div class="z-10 flex items-center justify-between border-t border-slate-800/80 pt-4">
-                                <div class="flex items-center gap-2 sm:gap-4 overflow-x-auto">
-                                    <button onclick="switchPreview('movies')" class="preview-btn text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-500 text-white transition-all" id="btn-movies">
-                                        <i class="fa-solid fa-film mr-1"></i> Movies
+                            <div class="z-10 flex items-center justify-between border-t border-slate-800/80 pt-3 sm:pt-4">
+                                <div class="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto pb-1 sm:pb-0">
+                                    <button onclick="switchPreview('video')" class="preview-btn text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-500 text-white shadow-md shadow-brand-500/30 transition-all flex items-center gap-1.5 whitespace-nowrap" id="btn-video">
+                                        <i class="fa-solid fa-film text-[11px]"></i> <span>4K HDR Video</span>
                                     </button>
-                                    <button onclick="switchPreview('tv')" class="preview-btn text-xs font-semibold px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all" id="btn-tv">
-                                        <i class="fa-solid fa-tv mr-1"></i> TV Shows
+                                    <button onclick="switchPreview('pvr')" class="preview-btn text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 whitespace-nowrap" id="btn-pvr">
+                                        <i class="fa-solid fa-tv text-[11px]"></i> <span>Live TV & PVR</span>
                                     </button>
-                                    <button onclick="switchPreview('music')" class="preview-btn text-xs font-semibold px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all" id="btn-music">
-                                        <i class="fa-solid fa-music mr-1"></i> Music
+                                    <button onclick="switchPreview('audio')" class="preview-btn text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 whitespace-nowrap" id="btn-audio">
+                                        <i class="fa-solid fa-headphones text-[11px]"></i> <span>Bit-Perfect Audio</span>
                                     </button>
-                                    <button onclick="switchPreview('addons')" class="preview-btn text-xs font-semibold px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all" id="btn-addons">
-                                        <i class="fa-solid fa-puzzle-piece mr-1"></i> Add-ons
+                                    <button onclick="switchPreview('settings')" class="preview-btn text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 whitespace-nowrap" id="btn-settings">
+                                        <i class="fa-solid fa-sliders text-[11px]"></i> <span>LibreELEC Settings</span>
                                     </button>
                                 </div>
-                                <span class="hidden sm:block text-slate-400 text-[11px] font-mono"><i class="fa-solid fa-gamepad mr-1"></i> CEC Remote Active</span>
+                                <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 text-[11px] font-mono bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md shrink-0">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <i class="fa-solid fa-gamepad text-[10px]"></i> CEC Remote Active
+                                </span>
                             </div>
 
                         </div>
@@ -864,29 +883,49 @@
 
         // TV Preview Mockup Switcher Data
         const previewData = {
-            movies: {
-                category: 'Featured Movie',
-                title: 'Cyber Horizon 2088',
-                desc: 'Direct 4K HDR10 playback powered by Linux kernel media pipelines. Instant hardware acceleration without desktop overhead.',
-                bg: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200&auto=format&fit=crop'
+            video: {
+                category: 'Direct Hardware Playback',
+                title: '4K HDR10+ & Dolby Vision',
+                desc: 'Direct hardware-accelerated video decoding via Linux DRM/GBM and V4L2 pipelines. Bit-accurate 24p/50p/60p frame rate switching, HDR10+, Dolby Vision, and AV1/HEVC support with zero desktop overhead.',
+                tags: ['4K UHD @ 60Hz', 'HDR10+ / Dolby Vision', 'AV1 & HEVC Decoding', '24p Frame-Rate Sync'],
+                bg: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200&auto=format&fit=crop',
+                ctaText: 'Get LibreELEC',
+                ctaUrl: '#downloads',
+                secondaryText: 'Hardware Guide',
+                secondaryUrl: 'https://wiki.libreelec.tv/hardware/general'
             },
-            tv: {
-                category: 'TV Series',
-                title: 'Deep Space Pioneers S03',
-                desc: 'Organize your TV show episodes automatically with scrapers for TVDB and TMDB. Passthrough Dolby Atmos audio enabled.',
-                bg: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop'
+            pvr: {
+                category: 'Broadcast & Recording',
+                title: 'Live TV & Tvheadend PVR',
+                desc: 'Watch, pause, and record live broadcast television with native DVB-T/T2, DVB-C, DVB-S2, and IPTV tuner support. Features real-time Electronic Programme Guide (EPG) grids, continuous timeshifting, and multi-room network streaming.',
+                tags: ['Tvheadend 4.3 Backend', 'DVB Tuner Support', 'EPG & Timeshifting', 'Series Recording'],
+                bg: 'https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=1200&auto=format&fit=crop',
+                ctaText: 'PVR Setup',
+                ctaUrl: 'https://wiki.libreelec.tv/configuration/pvr',
+                secondaryText: 'Tvheadend Docs',
+                secondaryUrl: 'https://wiki.libreelec.tv/addons/tvheadend'
             },
-            music: {
-                category: 'High-Res Audio',
-                title: 'Flac & Spatial Audio Collection',
-                desc: 'Bit-perfect audio playback over HDMI or USB DACs. Full support for album art, local lyrics, and visualizers.',
-                bg: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop'
+            audio: {
+                category: 'High-Fidelity Sound',
+                title: 'Bit-Perfect Lossless & HD Passthrough',
+                desc: 'Bit-perfect digital audio passthrough directly to your AV receiver for Dolby Atmos, Dolby TrueHD, and DTS:X. Native playback for high-resolution FLAC, ALAC, and DSD up to 192kHz/24-bit over HDMI or dedicated USB DACs.',
+                tags: ['Dolby Atmos & DTS:X', 'TrueHD Passthrough', '192kHz / 24-bit Hi-Res', 'USB DAC & HDMI'],
+                bg: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1200&auto=format&fit=crop',
+                ctaText: 'Audio Settings',
+                ctaUrl: 'https://wiki.libreelec.tv/configuration/audio',
+                secondaryText: 'Wiki Overview',
+                secondaryUrl: 'https://wiki.libreelec.tv'
             },
-            addons: {
-                category: 'Extensible Add-ons',
-                title: 'Official Kodi Add-on Repository',
-                desc: 'Install YouTube, Twitch, IPTV Simple Client, and retro video game emulators directly from the Kodi addon store.',
-                bg: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop'
+            settings: {
+                category: 'Embedded Appliance OS',
+                title: 'Native LibreELEC Settings Add-on',
+                desc: 'Dedicated 10-foot TV configuration suite. Manage Wi-Fi, Ethernet, and Bluetooth remotes, toggle SSH and Samba network shares, configure audio outputs, and perform automated one-click OTA system updates right from your sofa.',
+                tags: ['One-Click OTA Updates', 'Wi-Fi & Bluetooth Remotes', 'SSH & Samba Shares', 'Read-Only SquashFS'],
+                bg: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
+                ctaText: 'Settings Guide',
+                ctaUrl: 'https://wiki.libreelec.tv/configuration/libreelec-settings',
+                secondaryText: 'USB Creator',
+                secondaryUrl: '#creator'
             }
         };
 
@@ -898,25 +937,41 @@
             const previewCategory = document.getElementById('preview-category');
             const previewTitle = document.getElementById('preview-title');
             const previewDesc = document.getElementById('preview-desc');
+            const previewTags = document.getElementById('preview-tags');
+            const previewCta = document.getElementById('preview-cta');
+            const previewCtaText = document.getElementById('preview-cta-text');
+            const previewSecondary = document.getElementById('preview-secondary');
+            const previewSecondaryText = document.getElementById('preview-secondary-text');
 
             // Fade animation trigger
             tvScreen.style.opacity = '0.7';
 
             setTimeout(() => {
-                previewCategory.textContent = data.category;
-                previewTitle.textContent = data.title;
-                previewDesc.textContent = data.desc;
-                tvScreen.style.backgroundImage = `linear-gradient(to right, rgba(7, 10, 18, 0.95) 30%, rgba(7, 10, 18, 0.4) 100%), url('${data.bg}')`;
+                if (previewCategory) previewCategory.textContent = data.category;
+                if (previewTitle) previewTitle.textContent = data.title;
+                if (previewDesc) previewDesc.textContent = data.desc;
+                if (previewCta && data.ctaUrl) previewCta.href = data.ctaUrl;
+                if (previewCtaText && data.ctaText) previewCtaText.textContent = data.ctaText;
+                if (previewSecondary && data.secondaryUrl) previewSecondary.href = data.secondaryUrl;
+                if (previewSecondaryText && data.secondaryText) previewSecondaryText.textContent = data.secondaryText;
+                
+                if (previewTags && data.tags) {
+                    previewTags.innerHTML = data.tags.map(t => 
+                        `<span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>${t}</span>`
+                    ).join('');
+                }
+
+                tvScreen.style.backgroundImage = `linear-gradient(to right, rgba(7, 10, 18, 0.95) 35%, rgba(7, 10, 18, 0.6) 100%), url('${data.bg}')`;
                 tvScreen.style.opacity = '1';
             }, 150);
 
             // Update button active state
             document.querySelectorAll('.preview-btn').forEach(btn => {
-                btn.className = 'preview-btn text-xs font-semibold px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all';
+                btn.className = 'preview-btn text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 whitespace-nowrap';
             });
             const activeBtn = document.getElementById(`btn-${key}`);
             if (activeBtn) {
-                activeBtn.className = 'preview-btn text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-500 text-white transition-all';
+                activeBtn.className = 'preview-btn text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-500 text-white shadow-md shadow-brand-500/30 transition-all flex items-center gap-1.5 whitespace-nowrap';
             }
         }
 
