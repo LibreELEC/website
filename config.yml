@@ -98,7 +98,7 @@ platforms:
   - id: "raspberry"
     name: "Raspberry Pi"
     icon: "fa-brands fa-raspberry-pi"
-    badgeColor: "red"
+    badgeColor: "slate"
     description: "Official LibreELEC images for Raspberry Pi single-board computers."
     featuredDeviceIds: ["rpi5", "rpi4", "rpi3"]
     devices:
@@ -184,7 +184,7 @@ platforms:
   - id: "rockchip"
     name: "Rockchip"
     icon: "fa-solid fa-microchip"
-    badgeColor: "emerald"
+    badgeColor: "slate"
     description: "High-performance ARM SoCs commonly found in SBCs and TV boxes."
     featuredDeviceIds: ["rockpro64", "rock-pi-4", "tinker"]
     devices:
@@ -669,7 +669,7 @@ platforms:
   - id: "allwinner"
     name: "Allwinner"
     icon: "fa-solid fa-microchip"
-    badgeColor: "amber"
+    badgeColor: "slate"
     description: "Images for Allwinner A64, H3, H5, and H6 boards."
     featuredDeviceIds: ["orangepi-3", "pine64-plus"]
     devices:
