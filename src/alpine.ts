@@ -211,7 +211,7 @@ export default (Alpine: Alpine) => {
           title: 'Native LibreELEC Settings Add-on',
           desc: 'Dedicated 10-foot TV configuration suite. Manage Wi-Fi, Ethernet, and Bluetooth remotes, toggle SSH and Samba network shares, configure audio outputs, and perform automated one-click OTA system updates right from your sofa.',
           tags: ['One-Click OTA Updates', 'Wi-Fi & Bluetooth Remotes', 'SSH & Samba Shares', 'Read-Only SquashFS'],
-          bg: previewImg('settings-libreelec-addon.png'),
+          bg: previewImg('settings-libreelec-addon.jpg'),
           ctaText: 'Settings Guide',
           ctaUrl: 'https://wiki.libreelec.tv/configuration/libreelec-settings',
           secondaryText: 'USB Creator',
