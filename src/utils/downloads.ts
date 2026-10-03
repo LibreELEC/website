@@ -137,53 +137,6 @@ export function getLatestVersion(): VersionConfig {
   };
 }
 
-/**
- * Normalizes a version string or alias for comparison.
- * e.g. "LE13", "v13", "13", "13.0", "libreelec-13" -> normalized base
- */
-export function normalizeVersionAlias(input: string): string {
-  if (!input) return '';
-  return input
-    .trim()
-    .toLowerCase()
-    .replace(/^libreelec[-_]?/, '')
-    .replace(/^(v|le)/i, '');
-}
-
-/**
- * Resolves any version alias (e.g. 'LE13', '13', '13.0', 'v13', 'v13.0', 'le12.2')
- * to the corresponding VersionConfig.
- */
-export function findVersionByAlias(
-  query: string,
-  versions: VersionConfig[] = getVersions()
-): VersionConfig | undefined {
-  if (!query) return undefined;
-  const clean = query.trim().toLowerCase();
-
-  // 1. Direct match on id or name
-  const exact = versions.find(
-    (v) => v.id.toLowerCase() === clean || v.name.toLowerCase() === clean
-  );
-  if (exact) return exact;
-
-  // 2. Normalized match (stripped of prefix)
-  const stripped = normalizeVersionAlias(clean);
-  if (stripped) {
-    const matchStripped = versions.find(
-      (v) => v.id.toLowerCase() === stripped || v.name.toLowerCase() === stripped
-    );
-    if (matchStripped) return matchStripped;
-
-    // 3. Match major version (e.g., '13' matches '13.0', '12' matches '12.2')
-    const matchMajor = versions.find(
-      (v) => v.id.startsWith(stripped + '.') || v.id === stripped
-    );
-    if (matchMajor) return matchMajor;
-  }
-
-  return undefined;
-}
 
 /**
  * Returns all route aliases to statically generate for /downloads/[version].

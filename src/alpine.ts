@@ -8,10 +8,8 @@ interface UiStore {
   modalMirrorUrl: string;
   toastOpen: boolean;
   toastMessage: string;
-  toastTimeout: ReturnType<typeof setTimeout> | null;
   openDownloadModal(device: string, file: string, url?: string, mirrorUrl?: string): void;
   closeDownloadModal(): void;
-  showToast(message: string): void;
 }
 
 interface ThemeStore {
@@ -126,7 +124,6 @@ export default (Alpine: Alpine) => {
     modalMirrorUrl: '',
     toastOpen: false,
     toastMessage: '',
-    toastTimeout: null,
 
     openDownloadModal(device: string, file: string, url: string = '', mirrorUrl: string = '') {
       this.modalDevice = device;
@@ -147,15 +144,6 @@ export default (Alpine: Alpine) => {
 
     closeDownloadModal() {
       this.modalOpen = false;
-    },
-
-    showToast(message: string) {
-      this.toastMessage = message;
-      this.toastOpen = true;
-      if (this.toastTimeout) clearTimeout(this.toastTimeout);
-      this.toastTimeout = setTimeout(() => {
-        this.toastOpen = false;
-      }, 3500);
     }
   };
 
