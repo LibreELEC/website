@@ -62,9 +62,15 @@ export function parsePostDetails(post: PostEntry): EnrichedPost {
     title.includes('v7');
 
   const category = isRelease ? 'release' : 'dev';
-  const categoryLabel = isRelease
-    ? (title.includes('beta') || title.includes('alpha') ? 'Prerelease' : 'Official Release')
-    : 'Dev Update';
+  let releaseType = 'Official Release';
+  if (title.includes('beta')) {
+    releaseType = 'Beta';
+  } else if (title.includes('alpha')) {
+    releaseType = 'Alpha';
+  } else if (title.includes('rc')) {
+    releaseType = 'Release Candidate';
+  }
+  const categoryLabel = isRelease ? releaseType : 'Dev Update';
 
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const url = `${base}/${year}/${month}/${day}/${cleanSlug}/`;

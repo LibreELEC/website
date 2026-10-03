@@ -35,7 +35,7 @@ versions:
       raspberry: "6.18.x"
       amlogic: "7.3.x"
       rockchip: "6.19.x"
-    status: "prerelease" # 'latest' | 'stable' | 'legacy' | 'prerelease' | 'beta'
+    status: "beta" # 'latest' | 'stable' | 'legacy' | 'beta'
     badgeColor: "red"
     statusLabel: "Beta 1"
     description: "LibreELEC 13 includes Kodi 22 Pierce."
@@ -48,7 +48,7 @@ versions:
     kernelVersion: "6.16.x"
     kernelOverrides:
       raspberry: "6.12.x"
-    status: "latest" # 'latest' | 'stable' | 'legacy' | 'prerelease'
+    status: "latest" # 'latest' | 'stable' | 'legacy' | 'beta'
     description: "LibreELEC 12.2 includes Kodi 21 Omega."
 
   - id: "12.0"

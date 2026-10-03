@@ -34,7 +34,11 @@ const newsUrl = `${base}/news/`;
 
                 <!-- Badges & Meta -->
                 <div class="flex flex-wrap items-center gap-3 mb-4">
-                    {category === 'release' ? (
+                    {categoryLabel === 'Beta' || categoryLabel === 'Alpha' ? (
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800">
+                            {categoryLabel}
+                        </span>
+                    ) : category === 'release' ? (
                         <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
                             {categoryLabel}
                         </span>
