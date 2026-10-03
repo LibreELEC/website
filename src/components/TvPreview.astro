@@ -96,15 +96,6 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
                                 Direct hardware-accelerated video decoding via Linux DRM/GBM and V4L2 pipelines. Bit-accurate 24p/50p/60p frame rate switching, HDR10+, Dolby Vision, and AV1/HEVC support with zero desktop overhead.
                             </p>
 
-                            <!-- Technical Feature Badges (Single Line) -->
-                            <div class="flex items-center gap-1.5 sm:gap-2 flex-nowrap overflow-x-auto no-scrollbar py-0.5">
-                                <template x-for="tag in activeItem.tags" :key="tag">
-                                    <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-md bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm whitespace-nowrap shrink-0">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5 shrink-0"></span>
-                                        <span x-text="tag"></span>
-                                    </span>
-                                </template>
-                            </div>
                         </div>
 
                         <!-- Kodi Screen Navigation Carousel Buttons -->
