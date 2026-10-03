@@ -12,4 +12,4 @@ LibreELEC operates a 24-hour ‘canary’ period between major release files bei
 
 If you are running @milhouse or other community builds your system will not auto-update to the beta release. You must first perform a manual update to the beta release. Your system will then auto-update to any further beta releases (although none are planned) and/or the final v7.0.0 release.
 
-[GO TO DOWNLOADS](https://libreelec.tv/download/)
+[GO TO DOWNLOADS](https://libreelec.tv/downloads/)

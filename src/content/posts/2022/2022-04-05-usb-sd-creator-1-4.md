@@ -29,7 +29,7 @@ Since QT stopped including XCB we need to pull these libraries from the OS. So u
 
 ## Donating
 
-[**Click here to go to the download page.**](https://libreelec.tv/downloads/)
+[**Click here to go to the download page.**](https://libreelec.tv/downloads/#creator)
 
 ## SHA256 Hashes
 
