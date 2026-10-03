@@ -38,7 +38,7 @@ versions:
     status: "prerelease" # 'latest' | 'stable' | 'legacy' | 'prerelease' | 'beta'
     badgeColor: "red"
     statusLabel: "Beta 1"
-    description: "LibreELEC 13 Beta 1 includes Kodi 22 Pierce RC1."
+    description: "LibreELEC 13 includes Kodi 22 Pierce."
 
   - id: "12.2"
     name: "12.2"
@@ -49,7 +49,7 @@ versions:
     kernelOverrides:
       raspberry: "6.12.x"
     status: "latest" # 'latest' | 'stable' | 'legacy' | 'prerelease'
-    description: "Latest stable release featuring Kodi 21.3 Omega with wide hardware decoding support."
+    description: "LibreELEC 12.2 includes Kodi 21 Omega."
 
   - id: "12.0"
     name: "12.0"
@@ -58,7 +58,7 @@ versions:
     kodiVersion: "21.2 (Omega)"
     kernelVersion: "6.6.x"
     status: "old"
-    description: "Previous LibreELEC 12 series release with 64-bit aarch64 userspace for ARM SoCs."
+    description: "LibreELEC 12.0 includes Kodi 21 Omega."
 
   - id: "11.0"
     name: "11.0"
@@ -67,7 +67,7 @@ versions:
     kodiVersion: "20.3 (Nexus)"
     kernelVersion: "6.1.x"
     status: "legacy"
-    description: "Legacy release powered by Kodi 20.3 Nexus."
+    description: "LibreELEC 11.0 includes Kodi 20 Nexus."
 
   - id: "10.0"
     name: "10.0"
@@ -76,7 +76,7 @@ versions:
     kodiVersion: "19.5 (Matrix)"
     kernelVersion: "5.10.x"
     status: "legacy"
-    description: "Legacy release featuring Kodi 19.5 Matrix."
+    description: "LibreELEC 10.0 includes Kodi 19 Matrix."
 
   - id: "9.2"
     name: "9.2"
@@ -91,7 +91,7 @@ versions:
       raspberry: "4.19.x"
       rockchip: "4.4.x"
     status: "legacy"
-    description: "Python 2 based legacy release for vintage hardware."
+    description: "LibreELEC 9.2 includes Kodi 18 Leia."
 
 # Platforms and Supported Hardware Catalog
 platforms:
