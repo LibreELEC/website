@@ -7,13 +7,18 @@ interface Props {
   buttonText?: string;
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const defaultSponsorUrl = `${base}/sponsor/`;
+
 const {
   class: className = '',
   title = 'Support LibreELEC Development',
   description = 'We are 100% community supported. Your contribution helps fund build infrastructure and test devices.',
-  donateUrl = 'https://opencollective.com/libreelec/donate',
-  buttonText = 'Donate on OpenCollective',
+  donateUrl = defaultSponsorUrl,
+  buttonText = 'Sponsor LibreELEC',
 } = Astro.props;
+
+const isExternal = donateUrl.startsWith('http');
 ---
 
 <div class:list={["my-8 p-6 rounded-2xl glass-card border border-brand-200/80 dark:border-brand-800/60 bg-gradient-to-r from-brand-50/60 to-sky-50/40 dark:from-brand-950/40 dark:to-slate-900/60 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-5 not-prose", className]}>
@@ -28,10 +33,10 @@ const {
   </div>
   <a
     href={donateUrl}
-    target="_blank"
-    rel="noopener"
+    target={isExternal ? '_blank' : undefined}
+    rel={isExternal ? 'noopener' : undefined}
     class="shrink-0 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2 no-underline"
   >
-    <i class="fa-solid fa-gift"></i> {buttonText}
+    <i class="fa-solid fa-heart text-rose-300"></i> {buttonText}
   </a>
 </div>

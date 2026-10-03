@@ -6,6 +6,7 @@ const homeUrl = base ? `${base}/` : '/';
 const newsUrl = `${base}/news/`;
 const downloadsUrl = `${base}/downloads/`;
 const privacyUrl = `${base}/privacy-policy/`;
+const sponsorUrl = `${base}/sponsor/`;
 ---
 
 <footer class="bg-slate-900 border-t border-slate-800 pt-16 pb-12 text-slate-400 text-xs">
@@ -43,6 +44,7 @@ const privacyUrl = `${base}/privacy-policy/`;
                     <li><a href="https://wiki.libreelec.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Documentation Wiki</a></li>
                     <li><a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Community Forum</a></li>
                     <li><a href={newsUrl} class="hover:text-brand-400 transition-colors">Release Notes & News</a></li>
+                    <li><a href={sponsorUrl} class="hover:text-brand-400 transition-colors">Sponsor & Donate</a></li>
                     <li><a href={`${base}/feed.xml`} class="hover:text-brand-400 transition-colors">RSS / Atom Feed</a></li>
                     <li><a href="https://github.com/LibreELEC/LibreELEC.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">GitHub Source Code</a></li>
                     <li><a href={privacyUrl} class="hover:text-brand-400 transition-colors">Privacy Policy</a></li>
@@ -65,7 +67,7 @@ const privacyUrl = `${base}/privacy-policy/`;
                 <a href={privacyUrl} class="hover:text-brand-400 transition-colors">Privacy Policy</a>
             </div>
             <div class="flex items-center gap-4">
-                <a href="https://opencollective.com/libreelec" target="_blank" rel="noopener" class="hover:text-brand-400 font-semibold"><i class="fa-solid fa-heart text-rose-500 mr-1"></i> Donate</a>
+                <a href={sponsorUrl} class="hover:text-brand-400 font-semibold"><i class="fa-solid fa-heart text-rose-500 mr-1"></i> Sponsor</a>
                 <a href="https://github.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                 <a href="https://x.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href={`${base}/feed.xml`} class="hover:text-amber-500 text-sm" aria-label="RSS / Atom Feed" title="RSS / Atom Feed"><i class="fa-solid fa-rss"></i></a>
