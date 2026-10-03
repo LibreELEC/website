@@ -36,7 +36,6 @@ export interface DeviceConfig {
   device?: string;
   supportedVersions: string[];
   chipset?: string;
-  features?: string;
 }
 
 export interface PlatformConfig {
@@ -65,7 +64,6 @@ export interface DeviceDownloadInfo {
   badgeColor: string;
   icon: string;
   chipset?: string;
-  features?: string;
   versionId: string;
   versionName: string;
   downloadVersion: string;
@@ -184,7 +182,6 @@ export function getDeviceDownloadInfo(
     badgeColor: platform.badgeColor,
     icon: platform.icon,
     chipset: device.chipset,
-    features: device.features,
     versionId: version.id,
     versionName: version.name,
     downloadVersion: downloadVer,

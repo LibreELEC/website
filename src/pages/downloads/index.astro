@@ -151,8 +151,7 @@ const clientDataJson = JSON.stringify(data);
                     const matchSearch = !q ||
                         item.deviceName.toLowerCase().includes(q) ||
                         item.platformName.toLowerCase().includes(q) ||
-                        (item.chipset && item.chipset.toLowerCase().includes(q)) ||
-                        (item.features && item.features.toLowerCase().includes(q));
+                        (item.chipset && item.chipset.toLowerCase().includes(q));
                     return matchPlatform && matchVersion && matchSearch;
                 });
             }

@@ -110,7 +110,6 @@ platforms:
           "11.0": "arm"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Broadcom BCM2712"
-        features: "4K60 HDR, HEVC decoding, PCIe NVMe SSD boot support"
 
       - id: "rpi4"
         name: "Raspberry Pi 4 / 400"
@@ -122,7 +121,6 @@ platforms:
           "9.2": "arm"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Broadcom BCM2711"
-        features: "Dual 4K micro-HDMI, H.265 hardware decoding, USB 3.0"
 
       - id: "rpicm4"
         name: "Raspberry Pi Compute Module 4 (CM4)"
@@ -133,7 +131,6 @@ platforms:
           "10.0": "arm"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Broadcom BCM2711"
-        features: "Industrial & embedded CM4 carrier board installations"
 
       - id: "rpi3"
         name: "Raspberry Pi 3 Model B / B+ / Zero 2 W"
@@ -141,7 +138,6 @@ platforms:
         arch: "arm"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Broadcom BCM2837"
-        features: "1080p full hardware playback, compact low-power HTPC"
 
       - id: "rpi2"
         name: "Raspberry Pi 2"
@@ -149,7 +145,6 @@ platforms:
         arch: "arm"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Broadcom BCM2836"
-        features: "Legacy ARMv7 32-bit hardware support"
 
       - id: "rpi0"
         name: "Raspberry Pi Zero / 1"
@@ -157,7 +152,6 @@ platforms:
         arch: "arm"
         supportedVersions: ["9.2"]
         chipset: "Broadcom BCM2835"
-        features: "Legacy ARMv6 single-core architecture (v9.2 only)"
 
   - id: "generic"
     name: "Generic PC (x86_64)"
@@ -172,7 +166,6 @@ platforms:
         arch: "x86_64"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Intel / AMD / Modern GPUs"
-        features: "UEFI boot, VAAPI/VDPAU hardware acceleration, 4K HDR playback"
 
       - id: "generic-legacy"
         name: "Legacy Generic PC (NVIDIA / Older Hardware)"
@@ -180,7 +173,6 @@ platforms:
         arch: "x86_64"
         supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Legacy NVIDIA & BIOS Systems"
-        features: "For older PCs requiring proprietary legacy NVIDIA drivers"
 
       - id: "generic-vm"
         name: "Virtual Machine (OVA / Disk Image)"
@@ -188,7 +180,6 @@ platforms:
         arch: "x86_64"
         supportedVersions: ["13.0", "12.2", "12.0"]
         chipset: "Virtualization"
-        features: "VMware, Proxmox, VirtualBox test environments"
 
   - id: "rockchip"
     name: "Rockchip"
@@ -208,7 +199,6 @@ platforms:
         device: "rock960"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
-        features: "96Boards Consumer Edition form factor with RK3399"
 
       - id: "tinker"
         name: "ASUS Tinker Board"
@@ -217,7 +207,6 @@ platforms:
         device: "tinker"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3288"
-        features: "Quad-core 1.8GHz ARM Cortex-A17 processor with 24-bit audio"
 
       - id: "beelink-a1"
         name: "Beelink A1 TV Box"
@@ -229,7 +218,6 @@ platforms:
         device: "a1"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3328"
-        features: "Set-top box SD card boot"
 
       - id: "roc-cc"
         name: "Firefly ROC-RK3328-CC"
@@ -242,7 +230,6 @@ platforms:
         device: "roc-cc"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3328"
-        features: "Compact 4K media SBC"
 
       - id: "nanopc-t4"
         name: "FriendlyARM NanoPC-T4"
@@ -254,7 +241,6 @@ platforms:
         device: "nanopc-t4"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
-        features: "Dual band Wi-Fi, PCIe M.2, USB 3.0"
 
       - id: "nanopi-m4"
         name: "FriendlyARM NanoPi M4"
@@ -266,7 +252,6 @@ platforms:
         device: "nanopi-m4"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
-        features: "Compact RPi-compatible form factor with RK3399"
 
       - id: "rk3328-box"
         name: "Generic Rockchip Box"
@@ -275,7 +260,6 @@ platforms:
         device: "box"
         supportedVersions: ["9.2"]
         chipset: "Rockchip RK3328"
-        features: "Legacy Rockchip RK3328 set-top boxes (LE 9.2)"
 
       - id: "hugsun-x99"
         name: "Hugsun X99 TV BOX"
@@ -287,7 +271,6 @@ platforms:
         device: "hugsun-x99"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
-        features: "RK3399 TV box with dual-band Wi-Fi and Gigabit LAN"
 
       - id: "khadas-edge"
         name: "Khadas Edge"
@@ -300,7 +283,6 @@ platforms:
         device: "khadas-edge"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
-        features: "Ultra-slim board design with high-end audio DAC"
 
       - id: "miqi"
         name: "Mqmaker MiQi"
@@ -309,7 +291,6 @@ platforms:
         device: "miqi"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3288"
-        features: "Compact aluminum case SBC"
 
       - id: "rk3328-box-trn9"
         name: "MVR9"
@@ -318,7 +299,6 @@ platforms:
         device: "box-trn9"
         supportedVersions: ["9.2"]
         chipset: "Rockchip RK3328"
-        features: "MVR9 RK3328 TV box media player (LE 9.2)"
 
       - id: "orangepi-rk3399"
         name: "Orange Pi RK3399"
@@ -330,7 +310,6 @@ platforms:
         device: "orangepi"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
-        features: "Dual Cortex-A72 + Quad Cortex-A53 with PCIe and mSATA"
 
       - id: "rock64"
         name: "PINE64 ROCK64"
@@ -343,7 +322,6 @@ platforms:
         device: "rock64"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3328"
-        features: "Affordable 4K60 HDR media SBC with USB 3.0"
 
       - id: "rockpro64"
         name: "PINE64 RockPro64"
@@ -356,7 +334,6 @@ platforms:
         device: "rockpro64"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
-        features: "Dual-core Cortex-A72 + Quad-core A53, PCIe slot support"
 
       - id: "rk3328-rockbox"
         name: "Popcorn Hour RockBox"
@@ -365,7 +342,6 @@ platforms:
         device: "rockbox"
         supportedVersions: ["9.2"]
         chipset: "Rockchip RK3328"
-        features: "Popcorn Hour RockBox 4K HDR media player (LE 9.2)"
 
       - id: "rock-4c-plus"
         name: "Radxa ROCK 4C Plus"
@@ -374,7 +350,6 @@ platforms:
         device: "rock-4c-plus"
         supportedVersions: ["13.0", "12.2"]
         chipset: "Rockchip RK3399"
-        features: "Dual micro-HDMI 4K, Gigabit Ethernet with PoE support"
 
       - id: "rock-4se"
         name: "Radxa ROCK 4SE"
@@ -383,7 +358,6 @@ platforms:
         device: "rock-4se"
         supportedVersions: ["13.0", "12.2"]
         chipset: "Rockchip RK3399"
-        features: "Special Edition RK3399 SBC with 4K HDMI and USB 3.0"
 
       - id: "rock-pi-4"
         name: "Radxa ROCK Pi 4"
@@ -396,7 +370,6 @@ platforms:
         device: "rock-pi-4"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
-        features: "4K HDMI 2.0 output, Gigabit Ethernet, M.2 NVMe extension"
 
       - id: "rock-pi-4-plus"
         name: "Radxa ROCK Pi 4A/4B Plus"
@@ -407,7 +380,6 @@ platforms:
         device: "rock-pi-4-plus"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Rockchip RK3399"
-        features: "On-board high-speed eMMC storage support"
 
       - id: "rock-pi-n10"
         name: "Radxa ROCK Pi N10"
@@ -419,7 +391,6 @@ platforms:
         device: "rock-pi-n10"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399Pro"
-        features: "Dual-core A72 + Quad-core A53 with 3.0 TOPS NPU"
 
       - id: "roc-pc"
         name: "ROC RK3399 PC"
@@ -431,7 +402,6 @@ platforms:
         device: "roc-pc"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
-        features: "Station PC / ROC-RK3399-PC high-performance media board"
 
       - id: "roc-pc-plus"
         name: "ROC RK3399 PC Plus"
@@ -442,7 +412,6 @@ platforms:
         device: "roc-pc-plus"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Rockchip RK3399"
-        features: "Upgraded ROC-RK3399-PC Plus with on-board eMMC"
 
       - id: "sapphire"
         name: "Rockchip Sapphire Board"
@@ -455,7 +424,6 @@ platforms:
         device: "sapphire"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
-        features: "Official Rockchip evaluation and development board"
 
       - id: "rk3328-box-z28"
         name: "Z28"
@@ -464,7 +432,6 @@ platforms:
         device: "box-z28"
         supportedVersions: ["9.2"]
         chipset: "Rockchip RK3328"
-        features: "Z28 RK3328 TV box media player (LE 9.2)"
 
   - id: "amlogic"
     name: "Amlogic"
@@ -482,7 +449,6 @@ platforms:
         device: "bananapi-cm4io"
         supportedVersions: ["11.0"]
         chipset: "Amlogic A311D"
-        features: "Banana Pi CM4 module with official IO carrier board"
 
       - id: "bananapi-m2-pro"
         name: "Banana Pi BPI-M2 Pro"
@@ -493,7 +459,6 @@ platforms:
         device: "bananapi-m2-pro"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
-        features: "Quad-core Cortex-A55 with 2GB RAM and 16GB eMMC"
 
       - id: "bananapi-m2s"
         name: "Banana Pi BPI-M2S"
@@ -504,7 +469,6 @@ platforms:
         device: "bananapi-m2s"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
-        features: "Hexa-core SBC with dual Gigabit LAN and 4K HDMI"
 
       - id: "bananapi-m5"
         name: "Banana Pi BPI-M5"
@@ -515,7 +479,6 @@ platforms:
         device: "bananapi-m5"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
-        features: "4GB RAM, Gigabit Ethernet, 4x USB 3.0"
 
       - id: "amlgx-box"
         name: "Generic Android Box (SD Card Boot)"
@@ -526,7 +489,6 @@ platforms:
         device: "box"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905 / S905X / S912"
-        features: "Multi-device device-tree boot for hundreds of Android TV boxes"
 
       - id: "khadas-vim"
         name: "Khadas VIM"
@@ -537,7 +499,6 @@ platforms:
         device: "khadas-vim"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X"
-        features: "Classic compact Khadas VIM v1"
 
       - id: "khadas-vim2"
         name: "Khadas VIM2"
@@ -548,7 +509,6 @@ platforms:
         device: "khadas-vim2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S912"
-        features: "Octa-core multimedia board"
 
       - id: "khadas-vim3"
         name: "Khadas VIM3"
@@ -559,7 +519,6 @@ platforms:
         device: "khadas-vim3"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
-        features: "High-end SBC with 5.0 TOPS NPU and USB-C power delivery"
 
       - id: "khadas-vim3l"
         name: "Khadas VIM3L"
@@ -570,7 +529,6 @@ platforms:
         device: "khadas-vim3l"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905D3"
-        features: "HTPC-tailored board with pre-tuned audio and thermal casing"
 
       - id: "alta"
         name: "Libre Computer Alta (AML-A311D-CC)"
@@ -579,7 +537,6 @@ platforms:
         device: "alta"
         supportedVersions: ["13.0", "12.2"]
         chipset: "Amlogic A311D"
-        features: "4x Cortex-A73 + 2x Cortex-A53, 5.0 TOPS NPU, Gigabit LAN"
 
       - id: "lafrite"
         name: "Libre Computer LaFrite (AML-S805X-AC)"
@@ -590,7 +547,6 @@ platforms:
         device: "lafrite"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S805X"
-        features: "Cost-effective 1080p media board with 100M LAN"
 
       - id: "lepotato"
         name: "Libre Computer LePotato (AML-S905X-CC)"
@@ -601,7 +557,6 @@ platforms:
         device: "lepotato"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X"
-        features: "Raspberry Pi form factor with Amlogic hardware decoding"
 
       - id: "solitude"
         name: "Libre Computer Solitude (AML-S905D3-CC)"
@@ -610,7 +565,6 @@ platforms:
         device: "solitude"
         supportedVersions: ["13.0", "12.2"]
         chipset: "Amlogic S905D3"
-        features: "Quad-core Cortex-A55 with Gigabit Ethernet and M.2 PCIe"
 
       - id: "nanopi-k2"
         name: "NanoPi K2"
@@ -621,7 +575,6 @@ platforms:
         device: "nanopi-k2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905"
-        features: "Quad-core 64-bit Cortex-A53 with Gigabit Ethernet and Wi-Fi"
 
       - id: "odroid-c2"
         name: "ODROID C2"
@@ -632,7 +585,6 @@ platforms:
         device: "odroid-c2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905"
-        features: "Pioneer 64-bit Amlogic board"
 
       - id: "odroid-c4"
         name: "ODROID C4"
@@ -643,7 +595,6 @@ platforms:
         device: "odroid-c4"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
-        features: "Quad-core Cortex-A55 with 4GB DDR4 and passive cooling"
 
       - id: "odroid-hc4"
         name: "ODROID HC4"
@@ -654,7 +605,6 @@ platforms:
         device: "odroid-hc4"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
-        features: "Home Cloud dual SATA NAS dock with 4K HDMI"
 
       - id: "odroid-n2"
         name: "ODROID N2 / N2+"
@@ -665,7 +615,6 @@ platforms:
         device: "odroid-n2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S922X"
-        features: "Hexa-core powerhouse with high performance 4K HDR playback"
 
       - id: "radxa-zero"
         name: "Radxa Zero"
@@ -676,7 +625,6 @@ platforms:
         device: "radxa-zero"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905Y2"
-        features: "Ultra-compact form factor with 4K HDMI and USB-C"
 
       - id: "radxa-zero2"
         name: "Radxa Zero 2"
@@ -687,7 +635,6 @@ platforms:
         device: "radxa-zero2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
-        features: "Pocket-sized hexacore powerhouse"
 
       - id: "wetek-core2"
         name: "WeTek Core 2"
@@ -698,7 +645,6 @@ platforms:
         device: "wetek-core2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S912"
-        features: "Octa-core media player with 4K HDR playback"
 
       - id: "wetek-hub"
         name: "WeTek Hub"
@@ -709,7 +655,6 @@ platforms:
         device: "wetek-hub"
         supportedVersions: ["11.0"]
         chipset: "Amlogic S905"
-        features: "Ultra-compact 4K media player with Gigabit Ethernet"
 
       - id: "wetek-play2"
         name: "WeTek Play 2"
@@ -720,7 +665,6 @@ platforms:
         device: "wetek-play2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905"
-        features: "Hybrid TV box with DVB tuner support"
 
   - id: "allwinner"
     name: "Allwinner"
@@ -736,7 +680,6 @@ platforms:
         device: "bananapi-m2p"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
-        features: "Quad-core Cortex-A7 with Gigabit Ethernet and Wi-Fi"
 
       - id: "bananapi-m2u"
         name: "Banana Pi M2 Ultra"
@@ -745,7 +688,6 @@ platforms:
         device: "bananapi-m2u"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner R40"
-        features: "Quad-core Cortex-A7 with SATA, Gigabit Ethernet, and Wi-Fi"
 
       - id: "beelink-gs1"
         name: "Beelink GS1"
@@ -757,7 +699,6 @@ platforms:
         device: "beelink-gs1"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
-        features: "High-performance 6K HDR set-top box"
 
       - id: "beelink-x2"
         name: "Beelink X2"
@@ -766,7 +707,6 @@ platforms:
         device: "beelink-x2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
-        features: "Quad-core Android TV box media playback"
 
       - id: "libretech-h3"
         name: "Libre Computer Board Tritium H3 (ALL-H3-CC)"
@@ -775,7 +715,6 @@ platforms:
         device: "libretech-h3"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
-        features: "Quad-core Cortex-A7 in Raspberry Pi form factor"
 
       - id: "tritium-h5"
         name: "Libre Computer Board Tritium H5 (ALL-H5-CC)"
@@ -787,7 +726,6 @@ platforms:
         device: "tritium-h5"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H5"
-        features: "Quad-core 64-bit Cortex-A53 in Raspberry Pi form factor"
 
       - id: "nanopi-m1"
         name: "NanoPi M1"
@@ -796,7 +734,6 @@ platforms:
         device: "nanopi-m1"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
-        features: "Ultra-compact single-board computer"
 
       - id: "orangepi-2"
         name: "Orange Pi 2"
@@ -805,7 +742,6 @@ platforms:
         device: "orangepi-2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
-        features: "Quad-core media board with Wi-Fi"
 
       - id: "orangepi-3"
         name: "Orange Pi 3"
@@ -817,7 +753,6 @@ platforms:
         device: "orangepi-3"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
-        features: "High-speed 4K60 decoding with Gigabit LAN"
 
       - id: "orangepi-3-lts"
         name: "Orange Pi 3 LTS"
@@ -828,7 +763,6 @@ platforms:
         device: "orangepi-3-lts"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Allwinner H6"
-        features: "Compact H6 board with on-board Wi-Fi and 8GB eMMC"
 
       - id: "orangepi-lite2"
         name: "Orange Pi Lite 2"
@@ -840,7 +774,6 @@ platforms:
         device: "orangepi-lite2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
-        features: "Ultra-compact 4K60 media SBC with USB 3.0"
 
       - id: "orangepi-one-plus"
         name: "Orange Pi One Plus"
@@ -852,7 +785,6 @@ platforms:
         device: "orangepi-one-plus"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
-        features: "Affordable 64-bit H6 single-board computer"
 
       - id: "orangepi-pc"
         name: "Orange Pi PC"
@@ -861,7 +793,6 @@ platforms:
         device: "orangepi-pc"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
-        features: "Cost-effective 1080p media player"
 
       - id: "orangepi-pc-plus"
         name: "Orange Pi PC Plus"
@@ -870,7 +801,6 @@ platforms:
         device: "orangepi-pc-plus"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
-        features: "Quad-core Cortex-A7 with on-board eMMC and Wi-Fi"
 
       - id: "orangepi-pc2"
         name: "Orange Pi PC2"
@@ -882,7 +812,6 @@ platforms:
         device: "orangepi-pc2"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H5"
-        features: "Quad-core 64-bit Cortex-A53 with Gigabit LAN"
 
       - id: "orangepi-plus"
         name: "Orange Pi Plus"
@@ -891,7 +820,6 @@ platforms:
         device: "orangepi-plus"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
-        features: "Quad-core board with SATA and Gigabit Ethernet"
 
       - id: "orangepi-plus2e"
         name: "Orange Pi Plus 2E"
@@ -900,7 +828,6 @@ platforms:
         device: "orangepi-plus2e"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
-        features: "Quad-core with 2GB RAM, 16GB eMMC, and Gigabit Ethernet"
 
       - id: "orangepi-win"
         name: "Orange Pi Win"
@@ -912,7 +839,6 @@ platforms:
         device: "orangepi-win"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner A64"
-        features: "Quad-core 64-bit Cortex-A53, Mali-400 MP2 GPU"
 
       - id: "pine-h64"
         name: "Pine H64 Model A"
@@ -924,7 +850,6 @@ platforms:
         device: "pine-h64"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
-        features: "PCIe slot and USB 3.0"
 
       - id: "pine-h64-model-b"
         name: "Pine H64 Model B"
@@ -936,7 +861,6 @@ platforms:
         device: "pine-h64-model-b"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
-        features: "Allwinner H6 SBC in Raspberry Pi form factor"
 
       - id: "pine64"
         name: "Pine64"
@@ -948,7 +872,6 @@ platforms:
         device: "pine64"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner A64"
-        features: "64-bit ARM Cortex-A53 single-board computer"
 
       - id: "pine64-lts"
         name: "Pine64 LTS"
@@ -960,7 +883,6 @@ platforms:
         device: "pine64-lts"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner A64"
-        features: "Long-term support 64-bit ARM SBC with eMMC socket"
 
       - id: "pine64-plus"
         name: "Pine64 Plus"
@@ -972,7 +894,6 @@ platforms:
         device: "pine64-plus"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner A64"
-        features: "Open hardware 64-bit ARM single-board computer"
 
       - id: "tanix-tx6"
         name: "Tanix TX6"
@@ -984,7 +905,6 @@ platforms:
         device: "tanix-tx6"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
-        features: "Allwinner H6 based 4K TV box"
 
   - id: "nxp"
     name: "NXP"
