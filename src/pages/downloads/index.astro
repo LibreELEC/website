@@ -46,6 +46,7 @@ const clientDataJson = JSON.stringify(data);
             selectedVersion: '${latestVersion.id}',
             selectedPlatform: 'all',
             searchQuery: '',
+            showOldVersions: false,
 
             getStatusType(ver) {
                 if (ver.badgeColor === 'red' || ver.status === 'beta' || ver.status === 'prerelease') return 'beta';
@@ -64,8 +65,14 @@ const clientDataJson = JSON.stringify(data);
                 return ver.status;
             },
 
+            get primaryVersions() {
+                const latestBeta = this.data.versions.find(v => this.getStatusType(v) === 'beta');
+                const latestStable = this.data.versions.find(v => v.status === 'latest' || v.status === 'stable');
+                return this.data.versions.filter(v => (latestBeta && v.id === latestBeta.id) || (latestStable && v.id === latestStable.id));
+            },
+
             get displayedVersions() {
-                return this.data.versions;
+                return this.showOldVersions ? this.data.versions : this.primaryVersions;
             },
 
             get isBeta() {
@@ -132,6 +139,9 @@ const clientDataJson = JSON.stringify(data);
                         this.selectedVersion = match.id;
                     }
                 }
+                if (!this.primaryVersions.some(v => v.id === this.selectedVersion)) {
+                    this.showOldVersions = true;
+                }
             },
 
             get activeVersionInfo() {
@@ -179,6 +189,21 @@ const clientDataJson = JSON.stringify(data);
                                         :class="getBadgeClasses(ver)"
                                         x-text="getStatusLabel(ver)"
                                     ></span>
+                                </button>
+                            </template>
+
+                            <!-- Toggle Old Versions Button -->
+                            <template x-if="data.versions.length > primaryVersions.length">
+                                <button
+                                    type="button"
+                                    @click="showOldVersions = !showOldVersions"
+                                    class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 border shadow-sm cursor-pointer"
+                                    :class="showOldVersions
+                                        ? 'bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 border-slate-300 dark:border-slate-600'
+                                        : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'"
+                                >
+                                    <i class="fa-solid text-xs transition-transform duration-200" :class="showOldVersions ? 'fa-chevron-up text-brand-600 dark:text-brand-400' : 'fa-clock-rotate-left text-slate-400'"></i>
+                                    <span x-text="showOldVersions ? 'Hide old versions' : 'Show old versions'"></span>
                                 </button>
                             </template>
                         </div>
