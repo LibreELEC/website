@@ -20,4 +20,4 @@ That's all for now. Enjoy!
 
 LibreELEC team :)
 
-[DOWNLOADS](https://libreelec.tv/downloads/)
+[DOWNLOADS](${base}/downloads/)

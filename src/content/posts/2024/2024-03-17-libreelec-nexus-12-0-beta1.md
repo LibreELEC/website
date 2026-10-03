@@ -67,7 +67,7 @@ Enjoy! :)
 
 ## Donating
 
-[**Click here to go to the download page.**](https://libreelec.tv/downloads/LE12.0/)
+[**Click here to go to the download page.**](${base}/downloads/LE12.0/)
 
 ## SHA256 Hashes
 

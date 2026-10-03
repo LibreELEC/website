@@ -38,4 +38,4 @@ Project staff are available in the [forum](https://forum.libreelec.tv) to answer
 
 Enjoy! :)
 
-[**Click here to go to the download page.**](https://libreelec.tv/downloads/LE10/)
+[**Click here to go to the download page.**](${base}/downloads/LE10/)

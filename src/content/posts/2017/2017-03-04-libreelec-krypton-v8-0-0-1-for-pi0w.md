@@ -10,7 +10,7 @@ LibreELEC (Krypton) v8.0.0.1 is a limited release for the new [Raspberry Pi Zero
 
 [LibreELEC-RPi.arm-8.0.0.1.img.gz](http://releases.libreelec.tv/LibreELEC-RPi.arm-8.0.0.1.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-RPi.arm-8.0.0.1.img.gz?mirrorlist))
 
-To install LibreELEC on a new Pi Zero W download the .img.gz file linked above and use the [LibreELEC USB/SD Creator app](https://libreelec.tv/downloads/#creator) to create a bootable micro SD card. It can also be used to update 8.0.0 installations where the Pi Zero W will boot and run but does not have WiFi and Bluetooth drivers.
+To install LibreELEC on a new Pi Zero W download the .img.gz file linked above and use the [LibreELEC USB/SD Creator app](${base}/downloads/#creator) to create a bootable micro SD card. It can also be used to update 8.0.0 installations where the Pi Zero W will boot and run but does not have WiFi and Bluetooth drivers.
 
 If you experience an issue with LibreELEC on Pi Zero W hardware please [report the problem via the forums](http://forum.libreelec.tv/forum-35.html).
 

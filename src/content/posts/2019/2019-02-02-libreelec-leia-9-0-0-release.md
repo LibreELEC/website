@@ -72,4 +72,4 @@ On first boot the Kodi media database will be upgraded. Depending on your hardwa
 
 **Downloads**
 
-[**Click here to go to the download page.**](https://libreelec.tv/downloads/LE9.2/)
+[**Click here to go to the download page.**](${base}/downloads/LE9.2/)

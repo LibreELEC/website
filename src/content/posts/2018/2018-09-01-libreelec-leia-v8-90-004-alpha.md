@@ -22,7 +22,7 @@ Alpha builds exist for hands-on testing not a hands-off experience. If you run A
 
 **LibreELEC 9.0 Alpha 004 (Kodi 18 Beta 1)**
 
-To update an existing installation from within the Kodi GUI select manual update in the LibreELEC settings add-on and then check for updates; select the LibreELEC 9.0 channel and then the 8.90.004 release. To create new install media please use our simple [USB/SD Creator App](https://libreelec.tv/downloads/#creator). The following .img.gz files can also be used to create install media or update the old fashioned way:
+To update an existing installation from within the Kodi GUI select manual update in the LibreELEC settings add-on and then check for updates; select the LibreELEC 9.0 channel and then the 8.90.004 release. To create new install media please use our simple [USB/SD Creator App](${base}/downloads/#creator). The following .img.gz files can also be used to create install media or update the old fashioned way:
 
 **RPi 2/3** [LibreELEC-RPi2.arm-8.90.004.img.gz](http://releases.libreelec.tv/LibreELEC-RPi2.arm-8.90.004.img.gz) ([info](http://releases.libreelec.tv/LibreELEC-RPi2.arm-8.90.004.img.gz?mirrorlist))
 

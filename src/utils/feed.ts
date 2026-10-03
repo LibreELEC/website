@@ -11,9 +11,14 @@ export interface FeedResult {
 // Cache generated feeds in memory during build
 let cachedFeeds: FeedResult | null = null;
 
-function makeAbsoluteUrls(html: string, siteUrl: string): string {
+function makeAbsoluteUrls(html: string, siteUrl: string, rawBase: string = ''): string {
   const base = siteUrl.replace(/\/$/, '');
-  return html
+  const cleanBase = rawBase.replace(/\/$/, '');
+  let resolved = html
+    .replace(/(href|src)=["'](\$\{base\}|\$%7Bbase%7D)([^"']*)["']/g, (_m, attr, _b, rest) => {
+      return `${attr}="${cleanBase}${rest}"`;
+    });
+  return resolved
     .replace(/(href|src)="\/([^"]*)"/g, `$1="${base}/$2"`)
     .replace(/(href|src)='\/([^']*)'/g, `$1='${base}/$2'`);
 }
@@ -80,7 +85,7 @@ export async function generateFeeds(context: APIContext): Promise<FeedResult> {
     if (post.body) {
       try {
         const parsed = await marked.parse(post.body);
-        htmlContent = makeAbsoluteUrls(parsed, siteConfig);
+        htmlContent = makeAbsoluteUrls(parsed, siteConfig, rawBase);
       } catch (err) {
         console.warn(`Failed to parse markdown for post: ${post.id}`, err);
         htmlContent = `<p>${excerpt}</p>`;
