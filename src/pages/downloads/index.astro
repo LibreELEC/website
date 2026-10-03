@@ -68,9 +68,8 @@ const clientDataJson = JSON.stringify(data);
                 return this.data.versions;
             },
 
-            isBetaVersion(verId) {
-                const v = this.data.versions.find(x => x.id === verId);
-                return v && (v.badgeColor === 'red' || v.status === 'beta' || v.status === 'prerelease');
+            get isBeta() {
+                return this.getStatusType(this.activeVersionInfo) === 'beta';
             },
 
             getButtonClasses(ver) {
@@ -146,15 +145,15 @@ const clientDataJson = JSON.stringify(data);
 
             get filteredDevices() {
                 const q = this.searchQuery.trim().toLowerCase();
-                return this.data.catalog.filter(item => {
+                return this.data.devices.filter(item => {
                     const matchPlatform = this.selectedPlatform === 'all' || item.platformId === this.selectedPlatform;
-                    const matchVersion = this.selectedVersion === 'all' || item.supportedVersions.includes(this.selectedVersion);
+                    const matchVersion = item.versionId === this.selectedVersion;
                     const matchSearch = !q ||
                         item.deviceName.toLowerCase().includes(q) ||
                         item.platformName.toLowerCase().includes(q) ||
                         (item.chipset && item.chipset.toLowerCase().includes(q)) ||
                         (item.features && item.features.toLowerCase().includes(q));
-                    return matchPlatform && (matchVersion || q) && matchSearch;
+                    return matchPlatform && matchVersion && matchSearch;
                 });
             }
         }`}
@@ -299,17 +298,10 @@ const clientDataJson = JSON.stringify(data);
 
             <!-- Dynamic Device Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                <template x-for="item in filteredDevices" :key="item.deviceId">
+                <template x-for="item in filteredDevices" :key="item.deviceId + '-' + item.versionId">
                     <div
-                        x-data="{
-                            activeVer: item.supportedVersions.includes(selectedVersion) ? selectedVersion : item.supportedVersions[0],
-                            get currentDl() {
-                                return item.downloads[this.activeVer] || item.downloads[item.supportedVersions[0]];
-                            }
-                        }"
-                        x-effect="if (item.supportedVersions.includes(selectedVersion)) { activeVer = selectedVersion; }"
                         class="dl-card glass-card rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-all duration-200 hover:shadow-md bg-white dark:bg-slate-900"
-                        :class="isBetaVersion(activeVer)
+                        :class="isBeta
                             ? 'hover:border-red-300 dark:hover:border-red-500/50'
                             : 'hover:border-brand-300 dark:hover:border-brand-500/50'"
                     >
@@ -329,61 +321,40 @@ const clientDataJson = JSON.stringify(data);
                                 </span>
                                 <span
                                     class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded border"
-                                    :class="isBetaVersion(activeVer)
+                                    :class="isBeta
                                         ? 'bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800/60'
                                         : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border-transparent'"
-                                    x-text="'v' + currentDl.downloadVersion"
+                                    x-text="'v' + item.downloadVersion"
                                 ></span>
                             </div>
 
                             <!-- Hardware Title & Chipset -->
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white" :class="item.chipset ? 'mb-1' : 'mb-3'" x-text="item.deviceName"></h3>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white" :class="item.chipset ? 'mb-1' : 'mb-5'" x-text="item.deviceName"></h3>
                             <template x-if="item.chipset">
-                                <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono mb-3" x-text="item.chipset"></p>
+                                <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono mb-5" x-text="item.chipset"></p>
                             </template>
 
-                            <!-- Version selector pills on card -->
-                            <div class="mb-4">
-                                <span class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1.5">Available Releases</span>
-                                <div class="flex flex-wrap items-center gap-1.5">
-                                    <template x-for="verId in item.supportedVersions" :key="verId">
-                                        <button
-                                            type="button"
-                                            @click="activeVer = verId"
-                                            class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer border"
-                                            :class="activeVer === verId
-                                                ? (isBetaVersion(verId)
-                                                    ? 'bg-red-600 text-white border-red-600 shadow-sm'
-                                                    : 'bg-brand-600 text-white border-brand-600 shadow-sm')
-                                                : (isBetaVersion(verId)
-                                                    ? 'bg-red-50/80 dark:bg-red-950/30 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800/60 hover:bg-red-100 dark:hover:bg-red-900/40'
-                                                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-300 hover:text-slate-900 dark:hover:text-white')"
-                                            x-text="'v' + verId"
-                                        ></button>
-                                    </template>
-                                </div>
-                            </div>
                         </div>
 
                         <!-- Actions & Download Links -->
                         <div class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800">
                             <!-- Direct Image Download (Real link for right-click copy, triggers modal on click) -->
                             <a
-                                :href="currentDl.imageUrl"
-                                :download="currentDl.imageFileName"
-                                @click.prevent="$store.ui.openDownloadModal(item.deviceName, currentDl.imageFileName, currentDl.imageUrl, currentDl.mirrorListUrl)"
+                                :href="item.imageUrl"
+                                :download="item.imageFileName"
+                                @click.prevent="$store.ui.openDownloadModal(item.deviceName, item.imageFileName, item.imageUrl, item.mirrorListUrl)"
                                 class="w-full py-3 rounded-xl text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md cursor-pointer"
-                                :class="isBetaVersion(activeVer)
+                                :class="isBeta
                                     ? 'bg-red-600 hover:bg-red-700 shadow-red-500/20'
                                     : 'bg-brand-600 hover:bg-brand-700 shadow-brand-500/20'"
                             >
-                                <i class="fa-solid fa-download"></i> Direct Image Download (<span x-text="'v' + currentDl.downloadVersion"></span>)
+                                <i class="fa-solid fa-download"></i> Direct Image Download (<span x-text="'v' + item.downloadVersion"></span>)
                             </a>
 
                             <!-- Secondary links: Tarball update & Mirrorlist / SHA256 -->
                             <div class="flex items-center justify-between text-[11px] font-mono pt-1 text-slate-500 dark:text-slate-400">
                                 <a
-                                    :href="currentDl.updateUrl"
+                                    :href="item.updateUrl"
                                     class="text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 font-medium flex items-center gap-1"
                                     title="Manual update file for .update folder"
                                 >
@@ -391,7 +362,7 @@ const clientDataJson = JSON.stringify(data);
                                 </a>
 
                                 <a
-                                    :href="currentDl.mirrorListUrl"
+                                    :href="item.mirrorListUrl"
                                     target="_blank"
                                     rel="noopener"
                                     class="text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 font-medium flex items-center gap-1"

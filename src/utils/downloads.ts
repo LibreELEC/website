@@ -221,31 +221,6 @@ export function getClientMatrixData() {
     }
   }
 
-  const catalog = [];
-  for (const platform of platforms) {
-    for (const device of platform.devices) {
-      const downloadsByVersion: Record<string, DeviceDownloadInfo> = {};
-      for (const verId of device.supportedVersions) {
-        const verCfg = versions.find((v) => v.id === verId);
-        if (verCfg) {
-          downloadsByVersion[verId] = getDeviceDownloadInfo(platform, device, verCfg);
-        }
-      }
-      catalog.push({
-        deviceId: device.id,
-        deviceName: device.name,
-        platformId: platform.id,
-        platformName: platform.name,
-        badgeColor: platform.badgeColor,
-        icon: platform.icon,
-        chipset: device.chipset,
-        features: device.features,
-        supportedVersions: device.supportedVersions,
-        downloads: downloadsByVersion
-      });
-    }
-  }
-
   return {
     creator: config.creator,
     versions,
@@ -258,7 +233,6 @@ export function getClientMatrixData() {
       note: p.note,
       deviceCount: p.devices.length
     })),
-    devices: matrix,
-    catalog
+    devices: matrix
   };
 }
