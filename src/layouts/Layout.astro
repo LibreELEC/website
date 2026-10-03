@@ -54,6 +54,10 @@ const faviconPngUrl = `${base}/icon.png`;
     <link rel="alternate icon" type="image/png" href={faviconPngUrl}>
     <link rel="apple-touch-icon" href={faviconPngUrl}>
 
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml" title="LibreELEC" href={`${base}/feed.xml`}>
+    <link rel="alternate" type="application/rss+xml" title="LibreELEC" href={`${base}/feed.rss.xml`}>
+
     <!-- OpenGraph / Social Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content={canonicalURL}>

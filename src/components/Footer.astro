@@ -43,6 +43,7 @@ const privacyUrl = `${base}/privacy-policy/`;
                     <li><a href="https://wiki.libreelec.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Documentation Wiki</a></li>
                     <li><a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Community Forum</a></li>
                     <li><a href={newsUrl} class="hover:text-brand-400 transition-colors">Release Notes & News</a></li>
+                    <li><a href={`${base}/feed.xml`} class="hover:text-brand-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-rss text-amber-500 text-[10px]"></i> RSS / Atom Feed</a></li>
                     <li><a href="https://github.com/LibreELEC/LibreELEC.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">GitHub Source Code</a></li>
                     <li><a href={privacyUrl} class="hover:text-brand-400 transition-colors">Privacy Policy</a></li>
                 </ul>
@@ -67,6 +68,7 @@ const privacyUrl = `${base}/privacy-policy/`;
                 <a href="https://opencollective.com/libreelec" target="_blank" rel="noopener" class="hover:text-brand-400 font-semibold"><i class="fa-solid fa-heart text-rose-500 mr-1"></i> Donate</a>
                 <a href="https://github.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                 <a href="https://x.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href={`${base}/feed.xml`} class="hover:text-amber-500 text-sm" aria-label="RSS / Atom Feed" title="RSS / Atom Feed"><i class="fa-solid fa-rss"></i></a>
             </div>
         </div>
     </div>
