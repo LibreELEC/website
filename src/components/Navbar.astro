@@ -29,15 +29,16 @@ const donateUrl = "https://opencollective.com/libreelec/donate";
                 <a href={`${homeUrl}#news`} class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">News</a>
                 <a href={downloadsUrl} class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Downloads</a>
                 <a href={`${homeUrl}#features`} class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Features</a>
-                <a href={`${homeUrl}#creator`} class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">USB Tool</a>
                 <a href="https://wiki.libreelec.tv" target="_blank" rel="noopener" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Docs</a>
+                <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Forum</a>
+                <a href="https://github.com/LibreELEC/LibreELEC.tv/" target="_blank" rel="noopener" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center text-lg" title="GitHub" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="sr-only">GitHub</span>
+                </a>
             </div>
 
             <!-- CTA & Actions -->
             <div class="hidden lg:flex items-center gap-3">
-                <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white px-3 py-2 text-sm font-semibold transition-colors flex items-center gap-1.5">
-                    <i class="fa-solid fa-comments text-brand-600"></i> Forum
-                </a>
                 <a href={donateUrl} target="_blank" rel="noopener" class="px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100/90 text-rose-600 hover:text-rose-700 border border-rose-200/80 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300 dark:hover:bg-rose-900/40 font-bold text-sm shadow-sm hover:shadow hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2 group">
                     <i class="fa-solid fa-heart text-rose-500 group-hover:scale-110 transition-transform"></i>
                     <span>Donate</span>
@@ -97,9 +98,11 @@ const donateUrl = "https://opencollective.com/libreelec/donate";
         <a @click="mobileOpen = false" href={`${homeUrl}#news`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">News</a>
         <a @click="mobileOpen = false" href={downloadsUrl} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Downloads</a>
         <a @click="mobileOpen = false" href={`${homeUrl}#features`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Features</a>
-        <a @click="mobileOpen = false" href={`${homeUrl}#creator`} class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">USB Tool</a>
         <a href="https://wiki.libreelec.tv" target="_blank" rel="noopener" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Docs</a>
         <a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Community Forum</a>
+        <a href="https://github.com/LibreELEC/LibreELEC.tv/" target="_blank" rel="noopener" class="flex items-center gap-2 px-3 py-2 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <i class="fa-brands fa-github text-lg"></i> GitHub
+        </a>
         <a href={donateUrl} target="_blank" rel="noopener" class="flex items-center gap-2 px-3 py-2 rounded-lg text-base font-medium text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40">
             <i class="fa-solid fa-heart text-rose-500"></i> Donate on OpenCollective
         </a>
