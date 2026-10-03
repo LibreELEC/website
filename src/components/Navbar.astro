@@ -43,8 +43,9 @@ const sponsorUrl = `${base}/sponsor/`;
                     <i class="fa-solid fa-heart text-rose-500 group-hover:scale-110 transition-transform"></i>
                     <span>Sponsor</span>
                 </a>
-                <a href={downloadsUrl} class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200">
-                    Get LibreELEC
+                <a href={downloadsUrl} class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Get LibreELEC</span>
                 </a>
 
                 <!-- Top-Right 3-State Theme Switcher -->
@@ -139,8 +140,9 @@ const sponsorUrl = `${base}/sponsor/`;
         </div>
 
         <div class="pt-2">
-            <a @click="mobileOpen = false" href={downloadsUrl} class="block w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm shadow-md">
-                Get LibreELEC Now
+            <a @click="mobileOpen = false" href={downloadsUrl} class="flex items-center justify-center gap-2 w-full text-center px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md transition-colors">
+                <i class="fa-solid fa-download"></i>
+                <span>Get LibreELEC Now</span>
             </a>
         </div>
     </div>
