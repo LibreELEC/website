@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DownloadsHub from '../../components/DownloadsHub.astro';
+import { getAllVersionRouteAliases, type VersionConfig } from '../../utils/downloads';
+
+export async function getStaticPaths() {
+  const routes = getAllVersionRouteAliases();
+  return routes.map((r) => ({
+    params: { version: r.slug },
+    props: { versionConfig: r.version }
+  }));
+}
+
+interface Props {
+  versionConfig: VersionConfig;
+}
+
+const { versionConfig } = Astro.props;
+---
+
+<Layout
+    title={`Download LibreELEC ${versionConfig.name} - Official Releases & Disk Images`}
+    description={`Download official LibreELEC ${versionConfig.name} images for Raspberry Pi, Generic PC, Rockchip, Amlogic, and Allwinner devices.`}
+>
+    <DownloadsHub initialVersionId={versionConfig.id} />
+</Layout>

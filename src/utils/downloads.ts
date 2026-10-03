@@ -137,6 +137,106 @@ export function getLatestVersion(): VersionConfig {
   };
 }
 
+/**
+ * Normalizes a version string or alias for comparison.
+ * e.g. "LE13", "v13", "13", "13.0", "libreelec-13" -> normalized base
+ */
+export function normalizeVersionAlias(input: string): string {
+  if (!input) return '';
+  return input
+    .trim()
+    .toLowerCase()
+    .replace(/^libreelec[-_]?/, '')
+    .replace(/^(v|le)/i, '');
+}
+
+/**
+ * Resolves any version alias (e.g. 'LE13', '13', '13.0', 'v13', 'v13.0', 'le12.2')
+ * to the corresponding VersionConfig.
+ */
+export function findVersionByAlias(
+  query: string,
+  versions: VersionConfig[] = getVersions()
+): VersionConfig | undefined {
+  if (!query) return undefined;
+  const clean = query.trim().toLowerCase();
+
+  // 1. Direct match on id or name
+  const exact = versions.find(
+    (v) => v.id.toLowerCase() === clean || v.name.toLowerCase() === clean
+  );
+  if (exact) return exact;
+
+  // 2. Normalized match (stripped of prefix)
+  const stripped = normalizeVersionAlias(clean);
+  if (stripped) {
+    const matchStripped = versions.find(
+      (v) => v.id.toLowerCase() === stripped || v.name.toLowerCase() === stripped
+    );
+    if (matchStripped) return matchStripped;
+
+    // 3. Match major version (e.g., '13' matches '13.0', '12' matches '12.2')
+    const matchMajor = versions.find(
+      (v) => v.id.startsWith(stripped + '.') || v.id === stripped
+    );
+    if (matchMajor) return matchMajor;
+  }
+
+  return undefined;
+}
+
+/**
+ * Returns all route aliases to statically generate for /downloads/[version].
+ * Covers 'LE13', 'le13', '13', '13.0', 'v13', 'v13.0', etc.
+ */
+export function getAllVersionRouteAliases(): { slug: string; version: VersionConfig }[] {
+  const versions = getVersions();
+  const seenSlugs = new Set<string>();
+  const routes: { slug: string; version: VersionConfig }[] = [];
+
+  const addRoute = (slug: string, version: VersionConfig) => {
+    if (!slug) return;
+    const trimmed = slug.trim();
+    if (!seenSlugs.has(trimmed)) {
+      seenSlugs.add(trimmed);
+      routes.push({ slug: trimmed, version });
+    }
+  };
+
+  const claimedMajors = new Set<string>();
+
+  for (const v of versions) {
+    // 1. Exact ID and variations (e.g. "13.0", "v13.0", "LE13.0", "le13.0")
+    addRoute(v.id, v);
+    addRoute(`v${v.id}`, v);
+    addRoute(`LE${v.id}`, v);
+    addRoute(`le${v.id}`, v);
+
+    // If name is different from ID
+    if (v.name && v.name !== v.id) {
+      addRoute(v.name, v);
+      addRoute(`v${v.name}`, v);
+      addRoute(`LE${v.name}`, v);
+      addRoute(`le${v.name}`, v);
+    }
+
+    // 2. Major version aliases (e.g. for 13.0: "13", "v13", "LE13", "le13")
+    if (v.id.includes('.')) {
+      const major = v.id.split('.')[0];
+      if (!claimedMajors.has(major)) {
+        claimedMajors.add(major);
+        addRoute(major, v);
+        addRoute(`v${major}`, v);
+        addRoute(`LE${major}`, v);
+        addRoute(`le${major}`, v);
+      }
+    }
+  }
+
+  return routes;
+}
+
+
 
 export function getDeviceDownloadInfo(
   platform: PlatformConfig,

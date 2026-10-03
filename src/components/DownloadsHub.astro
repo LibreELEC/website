@@ -1,0 +1,440 @@
+---
+import UsbCreator from './UsbCreator.astro';
+import { getClientMatrixData, getLatestVersion } from '../utils/downloads';
+
+interface Props {
+  initialVersionId?: string;
+}
+
+const { initialVersionId } = Astro.props;
+const data = getClientMatrixData();
+const latestVersion = getLatestVersion();
+const activeInitialId = initialVersionId || latestVersion.id;
+
+const clientDataJson = JSON.stringify(data);
+---
+
+<!-- Downloads Page Header -->
+<header class="relative pt-28 pb-12 md:pt-32 md:pb-14 overflow-hidden hero-gradient border-b border-slate-200 dark:border-slate-800">
+    <!-- Background decorative ambient glows -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-400/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-emerald-400/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200/80 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+            <i class="fa-solid fa-download"></i> Official Releases & Disk Images
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
+            Download <span class="text-gradient">LibreELEC</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+            Choose your hardware platform and release version below to download raw installer images (<code class="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-slate-800 dark:text-slate-200">.img.gz</code>), update files (<code class="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-slate-800 dark:text-slate-200">.tar</code>), or verify SHA256 checksums.
+        </p>
+
+        <div class="flex items-center justify-center gap-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
+            <a href="#creator" class="inline-flex items-center gap-1.5 text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 hover:underline">
+                <i class="fa-solid fa-compact-disc"></i> Prefer an automatic installer? Jump to USB-SD Creator &darr;
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Main Interactive Download Hub Container (Alpine.js) -->
+<main
+    class="py-12 bg-slate-50/70 dark:bg-[#0b1329]/60 min-h-screen"
+    x-data={`{
+        data: ${clientDataJson},
+        selectedVersion: '${activeInitialId}',
+        selectedPlatform: 'all',
+        searchQuery: '',
+        showOldVersions: false,
+
+        findVersion(query) {
+            if (!query) return null;
+            const clean = query.trim().toLowerCase();
+            const exact = this.data.versions.find(v => v.id.toLowerCase() === clean || v.name.toLowerCase() === clean);
+            if (exact) return exact;
+
+            const stripped = clean.replace(/^libreelec[-_]?/, '').replace(/^(v|le)/i, '');
+            if (stripped) {
+                const matchStripped = this.data.versions.find(v => v.id.toLowerCase() === stripped || v.name.toLowerCase() === stripped);
+                if (matchStripped) return matchStripped;
+
+                const matchMajor = this.data.versions.find(v => v.id.startsWith(stripped + '.') || v.id === stripped);
+                if (matchMajor) return matchMajor;
+            }
+            return null;
+        },
+
+        getStatusType(ver) {
+            if (ver.badgeColor === 'red' || ver.status === 'beta' || ver.status === 'prerelease') return 'beta';
+            if (ver.status === 'latest') return 'latest';
+            if (ver.status === 'old' || ver.status === 'stable') return 'old';
+            return 'legacy';
+        },
+
+        getStatusLabel(ver) {
+            if (ver.statusLabel) return ver.statusLabel;
+            if (ver.status === 'beta') return 'Beta';
+            if (ver.status === 'prerelease') return 'Beta 1';
+            if (ver.status === 'latest') return 'Latest';
+            if (ver.status === 'old' || ver.status === 'stable') return 'Old Version';
+            if (ver.status === 'legacy') return 'Legacy';
+            return ver.status;
+        },
+
+        get primaryVersions() {
+            const latestBeta = this.data.versions.find(v => this.getStatusType(v) === 'beta');
+            const latestStable = this.data.versions.find(v => v.status === 'latest' || v.status === 'stable');
+            return this.data.versions.filter(v => (latestBeta && v.id === latestBeta.id) || (latestStable && v.id === latestStable.id));
+        },
+
+        get displayedVersions() {
+            return this.showOldVersions ? this.data.versions : this.primaryVersions;
+        },
+
+        get isBeta() {
+            return this.getStatusType(this.activeVersionInfo) === 'beta';
+        },
+
+        getButtonClasses(ver) {
+            const isSelected = this.selectedVersion === ver.id;
+            const type = this.getStatusType(ver);
+            if (isSelected) {
+                if (type === 'beta') {
+                    return 'bg-red-600 text-white shadow-md shadow-red-600/25 ring-2 ring-red-500/40 border border-red-600';
+                }
+                if (type === 'latest') {
+                    return 'bg-emerald-600 text-white shadow-md shadow-emerald-600/25 ring-2 ring-emerald-500/40 border border-emerald-600';
+                }
+                if (type === 'old') {
+                    return 'bg-amber-500 text-white shadow-md shadow-amber-500/25 ring-2 ring-amber-400/40 border border-amber-500';
+                }
+                return 'bg-slate-700 dark:bg-slate-600 text-white shadow-md shadow-slate-700/25 ring-2 ring-slate-500/40 border border-slate-700 dark:border-slate-600';
+            }
+            if (type === 'beta') {
+                return 'bg-red-50/80 dark:bg-red-950/40 text-red-950 dark:text-red-300 hover:bg-red-100/70 dark:hover:bg-red-900/50 border border-red-300 dark:border-red-800/80';
+            }
+            if (type === 'latest') {
+                return 'bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-300 hover:bg-emerald-100/70 dark:hover:bg-emerald-900/50 border border-emerald-300 dark:border-emerald-800/80';
+            }
+            if (type === 'old') {
+                return 'bg-amber-50/80 dark:bg-amber-950/40 text-amber-950 dark:text-amber-300 hover:bg-amber-100/70 dark:hover:bg-amber-900/50 border border-amber-300 dark:border-amber-800/80';
+            }
+            return 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-slate-700 hover:border-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700/80';
+        },
+
+        getStaticBadgeClasses(ver) {
+            const type = this.getStatusType(ver);
+            if (type === 'beta') {
+                return 'bg-red-100 dark:bg-red-950/60 text-red-800 dark:text-red-300 border border-red-300/80 dark:border-red-800';
+            }
+            if (type === 'latest') {
+                return 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300/80 dark:border-emerald-800';
+            }
+            if (type === 'old') {
+                return 'bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-300 border border-amber-300/80 dark:border-amber-800';
+            }
+            return 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/80 dark:border-slate-700';
+        },
+
+        getBadgeClasses(ver) {
+            if (this.selectedVersion === ver.id) {
+                return 'bg-white/20 text-white border border-white/20';
+            }
+            return this.getStaticBadgeClasses(ver);
+        },
+
+        init() {
+            // Automatically show old versions if initial selection is not in primary list
+            if (!this.primaryVersions.some(v => v.id === this.selectedVersion)) {
+                this.showOldVersions = true;
+            }
+
+            const params = new URLSearchParams(window.location.search);
+            const vParam = params.get('version') || params.get('v');
+            if (vParam) {
+                const matched = this.findVersion(vParam);
+                if (matched) {
+                    this.selectedVersion = matched.id;
+                }
+            } else if (window.location.hash) {
+                const hashVal = window.location.hash.replace(/^#/, '');
+                const matched = this.findVersion(hashVal);
+                if (matched) {
+                    this.selectedVersion = matched.id;
+                }
+            }
+
+            if (!this.primaryVersions.some(v => v.id === this.selectedVersion)) {
+                this.showOldVersions = true;
+            }
+        },
+
+        get activeVersionInfo() {
+            return this.data.versions.find(v => v.id === this.selectedVersion) || this.data.versions[0];
+        },
+
+        get activePlatformInfo() {
+            if (this.selectedPlatform === 'all') return null;
+            return this.data.platforms.find(p => p.id === this.selectedPlatform);
+        },
+
+        get filteredDevices() {
+            const q = this.searchQuery.trim().toLowerCase();
+            return this.data.devices.filter(item => {
+                const matchPlatform = this.selectedPlatform === 'all' || item.platformId === this.selectedPlatform;
+                const matchVersion = item.versionId === this.selectedVersion;
+                const matchSearch = !q ||
+                    item.deviceName.toLowerCase().includes(q) ||
+                    item.platformName.toLowerCase().includes(q) ||
+                    (item.chipset && item.chipset.toLowerCase().includes(q));
+                return matchPlatform && matchVersion && matchSearch;
+            });
+        }
+    }`}
+>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Controls Panel: Version Selector + Active Version Metadata Card -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-sm mb-10">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-2">1. Select Release Version</span>
+                    <!-- Version Pills -->
+                    <div class="flex flex-wrap items-center gap-2">
+                        <template x-for="ver in displayedVersions" :key="ver.id">
+                            <button
+                                type="button"
+                                @click="selectedVersion = ver.id"
+                                class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shadow-sm cursor-pointer"
+                                :class="getButtonClasses(ver)"
+                            >
+                                <span x-text="'v' + ver.name"></span>
+                                <span
+                                    class="px-2 py-0.5 rounded-full text-[10px] uppercase font-extrabold tracking-wide"
+                                    :class="getBadgeClasses(ver)"
+                                    x-text="getStatusLabel(ver)"
+                                ></span>
+                            </button>
+                        </template>
+
+                        <!-- Show Old Versions Button (One-way expand) -->
+                        <template x-if="!showOldVersions && data.versions.length > primaryVersions.length">
+                            <button
+                                type="button"
+                                @click="showOldVersions = true"
+                                class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 border shadow-sm cursor-pointer bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600"
+                            >
+                                <i class="fa-solid fa-clock-rotate-left text-xs text-slate-400"></i>
+                                <span>Show old versions</span>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Instant Search Bar -->
+                <div class="w-full lg:w-80">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-2">Quick Search Hardware</span>
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 text-xs"></i>
+                        <input
+                            type="text"
+                            x-model="searchQuery"
+                            placeholder="Search by board, SoC, or PC..."
+                            class="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all shadow-sm"
+                        />
+                        <button
+                            type="button"
+                            x-show="searchQuery.length > 0"
+                            @click="searchQuery = ''"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 text-xs"
+                            aria-label="Clear search"
+                        >
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Version Specifications Ribbon -->
+            <div class="pt-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-700 dark:text-slate-300">
+                    <div class="flex items-center gap-2">
+                        <span class="text-slate-400 dark:text-slate-500 font-medium">Status:</span>
+                        <span
+                            class="px-2.5 py-0.5 rounded-full text-[10px] uppercase font-extrabold tracking-wide"
+                            :class="getStaticBadgeClasses(activeVersionInfo)"
+                            x-text="getStatusLabel(activeVersionInfo)"
+                        ></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-slate-400 dark:text-slate-500 font-medium">Release Date:</span>
+                        <span class="font-bold text-slate-900 dark:text-white font-mono" x-text="activeVersionInfo.releaseDate"></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-slate-400 dark:text-slate-500 font-medium">Kodi Version:</span>
+                        <span class="px-2 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-bold border border-blue-200 dark:border-blue-800" x-text="activeVersionInfo.kodiVersion"></span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 italic max-w-lg" x-text="activeVersionInfo.description || ''"></p>
+            </div>
+        </div>
+
+        <!-- 2. Platform Category Filters -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
+            <button
+                type="button"
+                @click="selectedPlatform = 'all'"
+                class="px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all"
+                :class="selectedPlatform === 'all'
+                    ? 'bg-slate-900 dark:bg-brand-600 text-white shadow-md'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm'"
+            >
+                <i class="fa-solid fa-layer-group mr-1.5 text-slate-400"></i> All Hardware
+            </button>
+
+            <template x-for="plat in data.platforms" :key="plat.id">
+                <button
+                    type="button"
+                    @click="selectedPlatform = plat.id"
+                    class="px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center gap-2"
+                    :class="selectedPlatform === plat.id
+                        ? 'bg-brand-600 text-white shadow-md shadow-brand-500/20'
+                        : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm'"
+                >
+                    <i :class="plat.icon"></i>
+                    <span x-text="plat.name"></span>
+                </button>
+            </template>
+        </div>
+
+        <!-- Platform Specific Note (e.g. NXP nightly note) -->
+        <template x-if="activePlatformInfo && activePlatformInfo.note">
+            <div class="mb-8 p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex items-start gap-4">
+                <div class="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-amber-900 dark:text-amber-200 mb-1" x-text="activePlatformInfo.name + ' Notice'"></h4>
+                    <p class="text-xs text-amber-800 dark:text-amber-300/90 leading-relaxed" x-text="activePlatformInfo.note"></p>
+                </div>
+            </div>
+        </template>
+
+        <!-- Results Count Bar -->
+        <div class="flex items-center justify-between mb-6 text-xs text-slate-500 dark:text-slate-400 px-1 font-medium">
+            <div class="flex items-center gap-2 flex-wrap">
+                <span>Showing <strong class="text-slate-900 dark:text-white" x-text="filteredDevices.length"></strong> compatible devices for</span>
+                <strong class="font-mono text-slate-900 dark:text-white text-sm" x-text="'LibreELEC ' + activeVersionInfo.name"></strong>
+                <span
+                    class="px-2 py-0.5 rounded-full text-[10px] uppercase font-extrabold tracking-wide"
+                    :class="getStaticBadgeClasses(activeVersionInfo)"
+                    x-text="getStatusLabel(activeVersionInfo)"
+                ></span>
+            </div>
+            <template x-if="searchQuery">
+                <button @click="searchQuery = ''" type="button" class="text-brand-600 dark:text-brand-400 hover:underline">
+                    Clear search filter
+                </button>
+            </template>
+        </div>
+
+        <!-- Dynamic Device Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <template x-for="item in filteredDevices" :key="item.deviceId + '-' + item.versionId">
+                <div
+                    class="dl-card glass-card rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-all duration-200 hover:shadow-md bg-white dark:bg-slate-900"
+                    :class="isBeta
+                        ? 'hover:border-red-300 dark:hover:border-red-500/50'
+                        : 'hover:border-brand-300 dark:hover:border-brand-500/50'"
+                >
+                    <div>
+                        <!-- Header badge & version -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="px-2.5 py-1 rounded-full text-[11px] font-bold border flex items-center gap-1.5 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                            >
+                                <i :class="item.icon" class="text-slate-500 dark:text-slate-400"></i>
+                                <span x-text="item.platformName"></span>
+                            </span>
+                            <span
+                                class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded border"
+                                :class="isBeta
+                                    ? 'bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800/60'
+                                    : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border-transparent'"
+                                x-text="'v' + item.downloadVersion"
+                            ></span>
+                        </div>
+
+                        <!-- Hardware Title & Chipset -->
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white" :class="item.chipset ? 'mb-1' : 'mb-5'" x-text="item.deviceName"></h3>
+                        <template x-if="item.chipset">
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-mono mb-5" x-text="item.chipset"></p>
+                        </template>
+
+                    </div>
+
+                    <!-- Actions & Download Links -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <!-- Direct Image Download (Real link for right-click copy, triggers modal on click) -->
+                        <a
+                            :href="item.imageUrl"
+                            :download="item.imageFileName"
+                            @click.prevent="$store.ui.openDownloadModal(item.deviceName, item.imageFileName, item.imageUrl, item.mirrorListUrl)"
+                            class="w-full py-3 rounded-xl text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md cursor-pointer"
+                            :class="isBeta
+                                ? 'bg-red-600 hover:bg-red-700 shadow-red-500/20'
+                                : 'bg-brand-600 hover:bg-brand-700 shadow-brand-500/20'"
+                        >
+                            <i class="fa-solid fa-download"></i> Direct Image Download (<span x-text="'v' + item.downloadVersion"></span>)
+                        </a>
+
+                        <!-- Secondary links: Tarball update & Mirrorlist / SHA256 -->
+                        <div class="flex items-center justify-between text-[11px] font-mono pt-1 text-slate-500 dark:text-slate-400">
+                            <a
+                                :href="item.updateUrl"
+                                class="text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 font-medium flex items-center gap-1"
+                                title="Manual update file for .update folder"
+                            >
+                                <i class="fa-solid fa-file-zipper text-[10px]"></i> Update File (.tar)
+                            </a>
+
+                            <a
+                                :href="item.mirrorListUrl"
+                                target="_blank"
+                                rel="noopener"
+                                class="text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 font-medium flex items-center gap-1"
+                                title="View SHA256 hash and mirrorlist"
+                            >
+                                <i class="fa-solid fa-shield-halved text-[10px]"></i> SHA256 Checksum
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Empty Search State -->
+        <div x-show="filteredDevices.length === 0" class="text-center py-16 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-8 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 flex items-center justify-center text-2xl mx-auto mb-4">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">No matching hardware found</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto mb-4">
+                We couldn't find any images matching "<span class="font-semibold text-slate-800 dark:text-slate-200" x-text="searchQuery"></span>" in LibreELEC <span class="font-semibold text-slate-800 dark:text-slate-200" x-text="activeVersionInfo.name"></span>.
+            </p>
+            <button
+                type="button"
+                @click="searchQuery = ''; selectedPlatform = 'all'"
+                class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-brand-600 dark:hover:bg-brand-700 text-white font-bold text-xs"
+            >
+                Reset all filters
+            </button>
+        </div>
+
+    </div>
+</main>
+
+<!-- Official USB-SD Creator Tool Section -->
+<UsbCreator />

@@ -72,6 +72,23 @@ const newsUrl = `${base}/news/`;
                     <slot />
                 </div>
 
+                <script is:inline>
+                    (function() {
+                        const base = (window.location.pathname.startsWith('/website-new') ? '/website-new' : '');
+                        if (base) {
+                            document.querySelectorAll('.prose a').forEach(function(link) {
+                                const href = link.getAttribute('href');
+                                if (!href) return;
+                                if (href.startsWith('/downloads')) {
+                                    link.setAttribute('href', base + href);
+                                } else if (href.startsWith('https://libreelec.tv/downloads')) {
+                                    link.setAttribute('href', href.replace('https://libreelec.tv', base));
+                                }
+                            });
+                        }
+                    })();
+                </script>
+
                 {post.data.support !== false && <SupportBlock />}
 
                 <!-- Post Footer Actions -->
