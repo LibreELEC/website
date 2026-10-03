@@ -25,6 +25,19 @@ creator:
 # Supported LibreELEC Versions (Ordered from newest to oldest)
 # First version with status 'latest' or first in list is treated as the site-wide latest release
 versions:
+  - id: "13.0"
+    name: "13.0"
+    downloadVersion: "12.95.1"
+    releaseDate: "2026.10"
+    kodiVersion: "22.0 RC1 (Piers)"
+    kernelVersion: "6.16.x"
+    kernelOverrides:
+      raspberry: "6.12.x"
+    status: "prerelease" # 'latest' | 'stable' | 'legacy' | 'prerelease' | 'beta'
+    badgeColor: "red"
+    statusLabel: "Beta 1"
+    description: "LibreELEC 13 Beta 1 includes Kodi 22 Pierce RC1."
+
   - id: "12.2"
     name: "12.2"
     downloadVersion: "12.2.1"
@@ -93,7 +106,7 @@ platforms:
         arch: "aarch64"
         archOverrides:
           "11.0": "arm"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Broadcom BCM2712"
         features: "4K60 HDR, HEVC decoding, PCIe NVMe SSD boot support"
 
@@ -105,7 +118,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
           "9.2": "arm"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Broadcom BCM2711"
         features: "Dual 4K micro-HDMI, H.265 hardware decoding, USB 3.0"
 
@@ -116,7 +129,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
           "10.0": "arm"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Broadcom BCM2711"
         features: "Industrial & embedded CM4 carrier board installations"
 
@@ -124,7 +137,7 @@ platforms:
         name: "Raspberry Pi 3 Model B / B+ / Zero 2 W"
         project: "RPi2"
         arch: "arm"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Broadcom BCM2837"
         features: "1080p full hardware playback, compact low-power HTPC"
 
@@ -132,7 +145,7 @@ platforms:
         name: "Raspberry Pi 2"
         project: "RPi2"
         arch: "arm"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Broadcom BCM2836"
         features: "Legacy ARMv7 32-bit hardware support"
 
@@ -155,7 +168,7 @@ platforms:
         name: "Generic PC (Intel / AMD Graphics)"
         project: "Generic"
         arch: "x86_64"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Intel / AMD / Modern GPUs"
         features: "UEFI boot, VAAPI/VDPAU hardware acceleration, 4K HDR playback"
 
@@ -171,7 +184,7 @@ platforms:
         name: "Virtual Machine (OVA / Disk Image)"
         project: "Generic"
         arch: "x86_64"
-        supportedVersions: ["12.2", "12.0"]
+        supportedVersions: ["13.0", "12.2", "12.0"]
         chipset: "Virtualization"
         features: "VMware, Proxmox, VirtualBox test environments"
 
@@ -191,7 +204,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "rock960"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
         features: "96Boards Consumer Edition form factor with RK3399"
 
@@ -200,7 +213,7 @@ platforms:
         project: "RK3288"
         arch: "arm"
         device: "tinker"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3288"
         features: "Quad-core 1.8GHz ARM Cortex-A17 processor with 24-bit audio"
 
@@ -212,7 +225,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "a1"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3328"
         features: "Set-top box SD card boot"
 
@@ -225,7 +238,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "roc-cc"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3328"
         features: "Compact 4K media SBC"
 
@@ -237,7 +250,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "nanopc-t4"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
         features: "Dual band Wi-Fi, PCIe M.2, USB 3.0"
 
@@ -249,7 +262,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "nanopi-m4"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
         features: "Compact RPi-compatible form factor with RK3399"
 
@@ -270,7 +283,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "hugsun-x99"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
         features: "RK3399 TV box with dual-band Wi-Fi and Gigabit LAN"
 
@@ -283,7 +296,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "khadas-edge"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
         features: "Ultra-slim board design with high-end audio DAC"
 
@@ -292,7 +305,7 @@ platforms:
         project: "RK3288"
         arch: "arm"
         device: "miqi"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3288"
         features: "Compact aluminum case SBC"
 
@@ -313,7 +326,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "orangepi"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
         features: "Dual Cortex-A72 + Quad Cortex-A53 with PCIe and mSATA"
 
@@ -326,7 +339,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "rock64"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3328"
         features: "Affordable 4K60 HDR media SBC with USB 3.0"
 
@@ -339,7 +352,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "rockpro64"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
         features: "Dual-core Cortex-A72 + Quad-core A53, PCIe slot support"
 
@@ -357,7 +370,7 @@ platforms:
         project: "RK3399"
         arch: "aarch64"
         device: "rock-4c-plus"
-        supportedVersions: ["12.2"]
+        supportedVersions: ["13.0", "12.2"]
         chipset: "Rockchip RK3399"
         features: "Dual micro-HDMI 4K, Gigabit Ethernet with PoE support"
 
@@ -366,7 +379,7 @@ platforms:
         project: "RK3399"
         arch: "aarch64"
         device: "rock-4se"
-        supportedVersions: ["12.2"]
+        supportedVersions: ["13.0", "12.2"]
         chipset: "Rockchip RK3399"
         features: "Special Edition RK3399 SBC with 4K HDMI and USB 3.0"
 
@@ -379,7 +392,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "rock-pi-4"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
         features: "4K HDMI 2.0 output, Gigabit Ethernet, M.2 NVMe extension"
 
@@ -390,7 +403,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "rock-pi-4-plus"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Rockchip RK3399"
         features: "On-board high-speed eMMC storage support"
 
@@ -402,7 +415,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "rock-pi-n10"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399Pro"
         features: "Dual-core A72 + Quad-core A53 with 3.0 TOPS NPU"
 
@@ -414,7 +427,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "roc-pc"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
         features: "Station PC / ROC-RK3399-PC high-performance media board"
 
@@ -425,7 +438,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "roc-pc-plus"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Rockchip RK3399"
         features: "Upgraded ROC-RK3399-PC Plus with on-board eMMC"
 
@@ -438,7 +451,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "sapphire"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
         features: "Official Rockchip evaluation and development board"
 
@@ -476,7 +489,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "bananapi-m2-pro"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
         features: "Quad-core Cortex-A55 with 2GB RAM and 16GB eMMC"
 
@@ -487,7 +500,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "bananapi-m2s"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
         features: "Hexa-core SBC with dual Gigabit LAN and 4K HDMI"
 
@@ -498,7 +511,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "bananapi-m5"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
         features: "4GB RAM, Gigabit Ethernet, 4x USB 3.0"
 
@@ -509,7 +522,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "box"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905 / S905X / S912"
         features: "Multi-device device-tree boot for hundreds of Android TV boxes"
 
@@ -520,7 +533,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "khadas-vim"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X"
         features: "Classic compact Khadas VIM v1"
 
@@ -531,7 +544,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "khadas-vim2"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S912"
         features: "Octa-core multimedia board"
 
@@ -542,7 +555,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "khadas-vim3"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
         features: "High-end SBC with 5.0 TOPS NPU and USB-C power delivery"
 
@@ -553,7 +566,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "khadas-vim3l"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905D3"
         features: "HTPC-tailored board with pre-tuned audio and thermal casing"
 
@@ -562,7 +575,7 @@ platforms:
         project: "AMLGX"
         arch: "aarch64"
         device: "alta"
-        supportedVersions: ["12.2"]
+        supportedVersions: ["13.0", "12.2"]
         chipset: "Amlogic A311D"
         features: "4x Cortex-A73 + 2x Cortex-A53, 5.0 TOPS NPU, Gigabit LAN"
 
@@ -573,7 +586,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "lafrite"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S805X"
         features: "Cost-effective 1080p media board with 100M LAN"
 
@@ -584,7 +597,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "lepotato"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X"
         features: "Raspberry Pi form factor with Amlogic hardware decoding"
 
@@ -593,7 +606,7 @@ platforms:
         project: "AMLGX"
         arch: "aarch64"
         device: "solitude"
-        supportedVersions: ["12.2"]
+        supportedVersions: ["13.0", "12.2"]
         chipset: "Amlogic S905D3"
         features: "Quad-core Cortex-A55 with Gigabit Ethernet and M.2 PCIe"
 
@@ -604,7 +617,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "nanopi-k2"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905"
         features: "Quad-core 64-bit Cortex-A53 with Gigabit Ethernet and Wi-Fi"
 
@@ -615,7 +628,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "odroid-c2"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905"
         features: "Pioneer 64-bit Amlogic board"
 
@@ -626,7 +639,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "odroid-c4"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
         features: "Quad-core Cortex-A55 with 4GB DDR4 and passive cooling"
 
@@ -637,7 +650,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "odroid-hc4"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
         features: "Home Cloud dual SATA NAS dock with 4K HDMI"
 
@@ -648,7 +661,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "odroid-n2"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S922X"
         features: "Hexa-core powerhouse with high performance 4K HDR playback"
 
@@ -659,7 +672,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "radxa-zero"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905Y2"
         features: "Ultra-compact form factor with 4K HDMI and USB-C"
 
@@ -670,7 +683,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "radxa-zero2"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
         features: "Pocket-sized hexacore powerhouse"
 
@@ -681,7 +694,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "wetek-core2"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S912"
         features: "Octa-core media player with 4K HDR playback"
 
@@ -703,7 +716,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "wetek-play2"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Amlogic S905"
         features: "Hybrid TV box with DVB tuner support"
 
@@ -719,7 +732,7 @@ platforms:
         project: "H3"
         arch: "arm"
         device: "bananapi-m2p"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
         features: "Quad-core Cortex-A7 with Gigabit Ethernet and Wi-Fi"
 
@@ -728,7 +741,7 @@ platforms:
         project: "R40"
         arch: "arm"
         device: "bananapi-m2u"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner R40"
         features: "Quad-core Cortex-A7 with SATA, Gigabit Ethernet, and Wi-Fi"
 
@@ -740,7 +753,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "beelink-gs1"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
         features: "High-performance 6K HDR set-top box"
 
@@ -749,7 +762,7 @@ platforms:
         project: "H3"
         arch: "arm"
         device: "beelink-x2"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
         features: "Quad-core Android TV box media playback"
 
@@ -758,7 +771,7 @@ platforms:
         project: "H3"
         arch: "arm"
         device: "libretech-h3"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
         features: "Quad-core Cortex-A7 in Raspberry Pi form factor"
 
@@ -770,7 +783,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "tritium-h5"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H5"
         features: "Quad-core 64-bit Cortex-A53 in Raspberry Pi form factor"
 
@@ -779,7 +792,7 @@ platforms:
         project: "H3"
         arch: "arm"
         device: "nanopi-m1"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
         features: "Ultra-compact single-board computer"
 
@@ -788,7 +801,7 @@ platforms:
         project: "H3"
         arch: "arm"
         device: "orangepi-2"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
         features: "Quad-core media board with Wi-Fi"
 
@@ -800,7 +813,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "orangepi-3"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
         features: "High-speed 4K60 decoding with Gigabit LAN"
 
@@ -811,7 +824,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "orangepi-3-lts"
-        supportedVersions: ["12.2", "12.0", "11.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
         chipset: "Allwinner H6"
         features: "Compact H6 board with on-board Wi-Fi and 8GB eMMC"
 
@@ -823,7 +836,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "orangepi-lite2"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
         features: "Ultra-compact 4K60 media SBC with USB 3.0"
 
@@ -835,7 +848,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "orangepi-one-plus"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
         features: "Affordable 64-bit H6 single-board computer"
 
@@ -844,7 +857,7 @@ platforms:
         project: "H3"
         arch: "arm"
         device: "orangepi-pc"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
         features: "Cost-effective 1080p media player"
 
@@ -853,7 +866,7 @@ platforms:
         project: "H3"
         arch: "arm"
         device: "orangepi-pc-plus"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
         features: "Quad-core Cortex-A7 with on-board eMMC and Wi-Fi"
 
@@ -865,7 +878,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "orangepi-pc2"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H5"
         features: "Quad-core 64-bit Cortex-A53 with Gigabit LAN"
 
@@ -874,7 +887,7 @@ platforms:
         project: "H3"
         arch: "arm"
         device: "orangepi-plus"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
         features: "Quad-core board with SATA and Gigabit Ethernet"
 
@@ -883,7 +896,7 @@ platforms:
         project: "H3"
         arch: "arm"
         device: "orangepi-plus2e"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H3"
         features: "Quad-core with 2GB RAM, 16GB eMMC, and Gigabit Ethernet"
 
@@ -895,7 +908,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "orangepi-win"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner A64"
         features: "Quad-core 64-bit Cortex-A53, Mali-400 MP2 GPU"
 
@@ -907,7 +920,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "pine-h64"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
         features: "PCIe slot and USB 3.0"
 
@@ -919,7 +932,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "pine-h64-model-b"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
         features: "Allwinner H6 SBC in Raspberry Pi form factor"
 
@@ -931,7 +944,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "pine64"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner A64"
         features: "64-bit ARM Cortex-A53 single-board computer"
 
@@ -943,7 +956,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "pine64-lts"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner A64"
         features: "Long-term support 64-bit ARM SBC with eMMC socket"
 
@@ -955,7 +968,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "pine64-plus"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner A64"
         features: "Open hardware 64-bit ARM single-board computer"
 
@@ -967,7 +980,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "tanix-tx6"
-        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
         chipset: "Allwinner H6"
         features: "Allwinner H6 based 4K TV box"
 

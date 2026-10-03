@@ -34,4 +34,4 @@ Enjoy! :)
 
 ## SHA256
 
-Append `?mirrorlist` to download links to see the file SHA256 hash, e.g. `https://releases.libreelec.tv/LibreELEC-RPi5.arm-13.0.0.img.gz?mirrorlist`.
+Append `?mirrorlist` to download links to see the file SHA256 hash, e.g. `https://releases.libreelec.tv/LibreELEC-RPi5.aarch64-12.95.1.img.gz?mirrorlist`.

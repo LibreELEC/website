@@ -48,12 +48,16 @@ const clientDataJson = JSON.stringify(data);
             searchQuery: '',
 
             getStatusType(ver) {
+                if (ver.badgeColor === 'red' || ver.status === 'beta' || ver.status === 'prerelease') return 'beta';
                 if (ver.status === 'latest') return 'latest';
                 if (ver.status === 'old' || ver.status === 'stable') return 'old';
                 return 'legacy';
             },
 
             getStatusLabel(ver) {
+                if (ver.statusLabel) return ver.statusLabel;
+                if (ver.status === 'beta') return 'Beta';
+                if (ver.status === 'prerelease') return 'Beta 1';
                 if (ver.status === 'latest') return 'Latest';
                 if (ver.status === 'old' || ver.status === 'stable') return 'Old Version';
                 if (ver.status === 'legacy') return 'Legacy';
@@ -64,10 +68,18 @@ const clientDataJson = JSON.stringify(data);
                 return this.data.versions;
             },
 
+            isBetaVersion(verId) {
+                const v = this.data.versions.find(x => x.id === verId);
+                return v && (v.badgeColor === 'red' || v.status === 'beta' || v.status === 'prerelease');
+            },
+
             getButtonClasses(ver) {
                 const isSelected = this.selectedVersion === ver.id;
                 const type = this.getStatusType(ver);
                 if (isSelected) {
+                    if (type === 'beta') {
+                        return 'bg-red-600 text-white shadow-md shadow-red-600/25 ring-2 ring-red-500/40 border border-red-600';
+                    }
                     if (type === 'latest') {
                         return 'bg-emerald-600 text-white shadow-md shadow-emerald-600/25 ring-2 ring-emerald-500/40 border border-emerald-600';
                     }
@@ -75,6 +87,9 @@ const clientDataJson = JSON.stringify(data);
                         return 'bg-amber-500 text-white shadow-md shadow-amber-500/25 ring-2 ring-amber-400/40 border border-amber-500';
                     }
                     return 'bg-slate-700 dark:bg-slate-600 text-white shadow-md shadow-slate-700/25 ring-2 ring-slate-500/40 border border-slate-700 dark:border-slate-600';
+                }
+                if (type === 'beta') {
+                    return 'bg-red-50/80 dark:bg-red-950/40 text-red-950 dark:text-red-300 hover:bg-red-100/70 dark:hover:bg-red-900/50 border border-red-300 dark:border-red-800/80';
                 }
                 if (type === 'latest') {
                     return 'bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-300 hover:bg-emerald-100/70 dark:hover:bg-emerald-900/50 border border-emerald-300 dark:border-emerald-800/80';
@@ -87,6 +102,9 @@ const clientDataJson = JSON.stringify(data);
 
             getStaticBadgeClasses(ver) {
                 const type = this.getStatusType(ver);
+                if (type === 'beta') {
+                    return 'bg-red-100 dark:bg-red-950/60 text-red-800 dark:text-red-300 border border-red-300/80 dark:border-red-800';
+                }
                 if (type === 'latest') {
                     return 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300/80 dark:border-emerald-800';
                 }
@@ -101,6 +119,20 @@ const clientDataJson = JSON.stringify(data);
                     return 'bg-white/20 text-white border border-white/20';
                 }
                 return this.getStaticBadgeClasses(ver);
+            },
+
+            init() {
+                const params = new URLSearchParams(window.location.search);
+                const vParam = params.get('version') || params.get('v');
+                if (vParam && this.data.versions.some(v => v.id === vParam)) {
+                    this.selectedVersion = vParam;
+                } else if (window.location.hash) {
+                    const hashVal = window.location.hash.replace('#', '').replace('v', '');
+                    const match = this.data.versions.find(v => v.id === hashVal || v.id === window.location.hash.replace('#', ''));
+                    if (match) {
+                        this.selectedVersion = match.id;
+                    }
+                }
             },
 
             get activeVersionInfo() {
@@ -276,7 +308,10 @@ const clientDataJson = JSON.stringify(data);
                             }
                         }"
                         x-effect="if (item.supportedVersions.includes(selectedVersion)) { activeVer = selectedVersion; }"
-                        class="dl-card glass-card rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:border-brand-300 dark:hover:border-brand-500/50 flex flex-col justify-between transition-all duration-200 hover:shadow-md bg-white dark:bg-slate-900"
+                        class="dl-card glass-card rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-all duration-200 hover:shadow-md bg-white dark:bg-slate-900"
+                        :class="isBetaVersion(activeVer)
+                            ? 'hover:border-red-300 dark:hover:border-red-500/50'
+                            : 'hover:border-brand-300 dark:hover:border-brand-500/50'"
                     >
                         <div>
                             <!-- Header badge & version -->
@@ -292,7 +327,13 @@ const clientDataJson = JSON.stringify(data);
                                     <i :class="item.icon"></i>
                                     <span x-text="item.platformName"></span>
                                 </span>
-                                <span class="text-[11px] font-mono font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded" x-text="'v' + currentDl.downloadVersion"></span>
+                                <span
+                                    class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded border"
+                                    :class="isBetaVersion(activeVer)
+                                        ? 'bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800/60'
+                                        : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border-transparent'"
+                                    x-text="'v' + currentDl.downloadVersion"
+                                ></span>
                             </div>
 
                             <!-- Hardware Title & Chipset -->
@@ -311,8 +352,12 @@ const clientDataJson = JSON.stringify(data);
                                             @click="activeVer = verId"
                                             class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer border"
                                             :class="activeVer === verId
-                                                ? 'bg-brand-600 text-white border-brand-600 shadow-sm'
-                                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-300 hover:text-slate-900 dark:hover:text-white'"
+                                                ? (isBetaVersion(verId)
+                                                    ? 'bg-red-600 text-white border-red-600 shadow-sm'
+                                                    : 'bg-brand-600 text-white border-brand-600 shadow-sm')
+                                                : (isBetaVersion(verId)
+                                                    ? 'bg-red-50/80 dark:bg-red-950/30 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800/60 hover:bg-red-100 dark:hover:bg-red-900/40'
+                                                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-300 hover:text-slate-900 dark:hover:text-white')"
                                             x-text="'v' + verId"
                                         ></button>
                                     </template>
@@ -327,7 +372,10 @@ const clientDataJson = JSON.stringify(data);
                                 :href="currentDl.imageUrl"
                                 :download="currentDl.imageFileName"
                                 @click.prevent="$store.ui.openDownloadModal(item.deviceName, currentDl.imageFileName, currentDl.imageUrl, currentDl.mirrorListUrl)"
-                                class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md cursor-pointer"
+                                class="w-full py-3 rounded-xl text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md cursor-pointer"
+                                :class="isBetaVersion(activeVer)
+                                    ? 'bg-red-600 hover:bg-red-700 shadow-red-500/20'
+                                    : 'bg-brand-600 hover:bg-brand-700 shadow-brand-500/20'"
                             >
                                 <i class="fa-solid fa-download"></i> Direct Image Download (<span x-text="'v' + currentDl.downloadVersion"></span>)
                             </a>
