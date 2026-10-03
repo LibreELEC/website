@@ -100,8 +100,31 @@ const { firstParagraph, firstHeadline, headlineBullets, headlineParagraph } = ex
 const subtitle = post.data.description && post.data.description !== firstParagraph ? post.data.description : '';
 const displayText = firstParagraph || post.data.description || 'LibreELEC updates, improvements, and system release information.';
 
+function getPostDownloadUrl(title: string, base: string): string {
+  const t = title.toLowerCase();
+  if (/\b13\b/.test(t) || t.includes('piers')) {
+    return `${base}/downloads/LE13/`;
+  }
+  if (/\b12\.2\b/.test(t)) {
+    return `${base}/downloads/LE12.2/`;
+  }
+  if (/\b12\.0\b/.test(t) || /\b12\b/.test(t) || t.includes('omega')) {
+    return `${base}/downloads/LE12.0/`;
+  }
+  if (/\b11\b/.test(t) || t.includes('nexus')) {
+    return `${base}/downloads/LE11/`;
+  }
+  if (/\b10\b/.test(t) || t.includes('matrix')) {
+    return `${base}/downloads/LE10/`;
+  }
+  if (/\b9\b/.test(t) || t.includes('leia')) {
+    return `${base}/downloads/LE9.2/`;
+  }
+  return `${base}/downloads/LE13/`;
+}
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const downloadsUrl = `${base}/downloads/`;
+const downloadsUrl = getPostDownloadUrl(post.data.title, base);
 ---
 
 {featured ? (
