@@ -170,7 +170,6 @@ export default (Alpine: Alpine) => {
 
     return {
       activeKey: 'video',
-      clock: '20:45',
       fading: false,
       previewData: {
         video: {
@@ -228,18 +227,6 @@ export default (Alpine: Alpine) => {
         secondaryText: string;
         secondaryUrl: string;
       }>,
-
-      init() {
-        this.updateClock();
-        setInterval(() => this.updateClock(), 1000);
-      },
-
-      updateClock() {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        this.clock = `${hours}:${minutes}`;
-      },
 
       get activeItem() {
         return this.previewData[this.activeKey] || this.previewData.video;
