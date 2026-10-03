@@ -192,18 +192,15 @@ const clientDataJson = JSON.stringify(data);
                                 </button>
                             </template>
 
-                            <!-- Toggle Old Versions Button -->
-                            <template x-if="data.versions.length > primaryVersions.length">
+                            <!-- Show Old Versions Button (One-way expand) -->
+                            <template x-if="!showOldVersions && data.versions.length > primaryVersions.length">
                                 <button
                                     type="button"
-                                    @click="showOldVersions = !showOldVersions"
-                                    class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 border shadow-sm cursor-pointer"
-                                    :class="showOldVersions
-                                        ? 'bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 border-slate-300 dark:border-slate-600'
-                                        : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'"
+                                    @click="showOldVersions = true"
+                                    class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 border shadow-sm cursor-pointer bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600"
                                 >
-                                    <i class="fa-solid text-xs transition-transform duration-200" :class="showOldVersions ? 'fa-chevron-up text-brand-600 dark:text-brand-400' : 'fa-clock-rotate-left text-slate-400'"></i>
-                                    <span x-text="showOldVersions ? 'Hide old versions' : 'Show old versions'"></span>
+                                    <i class="fa-solid fa-clock-rotate-left text-xs text-slate-400"></i>
+                                    <span>Show old versions</span>
                                 </button>
                             </template>
                         </div>
