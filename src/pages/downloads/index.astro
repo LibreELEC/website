@@ -231,7 +231,7 @@ const clientDataJson = JSON.stringify(data);
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-slate-400 dark:text-slate-500 font-medium">Linux Kernel:</span>
-                            <span class="px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold font-mono border border-emerald-200 dark:border-emerald-800" x-text="activeVersionInfo.kernelVersion"></span>
+                            <span class="px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold font-mono border border-emerald-200 dark:border-emerald-800" x-text="(activeVersionInfo.kernelOverrides && selectedPlatform !== 'all' && activeVersionInfo.kernelOverrides[selectedPlatform]) ? activeVersionInfo.kernelOverrides[selectedPlatform] : activeVersionInfo.kernelVersion"></span>
                         </div>
                     </div>
                     <p class="text-xs text-slate-500 dark:text-slate-400 italic max-w-lg" x-text="activeVersionInfo.description || ''"></p>

@@ -30,9 +30,11 @@ versions:
     downloadVersion: "12.95.1"
     releaseDate: "2026.10"
     kodiVersion: "22.0 RC1 (Piers)"
-    kernelVersion: "6.16.x"
+    kernelVersion: "7.2.x"
     kernelOverrides:
-      raspberry: "6.12.x"
+      raspberry: "6.18.x"
+      amlogic: "7.3.x"
+      rockchip: "6.19.x"
     status: "prerelease" # 'latest' | 'stable' | 'legacy' | 'prerelease' | 'beta'
     badgeColor: "red"
     statusLabel: "Beta 1"
