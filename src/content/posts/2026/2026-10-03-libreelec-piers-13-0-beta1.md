@@ -9,9 +9,13 @@ description: "LibreELEC 13 Beta 1 is now available for testing."
 LibreELEC 13 Beta 1 is now available for testing. This release moves our base to the upcoming **Kodi 22 (Piers)** and brings major hardware and driver updates across all platforms.
 
 ### Kodi 22 Highlights
-* **HDR Subtitles:** Subtitles in HDR content now dim to match the scene brightness instead of glaring white in a dark room.
-* **RetroAchievements:** Classic game emulators now show achievement popups and leaderboards directly on screen.
-* **Remote Controls:** Quicker response times and better out-of-the-box key mapping for standard TV remotes.
+* **Dimmed HDR Subtitles:** Subtitles now dim to match the scene’s brightness instead of glaring in dark rooms.
+* **Native Movie Extras:** Watch trailers, deleted scenes, and bonus clips directly from the movie page.
+* **Faster TV Remotes:** Snappier button response and better plug-and-play remote support.
+* **Auto Storage Cleanup:** Silently clears old cached artwork to keep your drive from filling up.
+* **Retro Gaming Perks:** Classic games now support on-screen achievement popups and built-in cheats.
+
+Behind the scenes, there is also a huge amount of under-the-hood improvements, including major core updates like FFmpeg 9, modernized rendering pipelines, and extensive stability and performance fixes throughout the system.
 
 ### Web Browsers via Flatpak
 LibreELEC 13 adds native support for Flatpak. This means you can finally install and launch full web browsers and standalone apps directly on your TV, with proper hardware acceleration and without having to hack together desktop containers.
