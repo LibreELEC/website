@@ -1,37 +1,42 @@
 ---
 layout: post
-title: "LibreELEC (Piers) 13 Beta1"
-description: "LE 13.0 beta time"
+title: "LibreELEC 13 Beta 1"
+description: "LibreELEC 13 Beta 1 is now available for testing."
 ---
 
-LibreELEC 13.0 with Kodi (Piers) v22 RC1 is released!
+# LibreELEC 13 Beta 1
 
-The release contains an update to Kodi Piers 22 RC1.
+LibreELEC 13 Beta 1 is now available for testing. This release moves our base to the upcoming **Kodi 22 (Piers)** and brings major hardware and driver updates across all platforms.
 
-## CHANGES SINCE LE 12
+### Kodi 22 Highlights
+* **HDR Subtitles:** Subtitles in HDR content now dim to match the scene brightness instead of glaring white in a dark room.
+* **RetroAchievements:** Classic game emulators now show achievement popups and leaderboards directly on screen.
+* **Remote Controls:** Quicker response times and better out-of-the-box key mapping for standard TV remotes.
 
-- Added Flatpak and browser support on x86_64 and 64-bit ARM devices.
+### Web Browsers via Flatpak
+LibreELEC 13 adds native support for Flatpak. This means you can finally install and launch full web browsers and standalone apps directly on your TV, with proper hardware acceleration and without having to hack together desktop containers.
+
+### Overhauled Amlogic Support
+Amlogic TV boxes have been moved to modern upstream Linux drivers, dropping years of old vendor patches. This brings significantly better playback stability on high-bitrate video and reliable support for USB and PCIe TV tuners (DVB).
+
+### Hardware Updates
+* **Rockchip:** Added official support for RK3588, RK3576, and RK356X boards (Orange Pi 5, Radxa Rock 5, etc.).
+* **Allwinner:** Added support for H616-based devices (Orange Pi Zero 2).
+* **x86 / HTPC:** Modernized driver stack for newer Intel chips and current Nvidia GPUs.
+* **Raspberry Pi:** Updated kernel with fixes for the Pi 5.
+
+### Changes Since LE 12
 - Removed the Generic Legacy image.
 - Updated Kodi remote handling; Lircmap.xml and remote.xml are no longer used
 - Added NVIDIA 580-series driver support to Generic, covering GeForce 10 through RTX 40 series.
 - Generic x86_64 now requires a 1 GB boot partition.
 
-## Generic-Legacy
+### Add-ons & Networking
+* **Tailscale:** New service add-on for secure remote access and maintenance away from home.
+* **Steam Link:** Added to stream games directly from your local gaming PC.
+* **WPA3 Wi-Fi:** Support for modern, secure Wi-Fi networks.
+* **New Emulators:** Added PlayStation 1 (SwanStation) and Nintendo 64 cores.
 
-Its gone
+---
 
-## BACKUPS
-
-Kodi supports upgrades not downgrades. Create a backup BEFORE upgrading else rolling back to the previous release can be complicated.
-
-## SUPPORT
-
-Project staff are available in the [forum](https://forum.libreelec.tv) to answer questions and provide advice. If you have a problem, technical issues are best accompanied by system and Kodi debug logs - help us to help you.
-
-Enjoy! :)
-
-**[Click here to go to the download page.](${base}/downloads/LE13/)**
-
-## SHA256
-
-Append `?mirrorlist` to download links to see the file SHA256 hash, e.g. `https://releases.libreelec.tv/LibreELEC-RPi5.aarch64-12.95.1.img.gz?mirrorlist`.
+**Note for testers:** This is a beta and a major Kodi version jump. Some third-party skins and add-ons will need updates to work on Kodi 22. **Make a full backup** via the LibreELEC settings addon before updating, and report any bugs on the forum.
