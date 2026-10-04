@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LibreELEC 13 Beta 1"
-description: "LibreELEC 13 Beta 1 is now available for testing."
+description: "Backup first, ask questions later. LE13 Beta 1 is here!"
 ---
 
 # LibreELEC 13 Beta 1
@@ -18,7 +18,13 @@ LibreELEC 13 Beta 1 is now available for testing. This release moves our base to
 Behind the scenes, there is also a huge amount of under-the-hood improvements, including major core updates like FFmpeg 9, modernized rendering pipelines, and extensive stability and performance fixes throughout the system.
 
 ### Web Browsers via Flatpak
-LibreELEC 13 adds native support for Flatpak. This means you can finally install and launch full web browsers and standalone apps directly on your TV, with proper hardware acceleration and without having to hack together desktop containers.
+LibreELEC 13 adds native support for Flatpak. This means you can finally install and launch full web browsers and standalone apps directly on your TV, with proper hardware acceleration.
+
+### Notable Changes Since LE 12
+* Removed the Generic Legacy image (older Intel and Nvidia ION platforms are no longer supported).
+* Updated Kodi remote handling `Lircmap.xml` and `remote.xml` are no longer used.
+* Added NVIDIA 580-series driver support to Generic, covering GeForce 10 through RTX 40 series.
+* Generic x86_64 now requires a 1 GB boot partition.
 
 ### Overhauled Amlogic Support
 Amlogic TV boxes have been moved to modern upstream Linux drivers, dropping years of old vendor patches. This brings significantly better playback stability on high-bitrate video and reliable support for USB and PCIe TV tuners (DVB).
@@ -27,13 +33,6 @@ Amlogic TV boxes have been moved to modern upstream Linux drivers, dropping year
 * **Rockchip:** Added official support for RK3588, RK3576, and RK356X boards (Orange Pi 5, Radxa Rock 5, etc.).
 * **Allwinner:** Added support for H616-based devices (Orange Pi Zero 2).
 * **x86 / HTPC:** Modernized driver stack for newer Intel chips and current Nvidia GPUs.
-* **Raspberry Pi:** Updated kernel with fixes for the Pi 5.
-
-### Changes Since LE 12
-- Removed the Generic Legacy image.
-- Updated Kodi remote handling; Lircmap.xml and remote.xml are no longer used
-- Added NVIDIA 580-series driver support to Generic, covering GeForce 10 through RTX 40 series.
-- Generic x86_64 now requires a 1 GB boot partition.
 
 ### Add-ons & Networking
 * **Tailscale:** New service add-on for secure remote access and maintenance away from home.
