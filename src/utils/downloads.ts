@@ -274,15 +274,17 @@ export function getClientMatrixData() {
   return {
     creator: config.creator,
     versions,
-    platforms: platforms.map((p) => ({
-      id: p.id,
-      name: p.name,
-      icon: p.icon,
-      badgeColor: p.badgeColor,
-      description: p.description,
-      note: p.note,
-      deviceCount: p.devices.length
-    })),
+    platforms: platforms
+      .map((p) => ({
+        id: p.id,
+        name: p.name,
+        icon: p.icon,
+        badgeColor: p.badgeColor,
+        description: p.description,
+        note: p.note,
+        deviceCount: p.devices.length
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })),
     devices: matrix
   };
 }
