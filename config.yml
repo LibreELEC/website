@@ -38,7 +38,7 @@ versions:
     status: "beta" # 'latest' | 'stable' | 'legacy' | 'beta'
     badgeColor: "red"
     statusLabel: "Beta 1"
-    description: "LibreELEC 13 includes Kodi 22 Pierce."
+    description: "LibreELEC 13 includes Kodi 22 Piers."
 
   - id: "12.2"
     name: "12.2"
