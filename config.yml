@@ -6,7 +6,7 @@ baseUrl: "https://releases.libreelec.tv"
 
 # USB-SD Creator Tool Releases
 creator:
-  version: "1.0.0"
+  version: "1.6"
   wikiUrl: "https://wiki.libreelec.tv/installation/create-media"
   downloads:
     windows:

@@ -1,8 +1,15 @@
 ---
 import LibreElecLogo from './LibreElecLogo.astro';
+import { getDownloadConfig } from '../utils/downloads';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const downloadsUrl = `${base}/downloads/`;
+const config = getDownloadConfig();
+const creator = config.creator;
+const creatorVersion = creator?.version || '1.6';
+const windowsUrl = creator?.downloads?.windows?.url || "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Win32.exe";
+const macosUrl = creator?.downloads?.macos?.url || "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.macOS.dmg";
+const linuxUrl = creator?.downloads?.linux?.url || "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Linux-64bit.AppImage";
 ---
 <section id="creator" class="py-20 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,13 +44,13 @@ const downloadsUrl = `${base}/downloads/`;
 
                     <!-- Creator OS Buttons -->
                     <div class="flex flex-wrap items-center gap-3">
-                        <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Win32.exe" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
+                        <a href={windowsUrl} class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
                             <i class="fa-brands fa-windows text-blue-400"></i> Windows (.exe)
                         </a>
-                        <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.macOS.dmg" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
+                        <a href={macosUrl} class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
                             <i class="fa-brands fa-apple text-slate-300"></i> macOS (.dmg)
                         </a>
-                        <a href="https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Linux-64bit.AppImage" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
+                        <a href={linuxUrl} class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
                             <i class="fa-brands fa-linux text-amber-400"></i> Linux (.AppImage)
                         </a>
                     </div>
@@ -68,7 +75,7 @@ const downloadsUrl = `${base}/downloads/`;
                                 <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
                                 <div class="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
                             </div>
-                            <span class="text-xs text-slate-500 dark:text-slate-400 font-mono font-semibold">LibreELEC USB-SD Creator v1.5</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-mono font-semibold">LibreELEC USB-SD Creator v{creatorVersion}</span>
                         </div>
 
                         <div class="space-y-4">
