@@ -29,7 +29,7 @@ versions:
     name: "13.0"
     downloadVersion: "12.95.1"
     releaseDate: "2026.10"
-    kodiVersion: "22.0 RC1 (Piers)"
+    kodiVersion: "22.0 RC2 (Piers)"
     kernelVersion: "7.2.x"
     kernelOverrides:
       raspberry: "6.18.x"

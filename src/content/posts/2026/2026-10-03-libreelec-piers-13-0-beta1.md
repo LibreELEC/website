@@ -6,7 +6,7 @@ description: "Backup first, ask questions later. LE13 Beta 1 is here!"
 
 # LibreELEC 13 Beta 1
 
-LibreELEC 13 Beta 1 is now available for testing. This release moves our base to the upcoming **Kodi 22 (Piers)** and brings major hardware and driver updates across all platforms.
+LibreELEC 13 Beta 1 is now available for testing. This release moves our base to the upcoming **Kodi 22 (Piers) RC 2** and brings major hardware and driver updates across all platforms.
 
 ### Kodi 22 Highlights
 * **HDR Enhancements:** End-to-end HDR support with 10-bit output and a tonemapped GUI.
