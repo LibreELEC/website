@@ -9,13 +9,15 @@ description: "Backup first, ask questions later. LE13 Beta 1 is here!"
 LibreELEC 13 Beta 1 is now available for testing. This release moves our base to the upcoming **Kodi 22 (Piers) RC 2** and brings major hardware and driver updates across all platforms.
 
 ### Kodi 22 Highlights
-* **HDR Enhancements:** End-to-end HDR support with 10-bit output and a tonemapped GUI.
-* **Movie Extras:** Watch trailers, deleted scenes, and bonus clips directly from the movie page.
-* **Faster TV Remotes:** Snappier button response and better plug-and-play remote support.
-* **Auto Storage Cleanup:** Silently clears old cached artwork to keep your drive from filling up.
-* **Retro Gaming Perks:** Classic games now support on-screen achievement popups and built-in cheats.
+Behind the scenes, Kodi 22 "Piers" introduces extensive technical and architectural overhauls — including major core updates like FFmpeg 9, modernized Linux DRM/GBM rendering pipelines, and sweeping subsystem fixes. While much of the work is under the hood, here are the most impactful end-user changes that you'll notice:
 
-Behind the scenes, there is also a huge amount of under-the-hood improvements, including major core updates like FFmpeg 9, modernized rendering pipelines, and extensive stability and performance fixes throughout the system.
+* **Movie Extras & Alternate Cuts:** Browse trailers, deleted scenes, and bonus clips directly from a movie's details page, alongside improved support for extended cuts.
+* **Quick Chapter Skipping:** Press **Up / Down** on your remote during playback to jump instantly between chapters, scene markers, and bookmarks.
+* **Smarter Blu-ray Playback:** Automatically detects the correct main feature or TV episode without getting trapped in broken menus or duplicate playlists.
+* **Automatic Storage Cleanup:** Silently purges old, orphaned artwork in the background to prevent your device from running out of storage space.
+* **Toned-Down HDR Subtitles:** Subtitle brightness now matches the scene contrast instead of glaring at blindingly full brightness in dark rooms.
+* **Smoother Playback & Audio Sync:** Faster stream loading, rock-solid 4K HDR playback, and fixes for audio/video sync drift after fast-forwarding or rewinding.
+* **Retro Gaming Upgrades:** Added on-screen RetroAchievements and leaderboards, easy in-game multi-disc swapping (e.g. for PS1 games), and built-in cheat code menus with retro CRT shaders.
 
 ### Web Browsers via Flatpak
 LibreELEC 13 adds native support for Flatpak. This means you can finally install and launch full web browsers and standalone apps directly on your TV, with proper hardware acceleration.
