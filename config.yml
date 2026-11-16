@@ -187,7 +187,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "rock960"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
 
       - id: "tinker"
@@ -195,7 +195,7 @@ platforms:
         project: "RK3288"
         arch: "arm"
         device: "tinker"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3288"
 
       - id: "beelink-a1"
@@ -206,7 +206,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "a1"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3328"
 
       - id: "roc-cc"
@@ -218,7 +218,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "roc-cc"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3328"
 
       - id: "nanopc-t4"
@@ -229,7 +229,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "nanopc-t4"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
 
       - id: "nanopi-m4"
@@ -240,7 +240,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "nanopi-m4"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
 
       - id: "rk3328-box"
@@ -259,7 +259,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "hugsun-x99"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
 
       - id: "khadas-edge"
@@ -271,7 +271,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "khadas-edge"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
 
       - id: "miqi"
@@ -279,7 +279,7 @@ platforms:
         project: "RK3288"
         arch: "arm"
         device: "miqi"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3288"
 
       - id: "rk3328-box-trn9"
@@ -298,7 +298,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "orangepi"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
 
       - id: "rock64"
@@ -310,7 +310,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "rock64"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3328"
 
       - id: "rockpro64"
@@ -322,7 +322,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "rockpro64"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
 
       - id: "rk3328-rockbox"
@@ -338,7 +338,7 @@ platforms:
         project: "RK3399"
         arch: "aarch64"
         device: "rock-4c-plus"
-        supportedVersions: ["13.0", "12.2"]
+        supportedVersions: ["12.2"]
         chipset: "Rockchip RK3399"
 
       - id: "rock-4se"
@@ -346,7 +346,7 @@ platforms:
         project: "RK3399"
         arch: "aarch64"
         device: "rock-4se"
-        supportedVersions: ["13.0", "12.2"]
+        supportedVersions: ["12.2"]
         chipset: "Rockchip RK3399"
 
       - id: "rock-pi-4"
@@ -358,7 +358,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "rock-pi-4"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
 
       - id: "rock-pi-4-plus"
@@ -368,7 +368,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "rock-pi-4-plus"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Rockchip RK3399"
 
       - id: "rock-pi-n10"
@@ -379,7 +379,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "rock-pi-n10"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399Pro"
 
       - id: "roc-pc"
@@ -390,7 +390,7 @@ platforms:
           "11.0": "arm"
           "10.0": "arm"
         device: "roc-pc"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0"]
         chipset: "Rockchip RK3399"
 
       - id: "roc-pc-plus"
@@ -400,7 +400,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "roc-pc-plus"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Rockchip RK3399"
 
       - id: "sapphire"
@@ -412,7 +412,7 @@ platforms:
           "10.0": "arm"
           "9.2": "arm"
         device: "sapphire"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Rockchip RK3399"
 
       - id: "rk3328-box-z28"
