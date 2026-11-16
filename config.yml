@@ -471,7 +471,7 @@ platforms:
         chipset: "Amlogic S905X3"
 
       - id: "amlgx-box"
-        name: "Generic Android Box (SD Card Boot)"
+        name: "Generic Android Set-Top Box"
         project: "AMLGX"
         arch: "aarch64"
         archOverrides:
