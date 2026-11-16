@@ -29,11 +29,12 @@ const sponsorUrl = `${base}/sponsor/`;
             <div>
                 <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Downloads</h4>
                 <ul class="space-y-2">
-                    <li><a href={downloadsUrl} class="hover:text-brand-400 transition-colors">Download Center</a></li>
-                    <li><a href={downloadsUrl} class="hover:text-brand-400 transition-colors">Raspberry Pi Builds</a></li>
-                    <li><a href={downloadsUrl} class="hover:text-brand-400 transition-colors">Generic x86_64 PC</a></li>
-                    <li><a href={downloadsUrl} class="hover:text-brand-400 transition-colors">Rockchip & Amlogic</a></li>
-                    <li><a href={`${homeUrl}#creator`} class="hover:text-brand-400 transition-colors">USB-SD Creator Tool</a></li>
+                    <li><a href={`${downloadsUrl}?platform=allwinner`} class="hover:text-brand-400 transition-colors">Allwinner</a></li>
+                    <li><a href={`${downloadsUrl}?platform=amlogic`} class="hover:text-brand-400 transition-colors">Amlogic</a></li>
+                    <li><a href={`${downloadsUrl}?platform=generic`} class="hover:text-brand-400 transition-colors">Generic PC</a></li>
+                    <li><a href={`${downloadsUrl}?platform=raspberry`} class="hover:text-brand-400 transition-colors">Raspberry Pi</a></li>
+                    <li><a href={`${downloadsUrl}?platform=rockchip`} class="hover:text-brand-400 transition-colors">Rockchip</a></li>
+                    <li><a href={`${homeUrl}#creator`} class="hover:text-brand-400 transition-colors">USB-SD Creator</a></li>
                 </ul>
             </div>
 

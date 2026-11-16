@@ -165,6 +165,15 @@ const clientDataJson = JSON.stringify(data);
                 }
             }
 
+            const pParam = params.get('platform') || params.get('p');
+            if (pParam) {
+                const cleanP = pParam.toLowerCase();
+                const matchedPlat = this.data.platforms.find(p => p.id.toLowerCase() === cleanP || p.name.toLowerCase().includes(cleanP));
+                if (matchedPlat) {
+                    this.selectedPlatform = matchedPlat.id;
+                }
+            }
+
             if (!this.primaryVersions.some(v => v.id === this.selectedVersion)) {
                 this.showOldVersions = true;
             }
