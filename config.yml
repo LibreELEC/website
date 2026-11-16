@@ -112,7 +112,7 @@ platforms:
         chipset: "Broadcom BCM2712"
 
       - id: "rpi4"
-        name: "Raspberry Pi 4 / 400"
+        name: "Raspberry Pi 4 / 400 / CM4"
         project: "RPi4"
         arch: "aarch64"
         archOverrides:
@@ -122,18 +122,8 @@ platforms:
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
         chipset: "Broadcom BCM2711"
 
-      - id: "rpicm4"
-        name: "Raspberry Pi Compute Module 4 (CM4)"
-        project: "RPi4"
-        arch: "aarch64"
-        archOverrides:
-          "11.0": "arm"
-          "10.0": "arm"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0"]
-        chipset: "Broadcom BCM2711"
-
       - id: "rpi3"
-        name: "Raspberry Pi 3 Model B / B+ / Zero 2 W"
+        name: "Raspberry Pi 3B / 3B+ / Zero 2 W"
         project: "RPi2"
         arch: "arm"
         supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
