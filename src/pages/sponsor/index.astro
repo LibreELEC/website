@@ -6,7 +6,6 @@ const homeUrl = base ? `${base}/` : '/';
 
 const openCollectiveDonateUrl = 'https://opencollective.com/libreelec/donate';
 const openCollectiveUrl = 'https://opencollective.com/libreelec';
-const merchShopUrl = 'https://libreelec.shop';
 const forumUrl = 'https://forum.libreelec.tv';
 const githubUrl = 'https://github.com/LibreELEC/LibreELEC.tv/';
 const wikiUrl = 'https://wiki.libreelec.tv';
@@ -62,7 +61,7 @@ const otherWays = [
 
 <Layout
     title="Sponsor & Donate - LibreELEC"
-    description="Support LibreELEC development. Learn about our project expenses, transparent donations via OpenCollective, and official merchandise."
+    description="Support LibreELEC development. Learn about our project expenses and transparent donations via OpenCollective."
 >
     <!-- Page Hero Header -->
     <header class="relative pt-28 pb-12 md:pt-32 md:pb-16 overflow-hidden hero-gradient border-b border-slate-200 dark:border-slate-800">
@@ -86,7 +85,7 @@ const otherWays = [
             </h1>
 
             <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-                LibreELEC software is free but running the project is not, so we raise funds via public donations and sales of project logo themed merchandise.
+                LibreELEC software is free but running the project is not, so we raise funds via public donations.
             </p>
 
             <!-- Hero Action Buttons -->
@@ -99,15 +98,6 @@ const otherWays = [
                 >
                     <i class="fa-solid fa-heart"></i>
                     <span>Donate on OpenCollective</span>
-                </a>
-                <a
-                    href={merchShopUrl}
-                    target="_blank"
-                    rel="noopener"
-                    class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-100 font-semibold text-sm border border-slate-200 dark:border-slate-700 hover:border-brand-400 dark:hover:border-brand-500 shadow-sm transition-all duration-200 flex items-center justify-center gap-2"
-                >
-                    <i class="fa-solid fa-bag-shopping text-brand-600 dark:text-brand-400"></i>
-                    <span>Official Merch Store</span>
                 </a>
             </div>
         </div>
@@ -223,39 +213,7 @@ const otherWays = [
                     </div>
                 </section>
 
-                <!-- Section 3: Merchandise -->
-                <section id="merchandise" class="scroll-mt-28">
-                    <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-200 dark:border-slate-800">
-                        <span class="w-8 h-8 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold text-xs shrink-0">
-                            <i class="fa-solid fa-shirt"></i>
-                        </span>
-                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight uppercase">
-                            Merchandise
-                        </h2>
-                    </div>
-
-                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/70 flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div class="space-y-2 text-center sm:text-left">
-                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                                The project sells project logo themed t-shirts, hoodies, mugs, stickers, etc. from our <a href={merchShopUrl} target="_blank" rel="noopener" class="text-brand-600 dark:text-brand-400 font-semibold underline hover:no-underline">TeeSpring Merch</a> store with profits contributing to the project.
-                            </p>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">
-                                Official LibreELEC apparel, mugs, and accessories shipped worldwide.
-                            </p>
-                        </div>
-                        <a
-                            href={merchShopUrl}
-                            target="_blank"
-                            rel="noopener"
-                            class="shrink-0 px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
-                        >
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            <span>Visit Merch Store</span>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- Section 4: Other Ways to Help -->
+                <!-- Section 3: Other Ways to Help -->
                 <section class="pt-2">
                     <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-handshake-angle text-brand-600 dark:text-brand-400"></i> Other Ways to Help
