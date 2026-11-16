@@ -103,7 +103,7 @@ platforms:
     featuredDeviceIds: ["rpi5", "rpi4", "rpi3"]
     devices:
       - id: "rpi5"
-        name: "Raspberry Pi 5 / 500 / CM5"
+        name: "Raspberry Pi 5 / 500"
         project: "RPi5"
         arch: "aarch64"
         archOverrides:
@@ -112,7 +112,7 @@ platforms:
         chipset: "Broadcom BCM2712"
 
       - id: "rpi4"
-        name: "Raspberry Pi 4 / 400 / CM4"
+        name: "Raspberry Pi 4 / 400"
         project: "RPi4"
         arch: "aarch64"
         archOverrides:
