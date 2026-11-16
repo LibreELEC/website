@@ -521,7 +521,7 @@ platforms:
         chipset: "Amlogic S905D3"
 
       - id: "alta"
-        name: "Libre Computer Alta (AML-A311D-CC)"
+        name: "Libre Computer Alta"
         project: "AMLGX"
         arch: "aarch64"
         device: "alta"
@@ -529,7 +529,7 @@ platforms:
         chipset: "Amlogic A311D"
 
       - id: "lafrite"
-        name: "Libre Computer LaFrite (AML-S805X-AC)"
+        name: "Libre Computer LaFrite"
         project: "AMLGX"
         arch: "aarch64"
         archOverrides:
@@ -539,7 +539,7 @@ platforms:
         chipset: "Amlogic S805X"
 
       - id: "lepotato"
-        name: "Libre Computer LePotato (AML-S905X-CC)"
+        name: "Libre Computer LePotato"
         project: "AMLGX"
         arch: "aarch64"
         archOverrides:
@@ -549,7 +549,7 @@ platforms:
         chipset: "Amlogic S905X"
 
       - id: "solitude"
-        name: "Libre Computer Solitude (AML-S905D3-CC)"
+        name: "Libre Computer Solitude"
         project: "AMLGX"
         arch: "aarch64"
         device: "solitude"
@@ -699,7 +699,7 @@ platforms:
         chipset: "Allwinner H3"
 
       - id: "libretech-h3"
-        name: "Libre Computer Board Tritium H3 (ALL-H3-CC)"
+        name: "Libre Computer Board Tritium H3"
         project: "H3"
         arch: "arm"
         device: "libretech-h3"
@@ -707,7 +707,7 @@ platforms:
         chipset: "Allwinner H3"
 
       - id: "tritium-h5"
-        name: "Libre Computer Board Tritium H5 (ALL-H5-CC)"
+        name: "Libre Computer Board Tritium H5"
         project: "H5"
         arch: "aarch64"
         archOverrides:
