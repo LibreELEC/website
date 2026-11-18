@@ -48,7 +48,7 @@ The image name reverts to "Amlogic" to recognise that G12 and SM1 (and S4 in the
 Hero credit for the reversal in Amlogic fortunes largely belongs to Claude (Fable/Opus5.5) and Codex (GPT-6.0) though staff are becoming less incompetent at persuading LLM tools to do their evil bidding and deserve a mention in dispatches.
 
 ### Hardware Updates
-* **Rockchip:** Added official support for RK3588, RK3576, and RK356X boards (Orange Pi 5, Radxa Rock 5, etc.).
+* **Rockchip:** Added official support for RK3588, RK3576, and RK356X boards (Orange Pi 5, Radxa Rock 5, etc.). Rockchip is not yet included in the 13 Beta 1 release and will be added later.
 * **Allwinner:** Added support for H616-based devices (Orange Pi Zero 2).
 * **x86 / HTPC:** Modernized driver stack for newer Intel chips and current Nvidia GPUs.
 
