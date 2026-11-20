@@ -12,7 +12,7 @@ creator:
     windows:
       name: "Windows x64 (.exe)"
       icon: "fa-brands fa-windows"
-      url: "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Win32.exe"
+      url: "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.x64.exe"
     macos:
       name: "macOS (.dmg)"
       icon: "fa-brands fa-apple"
@@ -20,7 +20,7 @@ creator:
     linux:
       name: "Linux (.AppImage)"
       icon: "fa-brands fa-linux"
-      url: "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Linux-64bit.AppImage"
+      url: "https://releases.libreelec.tv/LibreELEC.USB-SD.Creator.Linux.x86_64.AppImage"
 
 # Supported LibreELEC Versions (Ordered from newest to oldest)
 # First version with status 'latest' or first in list is treated as the site-wide latest release
@@ -28,16 +28,16 @@ versions:
   - id: "13.0"
     name: "13.0"
     downloadVersion: "12.95.1"
-    releaseDate: "2026.10"
+    releaseDate: "2026.11"
     kodiVersion: "22.0 RC2 (Piers)"
     kernelVersion: "7.2.x"
     kernelOverrides:
       raspberry: "6.18.x"
       amlogic: "7.3.x"
-      rockchip: "6.19.x"
+      rockchip: "7.3.x"
     status: "beta" # 'latest' | 'stable' | 'legacy' | 'beta'
     badgeColor: "red"
-    statusLabel: "Beta 1"
+    statusLabel: "BETA"
     description: "LibreELEC 13 includes Kodi 22 Piers."
 
   - id: "12.2"
@@ -57,7 +57,7 @@ versions:
     releaseDate: "2025.01"
     kodiVersion: "21.2 (Omega)"
     kernelVersion: "6.6.x"
-    status: "old"
+    status: "legacy"
     description: "LibreELEC 12.0 includes Kodi 21 Omega."
 
   - id: "11.0"
@@ -144,39 +144,46 @@ platforms:
         chipset: "Broadcom BCM2835"
 
   - id: "generic"
-    name: "Generic PC (x86_64)"
+    name: "Generic PC"
     icon: "fa-solid fa-desktop"
     badgeColor: "blue"
     description: "Standard 64-bit x86 hardware for Intel NUCs, AMD Mini PCs, and custom HTPCs."
     featuredDeviceIds: ["generic-pc", "generic-legacy"]
     devices:
       - id: "generic-pc"
-        name: "Generic AMD / Intel / NVIDIA PC"
+        name: "Generic PC"
         project: "Generic"
         arch: "x86_64"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0", "10.0", "9.2"]
-        chipset: "Intel / AMD / Modern GPUs"
+        supportedVersions: ["13.0"]
+        chipset: "AMD / Intel / nVidia 580.xx GPUs"
+
+      - id: "generic-pc"
+        name: "Generic PC"
+        project: "Generic"
+        arch: "x86_64"
+        supportedVersions: ["12.2", "12.0", "11.0", "10.0", "9.2"]
+        chipset: "AMD / Intel GPUs (GBM)"
 
       - id: "generic-legacy"
-        name: "Legacy Generic PC (NVIDIA / Older Hardware)"
+        name: "Generic Legacy PC"
         project: "Generic-legacy"
         arch: "x86_64"
         supportedVersions: ["12.2", "12.0", "11.0"]
-        chipset: "Legacy NVIDIA & BIOS Systems"
+        chipset: "AMD / Intel / Legacy nVidia GPUs (X11)"
 
       - id: "generic-vm"
-        name: "Virtual Machine (OVA / Disk Image)"
+        name: "Virtual Machine Image"
         project: "Generic"
         arch: "x86_64"
         supportedVersions: ["13.0", "12.2", "12.0"]
-        chipset: "Virtualization"
+        chipset: "VMware compatible OVA image"
 
   - id: "rockchip"
     name: "Rockchip"
     icon: "fa-solid fa-microchip"
     badgeColor: "slate"
-    description: "High-performance ARM SoCs commonly found in SBCs and TV boxes."
-    featuredDeviceIds: ["rockpro64", "rock-pi-4", "tinker"]
+    description: "Images for Rockchip ARM SoC devices."
+    featuredDeviceIds: ["rock5b", "rock-pi-4", "tinker"]
     devices:
       - id: "rock960"
         name: "96rocks ROCK960"
@@ -427,19 +434,195 @@ platforms:
     name: "Amlogic"
     icon: "fa-solid fa-microchip"
     badgeColor: "purple"
-    description: "Optimized builds for Amlogic S905/S912/S922X/A311D boards and TV boxes."
-    featuredDeviceIds: ["odroid-c4", "odroid-n2", "amlgx-box"]
+    description: "Images for Amlogic ARM SoC devices."
+    featuredDeviceIds: ["odroid-c2", "odroid-n2", "android-box"]
     devices:
-      - id: "bananapi-cm4io"
-        name: "Banana Pi BPI-CM4"
-        project: "AMLGX"
+        # Amlogic Images (LE13+) .. AMLGX are lower down
+      - id: "bananapi-m2-pro"
+        name: "Banana Pi BPI-M2 Pro"
+        project: "Amlogic"
         arch: "aarch64"
-        archOverrides:
-          "11.0": "arm"
-        device: "bananapi-cm4io"
-        supportedVersions: ["11.0"]
+        device: "bananapi-m2-pro"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905X3"
+
+      - id: "bananapi-m2s"
+        name: "Banana Pi BPI-M2S"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "bananapi-m2s"
+        supportedVersions: ["13.0"]
         chipset: "Amlogic A311D"
 
+      - id: "bananapi-m5"
+        name: "Banana Pi BPI-M5"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "bananapi-m5"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905X3"
+
+      - id: "android-box"
+        name: "Android Set-Top Box"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "box"
+        supportedVersions: ["13.0"]
+        chipset: "Android devices using Amlogic u-boot"
+
+      - id: "khadas-vim"
+        name: "Khadas VIM"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "khadas-vim"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905X"
+
+      - id: "khadas-vim1s"
+        name: "Khadas VIM1S"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "khadas-vim1s"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905Y4"
+
+      - id: "khadas-vim2"
+        name: "Khadas VIM2"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "khadas-vim2"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S912"
+
+      - id: "khadas-vim3"
+        name: "Khadas VIM3"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "khadas-vim3"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic A311D"
+
+      - id: "khadas-vim3l"
+        name: "Khadas VIM3L"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "khadas-vim3l"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905D3"
+
+      - id: "alta"
+        name: "Libre Computer Alta"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "alta"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic A311D"
+
+      - id: "lafrite"
+        name: "Libre Computer LaFrite"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "lafrite"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S805X"
+
+      - id: "lepotato"
+        name: "Libre Computer LePotato"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "lepotato"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905X"
+
+      - id: "solitude"
+        name: "Libre Computer Solitude"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "solitude"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905D3"
+
+      - id: "nanopi-k2"
+        name: "NanoPi K2"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "nanopi-k2"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905"
+
+      - id: "odroid-c2"
+        name: "ODROID C2"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "odroid-c2"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905"
+
+      - id: "odroid-c4"
+        name: "ODROID C4"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "odroid-c4"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905X3"
+
+      - id: "odroid-hc4"
+        name: "ODROID HC4"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "odroid-hc4"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905X3"
+
+      - id: "odroid-n2"
+        name: "ODROID N2 / N2+"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "odroid-n2"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S922X"
+
+      - id: "radxa-zero"
+        name: "Radxa Zero"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "radxa-zero"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905Y2"
+
+      - id: "radxa-zero2"
+        name: "Radxa Zero 2"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "radxa-zero2"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic A311D"
+
+      - id: "wetek-core2"
+        name: "WeTek Core 2"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "wetek-core2"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S912"
+
+      - id: "wetek-hub"
+        name: "WeTek Hub"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "wetek-hub"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905"
+
+      - id: "wetek-play2"
+        name: "WeTek Play 2"
+        project: "Amlogic"
+        arch: "aarch64"
+        device: "wetek-play2"
+        supportedVersions: ["13.0"]
+        chipset: "Amlogic S905"
+
+        # AMLGX images are below here
       - id: "bananapi-m2-pro"
         name: "Banana Pi BPI-M2 Pro"
         project: "AMLGX"
@@ -447,7 +630,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "bananapi-m2-pro"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
 
       - id: "bananapi-m2s"
@@ -457,7 +640,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "bananapi-m2s"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
 
       - id: "bananapi-m5"
@@ -467,18 +650,18 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "bananapi-m5"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
 
-      - id: "amlgx-box"
-        name: "Generic Android Set-Top Box"
+      - id: "android-box"
+        name: "Android Set-Top Box"
         project: "AMLGX"
         arch: "aarch64"
         archOverrides:
           "11.0": "arm"
         device: "box"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
-        chipset: "Amlogic S905 / S905X / S912"
+        supportedVersions: ["12.2", "12.0", "11.0"]
+        chipset: "Android devices using Amlogic u-boot"
 
       - id: "khadas-vim"
         name: "Khadas VIM"
@@ -487,7 +670,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "khadas-vim"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X"
 
       - id: "khadas-vim2"
@@ -497,7 +680,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "khadas-vim2"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S912"
 
       - id: "khadas-vim3"
@@ -507,7 +690,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "khadas-vim3"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
 
       - id: "khadas-vim3l"
@@ -517,7 +700,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "khadas-vim3l"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905D3"
 
       - id: "alta"
@@ -525,7 +708,7 @@ platforms:
         project: "AMLGX"
         arch: "aarch64"
         device: "alta"
-        supportedVersions: ["13.0", "12.2"]
+        supportedVersions: ["12.2"]
         chipset: "Amlogic A311D"
 
       - id: "lafrite"
@@ -535,7 +718,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "lafrite"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S805X"
 
       - id: "lepotato"
@@ -545,7 +728,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "lepotato"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X"
 
       - id: "solitude"
@@ -553,7 +736,7 @@ platforms:
         project: "AMLGX"
         arch: "aarch64"
         device: "solitude"
-        supportedVersions: ["13.0", "12.2"]
+        supportedVersions: ["12.2"]
         chipset: "Amlogic S905D3"
 
       - id: "nanopi-k2"
@@ -563,7 +746,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "nanopi-k2"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905"
 
       - id: "odroid-c2"
@@ -573,7 +756,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "odroid-c2"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905"
 
       - id: "odroid-c4"
@@ -583,7 +766,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "odroid-c4"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
 
       - id: "odroid-hc4"
@@ -593,7 +776,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "odroid-hc4"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905X3"
 
       - id: "odroid-n2"
@@ -603,7 +786,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "odroid-n2"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S922X"
 
       - id: "radxa-zero"
@@ -613,7 +796,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "radxa-zero"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905Y2"
 
       - id: "radxa-zero2"
@@ -623,7 +806,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "radxa-zero2"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic A311D"
 
       - id: "wetek-core2"
@@ -633,7 +816,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "wetek-core2"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S912"
 
       - id: "wetek-hub"
@@ -653,7 +836,7 @@ platforms:
         archOverrides:
           "11.0": "arm"
         device: "wetek-play2"
-        supportedVersions: ["13.0", "12.2", "12.0", "11.0"]
+        supportedVersions: ["12.2", "12.0", "11.0"]
         chipset: "Amlogic S905"
 
   - id: "allwinner"
@@ -900,6 +1083,6 @@ platforms:
     name: "NXP"
     icon: "fa-solid fa-microchip"
     badgeColor: "cyan"
-    description: "NXP i.MX6 and i.MX8 platforms."
-    note: "Currently there are no official stable releases available. If you are interested in the current development progress, please check our nightly builds at https://test.libreelec.tv/."
+    description: "NXP iMX6 and iMX8 platforms."
+    note: "No official stable releases are available. If you are interested in current development please check for nightly builds at https://test.libreelec.tv/."
     devices: []
