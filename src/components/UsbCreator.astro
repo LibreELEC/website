@@ -15,7 +15,7 @@ const linuxUrl = creator?.downloads?.linux?.url || "https://releases.libreelec.t
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="glass-card rounded-3xl p-8 sm:p-12 border border-slate-200 dark:border-slate-800 relative">
             <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-widest mb-2 block">Official Installation App</span>
@@ -23,42 +23,46 @@ const linuxUrl = creator?.downloads?.linux?.url || "https://releases.libreelec.t
                         LibreELEC USB-SD Creator
                     </h2>
                     <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-                        Don't want to manually extract `.img.gz` files? Download our cross-platform utility tool to select your target hardware, automatically fetch the latest release, and write it to your USB drive or SD card in 3 simple clicks.
+                        Use our simple desktop app to download the latest LibreELEC release and create bootable installation media in four simple steps:
                     </p>
 
                     <!-- Creator Steps -->
                     <div class="space-y-4 mb-8">
                         <div class="flex items-start gap-4">
                             <div class="w-7 h-7 rounded-full bg-brand-50 dark:bg-brand-500/15 border border-brand-200 dark:border-brand-500/30 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
-                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Choose hardware:</strong> Pick your Raspberry Pi model or x86 system from the dropdown menu.</p>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Choose</strong> the hardware and version to use.</p>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="w-7 h-7 rounded-full bg-brand-50 dark:bg-brand-500/15 border border-brand-200 dark:border-brand-500/30 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
-                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Select destination:</strong> Plug in your USB flash stick or SD card reader.</p>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Download</strong> the image to local storage.</p>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="w-7 h-7 rounded-full bg-brand-50 dark:bg-brand-500/15 border border-brand-200 dark:border-brand-500/30 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
-                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Write & Boot:</strong> Hit "Write" and plug it directly into your HTPC!</p>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Select</strong> the target USB drive or SD card to image.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-7 h-7 rounded-full bg-brand-50 dark:bg-brand-500/15 border border-brand-200 dark:border-brand-500/30 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</div>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Write</strong> the image, then disconect the target device and boot!</p>
                         </div>
                     </div>
 
                     <!-- Creator OS Buttons -->
                     <div class="flex flex-wrap items-center gap-3">
                         <a href={windowsUrl} class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
-                            <i class="fa-brands fa-windows text-blue-400"></i> Windows (.exe)
+                            <i class="fa-brands fa-windows text-blue-400"></i> Windows
                         </a>
                         <a href={macosUrl} class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
-                            <i class="fa-brands fa-apple text-slate-300"></i> macOS (.dmg)
+                            <i class="fa-brands fa-apple text-slate-300"></i> macOS
                         </a>
                         <a href={linuxUrl} class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
-                            <i class="fa-brands fa-linux text-amber-400"></i> Linux (.AppImage)
+                            <i class="fa-brands fa-linux text-amber-400"></i> Linux
                         </a>
                     </div>
 
                     <!-- Link to Manual Download Site -->
                     <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
                         <a href={downloadsUrl} class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 hover:underline">
-                            Looking for manual disk images (.img.gz) or older releases? Visit our Download Hub &rarr;
+                            Looking for .img.gz files or older releases? Visit our Download Hub &rarr;
                         </a>
                     </div>
                 </div>
