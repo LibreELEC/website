@@ -21,7 +21,7 @@ const sponsorUrl = 'https://opencollective.com/libreelec/donate';
                     <span class="text-lg font-extrabold text-white">LibreELEC</span>
                 </div>
                 <p class="text-slate-400 text-xs leading-relaxed">
-                    LibreELEC is a non-profit Open Source Linux distribution created to run Kodi Media Center natively on embedded hardware.
+                    LibreELEC is a non-profit Linux distro optimised for Kodi mediacenter on on small form-factor PC's and popular ARM SoC hardware.
                 </p>
             </div>
 
@@ -44,17 +44,16 @@ const sponsorUrl = 'https://opencollective.com/libreelec/donate';
                 <ul class="space-y-2">
                     <li><a href="https://wiki.libreelec.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Documentation</a></li>
                     <li><a href="https://forum.libreelec.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Forum</a></li>
-                    <li><a href={`${homeUrl}#news`} class="hover:text-brand-400 transition-colors">News</a></li>
-                    <li><a href={newsUrl} class="hover:text-brand-400 transition-colors">Release Notes</a></li>
-                    <li><a href={sponsorUrl} target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Donate</a></li>
-                    <li><a href={`${base}/feed.xml`} class="hover:text-brand-400 transition-colors">RSS/Atom</a></li>
                     <li><a href="https://github.com/LibreELEC/LibreELEC.tv" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">GitHub</a></li>
+                    <li><a href={`${homeUrl}#news`} class="hover:text-brand-400 transition-colors">News</a></li>
+                    <li><a href={newsUrl} class="hover:text-brand-400 transition-colors">Releases</a></li>
+                    <li><a href={sponsorUrl} target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">Sponsor</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3: Legal & Trademarks -->
+            <!-- Column 3: Trademarks -->
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Legal & Trademarks</h4>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Trademarks</h4>
                 <p class="text-slate-400 text-[11px] leading-relaxed">
                     Kodi is a registered trademark of the Kodi Foundation. All other trademarks belong to their respective owners.
                 </p>
@@ -63,14 +62,14 @@ const sponsorUrl = 'https://opencollective.com/libreelec/donate';
 
         <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px] gap-4">
             <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
-                <p>&copy; {new Date().getFullYear()} LibreELEC</p>
+                <p>&copy; 2016-{new Date().getFullYear()} LibreELEC</p>
                 <span class="hidden sm:inline text-slate-700">•</span>
                 <a href={privacyUrl} class="hover:text-brand-400 transition-colors">Privacy Policy</a>
             </div>
             <div class="flex items-center gap-4">
                 <a href={sponsorUrl} target="_blank" rel="noopener" class="hover:text-brand-400 font-semibold"><i class="fa-solid fa-heart text-rose-500 mr-1"></i> Sponsor</a>
                 <a href="https://github.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://x.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://x.com/LibreELEC" target="_blank" rel="noopener" class="hover:text-slate-300 text-sm" aria-label="X / Twitter"><i class="fa-brands fa-twitter"></i></a>
                 <a href={`${base}/feed.xml`} class="hover:text-amber-500 text-sm" aria-label="RSS / Atom Feed" title="RSS / Atom Feed"><i class="fa-solid fa-rss"></i></a>
             </div>
         </div>
