@@ -148,7 +148,7 @@ const downloadsUrl = getPostDownloadUrl(post.data.title, base);
                         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500 text-white font-extrabold text-[11px] uppercase tracking-wider shadow-sm">
                             <i class="fa-solid fa-star text-[10px]"></i> Latest Update
                         </span>
-                        {categoryLabel === 'Beta' || categoryLabel === 'Alpha' ? (
+                        {categoryLabel === 'beta' || categoryLabel === 'alpha' ? (
                             <span class="px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 font-bold text-xs border border-red-200 dark:border-red-800">
                                 {categoryLabel}
                             </span>
@@ -216,7 +216,7 @@ const downloadsUrl = getPostDownloadUrl(post.data.title, base);
                         <i class="fa-solid fa-user"></i>
                     </span>
                     <div>
-                        <span class="text-slate-400 dark:text-slate-500 text-[10px] block">Published by</span>
+                        <!-- <span class="text-slate-400 dark:text-slate-500 text-[10px] block">Published by</span> -->
                         <span class="font-bold text-slate-800 dark:text-slate-200">{author}</span>
                     </div>
                 </div>
@@ -232,7 +232,7 @@ const downloadsUrl = getPostDownloadUrl(post.data.title, base);
                         href={url}
                         class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2"
                     >
-                        Read Announcement <i class="fa-solid fa-arrow-right text-xs"></i>
+                        Read Post <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
                 </div>
             </div>
@@ -247,7 +247,7 @@ const downloadsUrl = getPostDownloadUrl(post.data.title, base);
     >
         <div class="p-5 sm:p-6">
             <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-2.5">
-                {categoryLabel === 'Beta' || categoryLabel === 'Alpha' ? (
+                {categoryLabel === 'beta' || categoryLabel === 'alpha' ? (
                     <span class="px-2 py-0.5 rounded-md bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 font-bold text-[11px] border border-red-200 dark:border-red-800">
                         {categoryLabel}
                     </span>
