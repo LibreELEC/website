@@ -161,10 +161,10 @@ export default (Alpine: Alpine) => {
       fading: false,
       previewData: {
         video: {
-          category: 'Direct Hardware Playback',
-          title: '4K HDR10+ & Dolby Vision',
-          desc: 'Direct hardware-accelerated video decoding via Linux DRM/GBM and V4L2 pipelines. Bit-accurate 24p/50p/60p frame rate switching, HDR10+, Dolby Vision, and AV1/HEVC support with zero desktop overhead.',
-          tags: ['4K UHD @ 60Hz', 'HDR10+ / Dolby Vision', 'AV1 & HEVC Decoding', '24p Frame-Rate Sync'],
+          category: 'Hardware Decoded Playback',
+          title: 'HD / 4K / HDR10 / HLG / Dolby Vision*',
+          desc: 'Hardware video decoding using Linux GBM/V4L2 with frame-rate switching for optimal playback of H264, HEVC, VP9, AV1 media at HD and UHD resolutions with zero desktop distro overhead',
+          tags: ['HD', '4K', 'UHD', 'HDR10', 'HLG', 'Dolby Vision', 'H264', 'HEVC', 'VP9', 'AV1'],
           bg: previewImg('video-movie-detail.jpg'),
           ctaText: 'Get LibreELEC',
           ctaUrl: downloadsUrl,
@@ -172,10 +172,10 @@ export default (Alpine: Alpine) => {
           secondaryUrl: 'https://wiki.libreelec.tv/hardware/general'
         },
         pvr: {
-          category: 'Broadcast & Recording',
-          title: 'Live TV & Tvheadend PVR',
-          desc: 'Watch, pause, and record live broadcast television with native DVB-T/T2, DVB-C, DVB-S2, and IPTV tuner support. Features real-time Electronic Programme Guide (EPG) grids, continuous timeshifting, and multi-room network streaming.',
-          tags: ['Tvheadend 4.3 Backend', 'DVB Tuner Support', 'EPG & Timeshifting', 'Series Recording'],
+          category: 'LiveTV and Recording',
+          title: 'DVB / PVR / SAT>IP / IPTV',
+          desc: 'Watch, Pause, and Record from ATSC, DVB-C, DVB-T/T2, DVB-S/S2, SAT>IP, and IPTV using Tvheadend, VDR, and other PVR sources. Use the real-time EPG and continuous timeshifting',
+          tags: ['Tvheadend', 'VDR', 'DVB', 'PVR', 'IPTV', 'EPG', 'Timeshifting', 'Series Recording'],
           bg: previewImg('pvr-epg-timeline.jpg'),
           ctaText: 'PVR Setup',
           ctaUrl: 'https://wiki.libreelec.tv/configuration/pvr',
@@ -184,9 +184,9 @@ export default (Alpine: Alpine) => {
         },
         audio: {
           category: 'High-Fidelity Sound',
-          title: 'Bit-Perfect Lossless & HD Passthrough',
-          desc: 'Bit-perfect digital audio passthrough directly to your AV receiver for Dolby Atmos, Dolby TrueHD, and DTS:X. Native playback for high-resolution FLAC, ALAC, and DSD up to 192kHz/24-bit over HDMI or dedicated USB DACs.',
-          tags: ['Dolby Atmos & DTS:X', 'TrueHD Passthrough', '192kHz / 24-bit Hi-Res', 'USB DAC & HDMI'],
+          title: 'DSD / FLAC / DTS / DTS:X / DTS-HD MA / TrueHD / Atmos',
+          desc: 'Digital PCM and Pass-Through audio to your AVR and native playback of lossless formats and bit-perfect audio over HDMI and USB DACs',
+          tags: ['Dolby', 'DTS', 'DTS:X', 'DTS-HD MA', 'TrueHD', 'Atmos', 'USB DAC'],
           bg: previewImg('audio-music-player.jpg'),
           ctaText: 'Audio Settings',
           ctaUrl: 'https://wiki.libreelec.tv/configuration/audio',
@@ -195,8 +195,8 @@ export default (Alpine: Alpine) => {
         },
         settings: {
           category: 'Embedded Appliance OS',
-          title: 'Native LibreELEC Settings Add-on',
-          desc: 'Dedicated 10-foot TV configuration suite. Manage Wi-Fi, Ethernet, and Bluetooth remotes, toggle SSH and Samba network shares, configure audio outputs, and perform automated one-click OTA system updates right from your sofa.',
+          title: 'Simple Configuration and Management',
+          desc: 'Configure Ethernet, Wi-Fi, Bluetooth, Services, Sharing, and manage Kodi on-screen from the comfort of your sofa.',
           tags: ['One-Click OTA Updates', 'Wi-Fi & Bluetooth Remotes', 'SSH & Samba Shares', 'Read-Only SquashFS'],
           bg: previewImg('settings-libreelec-addon.jpg'),
           ctaText: 'Settings Guide',
