@@ -64,11 +64,11 @@ export function parsePostDetails(post: PostEntry): EnrichedPost {
   const category = isRelease ? 'release' : 'dev';
   let releaseType = 'Official Release';
   if (title.includes('beta')) {
-    releaseType = 'Beta';
+    releaseType = 'BETA';
   } else if (title.includes('alpha')) {
-    releaseType = 'Alpha';
+    releaseType = 'ALPHA';
   } else if (title.includes('rc')) {
-    releaseType = 'Release Candidate';
+    releaseType = 'RC';
   }
   const categoryLabel = isRelease ? releaseType : 'Dev Update';
 
