@@ -14,8 +14,8 @@ const latestHeadline = latestRelease?.post.data.title || `LibreELEC ${latestVers
 const latestReleaseUrl = latestRelease?.url || `${homeUrl}#news`;
 
 // Kodi and LibreELEC version string formatting
-const kodiLabel = latestVersion.kodiVersion.startsWith('v') 
-    ? latestVersion.kodiVersion 
+const kodiLabel = latestVersion.kodiVersion.startsWith('v')
+    ? latestVersion.kodiVersion
     : `v${latestVersion.kodiVersion}`;
 const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
 ---
@@ -27,29 +27,29 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-8 md:mb-10">
-            <a
+            <!-- <a
                 href={latestReleaseUrl}
                 class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 dark:bg-slate-800/90 hover:bg-white dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 hover:border-brand-400 dark:hover:border-brand-500 text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 text-xs font-semibold tracking-wide mb-4 shadow-sm transition-all group"
             >
                 <LibreElecLogo class="w-5 h-5 animate-spin-slow shrink-0" />
                 <span>{latestHeadline}</span>
                 <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 dark:text-slate-500 group-hover:text-brand-600 dark:group-hover:text-brand-400 group-hover:translate-x-0.5 transition-all"></i>
-            </a>
-            
+            </a> -->
+
             <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 leading-tight">
-                Just enough OS for <span class="text-gradient">Kodi</span>
+                Just enough OS for <span class="text-gradient">KODI</span>
             </h1>
-            
+
             <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-normal">
-                Turn your Raspberry Pi, PC, or Android box into the ultimate high-performance home theater PC. Ultra-lightweight, fast boot, and zero bloatware.
+                Looking to use a Raspberry Pi, PC, or Android Set-Top Box as a dedicated KODI media centre device? - LibreELEC is purpose-built for the task!
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href={downloadsUrl} class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-download"></i> Download LibreELEC {latestVersion.name}
+                    <i class="fa-solid fa-download"></i> Download Images
                 </a>
                 <a href={`${homeUrl}#creator`} class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-100 font-semibold text-base border border-slate-200 dark:border-slate-700 hover:border-brand-400 dark:hover:border-brand-500 shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-compact-disc text-brand-600 dark:text-brand-400"></i> Get USB Creator
+                    <i class="fa-solid fa-compact-disc text-brand-600 dark:text-brand-400"></i> Create Boot Media
                 </a>
             </div>
         </div>
@@ -58,7 +58,7 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
         <div class="relative max-w-4xl mx-auto" x-data="tvPreview">
             <div class="rounded-2xl p-2 sm:p-2.5 bg-slate-900 border border-slate-800 shadow-2xl glow-soft-cyan">
                 <div class="relative rounded-xl overflow-hidden bg-slate-950 aspect-video group">
-                    
+
                     <!-- Dynamic TV Display Screen Content -->
                     <div
                         id="tv-screen"
@@ -86,14 +86,14 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
                             <div class="flex items-center gap-2 mb-1">
                                 <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
                                 <span class="text-brand-400 font-bold text-[10px] sm:text-xs uppercase tracking-widest drop-shadow" x-text="activeItem.category">
-                                    Direct Hardware Playback
+                                    Hardware Accelerated Playback
                                 </span>
                             </div>
                             <h3 class="text-lg sm:text-2xl font-extrabold text-white mb-1 leading-tight tracking-tight drop-shadow-md" x-text="activeItem.title">
-                                4K HDR10+ & Dolby Vision
+                                4K / HDR10 / HLG / Dolby Vision*
                             </h3>
                             <p class="text-slate-200 text-xs sm:text-sm line-clamp-2 mb-2 leading-relaxed font-normal drop-shadow max-w-2xl" x-text="activeItem.desc">
-                                Direct hardware-accelerated video decoding via Linux DRM/GBM and V4L2 pipelines. Bit-accurate 24p/50p/60p frame rate switching, HDR10+, Dolby Vision, and AV1/HEVC support with zero desktop overhead.
+                                Hardware video decoding using Linux GBM/V4L2 with frame-rate switching for optimal playback of H264, HEVC, VP9, AV1 media at HD and UHD resolutions with zero desktop distro overhead.
                             </p>
 
                         </div>
@@ -108,7 +108,7 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
                                     :class="activeKey === 'video' ? 'bg-brand-500 text-white shadow-md shadow-brand-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'"
                                 >
                                     <i class="fa-solid fa-film text-[10px] sm:text-[11px]"></i>
-                                    <span>4K HDR Video</span>
+                                    <span>4K UHD and HDR Video</span>
                                 </button>
                                 <button
                                     type="button"
@@ -117,7 +117,7 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
                                     :class="activeKey === 'pvr' ? 'bg-brand-500 text-white shadow-md shadow-brand-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'"
                                 >
                                     <i class="fa-solid fa-tv text-[10px] sm:text-[11px]"></i>
-                                    <span>Live TV & PVR</span>
+                                    <span>Live TV and PVR</span>
                                 </button>
                                 <button
                                     type="button"
@@ -126,7 +126,7 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
                                     :class="activeKey === 'audio' ? 'bg-brand-500 text-white shadow-md shadow-brand-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'"
                                 >
                                     <i class="fa-solid fa-headphones text-[10px] sm:text-[11px]"></i>
-                                    <span>Bit-Perfect Audio</span>
+                                    <span>Amazing Audio</span>
                                 </button>
                                 <button
                                     type="button"
@@ -135,13 +135,13 @@ const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
                                     :class="activeKey === 'settings' ? 'bg-brand-500 text-white shadow-md shadow-brand-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'"
                                 >
                                     <i class="fa-solid fa-sliders text-[10px] sm:text-[11px]"></i>
-                                    <span>LibreELEC Settings</span>
+                                    <span>Simple Management</span>
                                 </button>
                             </div>
                             <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 text-[10px] sm:text-[11px] font-mono bg-emerald-500/10 border border-emerald-500/20 px-2 sm:px-2.5 py-1 rounded-md shrink-0">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                                 <i class="fa-solid fa-gamepad text-[10px]"></i>
-                                CEC Remote Active
+                                HDMI-CEC
                             </span>
                         </div>
 
