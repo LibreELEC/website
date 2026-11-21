@@ -1,0 +1,157 @@
+---
+import { getSortedPosts } from '../utils/posts';
+import { getLatestVersion } from '../utils/downloads';
+import LibreElecLogo from './LibreElecLogo.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const homeUrl = base ? `${base}/` : '/';
+const downloadsUrl = `${base}/downloads/`;
+
+const latestVersion = getLatestVersion();
+const allPosts = await getSortedPosts();
+const latestRelease = allPosts.find((p) => p.category === 'release') || allPosts[0];
+const latestHeadline = latestRelease?.post.data.title || `LibreELEC ${latestVersion.name}`;
+const latestReleaseUrl = latestRelease?.url || `${homeUrl}#news`;
+
+// Kodi and LibreELEC version string formatting
+const kodiLabel = latestVersion.kodiVersion.startsWith('v')
+    ? latestVersion.kodiVersion
+    : `v${latestVersion.kodiVersion}`;
+const releaseVersionLabel = latestVersion.downloadVersion || latestVersion.name;
+---
+
+<header class="relative pt-28 pb-14 md:pt-32 md:pb-16 overflow-hidden hero-gradient">
+    <!-- Decorative Background Glows -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-400/15 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-emerald-400/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-8 md:mb-10">
+            <!-- <a
+                href={latestReleaseUrl}
+                class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 dark:bg-slate-800/90 hover:bg-white dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 hover:border-brand-400 dark:hover:border-brand-500 text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 text-xs font-semibold tracking-wide mb-4 shadow-sm transition-all group"
+            >
+                <LibreElecLogo class="w-5 h-5 animate-spin-slow shrink-0" />
+                <span>{latestHeadline}</span>
+                <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 dark:text-slate-500 group-hover:text-brand-600 dark:group-hover:text-brand-400 group-hover:translate-x-0.5 transition-all"></i>
+            </a> -->
+
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 leading-tight">
+                Just enough OS for <span class="text-gradient">KODI</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-normal">
+                Looking to use a Raspberry Pi, PC, or Android Set-Top Box as a dedicated KODI media centre device? - LibreELEC is purpose-built for the task!
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href={downloadsUrl} class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i> Download Images
+                </a>
+                <a href={`${homeUrl}#creator`} class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-100 font-semibold text-base border border-slate-200 dark:border-slate-700 hover:border-brand-400 dark:hover:border-brand-500 shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-compact-disc text-brand-600 dark:text-brand-400"></i> Create Boot Media
+                </a>
+            </div>
+        </div>
+
+        <!-- TV Bezel Screen Preview powered by Alpine.js -->
+        <div class="relative max-w-4xl mx-auto" x-data="tvPreview">
+            <div class="rounded-2xl p-2 sm:p-2.5 bg-slate-900 border border-slate-800 shadow-2xl glow-soft-cyan">
+                <div class="relative rounded-xl overflow-hidden bg-slate-950 aspect-video group">
+
+                    <!-- Dynamic TV Display Screen Content -->
+                    <div
+                        id="tv-screen"
+                        class="relative w-full h-full bg-cover bg-center flex flex-col justify-between p-4 sm:p-6 md:p-7 transition-all duration-300"
+                        :style="`background-image: linear-gradient(to top, rgba(7, 10, 18, 0.92) 0%, rgba(7, 10, 18, 0.65) 40%, rgba(7, 10, 18, 0.12) 72%, rgba(7, 10, 18, 0.45) 100%), url('${activeItem.bg}'); opacity: ${fading ? 0.6 : 1};`"
+                    >
+                        <!-- Kodi Header Overlay -->
+                        <div class="flex items-center justify-between z-10 gap-2">
+                            <div class="flex items-center gap-2 sm:gap-2.5">
+                                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-slate-900/90 border border-slate-700/80 flex items-center justify-center p-1 shadow-sm shrink-0">
+                                    <LibreElecLogo class="w-full h-full" />
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex items-center gap-1.5 leading-tight">
+                                        <span class="text-white font-bold tracking-wider text-xs sm:text-sm drop-shadow">KODI</span>
+                                        <span class="text-[11px] sm:text-xs font-semibold text-brand-400 font-mono drop-shadow">{kodiLabel}</span>
+                                    </div>
+                                    <span class="text-[10px] sm:text-[11px] text-slate-300 font-mono drop-shadow">LibreELEC {releaseVersionLabel}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kodi Main Menu Showcase (Moved to bottom) -->
+                        <div class="mt-auto mb-2 sm:mb-2.5 z-10 w-full max-w-3xl">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                                <span class="text-brand-400 font-bold text-[10px] sm:text-xs uppercase tracking-widest drop-shadow" x-text="activeItem.category">
+                                    Hardware Accelerated Playback
+                                </span>
+                            </div>
+                            <h3 class="text-lg sm:text-2xl font-extrabold text-white mb-1 leading-tight tracking-tight drop-shadow-md" x-text="activeItem.title">
+                                4K / HDR10 / HLG / Dolby Vision*
+                            </h3>
+                            <p class="text-slate-200 text-xs sm:text-sm line-clamp-2 mb-2 leading-relaxed font-normal drop-shadow max-w-2xl" x-text="activeItem.desc">
+                                Hardware video decoding using Linux GBM/V4L2 with frame-rate switching for optimal playback of H264, HEVC, VP9, AV1 media at HD and UHD resolutions with zero desktop distro overhead.
+                            </p>
+
+                        </div>
+
+                        <!-- Kodi Screen Navigation Carousel Buttons -->
+                        <div class="z-10 flex items-center justify-between border-t border-slate-800/80 pt-2.5 sm:pt-3">
+                            <div class="flex items-center gap-1 sm:gap-2 overflow-x-auto pb-1 sm:pb-0">
+                                <button
+                                    type="button"
+                                    @click="switchPreview('video')"
+                                    class="preview-btn text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap"
+                                    :class="activeKey === 'video' ? 'bg-brand-500 text-white shadow-md shadow-brand-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'"
+                                >
+                                    <i class="fa-solid fa-film text-[10px] sm:text-[11px]"></i>
+                                    <span>4K UHD and HDR Video</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    @click="switchPreview('pvr')"
+                                    class="preview-btn text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap"
+                                    :class="activeKey === 'pvr' ? 'bg-brand-500 text-white shadow-md shadow-brand-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'"
+                                >
+                                    <i class="fa-solid fa-tv text-[10px] sm:text-[11px]"></i>
+                                    <span>Live TV and PVR</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    @click="switchPreview('audio')"
+                                    class="preview-btn text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap"
+                                    :class="activeKey === 'audio' ? 'bg-brand-500 text-white shadow-md shadow-brand-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'"
+                                >
+                                    <i class="fa-solid fa-headphones text-[10px] sm:text-[11px]"></i>
+                                    <span>Amazing Audio</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    @click="switchPreview('settings')"
+                                    class="preview-btn text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap"
+                                    :class="activeKey === 'settings' ? 'bg-brand-500 text-white shadow-md shadow-brand-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'"
+                                >
+                                    <i class="fa-solid fa-sliders text-[10px] sm:text-[11px]"></i>
+                                    <span>Simple Management</span>
+                                </button>
+                            </div>
+                            <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 text-[10px] sm:text-[11px] font-mono bg-emerald-500/10 border border-emerald-500/20 px-2 sm:px-2.5 py-1 rounded-md shrink-0">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <i class="fa-solid fa-gamepad text-[10px]"></i>
+                                HDMI-CEC
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glow stand beneath TV frame -->
+            <div class="w-3/4 h-2 bg-brand-500/30 mx-auto rounded-full blur-md mt-1"></div>
+        </div>
+
+    </div>
+</header>

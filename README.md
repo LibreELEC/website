@@ -1,154 +1,104 @@
-# [Start Bootstrap - Clean Blog Jekyll](https://startbootstrap.com/themes/clean-blog-jekyll/) - Official Jekyll Version
+# LibreELEC Website (Astro + Alpine.js)
 
-[Clean Blog Jekyll](https://startbootstrap.com/themes/clean-blog-jekyll/) is a stylish, responsive blog theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working contact form powered by [Formspree](https://formspree.io/).
+The modern, ultra-fast static website for [LibreELEC](https://libreelec.tv), built with **[Astro](https://astro.build/)**, **[Alpine.js](https://alpinejs.dev/)**, and **[Tailwind CSS](https://tailwindcss.com/)**, designed for automated hosting on **GitHub Pages**.
 
-This repository holds the official Jekyll version of the Clean Blog theme on Start Bootstrap!
+---
 
-## Preview
+## 🚀 Key Features
 
-[![Clean Blog (Jekyll) Preview](https://startbootstrap.com/assets/img/screenshots/themes/clean-blog-jekyll.png)](http://StartBootstrap.github.io/startbootstrap-clean-blog-jekyll/)
+* **High Performance**: Pure static HTML generation with near-instant page load times.
+* **Reactive Interactivity with Alpine.js**:
+  * Interactive Kodi TV Bezel showcase with animated media carousel and live clock.
+  * Download platform filter tabs (`All`, `Raspberry Pi`, `Generic PC`, `Rockchip / Amlogic`).
+  * Instant SHA256 copy to clipboard with toast notifications.
+  * Reactive download modal confirmations.
+  * Mobile navigation menu.
+* **Dynamic News & Content Layer**:
+  * 112 historical and current news posts (2016–2025) managed via Astro Content Layer (`src/content.config.ts`).
+  * 100% backwards-compatible canonical URLs (`/:year/:month/:day/:title/`).
+  * Homepage dynamically showcases the latest 6 releases and dev updates.
+  * Dedicated, paginated news archive at `/news/`.
+  * Dedicated article reading layout with optimized typography for release notes, hardware lists, and code snippets.
+* **Automated CI/CD**:
+  * Built-in GitHub Actions workflow (`.github/workflows/deploy.yml`) that builds and deploys to GitHub Pages automatically on push.
 
-**[View Live Preview](http://StartBootstrap.github.io/startbootstrap-clean-blog-jekyll/)**
+---
 
-## Installation & Setup
+## 🛠️ Project Structure
 
-### Using RubyGems
+```
+website-new/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Actions deployment workflow
+├── src/
+│   ├── components/             # Reusable Astro & Alpine.js components
+│   │   ├── Navbar.astro        # Header with desktop & Alpine mobile menu
+│   │   ├── Footer.astro        # Footer with links & legal disclaimer
+│   │   ├── TvPreview.astro     # Interactive TV showcase powered by Alpine.js
+│   │   ├── Features.astro      # Core features grid
+│   │   ├── UsbCreator.astro    # USB-SD Creator showcase
+│   │   ├── NewsSection.astro   # Latest posts with Alpine category filters
+│   │   ├── PostCard.astro      # Reusable article card
+│   │   ├── DownloadModal.astro # Alpine modal dialog
+│   │   └── Toast.astro         # Alpine toast alert
+│   ├── content/
+│   │   └── posts/              # 112 Markdown posts organized by year (2016–2025)
+│   ├── layouts/
+│   │   ├── Layout.astro        # Base HTML layout
+│   │   └── PostLayout.astro    # Dedicated article reading layout
+│   ├── pages/
+│   │   ├── index.astro         # Landing page (converted design)
+│   │   ├── downloads/
+│   │   │   └── index.astro     # Interactive multi-version target device matrix
+│   │   ├── privacy-policy/
+│   │   │   └── index.astro     # GDPR privacy policy declaration
+│   │   ├── news/
+│   │   │   └── [...page].astro # Paginated news archive
+│   │   └── [year]/[month]/[day]/[...slug].astro  # Dynamic post routes
+│   ├── styles/
+│   │   └── global.css          # Tailwind directives, fonts, glassmorphism, prose styles
+│   ├── utils/
+│   │   ├── downloads.ts        # Download matrix computation & device data helpers
+│   │   └── posts.ts            # Post helpers, sorting, categories, and permalinks
+│   ├── alpine.ts               # Alpine.js entrypoint (UI store & TV carousel component)
+│   └── content.config.ts       # Astro Content Layer schema & glob loader
+├── astro.config.mjs            # Astro configuration
+├── tailwind.config.mjs         # Tailwind configuration & design tokens
+└── tsconfig.json               # TypeScript configuration
+```
 
-When installing the theme using RubyGems, demo images, posts, and pages are not included. Follow the instructions below for complete setup.
+---
 
-1. (Optional) Create a new Jekyll site: `jekyll new my-site`
-2. Replace the current theme in your `Gemfile` with `gem "jekyll-theme-clean-blog"`.
-3. Install the theme (run the command inside your site directory): `bundle install`
-4. Replace the current theme in your `_config.yml` file with `theme: jekyll-theme-clean-blog`.
-5. Build your site: `bundle exec jekyll serve`
+## 💻 Local Development
 
-Assuming there are no errors and the site is building properly, follow these steps next:
+### 1. Install Dependencies
+```bash
+npm install
+```
 
-1. Create the following pages if they do not exist already (or change the extension of existing markdown files from `.md` to `.html`):
+### 2. Start Dev Server
+```bash
+npm run dev
+```
+Open [http://localhost:4321](http://localhost:4321) in your browser.
 
-   * `index.html` - set to `layout: home`
-   * `about.html` - set to `layout: page`
-   * `contact.html` - set to `layout: page`
-   * `posts/index.html` - set to `layout: page` (you will also need to create a `posts` directory)
+### 3. Build for Production
+```bash
+npm run build
+```
+Compiles all 123 static pages into the `dist/` directory in ~3–5 seconds.
 
-2. Configure the `index.html` front matter. Example:
+### 4. Preview Production Build
+```bash
+npm run preview
+```
 
-    ```markdown
-    ---
-    layout: home
-    background: '/PATH_TO_IMAGE'
-    ---
-    ```
+---
 
-3. Configure the `about.html`, `contact.html`, and `posts/index.html` front matter. Example:
+## 🌐 Deploying to GitHub Pages
 
-    ```markdown
-    ---
-    layout: page
-    title: Page Title
-    description: This is the page description.
-    background: '/PATH_TO_IMAGE'
-    ---
-    ```
-
-4. For each post in the `_posts` directory, update the front matter. Example:
-
-    ```markdown
-    ---
-    layout: post
-    title: "Post Title"
-    subtitle: "This is the post subtitle."
-    date: YYYY-MM-DD HH:MM:SS
-    background: '/PATH_TO_IMAGE'
-    ---
-    ```
-
-    For reference, look at the [demo repository](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll) to see how the files are set up.
-
-5. Add the form to the `contact.html` page. Add the following code to your `contact.html` page:
-
-    ```html
-    <form name="sentMessage" id="contactForm" novalidate>
-      <div class="control-group">
-        <div class="form-group floating-label-form-group controls">
-          <label>Name</label>
-          <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
-          <p class="help-block text-danger"></p>
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="form-group floating-label-form-group controls">
-          <label>Email Address</label>
-          <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
-          <p class="help-block text-danger"></p>
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-          <label>Phone Number</label>
-          <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
-          <p class="help-block text-danger"></p>
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="form-group floating-label-form-group controls">
-          <label>Message</label>
-          <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-          <p class="help-block text-danger"></p>
-        </div>
-      </div>
-      <br>
-      <div id="success"></div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
-      </div>
-    </form>
-    ```
-
-    Make sure you have the `email` setting in your `_config.yml` file set to a working email address! Once this is set, fill out the form and then check your email, verify the email address using the link sent to you by Formspree, and then the form will be working!
-
-6. Build your site: `bundle exec jekyll serve`
-
-### Using Core Files
-
-When using the core files, the demo images, posts, and pages are all included with the download. After following the instructions below, you can then go and change the content of the pages and posts.
-
-1. [Download](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll/archive/master.zip) or Clone the repository.
-2. Update the following configuration settings in your `_config.yml` file:
-
-    * `baseurl`
-    * `url`
-    * `title`
-    * `email` (after setting this setting to a working email address, fill out the form on the contact page and send it - then check your email and verify the address and the form will send you messages when used)
-    * `description`
-    * `author`
-    * `twitter_username` (Optional)
-    * `facebook_username` (Optional)
-    * `github_username` (Optional)
-    * `linkedin_username` (Optional)
-    * `instagram_username` (Optional)
-
-3. Build your site: `bundle exec jekyll serve`
-
-## Bugs and Issues
-
-Have a bug or an issue with this template? [Open a new issue](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll/issues) here on GitHub!
-
-## About
-
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-* <https://startbootstrap.com>
-* <https://twitter.com/SBootstrap>
-
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**.
-
-* <http://davidmiller.io>
-* <https://twitter.com/davidmillerhere>
-* <https://github.com/davidtmiller>
-
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2021 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll/blob/master/LICENSE) license.
+1. Push your repository to GitHub (`master` or `main` branch).
+2. On GitHub, navigate to your repository **Settings** > **Pages**.
+3. Under **Build and deployment** > **Source**, select **GitHub Actions**.
+4. The workflow in `.github/workflows/deploy.yml` will automatically build the Astro site and deploy it to GitHub Pages!

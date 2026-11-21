@@ -1,0 +1,41 @@
+---
+import { getSortedPosts, type EnrichedPost } from '../../../../utils/posts';
+import PostLayout from '../../../../layouts/PostLayout.astro';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts();
+
+  return posts.map((item, index) => {
+    const nextPost = index > 0 ? posts[index - 1] : undefined;
+    const prevPost = index < posts.length - 1 ? posts[index + 1] : undefined;
+
+    return {
+      params: {
+        year: item.year,
+        month: item.month,
+        day: item.day,
+        slug: item.cleanSlug
+      },
+      props: {
+        enrichedPost: item,
+        nextPost,
+        prevPost
+      }
+    };
+  });
+}
+
+interface Props {
+  enrichedPost: EnrichedPost;
+  nextPost?: EnrichedPost;
+  prevPost?: EnrichedPost;
+}
+
+const { enrichedPost, nextPost, prevPost } = Astro.props;
+const { Content } = await render(enrichedPost.post);
+---
+
+<PostLayout enrichedPost={enrichedPost} nextPost={nextPost} prevPost={prevPost}>
+    <Content />
+</PostLayout>

@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DownloadsHub from '../../components/DownloadsHub.astro';
+import { getLatestVersion } from '../../utils/downloads';
+
+const latestVersion = getLatestVersion();
+---
+
+<Layout
+    title={`Download LibreELEC ${latestVersion.name} - Official Releases and Disk Images`}
+    description={`Download official LibreELEC images for Allwinner, Amlogic, Generic PC's, Raspberry Pi 2/3/4/5, and Rockchip devices.`}
+>
+    <DownloadsHub initialVersionId={latestVersion.id} />
+</Layout>
