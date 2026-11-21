@@ -4,15 +4,23 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
-const ghRepository = process.env.GITHUB_REPOSITORY;
-const ghRepoOwner = process.env.GITHUB_REPOSITORY_OWNER;
+const ghRepository = process.env.GITHUB_REPOSITORY || '';
+const ghRepoOwner = process.env.GITHUB_REPOSITORY_OWNER || '';
 const ghRepoName = ghRepository ? ghRepository.split('/')[1] : '';
 
-const isUserPage = ghRepoName.toLowerCase() === `${(ghRepoOwner || '').toLowerCase()}.github.io`;
-const defaultGhBase = isUserPage ? '/' : `/${ghRepoName}`;
+const isLibreElec = ghRepository.toLowerCase() === 'libreelec/website';
+const isUserPage = ghRepoName.toLowerCase() === `${ghRepoOwner.toLowerCase()}.github.io`;
 
-const site = process.env.SITE_URL || (isGitHubActions && ghRepoOwner ? `https://${ghRepoOwner.toLowerCase()}.github.io` : 'https://libreelec.tv');
-const base = process.env.BASE_PATH ?? (isGitHubActions && ghRepoName ? defaultGhBase : '/');
+const defaultSite = (isLibreElec || !isGitHubActions)
+  ? 'https://libreelec.tv'
+  : `https://${ghRepoOwner.toLowerCase()}.github.io`;
+
+const defaultBase = (isLibreElec || isUserPage || !isGitHubActions)
+  ? '/'
+  : `/${ghRepoName}`;
+
+const site = process.env.SITE_URL || defaultSite;
+const base = process.env.BASE_PATH || defaultBase;
 
 function rehypeBaseLinks() {
   const cleanBase = base === '/' ? '' : base.replace(/\/$/, '');
