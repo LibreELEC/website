@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const homeUrl = base ? `${base}/` : '/';
+const newsUrl = `${base}/news/`;
+const downloadsUrl = `${base}/downloads/`;
+---
+
+<Layout
+    title="Page Not Found - LibreELEC"
+    description="The page you requested does not exist."
+>
+    <main class="relative pt-28 pb-20 md:pt-32 md:pb-24 min-h-[70vh] overflow-hidden hero-gradient flex items-center">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <p class="text-sm font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-4">Error 404</p>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
+                Page <span class="text-gradient">Not Found</span>
+            </h1>
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                The page you are looking for does not exist or has moved.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <a href={homeUrl} class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold transition-colors">Home</a>
+                <a href={downloadsUrl} class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 text-sm font-semibold transition-colors">Downloads</a>
+                <a href={newsUrl} class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 text-sm font-semibold transition-colors">News</a>
+            </div>
+        </div>
+    </main>
+</Layout>
