@@ -32,10 +32,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Configure custom domain for LibreELEC production
-        if: github.repository == 'LibreELEC/website' || github.repository == 'libreelec/website'
-        run: echo "libreelec.tv" > ./public/CNAME
-
       - name: Build Astro site
         run: npm run build
 
